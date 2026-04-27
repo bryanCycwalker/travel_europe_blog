@@ -136,7 +136,7 @@
                     </div>
                 </div>
                 
-                <div class="w-full h-[400px] bg-gray-200 rounded-xl mb-8 overflow-hidden shadow-inner border border-gray-200 relative">
+                <div class="mt-8 w-full h-[400px] bg-gray-200 rounded-xl mb-8 overflow-hidden shadow-inner border border-gray-200 relative">
                     <iframe 
                         src="https://www.google.com/maps/d/u/0/embed?mid=1nqDOPZ9OOFI69kKwM6NX2YcAEgsZAtE&ehbc=2E312F&noprof=1" 
                         width="100%" 
@@ -144,7 +144,6 @@
                         style="border:0; margin-top: -60px;" 
                         loading="lazy">
                     </iframe>
-                
                 </div>
             </section>
 
@@ -208,16 +207,22 @@
 
             <section id="food" class="mb-16">
                 <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4 mb-6">🍝 美食指南：托斯卡尼的味道</h2>
-                <p class="mb-6">來到 Siena 絕對不能錯過野豬肉料理。推薦嘗試 Pappardelle al cinghiale。</p>
+                <p class="mb-6">來到 Siena 絕對不能錯過野豬肉料理。以下為你精選高評價的在地愛店（點擊卡片可直接開啟 Google 地圖導航）：</p>
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="p-4 border rounded-xl">
-                        <h4 class="font-bold mb-1">Osteria degli Svitati</h4>
-                        <p class="text-gray-500 text-xs">平價且道地的家庭式小館，CP 值極高。</p>
-                    </div>
-                    <div class="p-4 border rounded-xl">
-                        <h4 class="font-bold mb-1">Nannini</h4>
-                        <p class="text-gray-500 text-xs">百年甜點老店，Panforte 與 Ricciarelli 必試。</p>
-                    </div>
+                    <a href="https://goo.gl/maps/YOUR_RESTAURANT_1_LINK" target="_blank" class="block p-5 border rounded-xl hover:border-blue-400 hover:shadow-md transition group bg-white relative">
+                        <span class="absolute top-4 right-4 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded font-bold group-hover:bg-blue-100 group-hover:text-blue-600 transition">📍 導航</span>
+                        <h4 class="font-bold text-gray-800 mb-1 group-hover:text-blue-600 transition pr-12">Osteria degli Svitati</h4>
+                        <p class="text-gray-500 text-sm mb-2">平價且道地的家庭式小館，手工野豬肉寬麵 (Pappardelle) 是絕配，CP 值極高。</p>
+                        <p class="text-xs text-gray-400 font-medium">⭐ 4.8/5 | 💰 €€</p>
+                    </a>
+                    
+                    <a href="https://goo.gl/maps/YOUR_RESTAURANT_2_LINK" target="_blank" class="block p-5 border rounded-xl hover:border-blue-400 hover:shadow-md transition group bg-white relative">
+                        <span class="absolute top-4 right-4 text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded font-bold group-hover:bg-blue-100 group-hover:text-blue-600 transition">📍 導航</span>
+                        <h4 class="font-bold text-gray-800 mb-1 group-hover:text-blue-600 transition pr-12">Pasticceria Nannini</h4>
+                        <p class="text-gray-500 text-sm mb-2">百年甜點老店。點杯 Espresso，配上中世紀流傳的 Panforte 與 Ricciarelli 杏仁餅。</p>
+                        <p class="text-xs text-gray-400 font-medium">⭐ 4.5/5 | 💰 €</p>
+                    </a>
                 </div>
             </section>
 
@@ -241,11 +246,24 @@
                 </div>
             </section>
 
+            <section id="author-bio" class="mt-16 pt-12 border-t border-gray-200">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6 bg-gray-50 p-8 rounded-2xl">
+                    <img src="images/author.jpg" alt="作者照片" class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-sm border-4 border-white">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Bryan | Solo Europe Guide</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            熱愛穿梭在歐洲老城區的石板路上。目前已獨自走訪 41 個歐洲國家，致力於將複雜的跨國交通、住宿防雷與隱藏景點，轉化為清晰易懂的獨旅攻略。希望這篇文章能幫你省下找資料的時間，把精力留給旅途中的美好。
+                        </p>
+                        <a href="#" class="inline-block text-sm font-bold text-blue-600 hover:text-blue-800 transition">✉️ 聯繫我 / 合作邀約</a>
+                    </div>
+                </div>
+            </section>
+
         </article>
     </main>
 
     <footer class="text-center py-12 text-gray-400 text-sm">
-        <p>&copy; 2026 Solo Europe Guide. 去過 41 個歐洲國家的真實紀錄。</p>
+        <p>© 2026 Solo Europe Guide. 去過 41 個歐洲國家的真實紀錄。</p>
     </footer>
 
 </body>
