@@ -61,7 +61,7 @@
         const cityData = [
             {
                 id: 'siena',
-                country: '義大利 Italy',
+                country: '🇮🇹 義大利 Italy',
                 city: 'Siena 錫耶納',
                 subtitle: '中世紀紅磚之城',
                 lat: 43.3188,
@@ -72,7 +72,7 @@
             },
             {
                 id: 'florence',
-                country: '義大利 Italy',
+                country: '🇮🇹 義大利 Italy',
                 city: 'Florence 佛羅倫斯',
                 subtitle: '文藝復興的搖籃',
                 lat: 43.7695,
@@ -83,7 +83,7 @@
             },
             {
                 id: 'paris',
-                country: '法國 France',
+                country: '🇫🇷 法國 France',
                 city: 'Paris 巴黎',
                 subtitle: '浪漫與混亂的交織',
                 lat: 48.8566,
@@ -173,24 +173,31 @@
         // 將叢集加入地圖
         map.addLayer(markers);
 
-        // 📍 互動邏輯 2：當點擊「叢集 (國家聚合點)」時，過濾出該叢集內的所有國家
+        // 📍 互動邏輯 2：當點擊「叢集 (國家聚合點)」時
         markers.on('clusterclick', function (a) {
-            // 取得被點擊的叢集底下有哪些標記
+            // 1. 取得該叢集內所有的標記
             const childMarkers = a.layer.getAllChildMarkers();
             
-            // 收集這些標記對應的國家名稱 (使用 Set 避免重複)
+            // 2. 收集國家名稱 (使用 Set 確保唯一性)
             const countriesInCluster = new Set();
             childMarkers.forEach(m => countriesInCluster.add(m.options.country));
             
-            // 過濾資料：只要國籍符合叢集內的國家就顯示
+            // 3. 過濾並渲染下方的卡片
             const filteredData = cityData.filter(d => countriesInCluster.has(d.country));
             renderCards(filteredData);
             
-            // 更新標題與顯示重置按鈕
-            listTitle.innerText = `🇪🇺 範圍探索中...`;
-            resetBtn.classList.remove('hidden');
+            // 4. 【核心修改】判斷標題顯示內容
+            const countryArray = Array.from(countriesInCluster);
             
-            // Note: MarkerCluster 預設點擊會自動 Zoom in，所以我們不需要額外寫 zoom in 程式
+            if (countryArray.length === 1) {
+                // 如果這個區域只包含一個國家（例如義大利境內的所有城市）
+                listTitle.innerText = `📍 ${countryArray[0]}`;
+            } else {
+                // 如果地圖拉太遠，導致一個圈圈裡包了多個國家（例如法、義聚在一起）
+                listTitle.innerText = `🇪🇺 跨國區域探索中...`;
+            }
+            
+            resetBtn.classList.remove('hidden');
         });
 
         // 📍 互動邏輯 3：點擊地圖空白處 或 點擊重置按鈕，恢復顯示所有城市
