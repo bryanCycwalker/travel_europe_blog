@@ -44,8 +44,8 @@
             </button>
         </div>
 
-        <div id="map" class="w-full h-[400px] rounded-2xl shadow-inner border border-gray-200 mb-12 relative"></div>
-
+        <div id="map" class="w-full h-[450px] rounded-2xl shadow-sm border border-gray-100 mb-12 relative"></div>
+        
         <div id="city-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
             </div>
 
@@ -134,8 +134,10 @@
         const map = L.map('map').setView([48.0, 10.0], 5);
 
         // 加入底圖 (使用免費的 OpenStreetMap)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 20
         }).addTo(map);
 
         // 初始化叢集套件 (MarkerCluster)
