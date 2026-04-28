@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於 Bryan | Solo Europe 41 站長</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .bg-stamp {
+            background-image: radial-gradient(#2563eb 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+
+    <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000]">
+        <div class="text-xl font-bold tracking-tighter">
+            <a href="index.html">SOLO<span class="text-blue-600">EUROPE</span></a>
+        </div>
+        <a href="index.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition">回到首頁</a>
+    </nav>
+    <div class="h-24"></div>
+
+    <section class="max-w-5xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-center gap-12">
+        <div class="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 relative">
+            <div class="absolute inset-0 bg-blue-600 rounded-2xl rotate-6 shadow-lg"></div>
+            <img src="images/auther.jpg" alt="Bryan" class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-xl border-4 border-white rotate-0 hover:rotate-2 transition-transform duration-500">
+        </div>
+        <div class="text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+                我是 <span class="text-blue-600">Bryan</span>，<br>一個拒絕平庸旅行的獨旅者。
+            </h1>
+            <p class="text-lg text-gray-600 mb-8 max-w-xl">
+                我花了五年的時間，在歐洲的石板路上找尋自由。
+                走過 41 個國家，我發現最美的風景往往不在旅遊書上，而是在那些讓你不知所措的瞬間。
+            </p>
+            <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100 text-blue-600 font-bold">🌍 41 國踩點</div>
+                <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100 text-blue-600 font-bold">🚆 1,500+ 小時大眾運輸</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-stamp"></div>
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+            <h2 class="text-3xl font-bold mb-8 border-l-4 border-blue-600 pl-4">為什麼創立這個網站？</h2>
+            <div class="space-y-6 text-gray-700 leading-loose text-lg">
+                <p>
+                    你是否也曾坐在火車站月台，看著因為臨時罷工而取消的班次，感到一陣恐慌？
+                    或者在擁擠的景點，下意識地死死抓著包包，擔心下一秒錢包就不見了？
+                </p>
+                <p>
+                    這些我都經歷過。我曾為了在瑞士省錢，連續一週吃超市的打折麵包；也曾因為極限轉機，在機場的地板上度過漫漫長夜。
+                </p>
+                <p class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-600 italic">
+                    「獨旅不是因為沒有朋友，而是為了能更誠實地面對自己。」
+                </p>
+                <p>
+                    在這個網站，我不分享修圖完美的網美照。我分享的是**「真實的邏輯」**：哪一條公車路線最不容易被扒、哪一個小鎮的旅館主人最熱情、以及如何用最精簡的預算，換取最有質感的旅遊體驗。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-6 py-20">
+        <h2 class="text-3xl font-bold mb-12 text-center">👣 我的旅行足跡</h2>
+        
+        <div id="travel-log-container" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+    </section>
+
+    <section class="bg-gray-900 text-white py-20 px-6 text-center">
+        <h2 class="text-3xl font-bold mb-6">準備好開始你的下一場獨旅了嗎？</h2>
+        <p class="text-gray-400 mb-10">無論是行程諮詢、合作邀約，或者只是想分享你的旅行故事，我都歡迎！</p>
+        <div class="flex justify-center gap-6">
+            <a href="mailto:u8823011714@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition shadow-lg shadow-blue-500/20">
+                ✉️ 發送郵件聯絡我
+            </a>
+        </div>
+        <p class="mt-8 text-sm text-gray-500">常用回應時間：24 小時內</p>
+    </section>
+
+    <footer class="text-center py-10 text-gray-400 bg-white text-sm">
+        <p>© 2026 Solo Europe Guide. Built with Passion by Bryan.</p>
+    </footer>
+
+    <script>
+        // 【編輯區】以後你只要在這裡新增或修改國家/城市即可
+        const travelHistory = [
+            {
+                country: "義大利 Italy",
+                cities: "羅馬、佛羅倫斯、錫耶納、拿坡里、威尼斯",
+                year: "2024 - 2026",
+                note: "我的獨旅啟蒙地，對石板路有著又愛又恨的情結。"
+            },
+            {
+                country: "法國 France",
+                cities: "巴黎、里昂、尼斯、斯特拉斯堡",
+                year: "2025",
+                note: "學會了如何在左岸優雅地避開扒手。"
+            },
+            {
+                country: "瑞士 Switzerland",
+                cities: "蘇黎世、琉森、格林德瓦、策馬特",
+                year: "2024",
+                note: "風景極美，錢包極痛。"
+            }
+            // 在這裡繼續往下加...
+        ];
+
+        function renderTravelLog() {
+            const container = document.getElementById('travel-log-container');
+            container.innerHTML = travelHistory.map(item => `
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-blue-600">${item.country}</h3>
+                        <span class="text-xs font-bold text-gray-400 bg-gray-100 px-3 py-1 rounded-full">${item.year}</span>
+                    </div>
+                    <p class="text-gray-800 font-medium mb-2">📍 ${item.cities}</p>
+                    <p class="text-gray-500 text-sm leading-relaxed border-t pt-4 mt-4 italic">"${item.note}"</p>
+                </div>
+            `).join('');
+        }
+
+        renderTravelLog();
+    </script>
+</body>
+</html>
