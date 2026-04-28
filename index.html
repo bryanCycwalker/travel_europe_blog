@@ -16,7 +16,14 @@
     <style>
         html { scroll-behavior: smooth; }
         /* 修正地圖在 Tailwind 下的 z-index 問題，避免蓋過導覽列 */
-        .leaflet-container { z-index: 10; font-family: inherit; }
+        .leaflet-container {
+            background: #f8fafc; /* 與 bg-gray-50 呼應 */
+        }
+        
+        /* 讓地圖稍微降飽和，更具文青感 */
+        .leaflet-tile-container {
+            filter: grayscale(20%) brightness(105%);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
