@@ -3,51 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solo Europe 41 | 獨旅歐洲的 41 種生活</title>
+    
+    <title>Solo Europe 41 | 歐洲獨旅攻略：41 國行程景點、交通、住宿深度懶人包</title>
+    
+    <meta name="description" content="由獨旅達人 Bryan 分享的 41 國歐洲獨旅真實經驗。提供義大利錫耶納、佛羅倫斯、法國巴黎等熱門城市最直覺的交通指南、安全住宿推薦與旅行省錢連結，幫你完成夢想中的歐洲自由行。">
+    
+    <meta name="keywords" content="歐洲獨旅, 歐洲自由行攻略, 義大利旅遊, 錫耶納攻略, 歐洲交通指南, 歐洲省錢旅遊, 獨自旅行建議">
+    
+    <meta property="og:title" content="Solo Europe 41 | 歐洲獨旅攻略：41 國深度生活紀錄">
+    <meta property="og:description" content="不走馬看花。提供最真實的交通指南、安全住宿與省錢連結。">
+    <meta property="og:image" content="images/italy/siena/siena_main.jpg">
+    <meta property="og:type" content="website">
+
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
     <style>
         html { scroll-behavior: smooth; }
-        /* 修正地圖在 Tailwind 下的 z-index 問題，避免蓋過導覽列 */
-        .leaflet-container {
-            background: #f8fafc; /* 與 bg-gray-50 呼應 */
-        }
-        
-        /* 讓地圖稍微降飽和，更具文青感 */
-        .leaflet-tile-container {
-            filter: grayscale(20%) brightness(105%);
-        }
+        .leaflet-container { background: #f8fafc; z-index: 10; }
+        .leaflet-tile-container { filter: grayscale(20%) brightness(105%); }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Solo Europe 41",
+      "alternateName": "歐洲獨旅攻略 41 國",
+      "url": "https://你的網址.com/",
+      "author": {
+        "@type": "Person",
+        "name": "Bryan"
+      },
+      "description": "提供 41 個歐洲國家的獨旅經驗與深度攻略。"
+    }
+    </script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
     <nav id="main-nav" class="fixed top-0 left-0 w-full p-6 bg-white shadow-sm flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out">
-        <h1 class="text-xl font-bold tracking-tighter">SOLO<span class="text-blue-600">EUROPE</span></h1>
+        <div class="text-xl font-bold tracking-tighter">SOLO<span class="text-blue-600">EUROPE</span></div>
         <div class="space-x-6 text-sm font-medium">
-            <a href="#" class="hover:text-blue-600 text-gray-600">所有城市</a>
-            <a href="#" class="hover:text-blue-600 text-gray-600">獨旅裝備</a>
-            <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">關於我</a>
+            <a href="#city-grid" class="hover:text-blue-600 text-gray-600">所有城市攻略</a>
+            <a href="#" class="hover:text-blue-600 text-gray-600">獨旅推薦裝備</a>
+            <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">關於獨旅者 Bryan</a>
         </div>
     </nav>
 
-<div class="h-20"></div>
+    <div class="h-20"></div>
 
     <header class="py-16 px-6 text-center bg-white border-b border-gray-100">
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-4">去過 41 個國家的獨旅經驗</h2>
-        <p class="text-gray-500 text-lg max-w-2xl mx-auto">不走馬看花。提供最真實的交通指南、安全住宿與省錢連結。</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">歐洲 41 國獨旅攻略：真實交通、住宿與私房景點經驗分享</h1>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto">拒絕走馬看花。這是我獨自走過 41 個國家後，為你整理的最精準自由行指南。</p>
     </header>
 
     <section class="max-w-5xl mx-auto px-6 py-12">
         
         <div class="flex justify-between items-end mb-4">
-            <h3 class="text-2xl font-bold border-l-4 border-blue-600 pl-4" id="list-title">🗺️ 歐洲獨旅地圖</h3>
+            <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4" id="list-title">🗺️ 歐洲獨旅地圖：探索各國攻略</h2>
             <button id="reset-btn" class="hidden text-sm bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1.5 rounded-lg transition font-bold">
                 ✕ 顯示所有城市
             </button>
@@ -55,62 +73,58 @@
 
         <div id="map" class="w-full h-[450px] rounded-2xl shadow-sm border border-gray-100 mb-12 relative"></div>
         
-        <div id="city-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div id="city-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 scroll-mt-24">
             </div>
 
     </section>
 
     <footer class="text-center py-12 text-gray-400 border-t bg-white text-sm">
-        <p>&copy; 2026 Solo Europe Guide. Built with Passion.</p>
+        <p>&copy; 2026 Solo Europe Guide. 專業歐洲獨旅經驗紀錄。Built with Passion.</p>
     </footer>
 
     <script>
-        // 【第一步：建立你的「城市微型資料庫」】
-        // 以後你只要在這裡新增一筆資料，地圖跟下面的卡片就會自動長出來！
         const cityData = [
             {
                 id: 'siena',
-                country: '義大利 Italy',
+                country: '🇮🇹 義大利 Italy',
                 city: 'Siena 錫耶納',
-                subtitle: '中世紀紅磚之城',
+                subtitle: '迷失在中世紀紅磚之城',
                 lat: 43.3188,
                 lng: 11.3308,
                 img: 'images/italy/siena/siena_main.jpg',
-                desc: '比起佛羅倫斯的擁擠，錫耶納更適合一個人靜靜享受托斯卡尼的陽光...',
+                desc: '錫耶納獨旅攻略：比起佛羅倫斯的擁擠，這裡更適合一個人靜靜享受托斯卡尼陽光。整理必訪田野廣場與大教堂心得。',
                 link: 'siena.html'
             },
             {
                 id: 'florence',
-                country: '義大利 Italy',
+                country: '🇮🇹 義大利 Italy',
                 city: 'Florence 佛羅倫斯',
-                subtitle: '文藝復興的搖籃',
+                subtitle: '文藝復興的浪漫搖籃',
                 lat: 43.7695,
                 lng: 11.2558,
-                img: 'images/italy/siena/siena_main.jpg', // 暫時用Siena的圖代替測試
-                desc: '漫步在聖母百花大教堂旁，感受中世紀藝術的極致巔峰。',
+                img: 'images/italy/siena/siena_main.jpg',
+                desc: '佛羅倫斯獨旅日記：漫步在聖母百花大教堂旁，感受中世紀藝術的極致巔峰，適合自由行慢旅。',
                 link: '#'
             },
             {
                 id: 'paris',
-                country: '法國 France',
+                country: '🇫🇷 法國 France',
                 city: 'Paris 巴黎',
                 subtitle: '浪漫與混亂的交織',
                 lat: 48.8566,
                 lng: 2.3522,
-                img: 'images/italy/siena/siena_main.jpg', // 暫時用Siena的圖代替測試
-                desc: '獨旅巴黎的安全守則，教你如何避開扒手，優雅地喝杯左岸咖啡。',
+                img: 'images/italy/siena/siena_main.jpg',
+                desc: '獨旅巴黎全攻略：分享安全守則與避開扒手技巧，教你如何像巴黎人一樣優雅地喝咖啡。',
                 link: '#'
             }
         ];
 
-        // 取得 DOM 元素
         const cityGrid = document.getElementById('city-grid');
         const resetBtn = document.getElementById('reset-btn');
         const listTitle = document.getElementById('list-title');
 
-        // 【第二步：自動生成下方城市卡片的函數】
         function renderCards(data) {
-            cityGrid.innerHTML = ''; // 先清空
+            cityGrid.innerHTML = '';
             
             if (data.length === 0) {
                 cityGrid.innerHTML = '<p class="text-gray-500 col-span-3 text-center py-10">找不到符合的城市。</p>';
@@ -118,10 +132,11 @@
             }
 
             data.forEach(item => {
+                // 7. 圖片加上 alt 標籤，這對 Google 圖片搜尋極度重要
                 const cardHTML = `
                     <a href="${item.link}" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col h-full">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
-                            <img src="${item.img}" alt="${item.city}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="${item.img}" alt="${item.city} 獨旅自由行攻略" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <span class="text-blue-600 text-xs font-bold uppercase tracking-wider">${item.country}</span>
@@ -135,42 +150,27 @@
             });
         }
 
-        // 初始載入：顯示所有城市
         renderCards(cityData);
 
-        // 【第三步：初始化 Leaflet 地圖】
-        // 設定中心點在歐洲，縮放等級為 5
         const map = L.map('map').setView([48.0, 10.0], 5);
 
-        // 加入底圖 (使用免費的 OpenStreetMap)
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            attribution: '&copy; OSM & CARTO',
             subdomains: 'abcd',
             maxZoom: 20
         }).addTo(map);
 
-        // 初始化叢集套件 (MarkerCluster)
         const markers = L.markerClusterGroup({
-            showCoverageOnHover: false, // 滑鼠移過去不顯示多邊形範圍 (比較美觀)
-            maxClusterRadius: 80 // 調整聚合的半徑，數值越大越容易聚合成同一個國家
+            showCoverageOnHover: false,
+            maxClusterRadius: 80
         });
 
-        // 建立一個物件來儲存所有 marker 參照，方便後續點擊時比對
-        const markerMap = new Map();
-
-        // 【第四步：將資料庫的城市標記到地圖上】
         cityData.forEach(item => {
-            // 建立單個標記
             const marker = L.marker([item.lat, item.lng]);
-            
-            // 綁定 Popup (點擊標記會出現的小視窗)
-            marker.bindPopup(`<b>${item.city}</b><br><a href="${item.link}" class="text-blue-600 text-xs hover:underline">查看攻略 →</a>`);
-            
-            // 加入自定義屬性
+            marker.bindPopup(`<b>${item.city}</b><br><a href="${item.link}" class="text-blue-600 text-xs hover:underline">閱讀攻略 →</a>`);
             marker.options.cityId = item.id;
             marker.options.country = item.country;
 
-            // 📍 互動邏輯 1：當點擊單一「城市標記」時，下方列表只顯示該城市
             marker.on('click', function(e) {
                 const filteredData = cityData.filter(d => d.id === e.target.options.cityId);
                 renderCards(filteredData);
@@ -181,41 +181,27 @@
             markers.addLayer(marker);
         });
 
-        // 將叢集加入地圖
         map.addLayer(markers);
 
-        // 📍 互動邏輯 2：當點擊「叢集 (國家聚合點)」時
         markers.on('clusterclick', function (a) {
-            // 1. 取得該叢集內所有的標記
             const childMarkers = a.layer.getAllChildMarkers();
-            
-            // 2. 收集國家名稱 (使用 Set 確保唯一性)
             const countriesInCluster = new Set();
             childMarkers.forEach(m => countriesInCluster.add(m.options.country));
-            
-            // 3. 過濾並渲染下方的卡片
             const filteredData = cityData.filter(d => countriesInCluster.has(d.country));
             renderCards(filteredData);
-            
-            // 4. 【核心修改】判斷標題顯示內容
             const countryArray = Array.from(countriesInCluster);
-            
             if (countryArray.length === 1) {
-                // 如果這個區域只包含一個國家（例如義大利境內的所有城市）
                 listTitle.innerText = `📍 ${countryArray[0]}`;
             } else {
-                // 如果地圖拉太遠，導致一個圈圈裡包了多個國家（例如法、義聚在一起）
-                listTitle.innerText = `🇪🇺 跨國區域探索中...`;
+                listTitle.innerText = `🇪🇺 歐洲熱門區域`;
             }
-            
             resetBtn.classList.remove('hidden');
         });
 
-        // 📍 互動邏輯 3：點擊地圖空白處 或 點擊重置按鈕，恢復顯示所有城市
         function resetView() {
             renderCards(cityData);
-            map.setView([48.0, 10.0], 5); // 鏡頭拉回全歐洲
-            listTitle.innerText = `🗺️ 歐洲獨旅地圖`;
+            map.setView([48.0, 10.0], 5);
+            listTitle.innerText = `🗺️ 歐洲獨旅地圖：探索各國攻略`;
             resetBtn.classList.add('hidden');
         }
 
@@ -224,20 +210,13 @@
 
         let lastScrollTop = 0;
         const mainNav = document.getElementById('main-nav');
-        
         window.addEventListener('scroll', function() {
-            // 取得目前的捲動高度
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
             if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // 往下走：隱藏導覽列 (向上移動 100% 寬度)
                 mainNav.style.transform = 'translateY(-100%)';
             } else {
-                // 往上走：顯示導覽列 (回到原位)
                 mainNav.style.transform = 'translateY(0)';
             }
-        
-            // 更新最後一次的捲動位置，如果碰到頂部則設為 0
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         }, false);
     </script>
