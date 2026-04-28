@@ -49,13 +49,15 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
 
-    <nav id="main-nav" class="fixed top-0 left-0 w-full p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out">
-        <div class="max-w-5xl mx-auto w-full flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold tracking-tighter" title="回歐洲獨旅首頁">SOLO<span class="text-blue-600">EUROPE</span></a>
-            <div class="space-x-4 text-sm font-medium text-gray-600">
-                <a href="index.html" class="hover:text-blue-600 transition">所有國家攻略</a>
-                <a href="#universal-tips" class="hover:text-blue-600 text-blue-600 transition">🇪🇺 歐洲通用工具</a>
-            </div>
+    <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out">
+        <div class="text-xl font-bold tracking-tighter">
+            <a href="index.html">SOLO<span class="text-blue-600">EUROPE</span></a>
+        </div>
+        
+        <div class="flex items-center space-x-3">
+            <a href="about.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-sm">
+                關於我
+            </a>
         </div>
     </nav>
     <div class="h-20"></div>
@@ -339,49 +341,59 @@
                 </div>
             </section>
 
-            <section id="italy-tips" class="mt-20 pt-12 border-t-2 border-dashed border-gray-200">
-                <div class="bg-blue-900 text-white p-8 rounded-3xl">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center">
-                        <span class="mr-3">🇮🇹</span> 義大利獨旅必備工具與 APP
+            <section id="italy-tips" class="mt-20 pt-12 border-t-2 border-dashed border-gray-200 scroll-mt-24">
+                <div class="bg-[#006233] text-white p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#CD212A] opacity-20 -mr-16 -mt-16 rounded-full"></div>
+                    
+                    <h2 class="text-3xl font-extrabold mb-8 flex items-center relative z-10">
+                        <span class="mr-3">🇮🇹</span> 義大利獨旅生存工具箱
                     </h2>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
                         
-                        <div class="bg-blue-800/50 p-5 rounded-2xl border border-blue-700/50 flex flex-col h-full">
-                            <h4 class="font-bold mb-3 flex items-center text-lg"><span class="mr-2">🚆</span> 國鐵與私鐵 APP</h4>
-                            <p class="text-blue-100 text-sm mb-4 leading-relaxed">
-                                義大利雙雄：<strong>Trenitalia (國鐵)</strong> 與 <strong>Italo (法拉利高鐵)</strong>。提早訂常有早鳥票。若前往南義，除了 Flixbus，還有 Itabus 或當地私營巴士可彌補火車到不了的地方。
+                        <div class="bg-white/10 p-6 rounded-2xl border border-white/20 flex flex-col h-full backdrop-blur-sm">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl mb-4">🚆</div>
+                            <h4 class="font-bold mb-3 text-lg">交通：國鐵與南義巴士</h4>
+                            <p class="text-emerald-50 text-sm mb-6 leading-relaxed">
+                                義大利必裝 <strong>Trenitalia (國鐵)</strong> 與 <strong>Italo (私鐵)</strong>。若計畫前往南義，強烈建議下載 <strong>Itabus</strong> 或 <strong>MarinoBus</strong>，這些私營巴士常能到達火車到不了的隱藏版小鎮。
                             </p>
                             <div class="flex flex-col space-y-2 mt-auto">
-                                <a href="YOUR_TRENITALIA_LINK" target="_blank" rel="nofollow" class="text-yellow-400 font-bold hover:underline text-sm transition">→ 下載 Trenitalia 官網/APP</a>
-                                <a href="YOUR_ITALO_LINK" target="_blank" rel="nofollow" class="text-yellow-400 font-bold hover:underline text-sm transition">→ 下載 Italo 官網/APP</a>
+                                <a href="YOUR_TRENITALIA_LINK" target="_blank" rel="nofollow" class="text-yellow-400 font-bold hover:underline text-sm transition">→ Trenitalia 官網/APP</a>
+                                <a href="YOUR_ITALO_LINK" target="_blank" rel="nofollow" class="text-yellow-400 font-bold hover:underline text-sm transition">→ Italo 官網/APP</a>
                             </div>
                         </div>
 
-                        <div class="bg-blue-800/50 p-5 rounded-2xl border border-blue-700/50 flex flex-col h-full">
-                            <h4 class="font-bold mb-3 flex items-center text-lg"><span class="mr-2">🍕</span> 剩食盲盒 APP</h4>
-                            <p class="text-blue-100 text-sm mb-4 leading-relaxed">
-                                <strong>Too Good To Go</strong> 在義大利超級盛行（東歐很多國家反而沒有）！常能用 3~5 歐元買到披薩店、當地百年麵包店或超市的超豐盛盲盒，絕對是獨旅省錢神隊友。
+                        <div class="bg-white/10 p-6 rounded-2xl border border-white/20 flex flex-col h-full backdrop-blur-sm text-white">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl mb-4">🍕</div>
+                            <h4 class="font-bold mb-3 text-lg">美食：剩食盲盒與訂位</h4>
+                            <p class="text-emerald-50 text-sm mb-6 leading-relaxed">
+                                <strong>Too Good To Go</strong> 在義大利是省錢神物，披薩店、甜點鋪常用 4 歐元出清當日美食。另外推薦 <strong>TheFork</strong>，訂位常有 20%-50% 的驚人折扣，適合獨旅者享受質感餐廳。
                             </p>
                             <div class="mt-auto">
                                 <a href="YOUR_TGTG_LINK" target="_blank" rel="nofollow" class="text-yellow-400 font-bold hover:underline text-sm transition">→ 下載 Too Good To Go</a>
                             </div>
                         </div>
 
-                        <div class="bg-blue-800/50 p-5 rounded-2xl border border-blue-700/50 flex flex-col h-full">
-                            <h4 class="font-bold mb-3 flex items-center text-lg"><span class="mr-2">📶</span> 義大利 eSIM 網卡</h4>
-                            <p class="text-blue-100 text-sm mb-4 leading-relaxed">
-                                不用拔原本的 SIM 卡，掃碼即用。強烈建議準備流量充足的方案，在 Siena 這種中世紀古城迷路時，隨時開 Google Maps 導航或查公車時刻表才不會卡頓。
+                        <div class="bg-white/10 p-6 rounded-2xl border border-white/20 flex flex-col h-full backdrop-blur-sm">
+                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl mb-4">📶</div>
+                            <h4 class="font-bold mb-3 text-lg">通訊：eSIM 與行李寄存</h4>
+                            <p class="text-emerald-50 text-sm mb-6 leading-relaxed">
+                                網路建議在 Klook 預購 <strong>eSIM</strong>。另外，義大利石板路是行李箱殺手，推薦下載 <strong>Radical Storage</strong>，可以在全義大利各地的當地店面（雜貨店、咖啡館）便宜寄放行李。
                             </p>
                             <div class="mt-auto">
-                                <a href="YOUR_KLOOK_ESIM_LINK" target="_blank" rel="nofollow" class="text-yellow-400 font-bold hover:underline text-sm transition">→ 前往 Klook 購買 eSIM</a>
+                                <a href="YOUR_KLOOK_ESIM_LINK" target="_blank" rel="nofollow" class="text-yellow-400 font-bold hover:underline text-sm transition">→ Klook 購買義大利 eSIM</a>
                             </div>
                         </div>
 
                     </div>
+                    
+                    <div class="mt-10 flex h-1 w-full opacity-50">
+                        <div class="bg-[#008C45] flex-1"></div>
+                        <div class="bg-white flex-1"></div>
+                        <div class="bg-[#CD212A] flex-1"></div>
+                    </div>
                 </div>
             </section>
-
             <section id="author-bio" class="mt-16 pt-12 border-t border-gray-200">
                 <div class="flex flex-col md:flex-row items-center md:items-start gap-6 bg-gray-50 p-8 rounded-2xl shadow-inner">
                     <img src="images/auther.jpg" alt="歐洲獨旅部落客 Bryan" class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-sm border-4 border-white">
