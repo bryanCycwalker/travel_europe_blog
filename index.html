@@ -54,11 +54,11 @@
             <div class="pt-6 md:pt-0">
                 <div class="text-4xl mb-2">🛡️</div>
                 <div class="text-3xl font-extrabold text-gray-900">100%</div>
-                <div class="text-sm text-gray-500 font-medium mt-1">無業配，真實花費紀錄</div>
+                <div class="text-sm text-gray-500 font-medium mt-1">無業配，真實旅遊紀錄</div>
             </div>
             <div class="pt-6 md:pt-0">
                 <div class="text-4xl mb-2">🚆</div>
-                <div class="text-3xl font-extrabold text-gray-900">50+ 篇</div>
+                <div id="article-count" class="text-3xl font-extrabold text-gray-900">0 篇</div>
                 <div class="text-sm text-gray-500 font-medium mt-1">實測過的交通與防盜教學</div>
             </div>
         </div>
@@ -257,6 +257,11 @@
 
         map.on('click', resetView);
         resetBtn.addEventListener('click', resetView);
+
+        // 自動更新文章總數
+        const articleCountElement = document.getElementById('article-count');
+        // 使用 cityData.length 取得陣列長度，並加上 "+" 號（如果你想要的話）
+        articleCountElement.innerText = `${cityData.length}+ 篇`;
 
         // 導覽列捲動動畫
         let lastScrollTop = 0;
