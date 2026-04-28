@@ -26,7 +26,6 @@
         <div class="text-xl font-bold tracking-tighter">SOLO<span class="text-blue-600">EUROPE</span></div>
         
         <div class="hidden md:flex space-x-6 items-center text-sm font-medium">
-            <a href="#essential-guides" class="hover:text-blue-600 text-gray-600 transition">獨旅教學</a>
             <a href="#author-bio" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition shadow-sm">關於我</a>
         </div>
 
@@ -43,7 +42,7 @@
             <h2 class="text-xl font-extrabold text-gray-900">選擇探索國家</h2>
             <button id="close-mobile-menu" class="text-3xl text-gray-400 hover:text-gray-600">✕</button>
         </div>
-        <div id="mobile-country-list" class="p-6 overflow-y-auto flex-grow pb-20"></div>
+        <div id="mobile-country-list" class="p-4 overflow-y-auto flex-grow pb-20"></div>
     </div>
 
     <header class="pt-20 pb-16 px-6 text-center bg-white border-b border-gray-100">
@@ -51,8 +50,10 @@
         <p class="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             拒絕走馬看花與空洞的農場文。這裡提供最真實的跨國交通指南、防盜住宿挑選，與親身踩點的私房筆記。
         </p>
+        
         <div class="flex justify-center gap-4 hidden md:flex">
             <a href="#explore-map" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-200">開始探索地圖</a>
+            <a href="#essential-guides" class="bg-white border-2 border-gray-200 text-gray-700 font-bold py-3 px-8 rounded-full hover:bg-gray-50 transition shadow-sm">獨旅教學</a>
         </div>
     </header>
 
@@ -78,19 +79,22 @@
 
     <section id="explore-map" class="max-w-5xl mx-auto px-6 py-12 scroll-mt-20">
         
-        <div class="flex justify-between items-end mb-6">
-            <h2 class="text-3xl font-bold border-l-4 border-blue-600 pl-4 text-gray-900" id="list-title">🗺️ 點擊地圖找尋目的地</h2>
-            <button id="reset-btn" class="hidden text-sm bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg transition font-bold shadow-sm">
+        <div class="mb-6 hidden md:block">
+            <h2 class="text-3xl font-bold border-l-4 border-blue-600 pl-4 text-gray-900">📑 點擊清單找尋目的地</h2>
+        </div>
+
+        <div id="desktop-country-list" class="hidden md:block mb-12"></div>
+
+        <div class="flex justify-between items-end mb-4">
+            <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4 text-gray-900" id="list-title">🗺️ 點擊地圖找尋目的地</h2>
+            <button id="reset-btn" class="hidden text-sm bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-2 rounded-lg transition font-bold shadow-sm border border-blue-200">
                 ✕ 顯示全歐洲
             </button>
         </div>
 
-        <div id="desktop-country-list" class="hidden md:block mb-8"></div>
-
         <div id="map" class="w-full h-[450px] rounded-2xl shadow-sm border border-gray-200 mb-12 relative overflow-hidden"></div>
         
-        <div id="city-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            </div>
+        <div id="city-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
     </section>
 
     <section id="essential-guides" class="bg-gray-100 py-20 mt-12 scroll-mt-20 border-t border-gray-200">
@@ -146,7 +150,6 @@
     </footer>
 
     <script>
-        // 【第一步】城市資料庫
         const cityData = [
             {
                 id: 'siena', country: '🇮🇹 義大利 Italy', city: 'Siena 錫耶納', subtitle: '迷失在中世紀紅磚之城',
@@ -165,7 +168,6 @@
             }
         ];
 
-        // 國家中繼資料 (用來分類區域與提供國旗代碼)
         const countryMeta = {
             '🇮🇹 義大利 Italy': { region: '南歐', code: 'it' },
             '🇪🇸 西班牙 Spain': { region: '南歐', code: 'es' },
@@ -180,7 +182,6 @@
         };
         const regionOrder = ['北歐', '西歐', '中歐', '東歐', '南歐', '其他'];
 
-        // ✨ 區域按鈕底色設計 (背景色直接套用在按鈕上)
         const regionStyles = {
             '北歐': { btnBg: 'bg-slate-200', text: 'text-slate-600', icon: '❄️' },
             '西歐': { btnBg: 'bg-blue-100', text: 'text-blue-700', icon: '🍷' },
@@ -194,10 +195,8 @@
         const resetBtn = document.getElementById('reset-btn');
         const listTitle = document.getElementById('list-title');
 
-        // 自動更新頂部文章數字
         document.getElementById('article-count').innerText = `${cityData.length}+ 篇`;
 
-        // 【第三步】自動生成無框線國家清單 (Waffle Chart 概念)
         function generateCountryLists() {
             const existingCountries = [...new Set(cityData.map(c => c.country))];
             const grouped = {};
@@ -208,7 +207,6 @@
                 grouped[meta.region].push({ name: country, code: meta.code });
             });
 
-            // 最外層使用 flex 讓區塊可以連續並排
             let html = '<div class="flex flex-wrap gap-5 md:gap-6 items-start">';
             
             regionOrder.forEach(region => {
@@ -271,13 +269,11 @@
             });
         }
 
-        // 初始化地圖
         const map = L.map('map').setView([48.0, 10.0], 5);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; OSM & CARTO', subdomains: 'abcd', maxZoom: 20
         }).addTo(map);
 
-        // ✨ 核心修改：設定 disableClusteringAtZoom: 8，強制展開近距離標記
         const markers = L.markerClusterGroup({ 
             showCoverageOnHover: false, 
             maxClusterRadius: 80,
@@ -304,7 +300,6 @@
                 markerArray.push(marker);
             });
             
-            // ✨ 核心修改：Zoom In 時設定 maxZoom: 9，觸發強制展開叢集的門檻
             if (autoZoom && markerArray.length > 0) {
                 const group = new L.featureGroup(markerArray);
                 map.fitBounds(group.getBounds(), { padding: [50, 50], maxZoom: 9 });
@@ -316,20 +311,20 @@
         renderCards(cityData);
         updateMapMarkers(cityData, false);
 
-        // 點擊國家的過濾與跳轉
         window.filterByCountry = function(countryStr) {
             const filteredData = cityData.filter(d => d.country === countryStr);
             renderCards(filteredData);
-            updateMapMarkers(filteredData, true); // true 觸發自動縮放展開
+            updateMapMarkers(filteredData, true); 
             
+            // 當點擊清單時，同步更新地圖上方的標題
             listTitle.innerText = `📍 ${countryStr}`;
             resetBtn.classList.remove('hidden');
             
             document.getElementById('mobile-menu').classList.add('hidden');
-            document.getElementById('explore-map').scrollIntoView({ behavior: 'smooth' });
+            // 改為捲動到 map 元素，這樣標題也會一起在畫面中
+            document.getElementById('list-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
         };
 
-        // 重置檢視
         function resetView() {
             renderCards(cityData);
             updateMapMarkers(cityData, false);
@@ -338,7 +333,6 @@
         }
         resetBtn.addEventListener('click', resetView);
 
-        // 手機選單控制
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.remove('hidden');
         });
@@ -346,7 +340,6 @@
             document.getElementById('mobile-menu').classList.add('hidden');
         });
 
-        // 導覽列捲動動畫
         let lastScrollTop = 0;
         const mainNav = document.getElementById('main-nav');
         window.addEventListener('scroll', function() {
