@@ -28,14 +28,16 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <nav class="p-6 bg-white shadow-sm flex justify-between items-center sticky top-0 z-50">
+    <nav id="main-nav" class="fixed top-0 left-0 w-full p-6 bg-white shadow-sm flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out">
         <h1 class="text-xl font-bold tracking-tighter">SOLO<span class="text-blue-600">EUROPE</span></h1>
         <div class="space-x-6 text-sm font-medium">
-            <a href="#" class="hover:text-blue-600">所有城市</a>
-            <a href="#" class="hover:text-blue-600">獨旅裝備</a>
+            <a href="#" class="hover:text-blue-600 text-gray-600">所有城市</a>
+            <a href="#" class="hover:text-blue-600 text-gray-600">獨旅裝備</a>
             <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">關於我</a>
         </div>
     </nav>
+
+<div class="h-20"></div>
 
     <header class="py-16 px-6 text-center bg-white border-b border-gray-100">
         <h2 class="text-4xl md:text-5xl font-extrabold mb-4">去過 41 個國家的獨旅經驗</h2>
@@ -220,6 +222,24 @@
         map.on('click', resetView);
         resetBtn.addEventListener('click', resetView);
 
+        let lastScrollTop = 0;
+        const mainNav = document.getElementById('main-nav');
+        
+        window.addEventListener('scroll', function() {
+            // 取得目前的捲動高度
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // 往下走：隱藏導覽列 (向上移動 100% 寬度)
+                mainNav.style.transform = 'translateY(-100%)';
+            } else {
+                // 往上走：顯示導覽列 (回到原位)
+                mainNav.style.transform = 'translateY(0)';
+            }
+        
+            // 更新最後一次的捲動位置，如果碰到頂部則設為 0
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
     </script>
 </body>
 </html>
