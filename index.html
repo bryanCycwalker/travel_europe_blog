@@ -101,119 +101,101 @@
     <section id="essential-guides" class="bg-gray-100 py-20 mt-12 scroll-mt-20 border-t border-gray-200">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">第一次歐洲獨旅？從這裡開始</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">第一次歐洲獨旅？從這裡開始</h2>
                 <p class="text-gray-600">我將 41 國的失敗經驗轉化為系統化教學，帶你避開旅行的地雷。</p>
             </div>
             
-            <div id="guides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+            <div id="guides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-700 ease-in-out">
                 
-                <div id="card-1" onclick="openGuide('card-1')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden">
-                    <button onclick="closeGuide(event, 'card-1')" class="close-btn hidden absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition z-10">✕</button>
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl transition transform group-hover:scale-110 flex-shrink-0">🚆</div>
-                        <h3 class="font-bold text-xl text-gray-800">歐洲跨國交通指南</h3>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-2">火車通行證怎麼買最划算？廉價航空與跨國巴士的隱藏費用與比價技巧。</p>
+                <div id="card-1" onclick="handleGuideClick('card-1')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 ease-in-out border border-gray-100 flex flex-col overflow-hidden origin-center">
+                    <button onclick="closeGuide(event, 'card-1')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
                     
-                    <div class="guide-content hidden mt-6 pt-6 border-t border-gray-100">
-                        <ul class="text-gray-700 leading-relaxed space-y-3 mb-6 list-disc pl-5">
-                            <li><strong>火車：</strong>推薦使用 Omio 統一查詢，義大利國鐵務必提前 2 個月買 Super Economy 票。</li>
-                            <li><strong>巴士：</strong>FlixBus 是窮遊救星，但在法國與義大利搭乘時，留意車站通常不在市中心，記得預留轉乘時間。</li>
-                            <li><strong>廉航：</strong>Ryanair 機票雖便宜，但需另外加購手提行李，且務必提前線上 Check-in 否則會被罰款高達 50 歐元。</li>
-                        </ul>
-                        <a href="#" class="inline-block bg-blue-50 text-blue-600 font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-blue-100 transition shadow-sm">馬上用 Omio 查詢班次 →</a>
+                    <div class="flex items-center gap-5 mb-4">
+                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🚆</div>
+                        <h3 class="font-extrabold text-xl text-gray-800">歐洲跨國交通指南</h3>
+                    </div>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 transition-opacity duration-300">火車通行證怎麼買最划算？廉價航空與跨國巴士的隱藏費用與比價技巧。</p>
+                    
+                    <div class="guide-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
+                        <div class="pt-6 border-t border-gray-100">
+                            <ul class="text-gray-700 leading-relaxed space-y-4 mb-8 list-disc pl-5">
+                                <li><strong>火車：</strong>推薦使用 Omio 統一查詢，義大利國鐵務必提前 2 個月買 Super Economy 票。</li>
+                                <li><strong>巴士：</strong>FlixBus 是窮遊救星，但在法國與義大利搭乘時，留意車站通常不在市中心。</li>
+                                <li><strong>廉航：</strong>Ryanair 機票雖便宜，但需另外加購手提行李，且務必提前線上 Check-in。</li>
+                            </ul>
+                            <a href="https://europesolo.com/omio-redirect" class="inline-block bg-blue-600 text-white font-bold text-sm px-8 py-3 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200">馬上用 Omio 查詢班次 →</a>
+                        </div>
                     </div>
                 </div>
 
-                <div id="card-2" onclick="openGuide('card-2')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden">
-                    <button onclick="closeGuide(event, 'card-2')" class="close-btn hidden absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition z-10">✕</button>
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-2xl transition transform group-hover:scale-110 flex-shrink-0">📶</div>
-                        <h3 class="font-bold text-xl text-gray-800">網卡與旅行必備裝備</h3>
+                <div id="card-2" onclick="handleGuideClick('card-2')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 ease-in-out border border-gray-100 flex flex-col overflow-hidden origin-center">
+                    <button onclick="closeGuide(event, 'card-2')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
+                    <div class="flex items-center gap-5 mb-4">
+                        <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">📶</div>
+                        <h3 class="font-extrabold text-xl text-gray-800">網卡與旅行必備裝備</h3>
                     </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-2">不用換卡的 eSIM 推薦、防止被偷的隱形腰包，以及如何輕裝橫跨歐洲。</p>
-                    
-                    <div class="guide-content hidden mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            獨旅最重要的就是保持網路暢通。強烈建議在出發前就買好 <strong>eSIM</strong>，免換實體卡，飛機一落地立刻有網路。<br><br>
-                            <strong>實用裝備清單：</strong><br>
-                            1. 貼身防竊腰包：用來放護照與大面額現金。<br>
-                            2. 手機掛繩：在南歐地區必備，防止飛車搶劫與扒手。<br>
-                            3. TSA 海關密碼鎖：住青年旅館鎖置物櫃必備。
-                        </p>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 transition-opacity duration-300">不用換卡的 eSIM 推薦、防止被偷的隱形腰包，以及如何輕裝橫跨歐洲。</p>
+                    <div class="guide-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                            <p class="mb-4">獨旅最重要的就是保持網路暢通。強烈建議使用 <strong>eSIM</strong>，免換實體卡，下飛機立刻有網路。</p>
+                            <p><strong>防竊重點：</strong>必備「貼身防竊腰包」放護照，在南歐地區，手機最好加上防搶掛繩以免被飛車奪走。</p>
+                        </div>
                     </div>
                 </div>
 
-                <div id="card-3" onclick="openGuide('card-3')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden">
-                    <button onclick="closeGuide(event, 'card-3')" class="close-btn hidden absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition z-10">✕</button>
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-2xl transition transform group-hover:scale-110 flex-shrink-0">🛡️</div>
-                        <h3 class="font-bold text-xl text-gray-800">獨旅安全與住宿挑選</h3>
+                <div id="card-3" onclick="handleGuideClick('card-3')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 ease-in-out border border-gray-100 flex flex-col overflow-hidden origin-center">
+                    <button onclick="closeGuide(event, 'card-3')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
+                    <div class="flex items-center gap-5 mb-4">
+                        <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🛡️</div>
+                        <h3 class="font-extrabold text-xl text-gray-800">獨旅安全與住宿挑選</h3>
                     </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-2">青年旅館防雷指南、歐洲治安死角分析，教你如何一個人在外也能睡得安穩。</p>
-                    
-                    <div class="guide-content hidden mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            訂房時絕對不能只看價格！請打開 Google 地圖檢查以下關鍵：<br><br>
-                            ✔️ 距離主火車站走路是否超過 10 分鐘？（拖行李在石板路上是地獄）<br>
-                            ✔️ 附近是否有暗巷或車站後站區域？<br>
-                            ✔️ 青年旅館建議挑選評分 8.5 以上，且評價中有提到 "Secure (安全)" 與 "Lockers (附鎖置物櫃)" 的選項。<br><br>
-                            如果預算允許，剛抵達一個新國家的第一晚，建議訂單人房讓自己好好休息調時差。
-                        </p>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 transition-opacity duration-300">青年旅館防雷指南、歐洲治安死角分析，教你如何一個人在外也能睡得安穩。</p>
+                    <div class="guide-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                            <p>訂房時請打開 Google 地圖檢查距離主火車站走路是否超過 10 分鐘，並避開後站區域。青年旅館建議挑選評分 8.5 以上且附帶鎖置物櫃的選項。</p>
+                        </div>
                     </div>
                 </div>
 
-                <div id="card-4" onclick="openGuide('card-4')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden">
-                    <button onclick="closeGuide(event, 'card-4')" class="close-btn hidden absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition z-10">✕</button>
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl transition transform group-hover:scale-110 flex-shrink-0">🎫</div>
-                        <h3 class="font-bold text-xl text-gray-800">熱門景點搶票全攻略</h3>
+                <div id="card-4" onclick="handleGuideClick('card-4')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 ease-in-out border border-gray-100 flex flex-col overflow-hidden origin-center">
+                    <button onclick="closeGuide(event, 'card-4')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
+                    <div class="flex items-center gap-5 mb-4">
+                        <div class="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🎫</div>
+                        <h3 class="font-extrabold text-xl text-gray-800">熱門景點搶票全攻略</h3>
                     </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-2">羅浮宮、聖母百花大教堂沒票了？整理各大景點官網放票規律與免排隊密技。</p>
-                    
-                    <div class="guide-content hidden mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            現在歐洲熱門景點幾乎 <strong>不接受現場排隊購票</strong>。羅浮宮需提前 1 個月預訂，梵蒂岡博物館甚至要提早 2 個月。<br><br>
-                            <strong>💡 搶救沒票的終極大絕招：</strong><br>
-                            如果官網真的沒票了，請直接到 Klook 或 GetYourGuide 購買「快速通關導覽團」。旅行社手上通常有保留票，雖然需要多花一點導覽費，但絕對比你在烈日下排隊 3 小時，甚至敗興而歸來得划算。
-                        </p>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 transition-opacity duration-300">羅浮宮、聖母百花大教堂沒票了？整理各大景點官網放票規律與免排隊密技。</p>
+                    <div class="guide-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                            <p>歐洲景點現在幾乎不開放現場購票。若官網售罄，推薦去 GetYourGuide 或 Klook 購買「導覽團行程」，這是最後的搶票救星。</p>
+                        </div>
                     </div>
                 </div>
 
-                <div id="card-5" onclick="openGuide('card-5')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden">
-                    <button onclick="closeGuide(event, 'card-5')" class="close-btn hidden absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition z-10">✕</button>
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-2xl transition transform group-hover:scale-110 flex-shrink-0">📱</div>
-                        <h3 class="font-bold text-xl text-gray-800">省錢好用 APP 推薦</h3>
+                <div id="card-5" onclick="handleGuideClick('card-5')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 ease-in-out border border-gray-100 flex flex-col overflow-hidden origin-center">
+                    <button onclick="closeGuide(event, 'card-5')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
+                    <div class="flex items-center gap-5 mb-4">
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">📱</div>
+                        <h3 class="font-extrabold text-xl text-gray-800">省錢好用 APP 推薦</h3>
                     </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-2">實測 TooGoodToGo 撿便宜、Radical 寄行李、Flush 找廁所等實用工具。</p>
-                    
-                    <div class="guide-content hidden mt-6 pt-6 border-t border-gray-100">
-                        <ul class="text-gray-700 leading-relaxed space-y-3 mb-4 list-disc pl-5">
-                            <li><strong>Too Good To Go：</strong>環保剩食盲盒，常能用 3-4 歐元買到原價 15 歐元的麵包或披薩。</li>
-                            <li><strong>Radical Storage：</strong>火車站寄物櫃滿了怎麼辦？用這個 APP 找附近咖啡店便宜寄放行李。</li>
-                            <li><strong>TheFork：</strong>在南歐訂餐廳必備，常有 20%~50% 的餐點折扣，獨旅也能吃大餐。</li>
-                            <li><strong>Flush：</strong>救急神器！幫你在歐洲古城中尋找免費或付費公共廁所。</li>
-                        </ul>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 transition-opacity duration-300">實測 TooGoodToGo 撿便宜、Radical 寄行李、Flush 找廁所等實用工具。</p>
+                    <div class="guide-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                            <p>推薦 TooGoodToGo 買剩食盲盒（3歐元吃飽）、TheFork 訂餐 5 折折扣、以及 Flush 幫你在歐洲街頭找免費廁所。</p>
+                        </div>
                     </div>
                 </div>
 
-                <div id="card-6" onclick="openGuide('card-6')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden">
-                    <button onclick="closeGuide(event, 'card-6')" class="close-btn hidden absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition z-10">✕</button>
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl transition transform group-hover:scale-110 flex-shrink-0">🧠</div>
-                        <h3 class="font-bold text-xl text-gray-800">從零開始的規劃邏輯</h3>
+                <div id="card-6" onclick="handleGuideClick('card-6')" class="guide-card relative group cursor-pointer bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 ease-in-out border border-gray-100 flex flex-col overflow-hidden origin-center">
+                    <button onclick="closeGuide(event, 'card-6')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
+                    <div class="flex items-center gap-5 mb-4">
+                        <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🧠</div>
+                        <h3 class="font-extrabold text-xl text-gray-800">從零開始的規劃邏輯</h3>
                     </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-2">不再迷失在茫茫資料中。教你如何從核心需求出發，展開時空規劃。</p>
-                    
-                    <div class="guide-content hidden mt-6 pt-6 border-t border-gray-100">
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            面對 41 個國家的龐大資訊，不要一開始就查景點，請照著這三步驟：<br><br>
-                            1. <strong>鎖定骨架：</strong>先買大越洋機票。強烈建議買「A點進、B點出」的不同點進出機票，省去走回頭路的時間。<br>
-                            2. <strong>建立血管：</strong>搞定跨國火車、廉航與每晚的住宿點。<br>
-                            3. <strong>填補血肉：</strong>最後才來安排每天要去的景點與餐廳。<br><br>
-                            <strong>💡 獨旅心法：</strong>千萬別把行程塞太滿，一天最多排 2 個主要景點。留點時間在街角喝咖啡、迷路，才是歐洲獨旅的浪漫。
-                        </p>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 transition-opacity duration-300">不再迷失在茫茫資料中。教你如何從核心需求出發，展開時空規劃。</p>
+                    <div class="guide-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                            <p>獨旅心法：先買大機票（骨架），搞定交通與住宿（血管），最後才填補景點與美食（血肉）。留點時間迷路，才是浪漫。</p>
+                        </div>
                     </div>
                 </div>
 
@@ -499,6 +481,70 @@
 
             // 4. 將畫面平滑滾動回標題處
             document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        function handleGuideClick(cardId) {
+            const targetCard = document.getElementById(cardId);
+            const allCards = document.querySelectorAll('.guide-card');
+            
+            // 如果該卡片已經是展開狀態，就不重複執行
+            if (targetCard.classList.contains('is-expanded')) return;
+
+            // 步驟 1: 其他卡片優雅淡出並縮小
+            allCards.forEach(card => {
+                if (card.id !== cardId) {
+                    card.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                }
+            });
+
+            // 步驟 2: 被點擊的卡片逐漸擴張並撐滿
+            // 延遲 100ms 讓淡出先開始，轉場更有層次感
+            setTimeout(() => {
+                targetCard.classList.add('is-expanded', 'md:col-span-2', 'lg:col-span-3', 'cursor-default', 'shadow-2xl');
+                targetCard.classList.remove('cursor-pointer', 'hover:shadow-xl', 'group');
+                
+                const content = targetCard.querySelector('.guide-content');
+                const summary = targetCard.querySelector('.card-summary');
+                const closeBtn = targetCard.querySelector('.close-btn');
+
+                // 展開內容區塊：設定 max-height 與透明度
+                content.classList.remove('hidden'); // 先確保不是 hidden
+                setTimeout(() => {
+                    content.style.maxHeight = '1000px'; // 足夠大的值讓它平滑展開
+                    content.style.opacity = '1';
+                    summary.style.opacity = '0'; // 隱藏原本簡短的描述
+                    closeBtn.classList.remove('opacity-0', 'pointer-events-none');
+                }, 100);
+
+                // 自動滾動到區塊頂部
+                document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        function closeGuide(event, cardId) {
+            event.stopPropagation(); // 防止觸發到父元素的 handleGuideClick
+
+            const targetCard = document.getElementById(cardId);
+            const allCards = document.querySelectorAll('.guide-card');
+            const content = targetCard.querySelector('.guide-content');
+            const summary = targetCard.querySelector('.card-summary');
+            const closeBtn = targetCard.querySelector('.close-btn');
+
+            // 步驟 1: 收合詳細內容
+            content.style.maxHeight = '0px';
+            content.style.opacity = '0';
+            summary.style.opacity = '1';
+            closeBtn.classList.add('opacity-0', 'pointer-events-none');
+
+            // 步驟 2: 縮小卡片回歸原始網格大小
+            setTimeout(() => {
+                targetCard.classList.remove('is-expanded', 'md:col-span-2', 'lg:col-span-3', 'cursor-default', 'shadow-2xl');
+                targetCard.classList.add('cursor-pointer', 'hover:shadow-xl', 'group');
+
+                // 步驟 3: 其他卡片淡入回來
+                allCards.forEach(card => {
+                    card.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                });
+            }, 300);
         }
     </script>
 </body>
