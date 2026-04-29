@@ -224,20 +224,47 @@
                     </div>
                 </div>
 
-                <div id="card-2" onclick="handleGuideClick('card-2')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
-                    <button onclick="closeGuide(event, 'card-2')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
-                    <div class="flex items-center gap-5 mb-4">
-                        <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">📶</div>
-                        <h3 class="font-extrabold text-xl text-gray-800">網卡與旅行必備裝備</h3>
-                    </div>
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">不用換卡的 eSIM 推薦、防止被偷的隱形腰包，以及如何輕裝橫跨歐洲。</p>
-                    <div class="guide-content hidden opacity-0">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
-                            <p class="mb-4">獨旅最重要的就是保持網路暢通。強烈建議使用 <strong>eSIM</strong>，免換實體卡，下飛機立刻有網路。</p>
-                            <p><strong>防竊重點：</strong>必備「貼身防竊腰包」放護照，在南歐地區，手機最好加上防搶掛繩以免被飛車奪走。</p>
+                <div class="guide-content hidden opacity-0">
+                        <div class="pt-6 border-t border-gray-100 mt-2">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🛂 2026入境新規</div>
+                                    <ul class="text-sm text-gray-600 space-y-1.5">
+                                        <li>• EES 系統首次需按壓指紋</li>
+                                        <li>• 出國前必須線上申請 ETIAS (7歐元，2026第四季開始執行)</li>
+                                        <li>• 晚班機請確認青旅能否 Check-in</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                                    <div class="text-lg font-extrabold text-gray-800 mb-2">📶 網卡策略</div>
+                                    <ul class="text-sm text-gray-600 space-y-1.5">
+                                        <li>• 歐洲吃到飽常被 FUP 降速</li>
+                                        <li>• 定量方案最穩 (15GB/月夠用)</li>
+                                        <li>• 支援 eSIM 手機必買 Klook/Airalo</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
+                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🎒 必備裝備</div>
+                                    <ul class="text-sm text-gray-600 space-y-1.5">
+                                        <li>• <span class="text-red-600 font-bold">密碼鎖 (住青旅防盜必備)</span></li>
+                                        <li>• 快乾衣物 4 套＋旅行洗衣粉</li>
+                                        <li>• 萬用轉接頭＋下載離線地圖</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-3 pb-8">
+                                <a href="preparation.html" class="inline-block bg-green-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-green-700 transition shadow-md shadow-green-200">
+                                    📖 閱讀完整行前與裝備攻略 →
+                                </a>
+                                <a href="YOUR_KLOOK_ESIM_LINK" target="_blank" rel="nofollow" class="inline-block bg-white border-2 border-gray-200 text-gray-700 text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-gray-50 transition">
+                                    🛒 查 eSIM 方案 (Klook)
+                                </a>
+                            </div>
+
                         </div>
                     </div>
-                </div>
 
                 <div id="card-3" onclick="handleGuideClick('card-3')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
                     <button onclick="closeGuide(event, 'card-3')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
