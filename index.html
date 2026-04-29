@@ -46,6 +46,29 @@
             transform: scale(0.8) translateY(30px) !important;
             overflow: hidden !important;
         }
+        /* 獨旅指南沉浸式動畫專用 */
+        #essential-guides {
+            overflow: hidden; /* 防止被推開的卡片凸出灰色背景 */
+        }
+        #guides-container {
+            position: relative; /* 絕對定位展開的基準點 */
+        }
+        .guide-card {
+            will-change: transform, top, left, width, height;
+        }
+        .card-summary {
+            transition: opacity 0.3s ease, max-height 0.4s ease;
+            max-height: 200px; /* 足夠顯示摘要的高度 */
+            overflow: hidden;
+        }
+        .card-summary.hide-summary {
+            max-height: 0;
+            opacity: 0;
+            margin-bottom: 0;
+        }
+        .guide-content {
+            transition: opacity 0.4s ease 0.2s; /* 延遲淡入，等待外框展開 */
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
@@ -133,9 +156,9 @@
                 <p class="text-gray-600">我將 41 國的失敗經驗轉化為系統化教學，帶你避開旅行的地雷。</p>
             </div>
             
-            <div id="guides-container" class="flex flex-wrap gap-6 transition-all duration-700 ease-in-out">
+            <div id="guides-container" class="flex flex-wrap gap-6 w-full">
                 
-                <div id="card-1" onclick="handleGuideClick('card-1')" class="guide-card relative group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-700 ease-in-out border border-gray-100 flex flex-col origin-center overflow-hidden">
+                <div id="card-1" onclick="handleGuideClick('card-1')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
                     <button onclick="closeGuide(event, 'card-1')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
                     
                     <div class="flex items-center gap-5 mb-4">
@@ -144,84 +167,84 @@
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">火車通行證怎麼買最划算？廉價航空與跨國巴士的隱藏費用與比價技巧。</p>
                     
-                    <div class="guide-content hidden">
-                        <div class="pt-6 border-t border-gray-100">
+                    <div class="guide-content hidden opacity-0">
+                        <div class="pt-6 border-t border-gray-100 mt-2">
                             <ul class="text-gray-700 leading-relaxed space-y-4 mb-8 list-disc pl-5">
                                 <li><strong>火車：</strong>推薦使用 Omio 統一查詢，義大利國鐵務必提前 2 個月買 Super Economy 票。</li>
                                 <li><strong>巴士：</strong>FlixBus 是窮遊救星，但在法國與義大利搭乘時，留意車站通常不在市中心。</li>
                                 <li><strong>廉航：</strong>Ryanair 機票雖便宜，但需另外加購手提行李，且務必提前線上 Check-in。</li>
                             </ul>
-                            <a href="#" class="inline-block bg-blue-600 text-white font-bold text-sm px-8 py-3 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200">馬上用 Omio 查詢班次 →</a>
+                            <a href="#" class="inline-block bg-blue-600 text-white font-bold text-sm px-8 py-3 rounded-xl hover:bg-blue-700 transition shadow-sm">馬上用 Omio 查詢班次 →</a>
                         </div>
                     </div>
                 </div>
 
-                <div id="card-2" onclick="handleGuideClick('card-2')" class="guide-card relative group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-700 ease-in-out border border-gray-100 flex flex-col origin-center overflow-hidden">
+                <div id="card-2" onclick="handleGuideClick('card-2')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
                     <button onclick="closeGuide(event, 'card-2')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
                     <div class="flex items-center gap-5 mb-4">
                         <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">📶</div>
                         <h3 class="font-extrabold text-xl text-gray-800">網卡與旅行必備裝備</h3>
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">不用換卡的 eSIM 推薦、防止被偷的隱形腰包，以及如何輕裝橫跨歐洲。</p>
-                    <div class="guide-content hidden">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                    <div class="guide-content hidden opacity-0">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
                             <p class="mb-4">獨旅最重要的就是保持網路暢通。強烈建議使用 <strong>eSIM</strong>，免換實體卡，下飛機立刻有網路。</p>
                             <p><strong>防竊重點：</strong>必備「貼身防竊腰包」放護照，在南歐地區，手機最好加上防搶掛繩以免被飛車奪走。</p>
                         </div>
                     </div>
                 </div>
 
-                <div id="card-3" onclick="handleGuideClick('card-3')" class="guide-card relative group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-700 ease-in-out border border-gray-100 flex flex-col origin-center overflow-hidden">
+                <div id="card-3" onclick="handleGuideClick('card-3')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
                     <button onclick="closeGuide(event, 'card-3')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
                     <div class="flex items-center gap-5 mb-4">
                         <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🛡️</div>
                         <h3 class="font-extrabold text-xl text-gray-800">獨旅安全與住宿挑選</h3>
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">青年旅館防雷指南、歐洲治安死角分析，教你如何一個人在外也能睡得安穩。</p>
-                    <div class="guide-content hidden">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                    <div class="guide-content hidden opacity-0">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
                             <p>訂房時請打開 Google 地圖檢查距離主火車站走路是否超過 10 分鐘，並避開後站區域。青年旅館建議挑選評分 8.5 以上且附帶鎖置物櫃的選項。</p>
                         </div>
                     </div>
                 </div>
 
-                <div id="card-4" onclick="handleGuideClick('card-4')" class="guide-card relative group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-700 ease-in-out border border-gray-100 flex flex-col origin-center overflow-hidden">
+                <div id="card-4" onclick="handleGuideClick('card-4')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
                     <button onclick="closeGuide(event, 'card-4')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
                     <div class="flex items-center gap-5 mb-4">
                         <div class="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🎫</div>
                         <h3 class="font-extrabold text-xl text-gray-800">熱門景點搶票全攻略</h3>
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">羅浮宮、聖母百花大教堂沒票了？整理各大景點官網放票規律與免排隊密技。</p>
-                    <div class="guide-content hidden">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                    <div class="guide-content hidden opacity-0">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
                             <p>歐洲景點現在幾乎不開放現場購票。若官網售罄，推薦去 GetYourGuide 或 Klook 購買「導覽團行程」，這是最後的搶票救星。</p>
                         </div>
                     </div>
                 </div>
 
-                <div id="card-5" onclick="handleGuideClick('card-5')" class="guide-card relative group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-700 ease-in-out border border-gray-100 flex flex-col origin-center overflow-hidden">
+                <div id="card-5" onclick="handleGuideClick('card-5')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
                     <button onclick="closeGuide(event, 'card-5')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
                     <div class="flex items-center gap-5 mb-4">
                         <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">📱</div>
                         <h3 class="font-extrabold text-xl text-gray-800">省錢好用 APP 推薦</h3>
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">實測 TooGoodToGo 撿便宜、Radical 寄行李、Flush 找廁所等實用工具。</p>
-                    <div class="guide-content hidden">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                    <div class="guide-content hidden opacity-0">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
                             <p>推薦 TooGoodToGo 買剩食盲盒（3歐元吃飽）、TheFork 訂餐 5 折折扣、以及 Flush 幫你在歐洲街頭找免費廁所。</p>
                         </div>
                     </div>
                 </div>
 
-                <div id="card-6" onclick="handleGuideClick('card-6')" class="guide-card relative group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-700 ease-in-out border border-gray-100 flex flex-col origin-center overflow-hidden">
+                <div id="card-6" onclick="handleGuideClick('card-6')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
                     <button onclick="closeGuide(event, 'card-6')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
                     <div class="flex items-center gap-5 mb-4">
                         <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🧠</div>
                         <h3 class="font-extrabold text-xl text-gray-800">從零開始的規劃邏輯</h3>
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">不再迷失在茫茫資料中。教你如何從核心需求出發，展開時空規劃。</p>
-                    <div class="guide-content hidden">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed">
+                    <div class="guide-content hidden opacity-0">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
                             <p>獨旅心法：先買大機票（骨架），搞定交通與住宿（血管），最後才填補景點與美食（血肉）。留點時間迷路，才是浪漫。</p>
                         </div>
                     </div>
@@ -459,104 +482,176 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         }, false);
 
-        // 沉浸式：推開與拉回轉場動畫
         function handleGuideClick(cardId) {
             const targetCard = document.getElementById(cardId);
             if (targetCard.classList.contains('is-expanded')) return;
 
+            const container = document.getElementById('guides-container');
             const allCards = document.querySelectorAll('.guide-card');
             
+            // 1. 鎖定外層容器高度，防止因為 Absolute 脫離文檔流而崩塌
+            const origContainerHeight = container.offsetHeight;
+            container.dataset.origHeight = origContainerHeight;
+            container.style.height = origContainerHeight + 'px';
+
+            const containerRect = container.getBoundingClientRect();
+            const targetRect = targetCard.getBoundingClientRect();
+
+            // 2. 物理引擎推擠計算：計算每一張卡片與目標卡片的相對向量
             allCards.forEach(card => {
                 if (card.id !== cardId) {
-                    // 推開其他卡片 (物理推擠感)
-                    card.classList.add('squeeze-out');
-                    setTimeout(() => {
-                        if (targetCard.classList.contains('is-expanded')) {
-                            card.style.display = 'none'; // 動畫結束後徹底隱藏，消滅殘留間距
-                        }
-                    }, 600); // 對齊 CSS 動畫時間
-                } else {
-                    // 放大被點擊的卡片
-                    card.classList.add('is-expanded', '!w-full', 'cursor-default', 'shadow-2xl');
-                    card.classList.remove('cursor-pointer', 'hover:shadow-xl', 'group');
-
-                    const content = card.querySelector('.guide-content');
-                    const summary = card.querySelector('.card-summary');
-                    const closeBtn = card.querySelector('.close-btn');
-
-                    content.classList.remove('hidden');
+                    const rect = card.getBoundingClientRect();
+                    const dx = rect.left - targetRect.left;
+                    const dy = rect.top - targetRect.top;
                     
-                    // 等待瀏覽器渲染 DOM 後，精準計算內容高度 (無冗餘空白)
-                    requestAnimationFrame(() => {
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                        content.style.opacity = '1';
-                        content.style.marginTop = '1.5rem';
-                        
-                        summary.style.maxHeight = '0px';
-                        summary.style.opacity = '0';
-                        summary.style.marginBottom = '0px';
-                        
-                        closeBtn.classList.remove('opacity-0', 'pointer-events-none');
-                    });
+                    // 根據相對位置產生推力：向外推 1.5 倍距離，再外加 200px 確保飛出邊界
+                    const pushX = dx === 0 ? 0 : Math.sign(dx) * (Math.abs(dx) * 1.5 + 200);
+                    const pushY = dy === 0 ? 0 : Math.sign(dy) * (Math.abs(dy) * 1.5 + 200);
 
-                    // 確保視窗縮放時高度能自適應
-                    setTimeout(() => {
-                        if (targetCard.classList.contains('is-expanded')) {
-                            content.style.maxHeight = 'none';
-                        }
-                    }, 600);
+                    card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-out';
+                    card.style.transform = `translate(${pushX}px, ${pushY}px) scale(0.85)`;
+                    card.style.opacity = '0';
+                    card.style.pointerEvents = 'none';
                 }
             });
 
-            // 平滑滾動到放大卡片的中心，提升閱讀體驗
+            // 3. FLIP 動畫：將被點擊的卡片在「原位」設為絕對定位
+            const origTop = targetRect.top - containerRect.top;
+            const origLeft = targetRect.left - containerRect.left;
+            const origWidth = targetRect.width;
+            const origHeight = targetRect.height;
+
+            // 儲存原始座標以利關閉時還原
+            targetCard.dataset.origTop = origTop;
+            targetCard.dataset.origLeft = origLeft;
+            targetCard.dataset.origWidth = origWidth;
+            targetCard.dataset.origHeight = origHeight;
+
+            targetCard.style.position = 'absolute';
+            targetCard.style.top = origTop + 'px';
+            targetCard.style.left = origLeft + 'px';
+            targetCard.style.width = origWidth + 'px';
+            targetCard.style.height = origHeight + 'px';
+            targetCard.style.zIndex = '50';
+            
+            targetCard.classList.add('is-expanded', 'shadow-2xl', 'cursor-default');
+            targetCard.classList.remove('cursor-pointer', 'hover:shadow-xl', 'group');
+
+            // 4. 動態高度計算 (無冗餘空白)
+            const content = targetCard.querySelector('.guide-content');
+            const summary = targetCard.querySelector('.card-summary');
+            const closeBtn = targetCard.querySelector('.close-btn');
+
+            // 暫時顯示內容但不被看見，以測量真實高度
+            content.classList.remove('hidden');
+            summary.classList.add('hide-summary'); // 隱藏摘要以節省高度
+            
+            void targetCard.offsetWidth; // 強制重繪
+
+            // 模擬展開至 100% 寬度，以獲取精準的最終高度
+            const targetExpandedWidth = container.offsetWidth;
+            targetCard.style.width = targetExpandedWidth + 'px';
+            targetCard.style.height = 'auto'; 
+            
+            const targetExpandedHeight = targetCard.offsetHeight;
+            
+            // 瞬間還原尺寸，準備播放展開動畫
+            targetCard.style.width = origWidth + 'px';
+            targetCard.style.height = origHeight + 'px';
+            void targetCard.offsetWidth; // 再次重繪確認起點
+            
+            // 啟動動畫
+            targetCard.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            targetCard.style.top = '0px';
+            targetCard.style.left = '0px';
+            targetCard.style.width = '100%';
+            targetCard.style.height = targetExpandedHeight + 'px';
+
+            // 容器高度配合卡片同步生長
+            container.style.transition = 'height 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            container.style.height = targetExpandedHeight + 'px';
+
+            // 內容淡入
+            content.style.opacity = '1';
+            closeBtn.classList.remove('opacity-0', 'pointer-events-none');
+
+            // 動畫結束後解除 height 限制，確保視窗縮放時自適應
             setTimeout(() => {
-                 targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 300);
+                if(targetCard.classList.contains('is-expanded')) {
+                    targetCard.style.height = 'auto';
+                    container.style.height = 'auto';
+                }
+            }, 600);
+
+            // 自動對齊視野
+            setTimeout(() => {
+                 document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
         }
 
+        // 關閉並拉回卡片
         function closeGuide(event, cardId) {
-            event.stopPropagation(); // 阻止點擊事件穿透
+            event.stopPropagation();
             
             const targetCard = document.getElementById(cardId);
+            const container = document.getElementById('guides-container');
             const allCards = document.querySelectorAll('.guide-card');
             
             const content = targetCard.querySelector('.guide-content');
             const summary = targetCard.querySelector('.card-summary');
             const closeBtn = targetCard.querySelector('.close-btn');
 
-            // 1. 先將高度鎖定回像素值，才能啟動縮小動畫
-            content.style.maxHeight = content.scrollHeight + 'px';
-            void content.offsetHeight; // 強制重繪
+            // 1. 固定高度以準備縮小動畫
+            targetCard.style.height = targetCard.offsetHeight + 'px';
+            container.style.height = container.offsetHeight + 'px';
+            void targetCard.offsetWidth; 
 
-            // 2. 縮回收合狀態
-            content.style.maxHeight = '0px';
+            // 2. 內部元素退場
             content.style.opacity = '0';
-            content.style.marginTop = '0px';
-            
-            summary.style.maxHeight = summary.scrollHeight + 'px';
-            summary.style.opacity = '1';
-            summary.style.marginBottom = '0.5rem';
-            
+            summary.classList.remove('hide-summary');
             closeBtn.classList.add('opacity-0', 'pointer-events-none');
 
-            // 3. 卡片外框縮回原本尺寸
-            targetCard.classList.remove('is-expanded', '!w-full', 'cursor-default', 'shadow-2xl');
-            targetCard.classList.add('cursor-pointer', 'hover:shadow-xl', 'group');
+            // 3. 卡片縮回原位與原尺寸
+            targetCard.style.top = targetCard.dataset.origTop + 'px';
+            targetCard.style.left = targetCard.dataset.origLeft + 'px';
+            targetCard.style.width = targetCard.dataset.origWidth + 'px';
+            targetCard.style.height = targetCard.dataset.origHeight + 'px';
 
-            setTimeout(() => {
-                content.classList.add('hidden');
-            }, 600);
+            container.style.height = container.dataset.origHeight + 'px';
 
-            // 4. 拉回其他卡片 (恢復顯示)
+            // 4. 拉回其他卡片 (從推開的位置飛回來)
             allCards.forEach(card => {
                 if (card.id !== cardId) {
-                    card.style.display = ''; // 恢復 Flexbox 排版
-                    void card.offsetWidth; // 強制重繪以觸發拉回動畫
-                    card.classList.remove('squeeze-out');
+                    card.style.transform = `translate(0px, 0px) scale(1)`;
+                    card.style.opacity = '1';
+                    card.style.pointerEvents = 'auto';
                 }
             });
 
-            // 滾動回標題處
+            // 5. 動畫結束清理 Inline Styles，將排版控制權交回給 Flexbox
+            setTimeout(() => {
+                targetCard.style.position = '';
+                targetCard.style.top = '';
+                targetCard.style.left = '';
+                targetCard.style.width = '';
+                targetCard.style.height = '';
+                targetCard.style.zIndex = '';
+                targetCard.style.transition = '';
+                
+                targetCard.classList.remove('is-expanded', 'shadow-2xl', 'cursor-default');
+                targetCard.classList.add('cursor-pointer', 'hover:shadow-xl', 'group');
+                
+                content.classList.add('hidden');
+
+                container.style.height = '';
+                container.style.transition = '';
+                
+                allCards.forEach(c => {
+                    c.style.transition = '';
+                    c.style.transform = '';
+                });
+            }, 600);
+
             setTimeout(() => {
                 document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
