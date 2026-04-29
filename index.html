@@ -519,6 +519,8 @@
         }, false);
 
         function handleGuideClick(cardId) {
+            // 強制隱藏導覽列，進入沉浸模式
+            document.getElementById('main-nav').style.transform = 'translateY(-100%)';
             const targetCard = document.getElementById(cardId);
             if (targetCard.classList.contains('is-expanded')) return;
 
@@ -691,6 +693,8 @@
             setTimeout(() => {
                 document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
+            // 恢復顯示導覽列
+            document.getElementById('main-nav').style.transform = 'translateY(0)';
         }
         
     </script>
