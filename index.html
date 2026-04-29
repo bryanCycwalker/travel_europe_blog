@@ -352,8 +352,11 @@
         const resetBtn = document.getElementById('reset-btn');
         const listTitle = document.getElementById('list-title');
 
-        document.getElementById('article-count').innerText = `${cityData.length}+ 篇`;
-
+        // 計算總篇數：地圖景點文章 (cityData) + 6 篇獨旅新手指南
+        const guideCount = 6; 
+        const totalArticles = cityData.length + guideCount;
+        document.getElementById('article-count').innerText = `${totalArticles}+ 篇`;
+        
         function generateCountryLists() {
             const existingCountries = [...new Set(cityData.map(c => c.country))];
             const grouped = {};
