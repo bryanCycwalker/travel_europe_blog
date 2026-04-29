@@ -515,7 +515,6 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         }, false);
 
-        // --- 獨旅指南：結構自適應動畫引擎 ---
         function handleGuideClick(cardId) {
             const targetCard = document.getElementById(cardId);
             if (targetCard.classList.contains('is-expanded')) return;
@@ -540,7 +539,7 @@
             targetCard.dataset.origWidth = targetCard.offsetWidth;
             targetCard.dataset.origHeight = targetCard.offsetHeight;
 
-            // 2. 推開其他卡片
+            // 2. 推開其他卡片 (物理引擎)
             allCards.forEach(card => {
                 if (card.id !== cardId) {
                     const rect = card.getBoundingClientRect();
@@ -562,7 +561,7 @@
             const closeBtn = targetCard.querySelector('.close-btn');
 
             content.classList.remove('hidden');
-            content.style.maxHeight = 'none'; // 【關鍵修復】解除高度封印
+            content.style.maxHeight = 'none'; 
             summary.classList.add('hide-summary');
             
             // 4. FLIP 動畫準備：設為絕對定位
@@ -602,13 +601,20 @@
             content.style.opacity = '1';
             closeBtn.classList.remove('opacity-0', 'pointer-events-none');
 
-            // 6. 【防裁切關鍵】：動畫結束後切換為 Relative
+            // 6. 【消除多餘空白關鍵】：動畫結束後清理排版
             setTimeout(() => {
                 if (targetCard.classList.contains('is-expanded')) {
+                    // 徹底隱藏其他卡片，釋放被佔據的 DOM 空間
+                    allCards.forEach(card => {
+                        if (card.id !== cardId) card.style.display = 'none';
+                    });
+
                     targetCard.style.transition = 'none';
                     targetCard.style.position = 'relative'; // 回歸正常排版流
                     targetCard.style.height = 'auto';
-                    container.style.height = 'auto'; // 灰色背景自動包覆白框
+                    
+                    container.style.transition = 'none';
+                    container.style.height = 'auto'; // 灰色背景完美包裹唯一的白框
                 }
             }, 600);
 
@@ -628,16 +634,23 @@
             const summary = targetCard.querySelector('.card-summary');
             const closeBtn = targetCard.querySelector('.close-btn');
 
-            // 1. 從 relative 切回 absolute 準備動畫
+            // 1. 【恢復排版關鍵】：將卡片切回 absolute，並叫回其他隱藏的卡片
             const currentHeight = targetCard.offsetHeight;
+            
+            container.style.height = currentHeight + 'px'; // 鎖住外框高度防止閃爍
+            
             targetCard.style.position = 'absolute';
             targetCard.style.top = '0px';
             targetCard.style.left = '0px';
             targetCard.style.width = '100%';
             targetCard.style.height = currentHeight + 'px';
             
-            container.style.height = currentHeight + 'px';
-            void targetCard.offsetWidth;
+            // 讓其他卡片回到 DOM 參與拉回動畫
+            allCards.forEach(card => {
+                if (card.id !== cardId) card.style.display = ''; 
+            });
+            
+            void targetCard.offsetWidth; // 強制重繪
 
             // 2. 內部元素退場
             targetCard.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -651,11 +664,13 @@
             targetCard.style.width = targetCard.dataset.origWidth + 'px';
             targetCard.style.height = targetCard.dataset.origHeight + 'px';
 
+            container.style.transition = 'height 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             container.style.height = container.dataset.origHeight + 'px';
 
             // 4. 其他卡片拉回來
             allCards.forEach(card => {
                 if (card.id !== cardId) {
+                    card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-in';
                     card.style.transform = `translate(0px, 0px) scale(1)`;
                     card.style.opacity = '1';
                     card.style.pointerEvents = 'auto';
@@ -672,7 +687,10 @@
                 content.style = ''; 
 
                 container.style = '';
-                allCards.forEach(c => c.style = '');
+                allCards.forEach(c => {
+                    c.style.transition = '';
+                    c.style.transform = '';
+                });
             }, 600);
 
             // 恢復顯示導覽列並跳回
