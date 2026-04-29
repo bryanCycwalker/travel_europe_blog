@@ -178,12 +178,10 @@
                     
                     <div class="guide-content hidden opacity-0">
                         <div class="pt-6 border-t border-gray-100 mt-2">
-                            
                             <div class="bg-yellow-50 text-yellow-800 px-4 py-3 rounded-xl mb-6 text-sm font-bold border border-yellow-200 flex items-center gap-3">
                                 <span class="text-xl">🎓</span>
                                 <span>出發前務必上 ESN, ISIC 註冊，交通常有專屬 8-9 折優惠！</span>
                             </div>
-
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">✈️ 飛機 (廉航)</div>
@@ -210,8 +208,7 @@
                                     </ul>
                                 </div>
                             </div>
-
-                            <div class="flex flex-col sm:flex-row gap-3">
+                            <div class="flex flex-col sm:flex-row gap-3 pb-8">
                                 <a href="transport.html" class="inline-block bg-blue-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-blue-700 transition shadow-md shadow-blue-200">
                                     📖 閱讀完整交通攻略 →
                                 </a>
@@ -219,20 +216,26 @@
                                     🔍 查班次 (Omio)
                                 </a>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-content hidden opacity-0">
+                <div id="card-2" onclick="handleGuideClick('card-2')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
+                    <button onclick="closeGuide(event, 'card-2')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
+                    <div class="flex items-center gap-5 mb-4">
+                        <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">📶</div>
+                        <h3 class="font-extrabold text-xl text-gray-800">網卡與行前裝備清單</h3>
+                    </div>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">出發前必備！eSIM 流量怎麼挑、防盜隱形腰包，以及獨旅專屬輕量化打包術。</p>
+                    
+                    <div class="guide-content hidden opacity-0">
                         <div class="pt-6 border-t border-gray-100 mt-2">
-                            
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🛂 2026入境新規</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
+                                        <li>• 出國前必須線上申請 ETIAS</li>
                                         <li>• EES 系統首次需按壓指紋</li>
-                                        <li>• 出國前必須線上申請 ETIAS (7歐元，2026第四季開始執行)</li>
                                         <li>• 晚班機請確認青旅能否 Check-in</li>
                                     </ul>
                                 </div>
@@ -253,7 +256,6 @@
                                     </ul>
                                 </div>
                             </div>
-
                             <div class="flex flex-col sm:flex-row gap-3 pb-8">
                                 <a href="preparation.html" class="inline-block bg-green-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-green-700 transition shadow-md shadow-green-200">
                                     📖 閱讀完整行前與裝備攻略 →
@@ -262,9 +264,9 @@
                                     🛒 查 eSIM 方案 (Klook)
                                 </a>
                             </div>
-
                         </div>
                     </div>
+                </div>
 
                 <div id="card-3" onclick="handleGuideClick('card-3')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border">
                     <button onclick="closeGuide(event, 'card-3')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
@@ -274,7 +276,7 @@
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">青年旅館防雷指南、歐洲治安死角分析，教你如何一個人在外也能睡得安穩。</p>
                     <div class="guide-content hidden opacity-0">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2 pb-8">
                             <p>訂房時請打開 Google 地圖檢查距離主火車站走路是否超過 10 分鐘，並避開後站區域。青年旅館建議挑選評分 8.5 以上且附帶鎖置物櫃的選項。</p>
                         </div>
                     </div>
@@ -288,7 +290,7 @@
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">羅浮宮、聖母百花大教堂沒票了？整理各大景點官網放票規律與免排隊密技。</p>
                     <div class="guide-content hidden opacity-0">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2 pb-8">
                             <p>歐洲景點現在幾乎不開放現場購票。若官網售罄，推薦去 GetYourGuide 或 Klook 購買「導覽團行程」，這是最後的搶票救星。</p>
                         </div>
                     </div>
@@ -302,7 +304,7 @@
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">實測 TooGoodToGo 撿便宜、Radical 寄行李、Flush 找廁所等實用工具。</p>
                     <div class="guide-content hidden opacity-0">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2 pb-8">
                             <p>推薦 TooGoodToGo 買剩食盲盒（3歐元吃飽）、TheFork 訂餐 5 折折扣、以及 Flush 幫你在歐洲街頭找免費廁所。</p>
                         </div>
                     </div>
@@ -316,33 +318,12 @@
                     </div>
                     <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2">不再迷失在茫茫資料中。教你如何從核心需求出發，展開時空規劃。</p>
                     <div class="guide-content hidden opacity-0">
-                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2">
+                        <div class="pt-6 border-t border-gray-100 text-gray-700 leading-relaxed mt-2 pb-8">
                             <p>獨旅心法：先買大機票（骨架），搞定交通與住宿（血管），最後才填補景點與美食（血肉）。留點時間迷路，才是浪漫。</p>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <section id="author-bio" class="max-w-4xl mx-auto px-6 py-20 scroll-mt-20">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 bg-white p-8 md:p-10 rounded-3xl shadow-lg shadow-blue-900/5 border border-blue-50 relative overflow-hidden">
-            <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-50 rounded-full opacity-50"></div>
-            <img src="images/auther.jpg" alt="歐洲獨旅部落客 Bryan" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md border-4 border-white relative z-10">
-            <div class="text-center md:text-left relative z-10">
-                <span class="text-blue-600 font-bold tracking-wider text-sm uppercase mb-1 block">關於站長</span>
-                <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Hi, 我是 Bryan 👋</h2>
-                <p class="text-gray-600 leading-relaxed mb-4 text-sm md:text-base">
-                    熱愛造訪世界知名景點，也迷戀那些轉角才會出現的驚喜。有時與旅伴同行，但更多時候選擇一人輕裝上路，目前已走訪 41 個歐洲國家。<br><br>
-                    旅途中，我曾因班次臨時取消而極限改票，也曾為了在瑞士節省開支，幾乎只靠超市過活，卻依然吃得心滿意足。<br><br>
-                    創立 <strong>Solo Europe 41</strong> 的初衷，是希望將這些實戰經驗轉化為有溫度的獨旅指南。讓你在面對歐洲旅途中那些突如其來的變數時，不再手足無措，而是更從容地應對。<br><br>
-                    願這份指南，能替你省下找資料的時間與冤枉錢，把最寶貴的精力，留給旅途中的風景與感動。
-                </p>
-                <div class="flex items-center justify-center md:justify-start space-x-4 mt-6">
-                    <a href="mailto:u8823011714@gmail.com?subject=Solo Europe 歐洲獨旅攻略諮詢" class="bg-gray-900 text-white text-sm font-bold py-2.5 px-6 rounded-lg hover:bg-gray-800 transition">✉️ 寫信給我</a>
-                    <span class="text-gray-400 text-sm">合作邀約 / 行程諮詢</span>
-                </div>
             </div>
         </div>
     </section>
