@@ -321,17 +321,7 @@
                 id: 'siena', country: '🇮🇹 義大利 Italy', city: 'Siena 錫耶納', subtitle: '迷失在中世紀紅磚之城',
                 lat: 43.3188, lng: 11.3308, img: 'images/italy/siena/siena_main.jpg',
                 desc: '錫耶納獨旅攻略：比起佛羅倫斯的擁擠，這裡更適合一個人靜靜享受托斯卡尼陽光。整理必訪田野廣場與大教堂心得。', link: 'siena.html'
-            },
-            // {
-            //     id: 'florence', country: '🇮🇹 義大利 Italy', city: 'Florence 佛羅倫斯', subtitle: '文藝復興的浪漫搖籃',
-            //     lat: 43.7695, lng: 11.2558, img: 'images/italy/siena/siena_main.jpg',
-            //     desc: '佛羅倫斯獨旅日記：漫步在聖母百花大教堂旁，感受中世紀藝術的極致巔峰，適合自由行慢旅。', link: '#'
-            // },
-            // {
-            //     id: 'paris', country: '🇫🇷 法國 France', city: 'Paris 巴黎', subtitle: '浪漫與混亂的交織',
-            //     lat: 48.8566, lng: 2.3522, img: 'images/italy/siena/siena_main.jpg',
-            //     desc: '獨旅巴黎全攻略：分享安全守則與避開扒手技巧，教你如何像巴黎人一樣優雅地喝咖啡。', link: '#'
-            // }
+            }
         ];
 
         const countryMeta = {
@@ -482,12 +472,10 @@
             renderCards(filteredData);
             updateMapMarkers(filteredData, true); 
             
-            // 當點擊清單時，同步更新地圖上方的標題
             listTitle.innerText = `📍 ${countryStr}`;
             resetBtn.classList.remove('hidden');
             
             document.getElementById('mobile-menu').classList.add('hidden');
-            // 改為捲動到 map 元素，這樣標題也會一起在畫面中
             document.getElementById('list-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
         };
 
@@ -518,6 +506,7 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         }, false);
 
+        // --- 獨旅指南沉浸式動畫引擎 ---
         function handleGuideClick(cardId) {
             // 強制隱藏導覽列，進入沉浸模式
             document.getElementById('main-nav').style.transform = 'translateY(-100%)';
@@ -535,14 +524,13 @@
             const containerRect = container.getBoundingClientRect();
             const targetRect = targetCard.getBoundingClientRect();
 
-            // 2. 物理引擎推擠計算：計算每一張卡片與目標卡片的相對向量
+            // 2. 物理引擎推擠計算
             allCards.forEach(card => {
                 if (card.id !== cardId) {
                     const rect = card.getBoundingClientRect();
                     const dx = rect.left - targetRect.left;
                     const dy = rect.top - targetRect.top;
                     
-                    // 根據相對位置產生推力：向外推 1.5 倍距離，再外加 200px 確保飛出邊界
                     const pushX = dx === 0 ? 0 : Math.sign(dx) * (Math.abs(dx) * 1.5 + 200);
                     const pushY = dy === 0 ? 0 : Math.sign(dy) * (Math.abs(dy) * 1.5 + 200);
 
@@ -559,7 +547,6 @@
             const origWidth = targetRect.width;
             const origHeight = targetRect.height;
 
-            // 儲存原始座標以利關閉時還原
             targetCard.dataset.origTop = origTop;
             targetCard.dataset.origLeft = origLeft;
             targetCard.dataset.origWidth = origWidth;
@@ -575,53 +562,57 @@
             targetCard.classList.add('is-expanded', 'shadow-2xl', 'cursor-default');
             targetCard.classList.remove('cursor-pointer', 'hover:shadow-xl', 'group');
 
-            // 4. 動態高度計算 (無冗餘空白)
+            // 4. 動態高度測量與動畫
             const content = targetCard.querySelector('.guide-content');
             const summary = targetCard.querySelector('.card-summary');
             const closeBtn = targetCard.querySelector('.close-btn');
 
-            // 暫時顯示內容但不被看見，以測量真實高度
+            // 【修復關鍵1】：解除 max-height 限制，才能測量到裡面的真實文字高度！
             content.classList.remove('hidden');
-            summary.classList.add('hide-summary'); // 隱藏摘要以節省高度
+            summary.classList.add('hide-summary'); 
+            content.style.maxHeight = 'none'; 
             
             void targetCard.offsetWidth; // 強制重繪
 
-            // 模擬展開至 100% 寬度，以獲取精準的最終高度
+            // 模擬展開至 100% 寬度
             const targetExpandedWidth = container.offsetWidth;
             targetCard.style.width = targetExpandedWidth + 'px';
             targetCard.style.height = 'auto'; 
             
             const targetExpandedHeight = targetCard.offsetHeight;
+            const contentExpandedHeight = content.scrollHeight; // 獲取內部內容高度
             
-            // 瞬間還原尺寸，準備播放展開動畫
+            // 瞬間還原尺寸
             targetCard.style.width = origWidth + 'px';
             targetCard.style.height = origHeight + 'px';
-            void targetCard.offsetWidth; // 再次重繪確認起點
+            content.style.maxHeight = '0px'; // 【修復關鍵2】：設回 0，準備做 CSS 長大動畫
+            void targetCard.offsetWidth; 
             
-            // 啟動動畫
+            // 啟動變大動畫
             targetCard.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             targetCard.style.top = '0px';
             targetCard.style.left = '0px';
             targetCard.style.width = '100%';
             targetCard.style.height = targetExpandedHeight + 'px';
 
-            // 容器高度配合卡片同步生長
             container.style.transition = 'height 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             container.style.height = targetExpandedHeight + 'px';
 
-            // 內容淡入
+            // 啟動內容淡入與展開
+            content.style.maxHeight = (contentExpandedHeight + 100) + 'px'; // 加一點緩衝避免裁切
             content.style.opacity = '1';
+            content.style.marginTop = '1.5rem';
             closeBtn.classList.remove('opacity-0', 'pointer-events-none');
 
-            // 動畫結束後解除 height 限制，確保視窗縮放時自適應
+            // 動畫結束解除限制
             setTimeout(() => {
                 if(targetCard.classList.contains('is-expanded')) {
                     targetCard.style.height = 'auto';
+                    content.style.maxHeight = 'none';
                     container.style.height = 'auto';
                 }
             }, 600);
 
-            // 自動對齊視野
             setTimeout(() => {
                  document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
@@ -642,10 +633,14 @@
             // 1. 固定高度以準備縮小動畫
             targetCard.style.height = targetCard.offsetHeight + 'px';
             container.style.height = container.offsetHeight + 'px';
+            content.style.maxHeight = content.scrollHeight + 'px'; // 【修復關鍵3】：鎖死高度準備縮回
             void targetCard.offsetWidth; 
 
             // 2. 內部元素退場
+            content.style.maxHeight = '0px';
             content.style.opacity = '0';
+            content.style.marginTop = '0px';
+            
             summary.classList.remove('hide-summary');
             closeBtn.classList.add('opacity-0', 'pointer-events-none');
 
@@ -657,7 +652,7 @@
 
             container.style.height = container.dataset.origHeight + 'px';
 
-            // 4. 拉回其他卡片 (從推開的位置飛回來)
+            // 4. 拉回其他卡片
             allCards.forEach(card => {
                 if (card.id !== cardId) {
                     card.style.transform = `translate(0px, 0px) scale(1)`;
@@ -666,7 +661,7 @@
                 }
             });
 
-            // 5. 動畫結束清理 Inline Styles，將排版控制權交回給 Flexbox
+            // 5. 動畫結束清理 Inline Styles
             setTimeout(() => {
                 targetCard.style.position = '';
                 targetCard.style.top = '';
@@ -680,6 +675,8 @@
                 targetCard.classList.add('cursor-pointer', 'hover:shadow-xl', 'group');
                 
                 content.classList.add('hidden');
+                content.style.maxHeight = ''; 
+                content.style.marginTop = '';
 
                 container.style.height = '';
                 container.style.transition = '';
@@ -693,10 +690,10 @@
             setTimeout(() => {
                 document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
+            
             // 恢復顯示導覽列
             document.getElementById('main-nav').style.transform = 'translateY(0)';
         }
-        
     </script>
 </body>
 </html>
