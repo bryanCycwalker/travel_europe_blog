@@ -596,7 +596,7 @@
             targetCard.style.height = targetExpandedHeight + 'px';
 
             container.style.transition = 'height 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            container.style.height = targetExpandedHeight + 'px';
+            container.style.height = (targetExpandedHeight + 100) + 'px';
 
             // 啟動內容淡入與展開
             content.style.maxHeight = (contentExpandedHeight + 100) + 'px'; // 加一點緩衝避免裁切
