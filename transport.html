@@ -8,7 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
-        /* 自訂滾動條讓版面更精緻 */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -58,6 +57,7 @@
                     <li><a href="#night-train" class="hover:text-blue-600 transition block">🌙 過夜火車 (Night Trains)</a></li>
                     <li><a href="#bus" class="hover:text-blue-600 transition block">🚐 長途巴士</a></li>
                     <li><a href="#ferry" class="hover:text-blue-600 transition block">🛳️ 跨海渡輪</a></li>
+                    <li><a href="#compensation" class="hover:text-red-600 font-bold text-gray-800 transition block border-t pt-3 mt-3">🚨 延誤取消與行李理賠</a></li>
                 </ul>
             </div>
         </aside>
@@ -98,39 +98,27 @@
                     </div>
 
                     <div class="bg-blue-50/50 p-6 rounded-2xl border-l-4 border-blue-400 mb-8">
-    <h4 class="font-bold text-blue-900 mb-4 flex items-center">
-        <span class="mr-2">🛡️</span> 歐洲機場安檢求生清單
-    </h4>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-        <div class="space-y-3">
-            <p class="text-gray-700">
-                <strong>💧 液體：</strong>單瓶不得超過 <strong>100ml</strong>，需裝入 1 公升透明夾鏈袋。
-            </p>
-            <p class="text-gray-700">
-                <strong>🔋 行動電源：</strong><strong>嚴禁托運</strong>，必須隨身攜帶。額定容量需在 100Wh (約 27,000mAh) 以下。
-            </p>
-            <p class="text-gray-700">
-                <strong>💻 電子產品：</strong>過安檢時，筆電、平板、大相機請預先從包包取出，放在籃子裡單獨過 X 光機。
-            </p>
-        </div>
-        <div class="space-y-3 border-t md:border-t-0 md:border-l border-blue-100 pt-3 md:pt-0 md:pl-6">
-            <p class="text-gray-700">
-                <strong>✂️ 尖銳物：</strong>刀刃 <strong>6cm 以下</strong> 小刀/剪刀理論上可帶，但安檢人員有權沒收，建議貴重瑞士刀不要冒險。
-            </p>
-            <p class="text-gray-700">
-                <strong>🧥 穿著：</strong>穿靴子、大外套或有皮帶的人，安檢時通常需要脫下。建議穿方便穿脫的鞋子。
-            </p>
-            <p class="text-gray-700">
-                <strong>🥛 水瓶：</strong>過安檢前必須倒空(僅有少數機場不要求，比如馬爾他機場)。安檢後通常有飲水機，或直接去機場餐廳/廁所裝水(Tap Water)。
-            </p>
-        </div>
-    </div>
-</div>
+                        <h4 class="font-bold text-blue-900 mb-4 flex items-center">
+                            <span class="mr-2">🛡️</span> 歐洲機場安檢求生清單
+                        </h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                            <div class="space-y-3">
+                                <p class="text-gray-700"><strong>💧 液體：</strong>單瓶不得超過 <strong>100ml</strong>，需裝入 1 公升透明夾鏈袋。</p>
+                                <p class="text-gray-700"><strong>🔋 行動電源：</strong><strong>嚴禁托運</strong>，必須隨身攜帶。額定容量需在 100Wh 以下。</p>
+                                <p class="text-gray-700"><strong>💻 電子產品：</strong>過安檢時，筆電、平板、大相機請單獨拿出來過 X 光機。</p>
+                            </div>
+                            <div class="space-y-3 border-t md:border-t-0 md:border-l border-blue-100 pt-3 md:pt-0 md:pl-6">
+                                <p class="text-gray-700"><strong>✂️ 尖銳物：</strong>刀刃 6cm 以下理論上可帶，但安檢人員有權沒收，建議貴重瑞士刀不要冒險。</p>
+                                <p class="text-gray-700"><strong>🧥 穿著：</strong>穿靴子、大外套或有皮帶，安檢時通常需脫下。建議穿方便穿脫的鞋。</p>
+                                <p class="text-gray-700"><strong>🥛 水瓶：</strong>過安檢前倒空。安檢後通常有飲水機，或直接去廁所裝水(Tap Water)。</p>
+                            </div>
+                        </div>
+                    </div>
 
-<p class="text-gray-600 text-sm leading-relaxed mb-3">
-    所有廉航都能免費帶一件 <strong>Small Bag (通常 40x20x25cm，需能塞進前方座位下)</strong>。登機箱 (Cabin Bag) 一定要加錢。<br>
-    登機門旁都有航空公司的「金屬測量架」，不要害羞，排隊前先去塞塞看，如果超過一點點，趕快把衣服穿在身上或塞進大衣口袋！另外，歐洲廉航是可以帶自己的食物上飛機吃的。
-</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-3">
+                        所有廉航都能免費帶一件 <strong>Small Bag (通常 40x20x25cm，需能塞進前方座位下)</strong>。登機箱 (Cabin Bag) 一定要加錢。<br>
+                        登機門旁都有航空公司的「金屬測量架」，不要害羞，排隊前先去塞塞看，如果超過一點點，趕快把衣服穿在身上或塞進大衣口袋！另外，歐洲廉航是可以帶自己的食物上飛機吃的。
+                    </p>
                 </div>
             </section>
 
@@ -154,7 +142,6 @@
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                         <h3 class="text-xl font-bold text-emerald-700 mb-4 border-b border-emerald-100 pb-2">2. 超值國家區域通票</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            
                             <div>
                                 <h4 class="font-bold text-gray-900 flex items-center mb-2">🇩🇪 德國：Deutschlandticket (D-Ticket)</h4>
                                 <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
@@ -163,7 +150,6 @@
                                     <li><strong>注意：</strong>這是訂閱制！無論何時買，效期都是該月 1 號到月底。且務必在當月 10 號前取消下個月的訂閱。</li>
                                 </ul>
                             </div>
-
                             <div>
                                 <h4 class="font-bold text-gray-900 flex items-center mb-2">🇨🇭 瑞士：STP vs 半價卡</h4>
                                 <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
@@ -171,7 +157,6 @@
                                     <li><strong>Half Fare Card (精算版)：</strong>付一筆年費(~120 CHF)，效期內買所有票都半價。對一般定點旅客通常最省錢。</li>
                                 </ul>
                             </div>
-
                             <div>
                                 <h4 class="font-bold text-gray-900 flex items-center mb-2">🇪🇸 西班牙：Abono Único (交通月票)</h4>
                                 <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
@@ -179,7 +164,6 @@
                                     <li><strong>覆蓋：</strong>城際巴士與部分火車。以開通日起算 30 天。因政策變動大，建議至官網查詢最新條件。</li>
                                 </ul>
                             </div>
-
                             <div>
                                 <h4 class="font-bold text-gray-900 flex items-center mb-2">🇫🇷 法國：TER 區域票</h4>
                                 <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
@@ -223,15 +207,15 @@
                         </div>
                         <div class="border border-gray-100 p-4 rounded-xl hover:shadow-md transition">
                             <h4 class="font-bold text-purple-700 text-lg mb-1">🇨🇿 捷克：RegioJet</h4>
-                            <p class="text-sm text-gray-600">優點：服務極佳（免費咖啡/水），提供便宜商務艙，覆蓋東歐（維也納/布達佩斯/柏林等）跨國路線。</p>
+                            <p class="text-sm text-gray-600">優點：服務極佳（免費咖啡/水），提供便宜商務艙，覆蓋東歐跨國路線。</p>
                         </div>
                         <div class="border border-gray-100 p-4 rounded-xl hover:shadow-md transition">
                             <h4 class="font-bold text-purple-700 text-lg mb-1">🇮🇹 義大利：Italo</h4>
-                            <p class="text-sm text-gray-600">優點：專跑高速主幹線（米蘭-威尼斯-佛羅倫斯-羅馬-拿波里），車廂新穎舒適，提早買非常便宜。</p>
+                            <p class="text-sm text-gray-600">優點：專跑高速主幹線，車廂新穎舒適，提早買非常便宜。</p>
                         </div>
                         <div class="border border-gray-100 p-4 rounded-xl hover:shadow-md transition">
                             <h4 class="font-bold text-purple-700 text-lg mb-1">🇪🇸 西班牙：Ouigo / Iryo</h4>
-                            <p class="text-sm text-gray-600">優點：高鐵市場三方競爭，早鳥票常出現 €10–€30 的誇張低價。缺點是限制多且需額外訂位費。</p>
+                            <p class="text-sm text-gray-600">優點：高鐵市場競爭，早鳥票常出現 €10–€30 的誇張低價。</p>
                         </div>
                     </div>
                 </div>
@@ -246,11 +230,11 @@
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 items-center">
                     <div class="flex-grow">
                         <p class="text-gray-700 leading-relaxed mb-4">
-                            既能省下一晚住宿費，又能完成長途移動，是背包客的最愛。目前歐洲夜車由奧地利國鐵的 <strong>ÖBB Nightjet</strong> 稱霸（涵蓋德、奧、義、法等國）。另外也有 European Sleeper（通往柏林/布拉格）或北歐的 SJ/Snälltåget。
+                            既能省下一晚住宿費，又能完成長途移動，是背包客的最愛。目前歐洲夜車由奧地利國鐵的 <strong>ÖBB Nightjet</strong> 稱霸。
                         </p>
                         <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4">
-                            <li><strong>搶票時間：</strong>夜臥鋪非常搶手！除非是冷門目的地，否則強烈建議 <strong>3 到 6 個月前</strong>開放訂票時就去搶。</li>
-                            <li><strong>艙等選擇：</strong>千萬別為了省錢選座位 (Seats)，會生不如死。建議至少選擇 <strong>Couchette (4-6人硬臥室)</strong>，預算夠可選 Sleeper Cabin (1-3人軟臥，附早餐)。</li>
+                            <li><strong>搶票時間：</strong>夜臥鋪非常搶手！強烈建議 <strong>3 到 6 個月前</strong>開放訂票時就去搶。</li>
+                            <li><strong>艙等選擇：</strong>千萬別為了省錢選座位 (Seats)，會生不如死。建議至少選擇 <strong>Couchette (4-6人硬臥室)</strong>。</li>
                         </ul>
                     </div>
                 </div>
@@ -297,9 +281,94 @@
                         </div>
                         <div class="bg-cyan-50 p-4 rounded-xl border border-cyan-100">
                             <h4 class="font-bold text-cyan-800 mb-1">波羅的海 / 北海 / 英國</h4>
-                            <p class="text-sm text-gray-600">可使用 <strong>DirectFerries</strong> 進行比價。知名航商包含 Tallink Silja, Viking Line (跨波羅的海常被當作一晚的海上派對夜車使用)。</p>
+                            <p class="text-sm text-gray-600">可使用 <strong>DirectFerries</strong> 進行比價。知名航商包含 Tallink Silja, Viking Line。</p>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section id="compensation" class="scroll-mt-24">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl">🚨</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900">遇上延誤、取消或掉行李？歐盟理賠自救指南</h2>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 space-y-8">
+                    <p class="text-gray-700 leading-relaxed text-sm">
+                        在歐洲旅行，交通延誤與罷工是常態。但很多人不知道，<strong>歐盟擁有全世界對旅客最友善的賠償法規！</strong>遇到狀況千萬別摸摸鼻子自認倒楣，這篇教你如何討回公道（有時賠償金甚至比機票還貴）。
+                    </p>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-center">
+                            <span class="text-red-500 mr-2">✈️</span> 飛機航班：歐盟 EU261 法規
+                        </h3>
+                        <div class="bg-red-50/50 p-5 rounded-xl border border-red-100 text-sm text-gray-700">
+                            <p class="mb-3">只要你是「從歐盟起飛」或「搭乘歐盟籍航空飛抵歐盟」，若因航空公司自身原因（機件故障、空服員罷工，不含天氣因素）導致：</p>
+                            <ul class="list-disc pl-5 mb-4 font-medium space-y-1">
+                                <li>航班被取消</li>
+                                <li>抵達目的地時間延誤超過 <strong>3 小時</strong></li>
+                                <li>被拒絕登機 (如機位超賣)</li>
+                            </ul>
+                            <p class="mb-4">
+                                依據飛行距離，你可以獲得 <strong>€250 到 €600（約 8,000 到 20,000 台幣）</strong>的現金賠償！<br>
+                                <strong>💡 自救步驟：</strong>保留登機證，並向地勤詢問延誤的「確切原因」。推薦使用 <a href="YOUR_AIRHELP_LINK" target="_blank" rel="nofollow" class="text-blue-600 font-bold hover:underline">AirHelp</a> 網站，輸入航班號碼即可免費測算是否能理賠，成功討回錢後他們才會抽成，非常省心。
+                            </p>
+                            <a href="YOUR_AIRHELP_LINK" target="_blank" rel="nofollow" class="inline-block bg-red-600 text-white font-bold px-6 py-2.5 rounded-lg hover:bg-red-700 transition shadow-sm">
+                                馬上用 AirHelp 測算理賠金 →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-center">
+                            <span class="text-red-500 mr-2">🧳</span> 飛機行李：延誤或遺失怎麼辦？
+                        </h3>
+                        <div class="bg-orange-50 p-5 rounded-xl border border-orange-100 text-sm text-gray-700">
+                            <p class="mb-3 font-bold text-red-600">🚨 終極警告：沒拿到行李，絕對不要離開機場管制區！</p>
+                            <p class="mb-3">
+                                <strong>💡 自救步驟：</strong><br>
+                                1. 立刻前往行李轉盤區旁邊的「Baggage Claim / Lost & Found」櫃檯。<br>
+                                2. 出示你的行李條貼紙，並強烈要求開立 <strong>PIR 報告 (Property Irregularity Report，行李意外報告)</strong>。<br>
+                                3. <strong>沒有這張 PIR，後續所有理賠都無法進行！</strong>
+                            </p>
+                            <p>
+                                <strong>後續賠償：</strong>在行李延誤期間，你可以去購買「必需品」（如內衣褲、基本盥洗用品、換洗衣物），<strong>請務必保留所有收據</strong>。事後航空公司必須依法（蒙特婁公約）為你的開銷買單，最高可賠償約 €1,300。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2 flex items-center">
+                                <span class="text-red-500 mr-2">🚆</span> 火車延誤與取消
+                            </h3>
+                            <p class="text-xs text-gray-500 mb-3">依據：歐洲鐵路乘客權益法規</p>
+                            <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4 mb-3">
+                                <li><strong>延誤 60 - 119 分鐘：</strong>可申請退還單程票價的 <strong>25%</strong>。</li>
+                                <li><strong>延誤 120 分鐘以上：</strong>可申請退還 <strong>50%</strong>。</li>
+                                <li><strong>被困在車站過夜：</strong>如果因延誤錯過最後一班車，鐵路公司<strong>有義務</strong>為你安排計程車或支付飯店住宿費！</li>
+                            </ul>
+                            <p class="text-sm text-gray-700">
+                                <strong>💡 自救步驟：</strong>先找車長或站務員在票上蓋「延誤章」證明。事後直接在該國鐵路官方 App（如 DB, SNCF）內找到你的訂單，點擊「Compensation」線上申請退款即可。
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                            <h3 class="font-bold text-lg text-gray-900 mb-2 flex items-center">
+                                <span class="text-red-500 mr-2">🚐</span> 跨國巴士延誤與取消
+                            </h3>
+                            <p class="text-xs text-gray-500 mb-3">依據：歐盟巴士乘客權益 (路程>250km)</p>
+                            <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4 mb-3">
+                                <li><strong>出發延誤超過 120 分鐘或取消：</strong>巴士公司必須讓你選擇「全額退票」或「免費改搭其他路線抵達」。</li>
+                                <li><strong>未提供上述選擇：</strong>如果你只能自己買別家車票，事後除了要求原車票全額退款外，還可額外索取票價 <strong>50% 的賠償金</strong>。</li>
+                                <li>如果因此被迫過夜，巴士公司需提供最多 2 晚的飯店住宿。</li>
+                            </ul>
+                            <p class="text-sm text-gray-700">
+                                <strong>💡 自救步驟：</strong>保留 App 內的取消通知截圖，事後寫信至巴士公司（如 FlixBus）的客服信箱要求理賠。
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
