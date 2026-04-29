@@ -19,7 +19,7 @@
         .leaflet-container { background: #f8fafc; z-index: 10; font-family: inherit; }
         .leaflet-tile-container { filter: grayscale(20%) brightness(105%); }
 
-        /* --- 獨旅指南沉浸式動畫專用 (乾淨版) --- */
+        /* --- 獨旅指南沉浸式動畫專用 --- */
         #essential-guides { overflow: hidden; }
         #guides-container { position: relative; }
         .guide-card { will-change: transform, top, left, width, height; }
@@ -36,47 +36,9 @@
             margin-bottom: 0;
         }
         
-        /* 隱藏內容的初始狀態，拔除 max-height 限制 */
         .guide-content {
             opacity: 0;
-            transition: opacity 0.5s ease 0.2s; /* 延遲淡入，等待外框長大 */
-        }
-        /* 「推開」的物理效果：縮小、往下退、寬度歸零 */
-        .squeeze-out {
-            max-width: 0 !important;
-            max-height: 0 !important;
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-            margin: 0 !important;
-            border-width: 0 !important;
-            opacity: 0 !important;
-            transform: scale(0.8) translateY(30px) !important;
-            overflow: hidden !important;
-        }
-        /* 獨旅指南沉浸式動畫專用 */
-        #essential-guides {
-            overflow: hidden; /* 防止被推開的卡片凸出灰色背景 */
-        }
-        #guides-container {
-            position: relative; /* 絕對定位展開的基準點 */
-        }
-        .guide-card {
-            will-change: transform, top, left, width, height;
-        }
-        .card-summary {
-            transition: opacity 0.3s ease, max-height 0.4s ease;
-            max-height: 200px; /* 足夠顯示摘要的高度 */
-            overflow: hidden;
-        }
-        .card-summary.hide-summary {
-            max-height: 0;
-            opacity: 0;
-            margin-bottom: 0;
-        }
-        .guide-content {
-            transition: opacity 0.4s ease 0.2s; /* 延遲淡入，等待外框展開 */
+            transition: opacity 0.5s ease 0.2s;
         }
     </style>
 </head>
@@ -90,7 +52,6 @@
             <button id="mobile-menu-btn" class="md:hidden bg-blue-50 text-blue-700 hover:bg-blue-100 px-3 py-2 rounded-lg text-sm font-bold flex items-center transition shadow-sm border border-blue-100">
                 <span class="mr-1">🗺️</span> 探索地圖
             </button>
-            
             <a href="about.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-sm">
                 關於我
             </a>
@@ -111,7 +72,6 @@
         <p class="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             這裡提供最真實的跨國交通指南、防盜住宿挑選，與親身踩點的私房筆記。
         </p>
-        
         <div class="flex justify-center gap-4 hidden md:flex">
             <a href="#explore-map" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-200">開始探索地圖</a>
             <a href="#essential-guides" class="bg-white border-2 border-gray-200 text-gray-700 font-bold py-3 px-8 rounded-full hover:bg-gray-50 transition shadow-sm">獨旅教學</a>
@@ -139,22 +99,17 @@
     </section>
 
     <section id="explore-map" class="max-w-5xl mx-auto px-6 py-12 scroll-mt-20">
-        
         <div class="mb-6 hidden md:block">
             <h2 class="text-3xl font-bold border-l-4 border-blue-600 pl-4 text-gray-900">📑 點擊清單找尋目的地</h2>
         </div>
-
         <div id="desktop-country-list" class="hidden md:block mb-12"></div>
-
         <div class="flex justify-between items-end mb-4">
             <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4 text-gray-900" id="list-title">🗺️ 點擊地圖找尋目的地</h2>
             <button id="reset-btn" class="hidden text-sm bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-2 rounded-lg transition font-bold shadow-sm border border-blue-200">
                 ✕ 顯示全歐洲
             </button>
         </div>
-
         <div id="map" class="w-full h-[450px] rounded-2xl shadow-sm border border-gray-200 mb-12 relative overflow-hidden"></div>
-        
         <div id="city-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
     </section>
 
@@ -178,12 +133,10 @@
                     
                     <div class="guide-content hidden opacity-0">
                         <div class="pt-6 border-t border-gray-100 mt-2">
-                            
                             <div class="bg-yellow-50 text-yellow-800 px-4 py-3 rounded-xl mb-6 text-sm font-bold border border-yellow-200 flex items-center gap-3">
                                 <span class="text-xl">🎓</span>
                                 <span>出發前務必上 ESN, ISIC 註冊，交通常有專屬 8-9 折優惠！</span>
                             </div>
-
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">✈️ 飛機 (廉航)</div>
@@ -210,7 +163,6 @@
                                     </ul>
                                 </div>
                             </div>
-
                             <div class="bg-red-50 text-red-800 px-5 py-3.5 rounded-xl mb-8 text-sm border border-red-100 flex items-center justify-between shadow-sm">
                                 <div class="flex items-center gap-3">
                                     <span class="text-2xl">🚨</span>
@@ -220,7 +172,6 @@
                                     免費測算理賠金 →
                                 </a>
                             </div>
-
                             <div class="flex flex-col sm:flex-row gap-3 pb-8">
                                 <a href="transport.html" class="inline-block bg-blue-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-blue-700 transition shadow-md shadow-blue-200">
                                     📖 閱讀完整交通攻略 →
@@ -229,7 +180,6 @@
                                     🔍 查班次 (Omio)
                                 </a>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -248,15 +198,15 @@
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🛂 2026入境新規</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
-                                        <li>• 出國前必須線上申請 ETIAS (7歐元，2026第四季上路)</li>
-                                        <li>• 首次入境歐洲須使用 EES 系統按壓指紋</li>
-                                        <li>• 確認住宿 Check-in 時間 (並非所有旅館都提供24hr入住)</li>
+                                        <li>• 出國前必須線上申請 ETIAS</li>
+                                        <li>• EES 系統首次需按壓指紋</li>
+                                        <li>• 確認住宿 Check-in 聯絡方式</li>
                                     </ul>
                                 </div>
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">📶 網卡策略</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
-                                        <li>• 歐洲吃到飽常被降速</li>
+                                        <li>• 歐洲吃到飽常被 FUP 降速</li>
                                         <li>• 定量方案最穩 (15GB/月夠用)</li>
                                         <li>• 支援 eSIM 手機必買 Klook/Airalo</li>
                                     </ul>
@@ -265,7 +215,7 @@
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🎒 必備裝備</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
                                         <li>• <span class="text-red-600 font-bold">密碼鎖 (住青旅防盜必備)</span></li>
-                                        <li>• 快乾衣物 3 - 4 套＋至少四個衣架＋旅行洗衣粉</li>
+                                        <li>• 快乾衣物 4 套＋旅行洗衣粉</li>
                                         <li>• 萬用轉接頭＋下載離線地圖</li>
                                     </ul>
                                 </div>
@@ -338,6 +288,26 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <section id="author-bio" class="max-w-4xl mx-auto px-6 py-20 scroll-mt-20">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 bg-white p-8 md:p-10 rounded-3xl shadow-lg shadow-blue-900/5 border border-blue-50 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-50 rounded-full opacity-50"></div>
+            <img src="images/auther.jpg" alt="歐洲獨旅部落客 Bryan" class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md border-4 border-white relative z-10">
+            <div class="text-center md:text-left relative z-10">
+                <span class="text-blue-600 font-bold tracking-wider text-sm uppercase mb-1 block">關於站長</span>
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Hi, 我是 Bryan 👋</h2>
+                <p class="text-gray-600 leading-relaxed mb-4 text-sm md:text-base">
+                    熱愛造訪世界知名景點，也迷戀那些轉角才會出現的驚喜。有時與旅伴同行，但更多時候選擇一人輕裝上路，目前已走訪 41 個歐洲國家。<br><br>
+                    旅途中，我曾因班次臨時取消而極限改票，也曾為了在瑞士節省開支，幾乎只靠超市過活，卻依然吃得心滿意足。<br><br>
+                    創立 <strong>Solo Europe 41</strong> 的初衷，是希望將這些實戰經驗轉化為有溫度的獨旅指南。讓你在面對歐洲旅途中那些突如其來的變數時，不再手足無措，而是更從容地應對。
+                </p>
+                <div class="flex items-center justify-center md:justify-start space-x-4 mt-6">
+                    <a href="mailto:u8823011714@gmail.com?subject=Solo Europe 歐洲獨旅攻略諮詢" class="bg-gray-900 text-white text-sm font-bold py-2.5 px-6 rounded-lg hover:bg-gray-800 transition">✉️ 寫信給我</a>
+                    <span class="text-gray-400 text-sm">合作邀約 / 行程諮詢</span>
+                </div>
             </div>
         </div>
     </section>
@@ -537,19 +507,19 @@
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         }, false);
 
+        // --- 獨旅指南：物理輻射推擠動畫引擎 ---
         function handleGuideClick(cardId) {
             const targetCard = document.getElementById(cardId);
             if (targetCard.classList.contains('is-expanded')) return;
 
-            // 強制隱藏導覽列，進入純淨沉浸模式
             document.getElementById('main-nav').style.transform = 'translateY(-100%)';
 
             const container = document.getElementById('guides-container');
             const allCards = document.querySelectorAll('.guide-card');
             
-            // 1. 記錄原始狀態並固定容器高度
             const containerRect = container.getBoundingClientRect();
             const targetRect = targetCard.getBoundingClientRect();
+            
             const origTop = targetRect.top - containerRect.top;
             const origLeft = targetRect.left - containerRect.left;
 
@@ -561,23 +531,32 @@
             targetCard.dataset.origWidth = targetCard.offsetWidth;
             targetCard.dataset.origHeight = targetCard.offsetHeight;
 
-            // 2. 推開其他卡片 (物理引擎)
+            const targetCenterX = targetRect.left + targetRect.width / 2;
+            const targetCenterY = targetRect.top + targetRect.height / 2;
+
             allCards.forEach(card => {
                 if (card.id !== cardId) {
                     const rect = card.getBoundingClientRect();
-                    const dx = rect.left - targetRect.left;
-                    const dy = rect.top - targetRect.top;
-                    const pushX = dx === 0 ? 0 : Math.sign(dx) * (Math.abs(dx) * 1.5 + 200);
-                    const pushY = dy === 0 ? 0 : Math.sign(dy) * (Math.abs(dy) * 1.5 + 200);
+                    const cardCenterX = rect.left + rect.width / 2;
+                    const cardCenterY = rect.top + rect.height / 2;
+
+                    const dx = cardCenterX - targetCenterX;
+                    const dy = cardCenterY - targetCenterY;
+                    
+                    const pushX = dx === 0 ? 0 : dx * 1.5 + Math.sign(dx) * 150;
+                    const pushY = dy === 0 ? 0 : dy * 1.5 + Math.sign(dy) * 150;
+
+                    const originX = dx < 0 ? '100%' : '0%';
+                    const originY = dy < 0 ? '100%' : '0%';
+                    card.style.transformOrigin = `${originX} ${originY}`;
 
                     card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-out';
-                    card.style.transform = `translate(${pushX}px, ${pushY}px) scale(0.85)`;
+                    card.style.transform = `translate(${pushX}px, ${pushY}px) scale(0.8)`;
                     card.style.opacity = '0';
                     card.style.pointerEvents = 'none';
                 }
             });
 
-            // 3. 準備內容 (解除所有高度封印)
             const content = targetCard.querySelector('.guide-content');
             const summary = targetCard.querySelector('.card-summary');
             const closeBtn = targetCard.querySelector('.close-btn');
@@ -586,7 +565,6 @@
             content.style.maxHeight = 'none'; 
             summary.classList.add('hide-summary');
             
-            // 4. FLIP 動畫準備：設為絕對定位
             targetCard.style.position = 'absolute';
             targetCard.style.top = origTop + 'px';
             targetCard.style.left = origLeft + 'px';
@@ -594,19 +572,16 @@
             targetCard.style.height = targetCard.dataset.origHeight + 'px';
             targetCard.style.zIndex = '50';
             
-            void targetCard.offsetWidth; // 強制重繪
+            void targetCard.offsetWidth;
 
-            // 測量真實展開高度
             targetCard.style.width = '100%';
             targetCard.style.height = 'auto';
             const fullHeight = targetCard.offsetHeight;
             
-            // 縮回起點準備播放動畫
             targetCard.style.width = targetCard.dataset.origWidth + 'px';
             targetCard.style.height = targetCard.dataset.origHeight + 'px';
             void targetCard.offsetWidth;
 
-            // 5. 執行展開動畫
             targetCard.classList.add('is-expanded', 'shadow-2xl', 'cursor-default');
             targetCard.classList.remove('cursor-pointer', 'hover:shadow-xl', 'group');
             
@@ -619,24 +594,21 @@
             container.style.transition = 'height 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             container.style.height = fullHeight + 'px';
 
-            // 內容淡入
             content.style.opacity = '1';
             closeBtn.classList.remove('opacity-0', 'pointer-events-none');
 
-            // 6. 【消除多餘空白關鍵】：動畫結束後清理排版
             setTimeout(() => {
                 if (targetCard.classList.contains('is-expanded')) {
-                    // 徹底隱藏其他卡片，釋放被佔據的 DOM 空間
                     allCards.forEach(card => {
                         if (card.id !== cardId) card.style.display = 'none';
                     });
 
                     targetCard.style.transition = 'none';
-                    targetCard.style.position = 'relative'; // 回歸正常排版流
+                    targetCard.style.position = 'relative'; 
                     targetCard.style.height = 'auto';
                     
                     container.style.transition = 'none';
-                    container.style.height = 'auto'; // 灰色背景完美包裹唯一的白框
+                    container.style.height = 'auto'; 
                 }
             }, 600);
 
@@ -645,7 +617,6 @@
             }, 100);
         }
 
-        // --- 關閉並拉回卡片 ---
         function closeGuide(event, cardId) {
             event.stopPropagation();
             
@@ -656,10 +627,9 @@
             const summary = targetCard.querySelector('.card-summary');
             const closeBtn = targetCard.querySelector('.close-btn');
 
-            // 1. 【恢復排版關鍵】：將卡片切回 absolute，並叫回其他隱藏的卡片
             const currentHeight = targetCard.offsetHeight;
             
-            container.style.height = currentHeight + 'px'; // 鎖住外框高度防止閃爍
+            container.style.height = currentHeight + 'px'; 
             
             targetCard.style.position = 'absolute';
             targetCard.style.top = '0px';
@@ -667,20 +637,17 @@
             targetCard.style.width = '100%';
             targetCard.style.height = currentHeight + 'px';
             
-            // 讓其他卡片回到 DOM 參與拉回動畫
             allCards.forEach(card => {
                 if (card.id !== cardId) card.style.display = ''; 
             });
             
-            void targetCard.offsetWidth; // 強制重繪
+            void targetCard.offsetWidth;
 
-            // 2. 內部元素退場
             targetCard.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             content.style.opacity = '0';
             summary.classList.remove('hide-summary');
             closeBtn.classList.add('opacity-0', 'pointer-events-none');
 
-            // 3. 卡片縮回原位
             targetCard.style.top = targetCard.dataset.origTop + 'px';
             targetCard.style.left = targetCard.dataset.origLeft + 'px';
             targetCard.style.width = targetCard.dataset.origWidth + 'px';
@@ -689,7 +656,6 @@
             container.style.transition = 'height 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             container.style.height = container.dataset.origHeight + 'px';
 
-            // 4. 其他卡片拉回來
             allCards.forEach(card => {
                 if (card.id !== cardId) {
                     card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease-in';
@@ -699,7 +665,6 @@
                 }
             });
 
-            // 5. 動畫結束清理樣式
             setTimeout(() => {
                 targetCard.style = '';
                 targetCard.classList.remove('is-expanded', 'shadow-2xl', 'cursor-default');
@@ -715,7 +680,6 @@
                 });
             }, 600);
 
-            // 恢復顯示導覽列並跳回
             document.getElementById('main-nav').style.transform = 'translateY(0)';
             setTimeout(() => {
                 document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
