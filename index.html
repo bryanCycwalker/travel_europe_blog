@@ -18,19 +18,28 @@
         html { scroll-behavior: smooth; }
         .leaflet-container { background: #f8fafc; z-index: 10; font-family: inherit; }
         .leaflet-tile-container { filter: grayscale(20%) brightness(105%); }
-        /* 獨旅指南卡片專用動畫 */
+
+        /* --- 獨旅指南沉浸式動畫專用 (乾淨版) --- */
+        #essential-guides { overflow: hidden; }
+        #guides-container { position: relative; }
+        .guide-card { will-change: transform, top, left, width, height; }
+
         .card-summary {
             max-height: 200px;
             opacity: 1;
-            transition: max-height 0.6s ease-in-out, opacity 0.4s ease-in-out, margin 0.6s ease-in-out;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease;
             overflow: hidden;
         }
-        .guide-content {
+        .card-summary.hide-summary {
             max-height: 0;
             opacity: 0;
-            margin-top: 0;
-            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease-in-out, margin 0.6s ease-in-out;
-            overflow: hidden;
+            margin-bottom: 0;
+        }
+        
+        /* 隱藏內容的初始狀態，拔除 max-height 限制 */
+        .guide-content {
+            opacity: 0;
+            transition: opacity 0.5s ease 0.2s; /* 延遲淡入，等待外框長大 */
         }
         /* 「推開」的物理效果：縮小、往下退、寬度歸零 */
         .squeeze-out {
@@ -511,19 +520,21 @@
             const targetCard = document.getElementById(cardId);
             if (targetCard.classList.contains('is-expanded')) return;
 
-            // 強制隱藏導覽列
+            // 強制隱藏導覽列，進入純淨沉浸模式
             document.getElementById('main-nav').style.transform = 'translateY(-100%)';
 
             const container = document.getElementById('guides-container');
             const allCards = document.querySelectorAll('.guide-card');
             
-            // 1. 記錄原始狀態
+            // 1. 記錄原始狀態並固定容器高度
             const containerRect = container.getBoundingClientRect();
             const targetRect = targetCard.getBoundingClientRect();
             const origTop = targetRect.top - containerRect.top;
             const origLeft = targetRect.left - containerRect.left;
 
+            container.dataset.origHeight = container.offsetHeight;
             container.style.height = container.offsetHeight + 'px';
+
             targetCard.dataset.origTop = origTop;
             targetCard.dataset.origLeft = origLeft;
             targetCard.dataset.origWidth = targetCard.offsetWidth;
@@ -545,15 +556,16 @@
                 }
             });
 
-            // 3. 準備展開內容
+            // 3. 準備內容 (解除所有高度封印)
             const content = targetCard.querySelector('.guide-content');
             const summary = targetCard.querySelector('.card-summary');
             const closeBtn = targetCard.querySelector('.close-btn');
 
             content.classList.remove('hidden');
+            content.style.maxHeight = 'none'; // 【關鍵修復】解除高度封印
             summary.classList.add('hide-summary');
             
-            // 4. FLIP 動畫：先固定位置
+            // 4. FLIP 動畫準備：設為絕對定位
             targetCard.style.position = 'absolute';
             targetCard.style.top = origTop + 'px';
             targetCard.style.left = origLeft + 'px';
@@ -561,14 +573,14 @@
             targetCard.style.height = targetCard.dataset.origHeight + 'px';
             targetCard.style.zIndex = '50';
             
-            void targetCard.offsetWidth; // 重繪
+            void targetCard.offsetWidth; // 強制重繪
 
-            // 測量展開後的真實高度
+            // 測量真實展開高度
             targetCard.style.width = '100%';
             targetCard.style.height = 'auto';
             const fullHeight = targetCard.offsetHeight;
             
-            // 設回起點準備動畫
+            // 縮回起點準備播放動畫
             targetCard.style.width = targetCard.dataset.origWidth + 'px';
             targetCard.style.height = targetCard.dataset.origHeight + 'px';
             void targetCard.offsetWidth;
@@ -586,27 +598,29 @@
             container.style.transition = 'height 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             container.style.height = fullHeight + 'px';
 
+            // 內容淡入
             content.style.opacity = '1';
             closeBtn.classList.remove('opacity-0', 'pointer-events-none');
 
-            // 【關鍵修復】：動畫結束後，將 position 改回 relative
+            // 6. 【防裁切關鍵】：動畫結束後切換為 Relative
             setTimeout(() => {
                 if (targetCard.classList.contains('is-expanded')) {
                     targetCard.style.transition = 'none';
-                    targetCard.style.position = 'relative';
+                    targetCard.style.position = 'relative'; // 回歸正常排版流
                     targetCard.style.height = 'auto';
-                    container.style.height = 'auto'; // 灰色背景現在由相對定位的白框撐開
+                    container.style.height = 'auto'; // 灰色背景自動包覆白框
                 }
             }, 600);
 
-            // 視野自動對齊
             setTimeout(() => {
                 document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
         }
 
+        // --- 關閉並拉回卡片 ---
         function closeGuide(event, cardId) {
             event.stopPropagation();
+            
             const targetCard = document.getElementById(cardId);
             const container = document.getElementById('guides-container');
             const allCards = document.querySelectorAll('.guide-card');
@@ -614,29 +628,32 @@
             const summary = targetCard.querySelector('.card-summary');
             const closeBtn = targetCard.querySelector('.close-btn');
 
-            // 1. 先從 relative 變回 absolute 才能做縮回原位的動畫
+            // 1. 從 relative 切回 absolute 準備動畫
             const currentHeight = targetCard.offsetHeight;
             targetCard.style.position = 'absolute';
+            targetCard.style.top = '0px';
+            targetCard.style.left = '0px';
+            targetCard.style.width = '100%';
             targetCard.style.height = currentHeight + 'px';
+            
             container.style.height = currentHeight + 'px';
             void targetCard.offsetWidth;
 
-            // 2. 恢復動畫設定
+            // 2. 內部元素退場
             targetCard.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             content.style.opacity = '0';
             summary.classList.remove('hide-summary');
             closeBtn.classList.add('opacity-0', 'pointer-events-none');
 
-            // 3. 縮回原位
+            // 3. 卡片縮回原位
             targetCard.style.top = targetCard.dataset.origTop + 'px';
             targetCard.style.left = targetCard.dataset.origLeft + 'px';
             targetCard.style.width = targetCard.dataset.origWidth + 'px';
             targetCard.style.height = targetCard.dataset.origHeight + 'px';
 
-            // 灰色背景縮回原始高度 (若沒記錄則設為原本的樣子)
-            container.style.height = '500px'; // 這裡可以用一個預估值或原高度
+            container.style.height = container.dataset.origHeight + 'px';
 
-            // 4. 其他卡片飛回來
+            // 4. 其他卡片拉回來
             allCards.forEach(card => {
                 if (card.id !== cardId) {
                     card.style.transform = `translate(0px, 0px) scale(1)`;
@@ -645,17 +662,24 @@
                 }
             });
 
-            // 5. 清理樣式
+            // 5. 動畫結束清理樣式
             setTimeout(() => {
                 targetCard.style = '';
                 targetCard.classList.remove('is-expanded', 'shadow-2xl', 'cursor-default');
                 targetCard.classList.add('cursor-pointer', 'hover:shadow-xl', 'group');
+                
                 content.classList.add('hidden');
+                content.style = ''; 
+
                 container.style = '';
                 allCards.forEach(c => c.style = '');
             }, 600);
 
+            // 恢復顯示導覽列並跳回
             document.getElementById('main-nav').style.transform = 'translateY(0)';
+            setTimeout(() => {
+                document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
         }
     </script>
 </body>
