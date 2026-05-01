@@ -68,16 +68,16 @@
 
         <div class="mb-10 sticky top-20 bg-gray-50/95 backdrop-blur-md py-4 z-50 border-b border-gray-200">
             <div class="flex flex-col gap-4 items-start">
-                <div class="flex items-center gap-3">
-                    <span class="text-sm font-bold text-gray-500">🌍 國家：</span>
+                <div class="flex items-center gap-3 w-full md:w-auto">
+                    <span class="text-sm font-bold text-gray-500 whitespace-nowrap">🌍 國家：</span>
                     <select id="countryFilter" onchange="applyFilters()" class="bg-white border border-gray-300 text-gray-700 text-sm rounded-full focus:ring-red-500 focus:border-red-500 block p-2.5 font-bold shadow-sm md:w-64 w-full">
                         <option value="all">所有國家</option>
                         <option value="italy">🇮🇹 義大利 & 梵蒂岡</option>
                         <option value="uk">🇬🇧 英國</option>
                         <option value="france">🇫🇷 法國</option>
                         <option value="spain">🇪🇸 西班牙</option>
-                        <option value="dach">🇩🇪🇨🇭 德/瑞/奧 (德國/瑞士/奧地利)</option>
-                        <option value="benelux">🇳🇱🇧🇪🇱🇺 荷比盧 (荷蘭/比利時/盧森堡)</option>
+                        <option value="dach">🇩🇪🇨🇭 德/瑞/奧</option>
+                        <option value="benelux">🇳🇱🇧🇪🇱🇺 荷比盧</option>
                         <option value="greece">🇬🇷 希臘 & 土耳其</option>
                         <option value="others">🌍 其他 (波蘭/葡萄牙/丹麥/馬爾他)</option>
                     </select>
@@ -121,7 +121,7 @@
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 2-3 個月前。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 早場時段無論淡旺季皆秒殺。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 去 Klook/GetYourGuide 買含倫敦市區來回接駁車的套票，通常會保留名額。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 現場無票。去 OTA 平台買含倫敦市區來回接駁車的套票，通常會保留名額。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://www.wbstudiotour.co.uk/tickets/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
@@ -138,10 +138,27 @@
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1.5 - 2 個月前。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 奈斯爾宮殿嚴格限制人數，全年極難搶。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 官方會在參觀日前一天「半夜 00:00 (西班牙時間)」釋出少量退票。否則只能買代購團。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 官方會在參觀日前一天「半夜 00:00」釋出少量退票。否則只能買代購團。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://tickets.alhambra-patronato.es/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-red-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-red-700 transition">🎫 代購備案</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="others">
+                <div class="bg-red-50 p-4 border-b border-red-100">
+                    <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">哈爾薩夫列尼地宮</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇲🇹 馬爾他</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 2-3 個月前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 為保護遺蹟，每小時嚴格限制 10 人進入。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 每天早上 8:00 會在首都國家美術館釋出極少量的隔日票，需早起排隊。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://heritagemalta.mt/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-red-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-red-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -155,7 +172,7 @@
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 官方固定 6 週前釋放。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 空間狹小，旺季一票難求。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 每週二早上 10:00 (歐洲時間) 釋出 6 週後的票。現場不賣票！</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 100% 必須線上預約，現場不賣票！固定每週二早上 10:00 (歐洲時間) 釋出。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://www.annefrank.org/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
@@ -172,7 +189,7 @@
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 3-4 週前。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 全球梵谷迷朝聖地，旺季極難搶。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 100% 必須線上預約。買不到只能上 OTA 尋找套票碰運氣。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 100% 必須線上預約，現場無售票處！買不到只能上 OTA 尋找套票碰運氣。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://www.vangoghmuseum.nl/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
@@ -188,28 +205,11 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 60 天前開放。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 「直達頂層」的電梯票不分淡旺季，天天被全球觀光客秒殺。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 現場排隊買「走樓梯到二樓 + 電梯上頂層」的體力活票。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 「直達頂層」的電梯票不分淡旺季，天天被秒殺。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 買不到直達票，可現場排隊買「走樓梯到二樓 + 電梯上頂層」的體力活票。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.toureiffel.paris/en/rates-opening-times" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
-                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-red-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-red-700 transition">🎫 代購備案</a>
-                </div>
-            </div>
-
-            <div class="ticket-card bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="others">
-                <div class="bg-red-50 p-4 border-b border-red-100">
-                    <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">哈爾薩夫列尼地宮</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇲🇹 馬爾他</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 2-3 個月前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 嚴格限制每小時 10 人進入。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 每天早上 8:00 首都國家美術館會釋出極少量的隔日票，需早起排隊。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://heritagemalta.mt/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://www.toureiffel.paris/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-red-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-red-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -231,97 +231,87 @@
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="france">
+            <div class="ticket-card bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="dach">
                 <div class="bg-red-50 p-4 border-b border-red-100">
-                    <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">巴黎地下墓穴</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇫🇷 法國｜巴黎</p>
+                    <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級 (必須預約)</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">德國國會大廈</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜柏林</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 確切的 7 天前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 由於隧道空間與安全限制，每日名額極少。官方只開放「提前 7 天」購票，旺季幾乎是一開賣就秒殺。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 現場買不到票！若沒搶到官方票，強烈建議去 OTA 平台找「免排隊導覽套票」（雖然較貴，但包含解說且保證入場）。</p>
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 個月前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 參觀免費，但基於國安協議，<strong>必須提前實名登記</strong>。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 現場絕對不接受無預約進入！若官網額滿，可考慮購買 OTA 的「國會區深度導覽」。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.catacombes.paris.fr/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://visite.bundestag.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網實名預約</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-red-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-red-700 transition">🎫 代購備案</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="dach">
-                <div class="bg-red-50 p-4 border-b border-red-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級 (免費但必搶)</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">德國國會大廈 (玻璃穹頂)</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜柏林</p>
-                    </div>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 個月前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 全年皆需預約。參觀是<strong>完全免費的</strong>，但基於嚴格的國安協議，必須提前實名登記。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 現場「絕對不接受」無預約進入！沒搶到票只能在草皮上看外觀。若官網額滿，可考慮購買 GetYourGuide 的「國會區深度導覽」(通常會綁定入內名額)。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://visite.bundestag.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網實名預約</a>
-                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-red-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-red-700 transition">🎫 導覽備案</a>
-                </div>
-            </div>
-
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="dach">
-                <div class="bg-red-50 p-4 border-b border-red-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級 (節慶限定)</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">慕尼黑啤酒節 & 特殊市集</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜慕尼黑及各城市</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="dach">
+                <div class="bg-red-50 p-4 border-b border-red-100">
+                    <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級 (節慶限定)</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">慕尼黑啤酒節</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜慕尼黑</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 6-9 個月前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 啤酒節(9-10月)與聖誕節。入園免費，但「啤酒帳篷座位」與「市區住宿」極難搶；特殊市集(如拉文納峽谷)需提早買入場券。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 帳篷沒位子只能一大早去現場排無預約區，或坐在戶外吹風。住宿若滿了，只能住到慕尼黑車程 1 小時外的郊區通車。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 9-10月舉行。入園免費，但「帳篷座位」與「市區住宿」極難搶。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 帳篷沒位子只能一早去現場排無預約區。住宿若滿了，只能住到車程 1 小時外的郊區。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.oktoberfest.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 啤酒節官網</a>
+                    <a href="https://www.oktoberfest.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 啤酒節官網</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="dach">
-                <div class="bg-red-50 p-4 border-b border-red-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級 (強制訂位)</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">冰河列車 & 伯連納特快車</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="dach">
+                <div class="bg-red-50 p-4 border-b border-red-100">
+                    <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級 (強制訂位)</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">冰河快車 (Glacier Express)</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 冰河 90天前 / 伯連納 6個月前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 全年熱門。就算你有「瑞士旅行通行證 (STP)」，也<strong>強制規定必須額外付費「預約座位」</strong>才能上車。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 沒預約絕對上不了車！若景觀列車客滿，唯一解法是搭乘行駛在同一條鐵軌上的「普通區間車」(需轉車數次，車窗不能全開，但免預約費)。</p>
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 最多提前 90 天。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 全年熱門。就算有「瑞士旅行通行證(STP)」，也<strong>強制額外付費預約座位</strong>。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 沒預約絕對上不了車！唯一解法是搭乘行駛在同一鐵軌上的「普通區間車」(需轉車數次)。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.glacierexpress.ch/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 冰河預約</a>
-                    <a href="https://tickets.rhb.ch/en/pages/bernina-express" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 伯連納預約</a>
+                    <a href="https://www.glacierexpress.ch/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網訂位</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="dach">
-                <div class="bg-red-50 p-4 border-b border-red-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">瑞士蓮巧克力之家</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜蘇黎世近郊</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="dach">
+                <div class="bg-red-50 p-4 border-b border-red-100">
+                    <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級 (強制訂位)</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">伯連納快車 (Bernina Express)</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 最多提前 6 個月。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 列入世界遺產的鐵道路線，全景觀車廂<strong>強制訂位</strong>。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 與冰河快車相同，沒訂位只能改搭無全景車窗的普通區間列車。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://tickets.rhb.ch/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網訂位</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-red-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hell" data-country="dach">
+                <div class="bg-red-50 p-4 border-b border-red-100">
+                    <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded-md mb-2 inline-block">🔥 地獄級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">瑞士蓮巧克力之家</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜蘇黎世近郊</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 2-4 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 擁有世界最大巧克力噴泉，因室內空間與發放試吃巧克力的流程限制，門票經常在幾天甚至數週前就售罄。</p>
-                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 現場極高機率撲空！必須提早線上預訂時段。如果買不到，可改去瑞士西部較少觀光客的「凱雅巧克力工廠 (Cailler)」。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 擁有世界最大巧克力噴泉，因試吃流程與空間限制，門票經常售罄。</p>
+                    <p><strong class="text-red-600">🚨 Plan B 補救：</strong> 現場極高機率撲空！如果買不到，可改去瑞士西部較少觀光客的「凱雅巧克力工廠(Cailler)」。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.lindt-home-of-chocolate.com/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://www.lindt-home-of-chocolate.com/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網搶票</a>
                 </div>
             </div>
-            
+
             <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="italy">
                 <div class="bg-orange-50 p-4 border-b border-orange-100">
                     <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
@@ -351,7 +341,7 @@
                     <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 參觀日前 7 天會再釋出一批票。或現場排隊 1-2 小時買普通票。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://colosseo.it/en/tickets/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://colosseo.it/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -364,7 +354,7 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 3-4 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 文藝復興藝術殿堂，旺季現場排隊人龍極為可怕。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 旺季現場排隊人龍極為可怕。</p>
                     <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 強烈建議找代購買免排隊票。現場排隊要有耗掉 2 小時以上的心理準備。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
@@ -381,7 +371,7 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 3-4 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 館內空間比烏菲茲小，看大衛像真跡排隊人潮驚人。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 看大衛像真跡排隊人潮驚人。</p>
                     <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 建議與烏菲茲一起預約。或買代購快速通關、傍晚去現場碰運氣。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
@@ -415,28 +405,11 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 2 週前 (登塔需更早)。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 高第最偉大作品，全球瘋搶，旺季極快售罄。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 高第偉大作品，全球瘋搶，旺季極快售罄。</p>
                     <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 必須上網買，當天現場買幾乎只剩爛時段或向隅。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://sagradafamilia.org/en/tickets" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
-                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 代購備案</a>
-                </div>
-            </div>
-
-            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
-                <div class="bg-orange-50 p-4 border-b border-orange-100">
-                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">新天鵝堡</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜富森</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 個月前線上預約。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 冬夏皆熱門。線上預約需付微薄手續費，現場才付清票款。</p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 現場保留極少數票。早上 8:00 開門，你必須 7:00 就到山下排隊。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://shop.ticket-center-hohenschwangau.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://sagradafamilia.org/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -449,11 +422,11 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 2-3 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 看震驚世界的《蒙面基督》，旺季極快秒殺，且空間非常小。</p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 現場排隊要等很久且常售罄。建議提前上 OTA 平台買票。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 為了看《蒙面基督》，旺季極快秒殺，且空間非常小。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 現場排隊要等很久且常售罄。建議提前上 OTA 買票，或半夜刷官網。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.museosansevero.it/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://www.museosansevero.it/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -466,8 +439,8 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 個月前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 國王不在家才能看！通常只有 <strong>7月至 9月</strong> 開放，名額極其有限。</p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 若買不到入內參觀票，只能提早去欄杆外卡位看「衛兵交接儀式」(免費)。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 國王不在家才能看！通常只有 <strong>7月至 9月</strong> 開放，名額有限。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 買不到入內參觀票，只能去外圍卡位看「衛兵交接儀式」(免費)。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://www.rct.uk/visit/buckingham-palace" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
@@ -475,131 +448,186 @@
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="france">
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="benelux">
                 <div class="bg-orange-50 p-4 border-b border-orange-100">
-                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">凡爾賽宮</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇫🇷 法國｜巴黎近郊</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 3-4 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 必須預約「入場時段」。週末的「音樂噴泉日」人潮更是爆滿。</p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 就算買了票，現場安檢還是要排 1 小時以上。若沒買到票，可考慮買含巴黎來回交通的旅行團套票，省去通車麻煩。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://en.chateauversailles.fr/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
-                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 代購備案</a>
-                </div>
-            </div>
-
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="france">
-                <div class="bg-orange-50 p-4 border-b border-orange-100">
-                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">巴黎迪士尼</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇫🇷 法國｜巴黎近郊</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 2-4 週前（採浮動票價，越早越便宜）。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 學校假期與萬聖/聖誕節期間極度擁擠。</p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> <strong>現場售票亭已取消售票！</strong> 必須在網路上買好。如果官網賣光，只能去 Klook 或當地旅行社找找看有無釋出的實體票。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.disneylandparis.com/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
-                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 平台比價</a>
-                </div>
-            </div>
-
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="france">
-                <div class="bg-orange-50 p-4 border-b border-orange-100">
-                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">南針峰纜車 (看白朗峰)</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇫🇷 法國｜夏慕尼 (阿爾卑斯)</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 纜車名額有限。旺季遇到大晴天時，票會瞬間秒殺。</p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 這是個看天氣吃飯的景點。若旺季好天氣沒票，只能一早去纜車站現場碰運氣，或改搭「冰海列車 (Mer de Glace)」。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.montblancnaturalresort.com/en/aiguille-du-midi" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
-                </div>
-            </div>
-
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="benelux">
-                <div class="bg-orange-50 p-4 border-b border-orange-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級 (春季限定)</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">庫肯霍夫花園</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇳🇱 荷蘭｜利瑟 (Lisse)</p>
-                    </div>
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級 (春季限定)</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">庫肯霍夫花園</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇳🇱 荷蘭｜利瑟</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 個月前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 每年僅在 3月中至 5月中 短暫開放！全世界遊客湧入，極度容易客滿。</p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 現場不售票！強烈建議直接買「門票 + 來回接駁車」的套票 (Combi-ticket)，否則旺季在阿姆斯特丹車站等公車會等到崩潰。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 僅在 3月中至 5月中 短暫開放！遊客極度湧入。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 現場不售票！強烈建議買「門票 + 來回接駁車」套票，否則在車站等公車會崩潰。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://keukenhof.nl/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://keukenhof.nl/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 交通套票</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="benelux">
-                <div class="bg-orange-50 p-4 border-b border-orange-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">布魯日鐘樓</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇧🇪 比利時｜布魯日</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="benelux">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">布魯日鐘樓</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇧🇪 比利時｜布魯日</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 2-3 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 塔內階梯極度狹窄，官方實施嚴格的「同時僅限 87 人在內」的安全管制。</p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 旺季如果沒提前上網預約時段，現場排隊等別人下塔通常會耗費 1.5 到 2 小時，非常浪費時間。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 塔內階梯狹窄，嚴格限制「同時僅限 87 人在內」。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 沒提前預約，現場排隊等別人下塔通常會耗費 1.5 到 2 小時。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.museabrugge.be/en/visit-our-museums/belfort" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網預約</a>
+                    <a href="https://www.museabrugge.be/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網預約</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
-                <div class="bg-orange-50 p-4 border-b border-orange-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級 (夏季強制預約)</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">少女峰 (Jungfraujoch)</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜格林德瓦/茵特拉肯</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">新天鵝堡</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜富森</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 官方規定：<strong class="text-red-600">每年 5/1 至 8/31 期間，「強制」必須額外花錢預約座位！</strong></p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 就算有 STP 甚至少女峰 Pass，夏季沒預約座位就是上不了山。淡季雖不強制，但現場排隊可能耗費半小時到一小時。</p>
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 個月前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 僅限導覽行程入場，線上預約需付手續費，現場才付清票款。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 保留極少數現場票。早上 8:00 開門，必須 7:00 到山下排隊。或買一日遊套票。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.jungfrau.ch/en-gb/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網預約</a>
+                    <a href="https://shop.ticket-center-hohenschwangau.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 代購備案</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
-                <div class="bg-orange-50 p-4 border-b border-orange-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">冰川天堂 & 葛納葛特</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜策馬特 (看馬特洪峰)</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">高天鵝堡</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜富森</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 數週前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 位於新天鵝堡山下，遊客通常會兩座一起參觀，人潮同樣龐大。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 現場門票極快售罄，強烈建議與新天鵝堡一併線上預訂。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://shop.ticket-center-hohenschwangau.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網搶票</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">柏林博物館島</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜柏林</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 2-4 週前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 收藏娜芙蒂蒂的「新博物館」強制預約時段。<span class="text-red-600 font-bold">佩加蒙博物館整修中。</span></p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 現場排隊冗長。強烈建議買柏林歡迎卡或線上預約時段票。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://www.smb.museum/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 柏林通票</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">柏林地下導覽</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜柏林</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前預訂。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 探索柏林冷戰與二戰的地下碉堡，特定語言導覽場次有限。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 必須提前預訂導覽行程，否則無法入內參觀。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://www.berliner-unterwelten.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網預約</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級 (導覽)</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">賓士博物館與工廠導覽</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜斯圖加特</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 3-4 週前 (英文導覽需更早)。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 純參觀博物館不難，但進入生產線看機器人手臂的「工廠導覽」名額極少。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 導覽沒預約絕對進不去。純參觀博物館通常現場購票即可。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="YOUR_MERCEDES_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網預約</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級 (導覽)</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">BMW 博物館與工廠導覽</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜慕尼黑</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 3-4 週前 (英文導覽需更早)。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 慕尼黑必訪。同樣是「工廠導覽」非常搶手。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 沒預約到工廠導覽，可改去旁邊免費的 BMW Welt 展售中心，或現場買博物館票。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="YOUR_BMW_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網預約</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級 (夏季強制預約)</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">少女峰 (Jungfraujoch)</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜格林德瓦/茵特拉肯</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 週前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 官方規定：<strong class="text-red-600">每年 5/1 至 8/31 「強制」必須額外花錢預約座位！</strong></p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 就算有 STP 甚至少女峰 Pass，夏季沒預約座位就是上不了山。淡季不強制，但排隊可能耗費一小時。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://www.jungfrau.ch/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網預約</a>
+                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-orange-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-orange-700 transition">🎫 代購備案</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">馬特洪峰冰川天堂</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜策馬特</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 數天至 1 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 看天氣吃飯的景點！旺季只要遇到大晴天，纜車與百年齒軌火車的排隊人潮會瞬間塞爆。</p>
-                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 現場可買票，但建議看好天氣預報後，提前一兩天在線上買好 QR Code 車票，直接通關省去排隊買票的折磨。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 歐洲最高的纜車站。看天氣吃飯的景點！旺季大晴天時排隊人潮會瞬間塞爆。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 建議看好天氣預報後，提前在線上買好 QR Code 車票，直接通關省去排隊折磨。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.matterhornparadise.ch/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 冰川天堂</a>
-                    <a href="https://www.gornergrat.ch/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 葛納葛特</a>
+                    <a href="https://www.matterhornparadise.ch/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網購票</a>
                 </div>
             </div>
-            
+
+            <div class="ticket-card bg-white rounded-2xl border border-orange-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="hard" data-country="dach">
+                <div class="bg-orange-50 p-4 border-b border-orange-100">
+                    <span class="text-xs font-bold text-orange-700 bg-orange-100 px-2 py-1 rounded-md mb-2 inline-block">🔴 困難級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">葛納葛特 (Gornergrat)</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜策馬特</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 數天至 1 週前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 搭乘歷史悠久的齒軌火車看馬特洪峰倒影，火車班次與座位有限。</p>
+                    <p><strong class="text-orange-700">🚨 Plan B 補救：</strong> 高峰期提前訂票是明智之舉，避免在車站耗費時間等待下一班。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://www.gornergrat.ch/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網購票</a>
+                </div>
+            </div>
+
             <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="uk">
                 <div class="bg-yellow-50 p-4 border-b border-yellow-100">
                     <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
@@ -663,7 +691,7 @@
                     <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場排隊可買票，但安檢隊伍很長。建議線上買好直接走預約通道。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.musee-orsay.fr/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://www.musee-orsay.fr/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -680,7 +708,7 @@
                     <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 雖然可現場排隊，但旺季先買好時段票能走快速安檢通道，節省大量時間。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.sainte-chapelle.fr/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://www.sainte-chapelle.fr/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -711,10 +739,10 @@
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1 週。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 歐洲三大美術館之一，館藏豐富。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 官方有提供「閉館前兩小時免費入場」，但現場人龍極長！想深度看畫請上網買票。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 官方有「閉館前兩小時免費入場」，但人龍極長！想深度看畫請上網買票。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.museodelprado.es/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://www.museodelprado.es/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -731,7 +759,7 @@
                     <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 雖然可現場買，但強烈建議線上預訂以節省時間。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://tickets.patrimonionacional.es/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://tickets.patrimonionacional.es/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -761,8 +789,8 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前數天。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 2024 年起外國人不再免費，需付 €25 且只能走二樓迴廊，旺季排隊非常可怕。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 淡季可現場排隊，旺季強烈建議線上購票或買免排隊導覽以節省時間。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 外國人現需付 €25 且只能走二樓迴廊，旺季排隊非常可怕。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 淡季可現場排隊，旺季強烈建議買免排隊導覽以節省時間。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition w-full">🎫 代購免排隊</a>
@@ -777,8 +805,8 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 2 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 全年熱門。若需參加特定語言（特別是英文）的官方導覽，極快額滿。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 免費無導覽時段需在早上開門前極早去排隊搶名額。或至克拉科夫市區找旅行社買一日遊包車套票。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 全年熱門。若需特定語言（如英文）官方導覽，極快額滿。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 免費無導覽時段需早上極早去排隊搶名額。或找旅行社買一日遊包車套票。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://www.auschwitz.org/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
@@ -794,8 +822,8 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前數天至 1 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 辛特拉的景點旺季人潮非常可怕，售票機常當機或排爆。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 強烈建議出發前提早幾天在線上買好，現場出示 QR Code 即可，省去排隊折磨。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 辛特拉旺季人潮非常可怕，售票機常當機或排爆。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 強烈建議出發前線上買好，現場出示 QR Code 即可，省去排隊折磨。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://bilheteira.parquesdesintra.pt/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
@@ -815,7 +843,7 @@
                     <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場可買，但一樣建議提早線上預訂省時間。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://regaleira.pt/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://regaleira.pt/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -827,9 +855,9 @@
                     <p class="text-xs text-gray-500 font-medium mt-1">🇩🇰 丹麥｜哥本哈根</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 3-5 天預訂時段。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 哥本哈根最美登高點，但木造塔頂空間極其狹小，每次容納人數極少。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 強烈建議線上預約，否則到了現場常會被告知今日已滿檔，無法補救。</p>
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 3-5 天預訂。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 木造塔頂空間極其狹小，每次容納人數極少。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 強烈建議線上預約，否則到了現場常會被告知今日滿檔，無法補救。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://vorfrelserskirke.dk/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
@@ -845,7 +873,7 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1-2 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 蘇格蘭超級熱門景點。尤其在 8 月軍樂節與藝術節期間，幾乎一票難求。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 蘇格蘭超級熱門景點。8 月軍樂節期間幾乎一票難求。</p>
                     <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場仍可購票，但建議一早開門就去排隊以避開人潮。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
@@ -863,10 +891,10 @@
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1-2 週。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 現場買票較貴，且需排隊搭乘園區接駁車。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 巨石陣大眾交通不便，多數人會直接在 OTA 平台買「倫敦出發：溫莎+巴斯+巨石陣一日遊」最省事。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 巨石陣大眾交通不便，多數人會直接在 OTA 買「倫敦出發一日遊」最省事。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.english-heritage.org.uk/visit/places/stonehenge/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://www.english-heritage.org.uk/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 一日遊套票</a>
                 </div>
             </div>
@@ -879,8 +907,8 @@
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1-2 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 非常壯觀的地下鹽礦教堂，必須「跟隨官方導覽員」才能入內。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 「英文導覽」場次有限，旺季沒提早買可能只能聽波蘭語場次。市區有許多旅行社提供接駁套票。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 壯觀的地下鹽礦教堂，必須「跟隨導覽員」入內。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 「英文導覽」場次有限。市區有許多旅行社提供接駁套票。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://www.wieliczka-saltmine.com/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
@@ -897,10 +925,10 @@
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 3-7 天或現場。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 若要「搭電梯登頂」需提早預約，走樓梯則好買很多。</p>
-                    <p><strong class="text-teal-700">🚨 Plan B 補救：</strong> 現場機台買票即可，排隊速度尚可。但夏季若想看夕陽時段登頂，建議線上預訂。</p>
+                    <p><strong class="text-teal-700">🚨 Plan B 補救：</strong> 現場機台買票即可。但夏季若想看夕陽時段登頂，建議線上預訂。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://ticket.duomomilano.it/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網購票</a>
+                    <a href="https://ticket.duomomilano.it/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網購票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-teal-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-teal-700 transition">🎫 代購備案</a>
                 </div>
             </div>
@@ -948,128 +976,40 @@
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 前 1-2 天或現場。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 收藏《戴珍珠耳環的少女》，相較於阿姆斯特丹的人擠人，這裡觀展品質極佳。</p>
-                    <p><strong class="text-teal-700">🚨 Plan B 補救：</strong> 基本上不太會遇到售罄。行程彈性的話，到海牙當天再決定買票進去即可。</p>
+                    <p><strong class="text-teal-700">🚨 Plan B 補救：</strong> 基本上不太會遇到售罄。行程彈性的話，到海牙當天再決定買票即可。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.mauritshuis.nl/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網購票</a>
-                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-teal-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-teal-700 transition">🎫 代購備案</a>
+                    <a href="https://www.mauritshuis.nl/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網購票</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="france">
+            <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="benelux">
                 <div class="bg-yellow-50 p-4 border-b border-yellow-100">
                     <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">聖米歇爾山 修道院</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇫🇷 法國｜諾曼第</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1-2 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 進入「島嶼」免費，但要進入頂端的「修道院」需買票，旺季排隊極長。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場可買，但夏天在階梯上曝曬排隊很痛苦。多數獨旅者會選擇從巴黎出發的「一日遊大巴」省去複雜交通。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.abbaye-mont-saint-michel.fr/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
-                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 一日遊套票</a>
-                </div>
-            </div>
-
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="france">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
-                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">吉維尼 莫內花園</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇫🇷 法國｜吉維尼 (巴黎近郊)</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1-2 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 僅在春夏季（4月-10月）開放。花季週末人潮爆炸。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場售票口大排長龍，有時甚至需等 1 小時以上。線上買好票可直接走「預約者通道」入園。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://fondation-monet.com/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
-                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 巴黎出發一日遊</a>
-                </div>
-            </div>
-
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="france">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
-                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">香波堡 & 舍農索城堡</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇫🇷 法國｜羅亞爾河谷</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 羅亞爾河最知名的「堡王」與「堡后」。舍農索城堡建在河上，空間有限，旺季非常擁擠。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場購票通常需排隊，強烈建議線上買好 Skip-the-line 門票。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.chambord.org/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 香波堡</a>
-                    <a href="https://www.chenonceau.com/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 舍農索</a>
-                </div>
-            </div>
-
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="france">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
-                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">法國史前洞穴探險</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇫🇷 法國｜西南部 (Padirac / Lascaux)</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 2 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 包含地心乘船(Gouffre de Padirac)與史前壁畫(Lascaux IV)。為保護生態，每日進洞人數嚴格管制。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 旺季現場幾乎買不到票！這類地點通常位於偏遠自駕區，沒買到票白跑一趟會很崩潰，務必提前官網預訂。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.gouffre-de-padirac.com/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 Padirac 官網</a>
-                </div>
-            </div>
-
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="france">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
-                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">萊博光影採石場</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">🇫🇷 法國｜普羅旺斯</p>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 普羅旺斯夏季極熱，這個前身是採石場的超大型冷氣房光影展，是夏日避暑大熱門。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場可排隊，但建議買時段票確保能入場。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.carrieres-lumieres.com/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
-                </div>
-            </div>
-
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="benelux">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">荷蘭國家博物館</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇳🇱 荷蘭｜阿姆斯特丹</p>
-                    </div>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">荷蘭國家博物館</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇳🇱 荷蘭｜阿姆斯特丹</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 收藏林布蘭《夜巡》，佔地極廣，但為了控管品質目前強制要求預約入場時段。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 就算持有「阿姆斯特丹城市卡 (City Card)」，也必須上官網預約免費時段。若有特殊大展（如維梅爾特展）則需提早數月搶票。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 收藏林布蘭《夜巡》，目前強制要求預約入場時段。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 持「阿姆斯特丹城市卡」也必須預約。若有特殊大展需提早數月搶票。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.rijksmuseum.nl/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://www.rijksmuseum.nl/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 代購備案</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="benelux">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">原子塔 (Atomium)</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇧🇪 比利時｜布魯塞爾</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="benelux">
+                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
+                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">原子塔 (Atomium)</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇧🇪 比利時｜布魯塞爾</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1 週。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 布魯塞爾的大地標，搭乘電梯至頂層觀景台在旺季常需大排長龍。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場可機台購票。但強烈建議線上購買 Skip-the-line 免排隊門票，能為你省下大量曬太陽的時間。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場可機台購票。但強烈建議線上購買免排隊門票，省下曬太陽的時間。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
                     <a href="https://atomium.be/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
@@ -1077,97 +1017,136 @@
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="benelux">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">聖巴夫主教座堂 (祭壇畫)</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇧🇪 比利時｜根特</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="benelux">
+                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
+                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">聖巴夫主教座堂 (祭壇畫)</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇧🇪 比利時｜根特</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前 1-2 週。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 為了看美術史無價之寶《神秘的羔羊》真跡，禮拜堂內部實施嚴格的時段與人數管制。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 旺季現場買票常會向隅，強烈建議出發前在官網預訂好時段，確保能順利參觀。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 為看《神秘的羔羊》真跡，內部實施嚴格的時段與人數管制。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 旺季現場買票常會向隅，強烈建議出發前在官網預訂好時段。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.sintbaafskathedraal.be/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網預約</a>
+                    <a href="https://www.sintbaafskathedraal.be/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網預約</a>
                     <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 代購備案</a>
                 </div>
             </div>
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">漢堡愛樂廳 & 柏林電視塔</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜漢堡 / 柏林</p>
-                    </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
+                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
+                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">黃金列車 (GoldenPass)</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜蒙特魯 等</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 柏林制高點電視塔每年百萬人造訪；易北愛樂廳(Elbphilharmonie)音樂會一票難求。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 電視塔現場可買票但需排隊；愛樂廳的觀景台(Plaza)是免費的，現場領票即可，但若想省排隊時間可上網付小額手續費預約時段。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 黃金列車無「強制」預約，但全景車窗景致迷人，旺季極易客滿。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 沒預約很可能整段路要站著！想搭乘最車頭的「尊爵座位 (Prestige Class)」，務必提早劃位。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://tv-turm.de/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 電視塔官網</a>
-                    <a href="https://www.elbphilharmonie.de/en/plaza" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 愛樂廳官網</a>
-                </div>
-            </div>
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">黃金列車 & 聖哥達全景</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜蒙特魯/因特拉肯 等</p>
-                    </div>
-                </div>
-                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
-                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 週前。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 黃金列車(GoldenPass)與琉森快車無「強制」預約；但聖哥達景觀列車則必須強制訂位。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 旺季如果沒為黃金列車訂位，很可能整段路都要站著看風景！特別是想搭乘最車頭的「尊爵座位 (Prestige Class)」，務必提早劃位。</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.gpexpress.ch/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 黃金列車預約</a>
+                    <a href="https://www.gpexpress.ch/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 列車預約</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">皮拉圖斯山 & 鐵力士山</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜琉森 (Luzern) 近郊</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
+                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
+                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級 (強制訂位)</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">聖哥達景觀列車</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜盧加諾/琉森</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 週前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 結合火車與遊船的特殊路線，僅於 4-10 月限定運行，<strong>必須強制訂位</strong>。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 沒訂位無法搭乘景觀車廂，只能轉搭一般無全景的區間車。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://www.sbb.ch/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 SBB官網預約</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
+                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
+                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">皮拉圖斯山 (Pilatus)</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜琉森近郊</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前數天。</p>
-                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 皮拉圖斯的「金色環遊」路線與世界上最陡峭的齒軌火車極受歡迎；鐵力士山則有大量團客。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場可購票，但建議先花 5 瑞郎上網預約皮拉圖斯齒軌火車的「搭乘時段」，以免在山下枯等一兩小時。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 世界上最陡峭的齒軌火車極受歡迎，夏季「金色環遊」人潮眾多。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場可購票，但建議先花 5 瑞郎上網預約齒軌火車的「搭乘時段」，以免在山下枯等一兩小時。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.pilatus.ch/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 皮拉圖斯官網</a>
-                    <a href="https://www.titlis.ch/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 鐵力士山官網</a>
+                    <a href="https://www.pilatus.ch/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網搶票</a>
                 </div>
             </div>
 
-            <div class="ticket-card flex-col bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
-                <div class="bg-yellow-50 p-4 border-b border-yellow-100 flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級 / 🟢 現場</span>
-                        <h3 class="font-extrabold text-lg text-gray-900 leading-tight">西庸城堡</h3>
-                        <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜蒙特魯 (Montreux)</p>
-                    </div>
+            <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
+                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
+                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">鐵力士山 (Titlis)</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜琉森近郊</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前數天。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 擁有 360 度旋轉纜車，旺季期間會有大量旅行團。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場機台買票即可，但提前預訂可以大大縮短等候時間。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://www.titlis.ch/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網搶票</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-teal-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
+                <div class="bg-teal-50 p-4 border-b border-teal-100">
+                    <span class="text-xs font-bold text-teal-700 bg-teal-100 px-2 py-1 rounded-md mb-2 inline-block">🟢 現場可買</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">西庸城堡</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇨🇭 瑞士｜蒙特魯</p>
                 </div>
                 <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
                     <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 提前數天或現場。</p>
                     <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 瑞士參觀人數最多的歷史建築，建在絕美的日內瓦湖畔。</p>
-                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 夏季城堡內可能會非常擁擠，排隊購票費時。提前在線上購買門票可以讓您直接掃碼入場，省去排隊麻煩。</p>
+                    <p><strong class="text-teal-700">🚨 Plan B 補救：</strong> 夏季城堡內可能會非常擁擠。提前在線上購買門票可以讓您直接掃碼入場，省去排隊麻煩。</p>
                 </div>
                 <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
-                    <a href="https://www.chillon.ch/en/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="https://www.chillon.ch/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網購票</a>
                 </div>
             </div>
-            
+
+            <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
+                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
+                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">漢堡易北愛樂廳</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜漢堡</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 週前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 建築傑作，音樂會門票通常一票難求。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 愛樂廳的觀景台(Plaza)是免費的，現場領票即可。但若想省排隊時間可上網付小額手續費預約時段。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://www.elbphilharmonie.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition w-full">🌐 官網預約</a>
+                </div>
+            </div>
+
+            <div class="ticket-card bg-white rounded-2xl border border-yellow-200 shadow-sm hover:shadow-lg overflow-hidden" data-difficulty="warn" data-country="dach">
+                <div class="bg-yellow-50 p-4 border-b border-yellow-100">
+                    <span class="text-xs font-bold text-yellow-700 bg-yellow-100 px-2 py-1 rounded-md mb-2 inline-block">🟡 警戒級</span>
+                    <h3 class="font-extrabold text-lg text-gray-900 leading-tight">柏林電視塔</h3>
+                    <p class="text-xs text-gray-500 font-medium mt-1">🇩🇪 德國｜柏林</p>
+                </div>
+                <div class="p-5 flex-grow space-y-3 text-sm text-gray-700">
+                    <p><strong class="text-gray-900">⏰ 提前預訂：</strong> 1-2 週前。</p>
+                    <p><strong class="text-gray-900">🌤️ 淡旺季：</strong> 柏林制高點，每年百萬人造訪。</p>
+                    <p><strong class="text-yellow-700">🚨 Plan B 補救：</strong> 現場可買票但需排隊。強烈建議事先購票，選擇快速通關選項以節省時間。</p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-100 flex gap-2 mt-auto">
+                    <a href="https://tv-turm.de/" target="_blank" rel="nofollow" class="flex-1 text-center bg-gray-800 text-white text-xs font-bold py-2 rounded-lg hover:bg-gray-900 transition">🌐 官網搶票</a>
+                    <a href="YOUR_OTA_LINK" target="_blank" rel="nofollow" class="flex-1 text-center bg-yellow-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-yellow-700 transition">🎫 代購備案</a>
+                </div>
+            </div>
+
         </div>
     </main>
 
