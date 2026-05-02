@@ -423,13 +423,6 @@
         </div>
     </section>
 
-    ```
-
-**這個設計的三大亮點：**
-1. **背景引導線 (`#flow-arrow`)：** 我用 SVG 畫了一條帶有箭頭的虛線，精準穿梭在卡片的後方，完美達成你要求的「引導粗箭頭」效果（這條線會在大螢幕的三欄佈局中顯示）。
-2. **大數字浮水印 (01~06)：** 在每張卡片的右上角，加入了極度有質感的淡色大數字，就算是用手機看（單欄佈局），讀者也能一眼看出這是第一關、第二關的線性流程。
-3. **動態動畫保護 (`z-index` 管理)：** 卡片展開時的 Z 軸、箭頭的 Z 軸、浮水印的 Z 軸都經過精心調整，確保你點擊卡片彈出時，背後的導引箭頭不會擋住你的按鈕與內容。
-
     <section id="author-bio" class="max-w-4xl mx-auto px-6 py-20 scroll-mt-20">
         <div class="flex flex-col md:flex-row items-center md:items-start gap-8 bg-white p-8 md:p-10 rounded-3xl shadow-lg shadow-blue-900/5 border border-blue-50 relative overflow-hidden">
             <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-50 rounded-full opacity-50"></div>
