@@ -47,269 +47,370 @@
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-16">
+    <main class="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
         
-        <section class="mb-20">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">歐洲獨旅四大維度 <span class="text-blue-600 text-gradient bg-gradient-to-r from-blue-600 to-indigo-600">The Solo Travel Matrix</span></h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">出發前，請先評估自己的屬性。先不要想現不現實，確認好核心動力，再用資源配點來篩選！</p>
+        <aside class="hidden lg:block w-64 flex-shrink-0">
+            <div class="sticky top-32 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                <h3 class="font-bold text-gray-900 mb-4 text-lg border-b pb-2">規劃目錄</h3>
+                <ul class="space-y-3 text-sm font-medium text-gray-500">
+                    <li><a href="#matrix" class="hover:text-blue-600 transition block">📍 決定目的地 (四大維度)</a></li>
+                    <li><a href="#funnel" class="hover:text-red-600 transition block">⏳ 規劃與訂票 (防呆漏斗)</a></li>
+                    <li><a href="#preparation" class="hover:text-green-600 transition block">🎒 行前總檢查</a></li>
+                    <li><a href="#in-journey" class="hover:text-purple-600 transition block">🛡️ 旅程中的注意事項</a></li>
+                </ul>
             </div>
+        </aside>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 opacity-50"></div>
-                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-sm">🎯</div>
-                    <h3 class="text-xl font-extrabold text-gray-900 mb-3">① 目的地 (核心動力)</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                        雖然預算與便利性會限制選擇，但<strong>心中有個渴望的目的地才是支持你規劃的動力</strong>。如果只想抽離疲憊卻沒有想去的地方，你很難走出家門。目的地不一定要是具體的點，可以是「想看海」、「想爬山」或「想看世界遺產」。<br><br>
-                        先別去想「花很多錢」或「不方便」，因為現實因素只會叫你待在原地。<strong>確認好你想去哪裡，這是獨旅唯一的動力！</strong>
-                    </p>
+        <article class="flex-grow space-y-20">
+
+            <section id="matrix" class="scroll-mt-24">
+                <div class="text-center md:text-left mb-10">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 flex items-center justify-center md:justify-start gap-3">
+                        <span class="text-4xl">🌍</span> 歐洲獨旅四大維度 <span class="text-blue-600 text-gradient bg-gradient-to-r from-blue-600 to-indigo-600 hidden md:inline">The Solo Travel Matrix</span>
+                    </h2>
+                    <p class="text-gray-500">出發前，請先評估自己的屬性。先不要想現不現實，確認好核心動力，再用資源配點來篩選！</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10 opacity-50"></div>
-                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-sm">🎫</div>
-                    <h3 class="text-xl font-extrabold text-gray-900 mb-3">② 通票導向與預算考量</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                        理財不當冤大頭是共識。在確定目的地時，<strong>請先確定你是「瘋狂踩點派」還是「氣氛漫遊派」？</strong><br>
-                        若是前者，請在此階段就<strong>同步查看各國/城市的通票 (Pass) 優惠</strong>。因為通票裡包含的免費景點，極有可能會反客為主，讓你大幅調整行程規劃！
-                    </p>
-                    
-                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100 text-xs">
-                        <div class="font-bold text-emerald-800 mb-3 flex items-center"><span class="text-base mr-2">💸</span> 各國消費大原則比較：</div>
-                        <ul class="space-y-3">
-                            <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
-                                <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🍽️ 餐飲：</span>
-                                <span class="text-gray-600"><span class="text-red-500 font-medium">瑞士/北歐</span> > 西歐 > 南歐 > <span class="text-emerald-600 font-medium">東歐</span></span>
-                            </li>
-                            <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
-                                <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🛒 超市：</span>
-                                <span class="text-gray-600 leading-tight"><span class="text-red-500 font-medium">瑞/北歐</span> > 西歐高價(法/丹/奧/盧/芬) > 西歐中價(荷/比/英) > 南歐 > 德國 > 波羅的海/土 > <span class="text-emerald-600 font-medium">東歐/巴爾幹</span></span>
-                            </li>
-                            <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
-                                <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🛏️ 住宿：</span>
-                                <span class="text-gray-600 leading-tight"><span class="text-red-500 font-medium">瑞/冰/挪</span> > 北/西歐/奧(一線) > 南歐一線 > 歐洲二線 > 中東歐一線 > <span class="text-emerald-600 font-medium">南歐二線/中東歐二線/巴爾幹/土</span></span>
-                            </li>
-                            <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
-                                <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🏛️ 景點：</span>
-                                <span class="text-gray-600 leading-tight"><span class="text-red-500 font-medium">土耳其/瑞士(纜車)</span> > 英法義一線 (英國博物館多免費) > 西/奧/荷/比/北歐 > 德國 > 東歐 > <span class="text-emerald-600 font-medium">巴爾幹</span></span>
-                            </li>
-                            <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
-                                <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🚆 交通：</span>
-                                <span class="text-gray-600"><span class="text-red-500 font-medium">瑞士/北歐/英</span> > 法荷比盧奧 > 德義西 > 中東歐 > <span class="text-emerald-600 font-medium">巴爾幹/土耳其</span></span>
-                            </li>
-                        </ul>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 opacity-50"></div>
+                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-sm">🎯</div>
+                        <h3 class="text-xl font-extrabold text-gray-900 mb-3">① 目的地 (核心動力)</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            雖然預算與便利性會限制選擇，但<strong>心中有個渴望的目的地才是支持你規劃的動力</strong>。如果只想抽離疲憊卻沒有想去的地方，你很難走出家門。目的地不一定要是具體的點，可以是「想看海」、「想爬山」或「想看世界遺產」。<br><br>
+                            先別去想「花很多錢」或「不方便」，因為現實因素只會叫你待在原地。<strong>確認好你想去哪裡，這是獨旅唯一的動力！</strong>
+                        </p>
                     </div>
-                </div>
 
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -z-10 opacity-50"></div>
-                    <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-sm">🗺️</div>
-                    <h3 class="text-xl font-extrabold text-gray-900 mb-3">③ 方便性 (隱形成本)</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                        不方便的景點會大幅增加金錢、時間與精力成本。IG 燒到的美照若是只有開車能到，獨旅就不適合。
-                    </p>
-                    <ul class="text-sm text-gray-600 space-y-3">
-                        <li><strong class="text-gray-800">🚆 交通易達性：</strong> 鐵路西歐最佳（但德鐵、英鐵誤點頻繁須當心）；巴士除非塞車否則少延誤。北歐景點最不集中。</li>
-                        <li><strong class="text-gray-800">🎫 旅遊政策友善度：</strong> 西/中歐是通票大本營。南/北/東歐大多單程訂票較方便。南義、東歐與巴爾幹巴士較為發達。</li>
-                        <li><strong class="text-gray-800">💻 數位與資訊：</strong> 西/北/中/南/東歐完勝南義與巴爾幹半島（巴爾幹線上交通資訊極少，常需靠當地巴士公司補足）。</li>
-                        <li><strong class="text-gray-800">🗣️ 英語普及度：</strong> 英、愛、荷、北歐、瑞士、希臘及觀光大城(巴黎/巴塞隆納等)基本暢行無阻。</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-bl-full -z-10 opacity-50"></div>
-                    <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-sm">🔋</div>
-                    <h3 class="text-xl font-extrabold text-gray-900 mb-3">④ 精力消耗 (決策與體力)</h3>
-                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                        如果你希望以最省力的方式看景點，或只是想放鬆不想留遺憾，請務必考量以下兩個「隱形血條」：
-                    </p>
-                    <div class="space-y-4">
-                        <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
-                            <h4 class="font-bold text-rose-800 text-sm mb-1">🥵 身體疲勞 (地貌限制)</h4>
-                            <p class="text-xs text-gray-600">南歐滿佈的石板路、舊城禁車區（拖行李地獄）與山城的高低差、瑞士與挪威的多數自然景點(如策馬特、佈道台爬山)，或是佔地巨大、夏天無遮蔽的古城遺跡(如龐貝、以弗所)，極度考驗腿力。</p>
-                        </div>
-                        <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
-                            <h4 class="font-bold text-indigo-800 text-sm mb-1">🧠 決策疲勞 (景點密度與人潮)</h4>
-                            <p class="text-xs text-gray-600"><strong>大城市（如倫敦、巴黎、羅馬、巴塞隆納）的景點與旅客密度極高！</strong>規劃時的搶票地獄、旅遊時面對的無止境排隊、預約時段追趕、防小偷的心防，心智消耗遠大於在柏林或格拉納達等相對開闊、景點不多的城市。</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <div class="bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-red-500 p-6 md:p-8 rounded-r-2xl mb-16 shadow-sm relative overflow-hidden">
-            <div class="absolute -right-10 -top-10 text-9xl opacity-10">🗓️</div>
-            <h3 class="text-xl font-extrabold text-red-900 mb-3 relative z-10">⚠️ 歐洲真正的「淡旺季」怎麼分？</h3>
-            <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-4 relative z-10">
-                只要排好這趟旅程「必去的核心重頭戲」，接下來所有行程就會圍繞它建構。但在規劃時，<strong>千萬不要套用台灣的行事曆！</strong>
-            </p>
-            <ul class="grid grid-cols-1 sm:grid-cols-3 gap-4 relative z-10">
-                <li class="bg-white/80 p-3 rounded-lg shadow-sm border border-orange-100 text-sm">
-                    <span class="font-bold text-orange-700">☀️ 暑假 (6-9月)</span><br>全球觀光客出籠，最擁擠昂貴的極端旺季。
-                </li>
-                <li class="bg-white/80 p-3 rounded-lg shadow-sm border border-orange-100 text-sm">
-                    <span class="font-bold text-orange-700">🐰 復活節 (約4月)</span><br>台灣是淡季，但在歐洲是當地人傾巢而出的超級連假。
-                </li>
-                <li class="bg-white/80 p-3 rounded-lg shadow-sm border border-orange-100 text-sm">
-                    <span class="font-bold text-orange-700">🎄 聖誕跨年 (12月)</span><br>兩周黃金假期 (通常到隔年第一周末的主顯節) 人潮爆滿，多數景點與商店會在 24-26 與 1 日關門。
-                </li>
-            </ul>
-        </div>
-
-        <section>
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">防後悔的訂票漏斗 <span class="text-red-600 text-gradient bg-gradient-to-r from-red-600 to-orange-500">Booking Funnel</span></h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">
-                    在正式訂票前，請依據以下順序安排行程草稿，避免發生「機票訂完後發現景點門票早就賣光」、「週一博物館全關」或「發現免費日卻已排在別天」的慘劇。<strong>大原則：越難更改、名額越少的越早決定。先規劃大概，不要盲目訂票！</strong>
-                </p>
-            </div>
-        
-            <div class="max-w-3xl mx-auto relative pl-4 md:pl-8 py-4">
-                
-                <div class="timeline-line"></div>
-                
-                <div class="absolute left-8 bottom-12 w-16 h-full loop-line -z-10 hidden md:block" style="top: 8rem; border-bottom: none; border-top: none;"></div>
-        
-                <div class="flex items-start gap-5 md:gap-8 mb-12 relative z-10 group">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-red-600 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">1</div>
-                    
-                    <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 flex-grow hover:shadow-xl hover:-translate-y-1 transition duration-300">
-                        <h4 class="text-xl md:text-2xl font-bold text-red-700 mb-4 flex items-center gap-2">
-                            確認景點 / 體驗 / 節慶時間
-                        </h4>
-                        
-                        <div class="space-y-4 text-gray-600 leading-relaxed text-sm md:text-base">
-                            <p>
-                                <strong class="text-gray-900 block mb-1">這是行程中最難搶且最難改票的一環！</strong>
-                                直接到景點「官網」試著網路訂票（不要付款），確認你規劃的日子有開放/可預訂。注意隱藏地雷：長達數年的翻新維修、冬夏季營業時間差異(有些冬季直接關閉)、因活動/換展而關閉、熱門景點需數月前搶票，或受天氣限制的熱氣球/藍洞。
-                            </p>
-        
-                            <div class="bg-gradient-to-br from-red-50 to-orange-50 border-l-4 border-red-500 p-5 md:p-6 rounded-r-2xl relative overflow-hidden my-6">
-                                <div class="absolute -right-6 -top-6 text-7xl opacity-10 select-none">🗓️</div>
-                                <h5 class="text-lg font-bold text-red-900 mb-2 relative z-10 flex items-center gap-2">
-                                    <span>⚠️</span> 另一種玩法：景點通票
-                                </h5>
-                                <p class="text-gray-700 relative z-10 text-xs md:text-sm">
-                                    若你想深度旅遊，在一個地方參觀 2 個以上景點，強烈建議同時參考官方或公司推出的景點通票。幾乎所有城市/區域、旅遊平台都有推出五花八門的省錢景點通票，但也要注意每種通票的各種限制與條件。Bryan在各個城市介紹裡也會附上相關簡介與連結，請依據個人需求做選擇！
-                                </p>
-                                <div class="pt-3 border-t border-orange-200/60 mt-3">
-                                    <div class="font-bold text-orange-800 text-sm mb-1 flex items-center gap-1.5">
-                                        <span>🎓</span> 學生 / 青年專屬（省錢大絕）
-                                    </div>
-                                    <p class="text-gray-700 text-xs md:text-sm leading-relaxed italic">
-                                        許多景點提供免費或折價入場，<strong>有時比通票更便宜</strong>！但提醒：熱門景點仍需<strong>提早預訂</strong>（訂票時選取對應選項，現場再依要求出示證件即可）。
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="mt-6 pt-4 border-t border-gray-50">
-                            <a href="tickets.html" class="inline-flex items-center gap-2 bg-red-50 text-red-700 px-5 py-2.5 rounded-xl border border-red-100 font-bold text-sm hover:bg-red-600 hover:text-white transition-all duration-300">
-                                👉 查閱：歐洲熱門景點搶票全攻略 🎟️
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex items-start gap-5 md:gap-8 mb-12 relative z-10 group">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-orange-500 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">2</div>
-                    
-                    <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 flex-grow hover:shadow-xl hover:-translate-y-1 transition duration-300">
-                        <h4 class="text-xl md:text-2xl font-bold text-orange-600 mb-4 flex items-center gap-2">
-                            確認城際交通骨幹
-                        </h4>
-                        
-                        <div class="space-y-4 text-gray-600 leading-relaxed text-sm md:text-base">
-                            <p>
-                                <strong class="text-gray-900 block mb-1">第二不確定的元素。</strong>
-                                列出預計造訪的目的地後，就要把這些點透過大眾交通連起來。建議先去 Omio/Skyscanner 等比價網確認發車與抵達的時間、地點與公司，再來進去其官方網站確認「真實的」資訊以避免幽靈航/車班。<br>
-                                <span class="text-orange-700 font-semibold bg-orange-50 px-1 rounded">避免幽靈航/車班：</span>例如你預想的路線，Flixbus 一天可能只有上午與半夜兩班！排出一個粗略時程表，在預算與移動速度間做取捨，心安就好。
-                            </p>
-                
-                            <div class="bg-gradient-to-br from-orange-50 to-amber-50 border-l-4 border-orange-400 p-5 md:p-6 rounded-r-2xl relative overflow-hidden my-6 shadow-sm">
-                                <div class="absolute -right-6 -top-6 text-7xl opacity-10 select-none">🗓️</div>
-                            
-                                <h5 class="text-lg font-bold text-orange-900 mb-4 relative z-10 flex items-center gap-2">
-                                    <span>⚠️</span> 另一種玩法：大眾交通通票
-                                </h5>
-                            
-                                <div class="relative z-10 space-y-4">
-                                    <div>
-                                        <p class="text-gray-700 text-xs md:text-sm leading-relaxed">
-                                            若你想深度旅遊，在一地（同國家/同地區等）使用大眾交通<strong>密集移動 3 次以上</strong>，請同時參考官方推出的通票方案。Bryan 在「歐洲跨國交通指南」與城市介紹裡皆附有連結，請依個人需求選擇。
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="mt-6 pt-4 border-t border-gray-50">
-                            <a href="transport.html" class="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-5 py-2.5 rounded-xl border border-orange-100 font-bold text-sm hover:bg-orange-500 hover:text-white transition-all duration-300">
-                                👉 查閱：歐洲跨國交通指南 🚆
-                            </a>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="flex items-start gap-5 md:gap-8 mb-12 relative z-10 group">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">3</div>
-                    
-                    <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 flex-grow hover:shadow-xl hover:-translate-y-1 transition duration-300">
-                        <h4 class="text-xl md:text-2xl font-bold text-cyan-700 mb-4 flex items-center gap-2">
-                            訂購跨洲長途機票
-                        </h4>
-                        
-                        <div class="space-y-4 text-gray-600 leading-relaxed text-sm md:text-base">
-                            <p>
-                                <strong class="text-gray-900 block mb-1">這是整趟旅程的預算大樑與物理起點。</strong>
-                                強烈建議優先考慮 <strong>Open-jaw（不同點進出）</strong> 的機票，例如「巴黎進、羅馬出」。雖然機票表面價格可能稍高，但能幫你省下回頭路的交通費、以及在石板路上搬運大行李跨國回程的寶貴精力。
-                            </p>
-                            <ul class="text-xs md:text-sm text-gray-600 space-y-2 list-disc pl-5">
-                                <li><strong class="text-gray-800">直飛 vs. 轉機：</strong>長榮、華航直飛能將決策疲勞降到最低；中東或土耳其航空轉機則能換取更彈性的預算。</li>
-                                <li><strong class="text-gray-800">確認行李政策：</strong>確認票價包含幾件託運行李及其限制重量，跨洲超重費極度驚人。</li>
-                                <li><strong class="text-gray-800">轉機時間：</strong>若轉機時間低於 2 小時(特別是沒去過的大型機場)，或中轉地需額外簽證，獨旅新手應盡量避開。</li>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-10 opacity-50"></div>
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-sm">🎫</div>
+                        <h3 class="text-xl font-extrabold text-gray-900 mb-3">② 通票導向與預算考量</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            理財不當冤大頭是共識。在確定目的地時，<strong>請先確定你是「瘋狂踩點派」還是「氣氛漫遊派」？</strong><br>
+                            若是前者，請在此階段就<strong>同步查看各國/城市的通票 (Pass) 優惠</strong>。因為通票裡包含的免費景點，極有可能會反客為主，讓你大幅調整行程規劃！
+                        </p>
+                        <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100 text-xs">
+                            <div class="font-bold text-emerald-800 mb-3 flex items-center"><span class="text-base mr-2">💸</span> 各國消費大原則比較：</div>
+                            <ul class="space-y-3">
+                                <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                                    <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🍽️ 餐飲：</span>
+                                    <span class="text-gray-600"><span class="text-red-500 font-medium">瑞士/北歐</span> > 西歐 > 南歐 > <span class="text-emerald-600 font-medium">東歐</span></span>
+                                </li>
+                                <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                                    <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🛒 超市：</span>
+                                    <span class="text-gray-600 leading-tight"><span class="text-red-500 font-medium">瑞/北歐</span> > 西歐高價(法/丹/奧/盧/芬) > 西歐中價(荷/比/英) > 南歐 > 德國 > 波羅的海/土 > <span class="text-emerald-600 font-medium">東歐/巴爾幹</span></span>
+                                </li>
+                                <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                                    <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🛏️ 住宿：</span>
+                                    <span class="text-gray-600 leading-tight"><span class="text-red-500 font-medium">瑞/冰/挪</span> > 北/西歐/奧(一線) > 南歐一線 > 歐洲二線 > 中東歐一線 > <span class="text-emerald-600 font-medium">南歐二線/中東歐二線/巴爾幹/土</span></span>
+                                </li>
+                                <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                                    <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🏛️ 景點：</span>
+                                    <span class="text-gray-600 leading-tight"><span class="text-red-500 font-medium">土耳其/瑞士(纜車)</span> > 英法義一線 (英國博物館多免費) > 西/奧/荷/比/北歐 > 德國 > 東歐 > <span class="text-emerald-600 font-medium">巴爾幹</span></span>
+                                </li>
+                                <li class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-3">
+                                    <span class="font-bold text-gray-700 whitespace-nowrap min-w-[60px]">🚆 交通：</span>
+                                    <span class="text-gray-600"><span class="text-red-500 font-medium">瑞士/北歐/英</span> > 法荷比盧奧 > 德義西 > 中東歐 > <span class="text-emerald-600 font-medium">巴爾幹/土耳其</span></span>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                </div>
-        
-                <div class="flex items-start gap-5 md:gap-8 mb-12 relative z-10 group">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">4</div>
-                    <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 flex-grow hover:shadow-xl hover:-translate-y-1 transition duration-300">
-                        <h4 class="text-xl md:text-2xl font-bold text-blue-600 mb-4 flex items-center gap-2">確認住宿避風港</h4>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-50 rounded-bl-full -z-10 opacity-50"></div>
+                        <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-sm">🗺️</div>
+                        <h3 class="text-xl font-extrabold text-gray-900 mb-3">③ 方便性 (隱形成本)</h3>
                         <p class="text-sm text-gray-600 leading-relaxed mb-4">
-                            <strong>放在最後是因為，這是絕對有替代方案、且唯一有免費取消的環節。</strong>建議用專屬訂房網搜尋（如Booking.com, Trip.com, Agoda等。Google Map 會穿插標示總價與單晚價格，很難比價），常會有促銷。但若要極致比價，有時直接上住宿的官網訂會有少了訂房網站抽成的優惠。<br>
-                            <span class="text-blue-700 font-medium">篩選重點：</span>評價最重要！近車站/集合點、設備(吹風機/毛巾/沐浴乳洗髮精)、是否提供自助 Check-in(北歐常見)。如果有免費取消，可以直接先扣住房間（但千萬記住免費取消大限日）。
+                            不方便的景點會大幅增加金錢、時間與精力成本。IG 燒到的美照若是只有開車能到，獨旅就不適合。
                         </p>
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="app-guide.html#accommodation" class="text-blue-600 text-sm font-bold hover:underline">🔗 住宿比價 APP 推薦</a>
-                            <a href="safety-guide.html#accommodation" class="text-blue-600 text-sm font-bold hover:underline">🔗 住宿防雷求生指南</a>
+                        <ul class="text-sm text-gray-600 space-y-3">
+                            <li><strong class="text-gray-800">🚆 交通易達性：</strong> 鐵路西歐最佳（但德鐵、英鐵誤點頻繁須當心）；巴士除非塞車否則少延誤。北歐景點最不集中。</li>
+                            <li><strong class="text-gray-800">🎫 旅遊政策友善度：</strong> 西/中歐是通票大本營。南/北/東歐大多單程訂票較方便。南義、東歐與巴爾幹巴士較為發達。</li>
+                            <li><strong class="text-gray-800">💻 數位與資訊：</strong> 西/北/中/南/東歐完勝南義與巴爾幹半島（巴爾幹線上交通資訊極少，常需靠當地巴士公司補足）。</li>
+                            <li><strong class="text-gray-800">🗣️ 英語普及度：</strong> 英、愛、荷、北歐、瑞士、希臘及觀光大城(巴黎/巴塞隆納等)基本暢行無阻。</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-rose-50 rounded-bl-full -z-10 opacity-50"></div>
+                        <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center text-2xl mb-5 shadow-sm">🔋</div>
+                        <h3 class="text-xl font-extrabold text-gray-900 mb-3">④ 精力消耗 (決策與體力)</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            如果你希望以最省力的方式看景點，或只是想放鬆不想留遺憾，請務必考量以下兩個「隱形血條」：
+                        </p>
+                        <div class="space-y-4">
+                            <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
+                                <h4 class="font-bold text-rose-800 text-sm mb-1">🥵 身體疲勞 (地貌限制)</h4>
+                                <p class="text-xs text-gray-600">南歐滿佈的石板路、舊城禁車區（拖行李地獄）與山城的高低差、瑞士與挪威的多數自然景點(如策馬特、佈道台爬山)，或是佔地巨大、夏天無遮蔽的古城遺跡(如龐貝、以弗所)，極度考驗腿力。</p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
+                                <h4 class="font-bold text-indigo-800 text-sm mb-1">🧠 決策疲勞 (景點密度與人潮)</h4>
+                                <p class="text-xs text-gray-600"><strong>大城市（如倫敦、巴黎、羅馬、巴塞隆納）的景點與旅客密度極高！</strong>規劃時的搶票地獄、旅遊時面對的無止盡排隊、預約時段追趕、防小偷的心防，心智消耗遠大於在柏林或格拉納達等相對開闊、景點不多的城市。</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-        
-                <div class="flex items-start gap-5 md:gap-8 relative z-10 group">
-                    <div class="w-12 h-12 md:w-16 md:h-16 bg-emerald-500 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">5</div>
-                    <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 md:p-8 rounded-2xl shadow-md border border-emerald-100 flex-grow relative overflow-hidden">
+
+                <div class="bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-red-500 p-6 md:p-8 rounded-r-2xl shadow-sm relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-9xl opacity-10">🗓️</div>
+                    <h3 class="text-xl font-extrabold text-red-900 mb-3 relative z-10">⚠️ 歐洲真正的「淡旺季」怎麼分？</h3>
+                    <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-4 relative z-10">
+                        只要排好這趟旅程「必去的核心重頭戲」，接下來所有行程就會圍繞它建構。但在規劃時，<strong>千萬不要套用台灣的行事曆！</strong>
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-3 gap-4 relative z-10">
+                        <li class="bg-white/80 p-3 rounded-lg shadow-sm border border-orange-100 text-sm">
+                            <span class="font-bold text-orange-700">☀️ 暑假 (6-9月)</span><br>全球觀光客出籠，最擁擠昂貴的極端旺季。
+                        </li>
+                        <li class="bg-white/80 p-3 rounded-lg shadow-sm border border-orange-100 text-sm">
+                            <span class="font-bold text-orange-700">🐰 復活節 (約4月)</span><br>台灣是淡季，但在歐洲是當地人傾巢而出的超級連假。
+                        </li>
+                        <li class="bg-white/80 p-3 rounded-lg shadow-sm border border-orange-100 text-sm">
+                            <span class="font-bold text-orange-700">🎄 聖誕跨年 (12月)</span><br>兩周黃金假期 (通常到隔年第一周末的主顯節) 人潮爆滿，多數景點與商店會在 24-26 與 1 日關門。
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="funnel" class="scroll-mt-24">
+                <div class="text-center md:text-left mb-10">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 flex items-center justify-center md:justify-start gap-3">
+                        <span class="text-4xl">⏳</span> 防後悔的訂票漏斗 <span class="text-red-600 text-gradient bg-gradient-to-r from-red-600 to-orange-500 hidden md:inline">Booking Funnel</span>
+                    </h2>
+                    <p class="text-gray-500 max-w-2xl">
+                        在正式訂票前，請依據以下順序安排行程草稿，避免發生「機票訂完後發現景點門票早就賣光」、「週一博物館全關」或「發現免費日卻已排在別天」的慘劇。<strong>大原則：越難更改、名額越少的越早決定。先規劃大概，不要盲目訂票！</strong>
+                    </p>
+                </div>
+
+                <div class="max-w-3xl mx-auto md:mx-0 relative pl-4 md:pl-8 py-4">
+                    <div class="timeline-line"></div>
+                    <div class="absolute left-8 bottom-12 w-16 h-full loop-line -z-10 hidden md:block" style="top: 8rem; border-bottom: none; border-top: none;"></div>
+
+                    <div class="flex items-start gap-5 md:gap-8 mb-12 relative z-10 group">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-red-600 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">1</div>
                         
-                        <h4 class="text-xl font-bold text-emerald-800 mb-3 border-b border-emerald-200/50 pb-2 relative z-10">行程總體檢（微調與下訂）</h4>
-                        <p class="text-sm text-gray-700 leading-relaxed mb-4 relative z-10">
-                            排完草稿後，請<strong>全部檢查整趟行程</strong>，確保每個點都能順利接上後，就可以<strong>集中一天把所有東西預訂下來！</strong><br><br>
-                            <strong class="text-emerald-800">🔄 循環修正：</strong>若臨時發現新推出的通票方案、或在檢查時票賣完了，需要改動天數或景點，完全沒問題！只要回到 Step 1，重新跑一次確認流程即可。
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 flex-grow hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                            <h4 class="text-xl md:text-2xl font-bold text-red-700 mb-4 flex items-center gap-2">
+                                確認景點 / 體驗 / 節慶時間
+                            </h4>
+                            
+                            <div class="space-y-4 text-gray-600 leading-relaxed text-sm md:text-base">
+                                <p>
+                                    <strong class="text-gray-900 block mb-1">這是行程中最難搶且最難改票的一環！</strong>
+                                    直接到景點「官網」試著網路訂票（不要付款），確認你規劃的日子有開放/可預訂。注意隱藏地雷：長達數年的翻新維修、冬夏季營業時間差異(有些冬季直接關閉)、因活動/換展而關閉、熱門景點需數月前搶票，或受天氣限制的熱氣球/藍洞。
+                                </p>
+                    
+                                <div class="bg-gradient-to-br from-red-50 to-orange-50 border-l-4 border-red-500 p-5 md:p-6 rounded-r-2xl relative overflow-hidden my-6 shadow-sm">
+                                    <div class="absolute -right-6 -top-6 text-7xl opacity-10 select-none">🗓️</div>
+                                    <h5 class="text-lg font-bold text-red-900 mb-4 relative z-10 flex items-center gap-2">
+                                        <span>⚠️</span> 規劃進階建議：通票與學生優惠
+                                    </h5>
+                                    <div class="relative z-10 space-y-4">
+                                        <div>
+                                            <div class="font-bold text-red-800 text-sm mb-1 flex items-center gap-1.5">
+                                                <span>🎫</span> 另一種玩法：景點通票
+                                            </div>
+                                            <p class="text-gray-700 text-xs md:text-sm leading-relaxed">
+                                                若你想深度旅遊，在一個地方參觀 2 個以上景點，強烈建議同時參考官方或公司推出的景點通票。幾乎所有城市/區域、旅遊平台都有推出五花八門的省錢景點通票，但也要注意每種通票的各種限制與條件。Bryan在各個城市介紹裡也會附上相關簡介與連結，請依據個人需求做選擇！
+                                            </p>
+                                        </div>
+                                        <div class="pt-3 border-t border-red-200/60">
+                                            <div class="font-bold text-red-800 text-sm mb-1 flex items-center gap-1.5">
+                                                <span>🎓</span> 學生 / 青年專屬（省錢大絕）
+                                            </div>
+                                            <p class="text-gray-700 text-xs md:text-sm leading-relaxed italic">
+                                                許多景點提供免費或折價入場，<strong>有時比通票更便宜</strong>！但提醒：熱門景點仍需<strong>提早預訂</strong>（訂票時選取對應選項，現場再依要求出示證件即可）。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="mt-6 pt-4 border-t border-gray-50">
+                                <a href="tickets.html" class="inline-flex items-center gap-2 bg-red-50 text-red-700 px-5 py-2.5 rounded-xl border border-red-100 font-bold text-sm hover:bg-red-600 hover:text-white transition-all duration-300">
+                                    👉 查閱：歐洲熱門景點搶票全攻略 🎟️
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-5 md:gap-8 mb-12 relative z-10 group">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-orange-500 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">2</div>
+                        
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 flex-grow hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                            <h4 class="text-xl md:text-2xl font-bold text-orange-600 mb-4 flex items-center gap-2">
+                                確認城際交通骨幹
+                            </h4>
+                            
+                            <div class="space-y-4 text-gray-600 leading-relaxed text-sm md:text-base">
+                                <p>
+                                    <strong class="text-gray-900 block mb-1">第二不確定的元素。</strong>
+                                    列出預計造訪的目的地後，就要把這些點透過大眾交通連起來。建議先去 Omio/Skyscanner 等比價網確認發車與抵達的時間、地點與公司，再來進去其官方網站確認「真實的」資訊以避免幽靈航/車班。<br>
+                                    <span class="text-orange-700 font-semibold bg-orange-50 px-1 rounded">避免幽靈航/車班：</span>例如你預想的路線，Flixbus 一天可能只有上午與半夜兩班！排出一個粗略時程表，在預算與移動速度間做取捨，心安就好。
+                                </p>
+                    
+                                <div class="bg-gradient-to-br from-orange-50 to-amber-50 border-l-4 border-orange-400 p-5 md:p-6 rounded-r-2xl relative overflow-hidden my-6 shadow-sm">
+                                    <div class="absolute -right-6 -top-6 text-7xl opacity-10 select-none">🗓️</div>
+                                    <h5 class="text-lg font-bold text-orange-900 mb-4 relative z-10 flex items-center gap-2">
+                                        <span>⚠️</span> 另一種玩法：大眾交通通票
+                                    </h5>
+                                    <div class="relative z-10 space-y-4">
+                                        <div>
+                                            <p class="text-gray-700 text-xs md:text-sm leading-relaxed">
+                                                若你想深度旅遊，在一地（同國家/同地區等）使用大眾交通<strong>密集移動 3 次以上</strong>，請同時參考官方推出的通票方案。Bryan 在「歐洲跨國交通指南」與城市介紹裡皆附有連結，請依個人需求選擇。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="mt-6 pt-4 border-t border-gray-50">
+                                <a href="transport.html" class="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-5 py-2.5 rounded-xl border border-orange-100 font-bold text-sm hover:bg-orange-500 hover:text-white transition-all duration-300">
+                                    👉 查閱：歐洲跨國交通指南 🚆
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-5 md:gap-8 mb-12 relative z-10 group">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-cyan-600 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">3</div>
+                        
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 flex-grow hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                            <h4 class="text-xl md:text-2xl font-bold text-cyan-700 mb-4 flex items-center gap-2">
+                                訂購跨洲長途機票
+                            </h4>
+                            
+                            <div class="space-y-4 text-gray-600 leading-relaxed text-sm md:text-base">
+                                <p>
+                                    <strong class="text-gray-900 block mb-1">這是整趟旅程的預算大樑與物理起點。</strong>
+                                    強烈建議優先考慮 <strong>Open-jaw（不同點進出）</strong> 的機票，例如「巴黎進、羅馬出」。雖然機票表面價格可能稍高，但能幫你省下回頭路的交通費、以及在石板路上搬運大行李跨國回程的寶貴精力。
+                                </p>
+                                <ul class="text-xs md:text-sm text-gray-600 space-y-2 list-disc pl-5">
+                                    <li><strong class="text-gray-800">直飛 vs. 轉機：</strong>長榮、華航直飛能將決策疲勞降到最低；中東或土耳其航空轉機則能換取更彈性的預算。</li>
+                                    <li><strong class="text-gray-800">確認行李政策：</strong>確認票價包含幾件託運行李及其限制重量，跨洲超重費極度驚人。</li>
+                                    <li><strong class="text-gray-800">轉機時間：</strong>若轉機時間低於 2 小時(特別是沒去過的大型機場)，或中轉地需額外簽證，獨旅新手應盡量避開。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-5 md:gap-8 mb-12 relative z-10 group">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-blue-500 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">4</div>
+                        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-200 flex-grow hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                            <h4 class="text-xl md:text-2xl font-bold text-blue-600 mb-4 flex items-center gap-2">確認住宿避風港</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                                <strong>放在最後是因為，這是絕對有替代方案、且唯一有免費取消的環節。</strong>建議用專屬訂房網搜尋（如Booking.com, Trip.com, Agoda等。Google Map 會穿插標示總價與單晚價格，很難比價），常會有促銷。但若要極致比價，有時直接上住宿的官網訂會有少了訂房網站抽成的優惠。<br>
+                                <span class="text-blue-700 font-medium">篩選重點：</span>評價最重要！裡面才有最真實的回饋(如該區域是否相對安全、房間新舊、客服品質等)近車站/集合點、設備(吹風機/毛巾/沐浴乳洗髮精)、是否提供自助 Check-in(北歐常見)。如果有免費取消，可以直接先扣住房間（但千萬記住免費取消大限日）。
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="app-guide.html#accommodation" class="text-blue-600 text-sm font-bold hover:underline">🔗 住宿比價 APP 推薦</a>
+                                <a href="safety-guide.html#accommodation" class="text-blue-600 text-sm font-bold hover:underline">🔗 住宿防雷求生指南</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-5 md:gap-8 relative z-10 group">
+                        <div class="w-12 h-12 md:w-16 md:h-16 bg-emerald-500 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">5</div>
+                        <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 md:p-8 rounded-2xl shadow-md border border-emerald-100 flex-grow relative overflow-hidden">
+                            
+                            <h4 class="text-xl font-bold text-emerald-800 mb-3 border-b border-emerald-200/50 pb-2 relative z-10">行程總體檢（微調與下訂）</h4>
+                            <p class="text-sm text-gray-700 leading-relaxed mb-4 relative z-10">
+                                排完草稿後，請<strong>全部檢查整趟行程</strong>，確保每個點都能順利接上後，就可以<strong>集中一天把所有東西預訂下來！</strong><br><br>
+                                <strong class="text-emerald-800">🔄 循環修正：</strong>若臨時發現新推出的通票方案、或在檢查時票賣完了，需要改動天數或景點，完全沒問題！只要回到 Step 1，重新跑一次確認流程即可。
+                            </p>
+                            
+                            <div class="hidden md:block absolute -left-8 top-1/2 w-8 h-1/2 border-l-4 border-b-4 border-dashed border-emerald-400 rounded-bl-3xl"></div>
+                            <div class="hidden md:block absolute -left-8 -top-full h-[150%] w-0 border-l-4 border-dashed border-emerald-400"></div>
+                            <div class="hidden md:flex absolute -left-[38px] top-4 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] border-b-emerald-400"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="preparation" class="scroll-mt-24 pt-10 border-t border-gray-200">
+                <div class="text-center md:text-left mb-10">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 flex items-center justify-center md:justify-start gap-3">
+                        <span class="text-4xl">🎒</span> 行前總檢查 <span class="text-green-600 text-gradient bg-gradient-to-r from-green-500 to-emerald-600 hidden md:inline">Pre-departure Check</span>
+                    </h2>
+                    <p class="text-gray-500 max-w-2xl">票都訂好了，在拖著行李去機場前，別忘了這三個能決定你旅程順利與否的保命底線。</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-4">🛂</div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">行政與金流手續</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            確認 ETIAS 簽證狀態。務必向銀行開通「海外實體/線上刷卡」，並將刷卡的 3D 驗證改為 <strong>Email 接收</strong>，避免在國外收不到簡訊而無法訂票。最後，提早 2-3 天買好出國的 eSIM 網卡。
                         </p>
-                        
-                        <div class="hidden md:block absolute -left-8 top-1/2 w-8 h-1/2 border-l-4 border-b-4 border-dashed border-emerald-400 rounded-bl-3xl"></div>
-                        <div class="hidden md:block absolute -left-8 -top-full h-[150%] w-0 border-l-4 border-dashed border-emerald-400"></div>
-                        <div class="hidden md:flex absolute -left-[38px] top-4 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] border-b-emerald-400"></div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl mb-4">👕</div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">極限打包與防禦</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            根據最新的極端天氣預報調整衣物。確認青旅是否有提供毛巾/吹風機。備妥能鎖住青旅置物櫃的「密碼鎖」與防盜貼身腰包，並將重要票券與證件影印成紙本副本分開放。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl mb-4">⚠️</div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">住宿與交通 Double Check</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            出發前聯繫住宿方，確認非 24 小時櫃檯的入住密碼與流程。出發前 24 小時再次打開交通 APP，確認火車或巴士是否遭遇大罷工或無預警改點。
+                        </p>
                     </div>
                 </div>
-        
-            </div>
-        </section>
 
+                <div class="text-center md:text-left">
+                    <a href="preparation.html" class="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-green-700 transition-all duration-300 shadow-md shadow-green-200">
+                        👉 進入行前準備與裝備清單 →
+                    </a>
+                </div>
+            </section>
+
+            <section id="in-journey" class="scroll-mt-24 pt-10 border-t border-gray-200">
+                <div class="text-center md:text-left mb-10">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 flex items-center justify-center md:justify-start gap-3">
+                        <span class="text-4xl">🛡️</span> 旅程注意事項 <span class="text-purple-600 text-gradient bg-gradient-to-r from-purple-500 to-indigo-600 hidden md:inline">In-Journey Survival</span>
+                    </h2>
+                    <p class="text-gray-500 max-w-2xl">人在異鄉，保護好自己並爭取應有的權益。掌握這三個直覺，讓你遇到突發狀況也能從容應對。</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-xl mb-4">🥷</div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">街頭防盜與偽裝</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            貫徹「財不露白」，護照永遠貼身放隱形腰包。走路保持自信與目的性，不要停在路中間東張西望或滑手機。遇到怪異的搭訕（手環黨/假簽名），請直接無情無視並走開。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center text-xl mb-4">🚰</div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">克服生理資源稀缺</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            歐洲免費廁所與直飲水是稀缺資源，請秉持「隨時清空、隨時補滿」的原則！把握每一次搭火車、在機場、進麥當勞或精品百貨的機會，不要等到急需時才花冤枉錢。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl mb-4">🚨</div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">危機應變與理賠權益</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            遇到班機取消、火車延誤或行李遺失時千萬不要慌！歐盟有極度保護旅客的 EU261 法規。遇到行李遺失絕對要拿到 PIR 報告，符合條件甚至可索取最高 €600 的現金賠償。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <a href="safety-guide.html" class="inline-flex items-center gap-2 bg-slate-800 text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-slate-900 transition-all duration-300 shadow-md shadow-slate-200">
+                        👉 閱讀完整安全與求生攻略 →
+                    </a>
+                </div>
+            </section>
+
+        </article>
     </main>
 
     <footer class="text-center py-12 text-gray-400 text-sm mt-12 border-t border-gray-200">
