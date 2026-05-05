@@ -183,8 +183,8 @@
                 </div>
 
                 <div class="max-w-3xl mx-auto md:mx-0 relative pl-4 md:pl-8 py-4">
-                    <div class="timeline-line"></div>
-                    <div class="absolute left-8 bottom-12 w-16 h-full loop-line -z-10 hidden md:block" style="top: 8rem; border-bottom: none; border-top: none;"></div>
+                    <div class="absolute left-[1.75rem] md:left-[2.75rem] top-12 bottom-12 w-1 bg-gray-200 z-0"></div>
+                    <div class="absolute left-8 bottom-12 w-16 loop-line -z-10 hidden md:block" style="top: 8rem; border-bottom: none; border-top: none;"></div>
 
                     <div class="flex items-start gap-5 md:gap-8 mb-12 relative z-10 group">
                         <div class="w-12 h-12 md:w-16 md:h-16 bg-red-600 text-white rounded-full flex items-center justify-center font-black text-xl md:text-2xl flex-shrink-0 shadow-lg border-4 border-white relative -left-1.5 md:-left-2 group-hover:scale-110 transition-transform duration-300">1</div>
@@ -337,28 +337,33 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
                         <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-4">🛂</div>
-                        <h3 class="font-bold text-lg text-gray-900 mb-2">行政與金流手續</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            確認 ETIAS 簽證狀態。務必向銀行開通「海外實體/線上刷卡」，並將刷卡的 3D 驗證改為 <strong>Email 接收</strong>，避免在國外收不到簡訊而無法訂票。最後，提早 2-3 天買好出國的 eSIM 網卡。
-                        </p>
+                        <h3 class="font-bold text-lg text-gray-900 mb-3 border-b border-gray-100 pb-2">行政與金流手續</h3>
+                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4 leading-relaxed">
+                            <li>確認 ETIAS 簽證狀態。</li>
+                            <li>務必向銀行開通「海外實體/線上刷卡」，並將刷卡的 3D 驗證改為 <strong>Email 接收</strong>，避免在國外收不到簡訊而無法訂票。</li>
+                            <li>最後，提早 2-3 天買好出國的 eSIM 網卡。</li>
+                        </ul>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
                         <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl mb-4">👕</div>
-                        <h3 class="font-bold text-lg text-gray-900 mb-2">極限打包與防禦</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            根據最新的極端天氣預報調整衣物。確認青旅是否有提供毛巾/吹風機。備妥能鎖住青旅置物櫃的「密碼鎖」與防盜貼身腰包，並將重要票券與證件影印成紙本副本分開放。
-                        </p>
+                        <h3 class="font-bold text-lg text-gray-900 mb-3 border-b border-gray-100 pb-2">極限打包與防禦</h3>
+                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4 leading-relaxed">
+                            <li>根據最新的極端天氣預報調整衣物。</li>
+                            <li>確認青旅是否有提供毛巾/吹風機。</li>
+                            <li>備妥能鎖住青旅置物櫃的「密碼鎖」與防盜貼身腰包，並將重要票券與證件影印成紙本副本分開放。</li>
+                        </ul>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
                         <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl mb-4">⚠️</div>
-                        <h3 class="font-bold text-lg text-gray-900 mb-2">住宿與交通 Double Check</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            出發前聯繫住宿方，確認非 24 小時櫃檯的入住密碼與流程。出發前 24 小時再次打開交通 APP，確認火車或巴士是否遭遇大罷工或無預警改點。
-                        </p>
+                        <h3 class="font-bold text-lg text-gray-900 mb-3 border-b border-gray-100 pb-2">住宿與交通 Double Check</h3>
+                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4 leading-relaxed">
+                            <li>出發前聯繫住宿方，確認非 24 小時櫃檯的入住密碼與流程。</li>
+                            <li>出發前 24 小時再次打開交通 APP，確認火車或巴士是否遭遇大罷工或無預警改點。</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -378,28 +383,32 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
                         <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-xl mb-4">🥷</div>
-                        <h3 class="font-bold text-lg text-gray-900 mb-2">街頭防盜與偽裝</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            貫徹「財不露白」，護照永遠貼身放隱形腰包。走路保持自信與目的性，不要停在路中間東張西望或滑手機。遇到怪異的搭訕（手環黨/假簽名），請直接無情無視並走開。
-                        </p>
+                        <h3 class="font-bold text-lg text-gray-900 mb-3 border-b border-gray-100 pb-2">街頭防盜與偽裝</h3>
+                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4 leading-relaxed">
+                            <li>貫徹「財不露白」，護照永遠貼身放隱形腰包。</li>
+                            <li>走路保持自信與目的性，不要停在路中間東張西望或滑手機。</li>
+                            <li>遇到怪異的搭訕（手環黨/假簽名），請直接無情無視並走開。</li>
+                        </ul>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
                         <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center text-xl mb-4">🚰</div>
-                        <h3 class="font-bold text-lg text-gray-900 mb-2">克服生理資源稀缺</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            歐洲免費廁所與直飲水是稀缺資源，請秉持「隨時清空、隨時補滿」的原則！把握每一次搭火車、在機場、進麥當勞或精品百貨的機會，不要等到急需時才花冤枉錢。
-                        </p>
+                        <h3 class="font-bold text-lg text-gray-900 mb-3 border-b border-gray-100 pb-2">克服生理資源稀缺</h3>
+                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4 leading-relaxed">
+                            <li>歐洲免費廁所與直飲水是稀缺資源，請秉持「隨時清空、隨時補滿」的原則！</li>
+                            <li>把握每一次搭火車、在機場、進麥當勞或精品百貨的機會，不要等到急需時才花冤枉錢。</li>
+                        </ul>
                     </div>
 
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
                         <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl mb-4">🚨</div>
-                        <h3 class="font-bold text-lg text-gray-900 mb-2">危機應變與理賠權益</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            遇到班機取消、火車延誤或行李遺失時千萬不要慌！歐盟有極度保護旅客的 EU261 法規。遇到行李遺失絕對要拿到 PIR 報告，符合條件甚至可索取最高 €600 的現金賠償。
-                        </p>
+                        <h3 class="font-bold text-lg text-gray-900 mb-3 border-b border-gray-100 pb-2">危機應變與理賠權益</h3>
+                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4 leading-relaxed">
+                            <li>遇到班機取消、火車延誤或行李遺失時千萬不要慌！歐盟有極度保護旅客的 EU261 法規。</li>
+                            <li>遇到行李遺失絕對要拿到 PIR 報告，符合條件甚至可索取最高 €600 的現金賠償。</li>
+                        </ul>
                     </div>
                 </div>
 
