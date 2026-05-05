@@ -12,6 +12,8 @@
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        /* Logo 預設樣式防破圖 */
+        .brand-logo { background-color: #f8fafc; text-indent: -9999px; overflow: hidden; display: inline-block; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
@@ -102,23 +104,38 @@
                         <strong>比價網站：</strong>Skyscanner、Google Flights。
                     </p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
-                            <h4 class="font-bold text-gray-800 mb-2">常用廉航清單</h4>
-                            <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
-                                <li><strong>Ryanair：</strong>全歐洲霸主，便宜但規定最嚴。</li>
-                                <li><strong>easyJet：</strong>西歐為主，停靠較多主要機場。</li>
-                                <li><strong>Wizz Air：</strong>主打東歐與巴爾幹半島。</li>
-                                <li><strong>Vueling / Volotea：</strong>南歐、西班牙為主。</li>
-                                <li><strong>Norwegian：</strong>北歐地區首選。</li>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-5 rounded-xl border border-gray-100">
+                            <h4 class="font-bold text-gray-800 mb-4">常用廉航清單</h4>
+                            <ul class="text-sm text-gray-600 space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <img src="https://logo.clearbit.com/ryanair.com" alt="Ryanair" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
+                                    <span><strong>Ryanair：</strong>全歐洲霸主，便宜但規定最嚴。</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <img src="https://logo.clearbit.com/easyjet.com" alt="easyJet" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
+                                    <span><strong>easyJet：</strong>西歐為主，停靠較多主要機場。</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <img src="https://logo.clearbit.com/wizzair.com" alt="Wizz Air" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
+                                    <span><strong>Wizz Air：</strong>主打東歐與巴爾幹半島。</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <img src="https://logo.clearbit.com/vueling.com" alt="Vueling" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
+                                    <span><strong>Vueling / Volotea：</strong>南歐、西班牙為主。</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <img src="https://logo.clearbit.com/norwegian.com" alt="Norwegian" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
+                                    <span><strong>Norwegian：</strong>北歐地區首選。</span>
+                                </li>
                             </ul>
                         </div>
-                        <div class="bg-red-50 p-4 rounded-xl border border-red-100">
-                            <h4 class="font-bold text-red-800 mb-2">⚠️ 廉航防雷三大守則</h4>
-                            <ul class="text-sm text-red-700 space-y-2">
-                                <li><strong>線上 Check-in：</strong>務必在起飛前 24h-2h 完成線上報到。若臨櫃辦理，Ryanair 會罰款高達 55 歐元！</li>
+                        <div class="bg-red-50 p-5 rounded-xl border border-red-100">
+                            <h4 class="font-bold text-red-800 mb-4">⚠️ 廉航防雷三大守則</h4>
+                            <ul class="text-sm text-red-700 space-y-3">
+                                <li><strong>線上 Check-in：</strong>務必在起飛前 24h-2h 完成線上報到。若臨櫃辦理，可能會罰款高達 55 歐元！</li>
+                                <li><strong>免費小包體積：</strong>出門前絕對不要塞太多，也建議用捲尺量一下尺寸，否則現場加購可能會高達60歐元！若到了機場仍不確定，一定要使用登機門旁的測量架。通常都是<strong>40 × 30 × 20 cm(需能塞進前方座位下)</strong></li>
                                 <li><strong>機場位置：</strong>廉航常飛「次要機場」(如巴黎 Beauvais 離市區 1.5 小時)，請先算好交通成本。</li>
-                                <li><strong>官網買票：</strong>雖然 OTA (如 Trip.com) 有時更便宜，但加購行李通常會被貴一波，這種情況強烈建議直接在航空公司官網買。</li>
                             </ul>
                         </div>
                     </div>
@@ -129,21 +146,22 @@
                         </h4>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                             <div class="space-y-3">
+                                <p class="text-gray-700"><strong>🥛 水瓶：</strong>過安檢前倒空。安檢後有時有飲水機，或直接去廁所裝水(Tap Water)。</p>
                                 <p class="text-gray-700"><strong>💧 液體：</strong>單瓶不得超過 <strong>100ml</strong>，需裝入 1 公升透明夾鏈袋。</p>
-                                <p class="text-gray-700"><strong>🔋 行動電源：</strong><strong>嚴禁托運</strong>，必須隨身攜帶。額定容量需在 100Wh 以下。</p>
-                                <p class="text-gray-700"><strong>💻 電子產品：</strong>過安檢時，筆電、平板、大相機請單獨拿出來過 X 光機。</p>
+                                <p class="text-gray-700"><strong>🧥 穿著：</strong>穿靴子、大外套或有皮帶，安檢時通常需脫下。建議穿方便穿脫的鞋。</p>
                             </div>
                             <div class="space-y-3 border-t md:border-t-0 md:border-l border-blue-100 pt-3 md:pt-0 md:pl-6">
+                                <p class="text-gray-700"><strong>🔋 行動電源：</strong><strong>嚴禁托運</strong>，必須隨身攜帶。額定容量需在 100Wh 以下、最多帶兩個、且飛機上不可使用。</p>
+                                <p class="text-gray-700"><strong>💻 電子產品：</strong>過安檢時，筆電、平板、大相機請單獨拿出來過 X 光機。</p>
                                 <p class="text-gray-700"><strong>✂️ 尖銳物：</strong>刀刃 6cm 以下理論上可帶，但安檢人員有權沒收，建議貴重瑞士刀不要冒險。</p>
-                                <p class="text-gray-700"><strong>🧥 穿著：</strong>穿靴子、大外套或有皮帶，安檢時通常需脫下。建議穿方便穿脫的鞋。</p>
-                                <p class="text-gray-700"><strong>🥛 水瓶：</strong>過安檢前倒空。安檢後通常有飲水機，或直接去廁所裝水(Tap Water)。</p>
                             </div>
                         </div>
                     </div>
 
                     <p class="text-gray-600 text-sm leading-relaxed mb-3">
-                        所有廉航都能免費帶一件 <strong>Small Bag (通常 40x20x25cm，需能塞進前方座位下)</strong>。登機箱 (Cabin Bag) 一定要加錢。<br>
-                        登機門旁都有航空公司的「金屬測量架」，不要害羞，排隊前先去塞塞看，如果超過一點點，趕快把衣服穿在身上或塞進大衣口袋！另外，歐洲廉航是可以帶自己的食物上飛機吃的。
+                        雖然 OTA (旅遊代購平台，如 Trip.com) 有時更便宜，但加購行李通常會被貴一波，或可能在班機有異常時較難去處理。這種情況強烈建議直接在航空公司官網買、或是選用較有公信力的OTA。
+                        若小包超過一點點，趕快把衣服穿在身上或塞進大衣口袋！
+                        不過小確幸是，歐洲廉航是可以帶自己的食物上飛機吃的。而近期有些機場設備更新，能將電子產品留在包包裡、或是能直接帶水進去(如馬爾他機場)！
                     </p>
                 </div>
             </section>
@@ -161,7 +179,7 @@
                             <strong>時機：</strong>短時間內頻繁跨國移動。到官網或 App 購買後，開通手機動態電子票即可驗票（歐洲多為人工車上驗票）。
                         </p>
                         <div class="bg-yellow-50 p-4 rounded-xl text-sm text-yellow-800 border border-yellow-200">
-                            <strong>陷阱警告：</strong>有通票不代表無敵！高速鐵路（如法國 TGV、義大利紅箭、歐洲之星）<strong>必須額外付費強制劃位 (Seat Reservation)</strong>。熱門路段（如巴黎-米蘭）若不提早幾週劃位，即使有通票也上不了車。
+                            <strong>陷阱警告：</strong>有通票不代表無敵！高速鐵路（如法國 TGV、義大利紅箭、西班牙 AVE / AVANT、歐洲之星）<strong>必須額外付費強制劃位 (Seat Reservation)</strong>。熱門路段（如巴黎-米蘭）若不提早幾週劃位，即使有通票也上不了車。
                         </div>
                     </div>
 
@@ -169,7 +187,10 @@
                         <h3 class="text-xl font-bold text-emerald-700 mb-4 border-b border-emerald-100 pb-2">2. 超值國家區域通票</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <h4 class="font-bold text-gray-900 flex items-center mb-2">🇩🇪 德國：Deutschlandticket (D-Ticket)</h4>
+                                <h4 class="font-bold text-gray-900 flex items-center gap-2 mb-2">
+                                    <img src="https://logo.clearbit.com/bahn.de" alt="DB" class="w-5 h-5 rounded brand-logo border border-gray-200">
+                                    🇩🇪 德國：Deutschlandticket (D-Ticket)
+                                </h4>
                                 <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
                                     <li><strong>價格：</strong>€63 (2026年標準)。</li>
                                     <li><strong>覆蓋：</strong>全德國境內「所有短途火車 (RE/RB)、公車、地鐵、電車」無限搭乘。<strong>不含高鐵 (ICE/IC/EC/RJX)</strong>。</li>
@@ -177,23 +198,22 @@
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-900 flex items-center mb-2">🇨🇭 瑞士：STP vs 半價卡</h4>
+                                <h4 class="font-bold text-gray-900 flex items-center gap-2 mb-2">
+                                    <img src="https://logo.clearbit.com/sbb.ch" alt="SBB" class="w-5 h-5 rounded brand-logo border border-gray-200">
+                                    🇨🇭 瑞士：STP vs 半價卡
+                                </h4>
                                 <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
                                     <li><strong>Swiss Travel Pass (無腦版)：</strong>天數內無限搭乘火車、公車、船，且含 500+ 博物館門票。極貴但極方便。</li>
                                     <li><strong>Half Fare Card (精算版)：</strong>付一筆年費(~120 CHF)，效期內買所有票都半價。對一般定點旅客通常最省錢。</li>
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-900 flex items-center mb-2">🇪🇸 西班牙：Abono Único (交通月票)</h4>
+                                <h4 class="font-bold text-gray-900 flex items-center gap-2 mb-2">
+                                    <img src="https://logo.clearbit.com/sncf.com" alt="SNCF" class="w-5 h-5 rounded brand-logo border border-gray-200">
+                                    🇫🇷 法國：TER 區域票
+                                </h4>
                                 <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
-                                    <li><strong>價格：</strong>€60。</li>
-                                    <li><strong>覆蓋：</strong>城際巴士與部分火車。以開通日起算 30 天。因政策變動大，建議至官網查詢最新條件。</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900 flex items-center mb-2">🇫🇷 法國：TER 區域票</h4>
-                                <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4">
-                                    <li><strong>覆蓋：</strong>依據各省分區（如南法蔚藍海岸），無限搭乘區域列車 (TER)。在 SNCF Connect 搜尋時可留意。</li>
+                                    <li><strong>覆蓋：</strong>依據各省分區（如南法蔚藍海岸景點集中區域），無限搭乘區域列車 (TER)。在 SNCF Connect 搜尋時可留意。</li>
                                 </ul>
                             </div>
                         </div>
@@ -208,7 +228,7 @@
                             <span class="text-xl">💡</span>
                             <div>
                                 <strong>跨國買票密技：</strong><br>
-                                往返兩國的火車，一定要去「兩國的國鐵官網」分別查價！例如：維也納到布拉格的火車，從「捷克國鐵 (CD)」買，通常會比從「奧地利國鐵 (ÖBB)」買便宜非常多！
+                                往返兩國的火車，一定要去「兩國的國鐵官網」分別查價！原則是<strong>東/南歐比西/北歐便宜</strong>。例如：維也納到布拉格的火車，從「捷克國鐵 (CD)」買，通常會比從「奧地利國鐵 (ÖBB)」買便宜非常多！
                             </div>
                         </div>
                     </div>
@@ -222,27 +242,54 @@
                 </div>
                 
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <p class="text-gray-700 mb-6">
-                        國鐵並非唯一選擇！在許多國家，私鐵的體驗更好且價格更便宜。<strong>重點：國鐵網站查不到私鐵班次！</strong>必須使用整合平台 <a href="#" class="text-blue-600 font-bold hover:underline">Omio</a> 或不嫌麻煩直接下載各家 APP。
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        國鐵並非唯一選擇！在許多國家，私鐵的體驗更好且價格更便宜。<strong>重點：國鐵網站查不到私鐵班次！</strong>必須使用整合平台 <a href="https://www.omio.com/" target="_blank" rel="nofollow" class="text-blue-600 font-bold hover:underline">Omio</a> 或不嫌麻煩直接下載各家 APP。
                     </p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="border border-gray-100 p-4 rounded-xl hover:shadow-md transition">
-                            <h4 class="font-bold text-purple-700 text-lg mb-1">🇩🇪 德國：FlixTrain</h4>
-                            <p class="text-sm text-gray-600">優點：超級便宜、常有促銷票，部分路線速度接近 ICE。</p>
+                        
+                        <div class="border border-gray-100 p-5 rounded-xl hover:shadow-lg transition bg-white flex flex-col">
+                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 pb-3">
+                                <img src="https://logo.clearbit.com/flixtrain.com" onerror="this.style.display='none'" alt="FlixTrain" class="w-8 h-8 rounded-full border border-gray-200 flex-shrink-0 brand-logo">
+                                <h4 class="font-bold text-purple-700 text-lg">🇩🇪 德國：FlixTrain</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 flex-grow leading-relaxed">優點：超級便宜、常有促銷票，部分路線速度接近 ICE。偶爾會出現從西德到東德不到 €5 的破盤價。</p>
+                            <a href="https://www.flixtrain.com/" target="_blank" rel="nofollow" class="mt-5 block text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-sm py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">前往官網預訂 →</a>
                         </div>
-                        <div class="border border-gray-100 p-4 rounded-xl hover:shadow-md transition">
-                            <h4 class="font-bold text-purple-700 text-lg mb-1">🇨🇿 捷克：RegioJet</h4>
-                            <p class="text-sm text-gray-600">優點：服務極佳（免費咖啡/水），提供便宜商務艙，覆蓋東歐跨國路線。</p>
+                        
+                        <div class="border border-gray-100 p-5 rounded-xl hover:shadow-lg transition bg-white flex flex-col">
+                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 pb-3">
+                                <img src="https://logo.clearbit.com/regiojet.com" onerror="this.style.display='none'" alt="RegioJet" class="w-8 h-8 rounded-full border border-gray-200 flex-shrink-0 brand-logo">
+                                <h4 class="font-bold text-purple-700 text-lg">🇨🇿 捷克：RegioJet</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 flex-grow leading-relaxed">優點：服務極佳（免費咖啡/水），提供便宜商務艙，覆蓋東歐跨國路線。</p>
+                            <a href="https://regiojet.com/" target="_blank" rel="nofollow" class="mt-5 block text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-sm py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">前往官網預訂 →</a>
                         </div>
-                        <div class="border border-gray-100 p-4 rounded-xl hover:shadow-md transition">
-                            <h4 class="font-bold text-purple-700 text-lg mb-1">🇮🇹 義大利：Italo</h4>
-                            <p class="text-sm text-gray-600">優點：專跑高速主幹線，車廂新穎舒適，提早買非常便宜。</p>
+                        
+                        <div class="border border-gray-100 p-5 rounded-xl hover:shadow-lg transition bg-white flex flex-col">
+                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 pb-3">
+                                <img src="https://logo.clearbit.com/italotreno.it" onerror="this.style.display='none'" alt="Italo" class="w-8 h-8 rounded-full border border-gray-200 flex-shrink-0 brand-logo">
+                                <h4 class="font-bold text-purple-700 text-lg">🇮🇹 義大利：Italo</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 flex-grow leading-relaxed">優點：專跑高速主幹線，車廂新穎舒適，提早買非常便宜。</p>
+                            <a href="https://www.italotreno.it/en" target="_blank" rel="nofollow" class="mt-5 block text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-sm py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">前往官網預訂 →</a>
                         </div>
-                        <div class="border border-gray-100 p-4 rounded-xl hover:shadow-md transition">
-                            <h4 class="font-bold text-purple-700 text-lg mb-1">🇪🇸 西班牙：Ouigo / Iryo</h4>
-                            <p class="text-sm text-gray-600">優點：高鐵市場競爭，早鳥票常出現 €10–€30 的誇張低價。</p>
+                        
+                        <div class="border border-gray-100 p-5 rounded-xl hover:shadow-lg transition bg-white flex flex-col">
+                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 pb-3">
+                                <div class="flex -space-x-2">
+                                    <img src="https://logo.clearbit.com/ouigo.com" onerror="this.style.display='none'" alt="Ouigo" class="w-8 h-8 rounded-full border border-white flex-shrink-0 brand-logo shadow-sm relative z-10">
+                                    <img src="https://logo.clearbit.com/iryo.eu" onerror="this.style.display='none'" alt="Iryo" class="w-8 h-8 rounded-full border border-white flex-shrink-0 brand-logo shadow-sm relative z-0">
+                                </div>
+                                <h4 class="font-bold text-purple-700 text-lg ml-2">🇪🇸 西班牙：Ouigo / Iryo</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 flex-grow leading-relaxed">優點：高鐵市場競爭，早鳥票常出現 €10–€30 的誇張低價。</p>
+                            <div class="mt-5 flex gap-2">
+                                <a href="https://www.ouigo.com/es/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-xs py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">Ouigo 官網</a>
+                                <a href="https://iryo.eu/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-xs py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">Iryo 官網</a>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -253,7 +300,7 @@
                     <h2 class="text-3xl font-extrabold text-gray-900">過夜火車 (Night Trains)</h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 items-center">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-center">
                     <div class="flex-grow">
                         <p class="text-gray-700 leading-relaxed mb-4">
                             既能省下一晚住宿費，又能完成長途移動，是背包客的最愛。目前歐洲夜車由奧地利國鐵的 <strong>ÖBB Nightjet</strong> 稱霸。
@@ -262,6 +309,16 @@
                             <li><strong>搶票時間：</strong>夜臥鋪非常搶手！強烈建議 <strong>3 到 6 個月前</strong>開放訂票時就去搶。</li>
                             <li><strong>艙等選擇：</strong>千萬別為了省錢選座位 (Seats)，會生不如死。建議至少選擇 <strong>Couchette (4-6人硬臥室)</strong>。</li>
                         </ul>
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-full md:w-56">
+                        <a href="https://nightride.com/en/" target="_blank" rel="nofollow" class="group flex flex-col items-center justify-center p-5 bg-indigo-50 border border-indigo-100 rounded-2xl hover:bg-indigo-600 hover:border-indigo-600 transition-all duration-300 shadow-sm hover:shadow-lg">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 shadow-sm border border-indigo-50">
+                               <span class="text-2xl">🚂</span>
+                            </div>
+                            <span class="font-bold text-indigo-800 group-hover:text-white transition-colors text-base">Nightride 比價平台</span>
+                            <span class="text-xs text-indigo-500 group-hover:text-indigo-200 mt-1 font-medium transition-colors">搜尋全歐洲夜車路線 →</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -273,19 +330,39 @@
                 </div>
                 
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <p class="text-gray-700 mb-4">
+                    <p class="text-gray-700 mb-6 leading-relaxed">
                         <strong>時機：</strong>火車/機票太貴，或是目的地（如巴爾幹半島、小鎮）火車到不了時的最佳解。
                     </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-bold">Flixbus (全歐洲)</span>
-                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-bold">RegioJet (中東歐)</span>
-                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-bold">Lux Express (波羅的海)</span>
-                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-bold">Alsa (西葡)</span>
-                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-bold">National Express (英國)</span>
-                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-bold">Itabus (南義)</span>
+                    
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <a href="https://www.flixbus.com/" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                            <img src="https://logo.clearbit.com/flixbus.com" onerror="this.style.display='none'" alt="Flixbus" class="w-5 h-5 rounded-full brand-logo">
+                            Flixbus (全歐洲)
+                        </a>
+                        <a href="https://regiojet.com/" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                            <img src="https://logo.clearbit.com/regiojet.com" onerror="this.style.display='none'" alt="RegioJet" class="w-5 h-5 rounded-full brand-logo">
+                            RegioJet (中東歐)
+                        </a>
+                        <a href="https://luxexpress.eu/en/" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                            <img src="https://logo.clearbit.com/luxexpress.eu" onerror="this.style.display='none'" alt="Lux Express" class="w-5 h-5 rounded-full brand-logo">
+                            Lux Express (波羅的海)
+                        </a>
+                        <a href="https://www.alsa.com/en/web/bus/home" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                            <img src="https://logo.clearbit.com/alsa.com" onerror="this.style.display='none'" alt="Alsa" class="w-5 h-5 rounded-full brand-logo">
+                            Alsa (西葡)
+                        </a>
+                        <a href="https://www.nationalexpress.com/en" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                            <img src="https://logo.clearbit.com/nationalexpress.com" onerror="this.style.display='none'" alt="National Express" class="w-5 h-5 rounded-full brand-logo">
+                            National Express (英國)
+                        </a>
+                        <a href="https://www.itabus.it/en/home" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                            <img src="https://logo.clearbit.com/itabus.it" onerror="this.style.display='none'" alt="Itabus" class="w-5 h-5 rounded-full brand-logo">
+                            Itabus (南義)
+                        </a>
                     </div>
-                    <p class="text-sm text-gray-500 italic">
-                        *南義、東歐、巴爾幹半島等鐵路較不發達的地區，巴士是當地人的主力交通工具。建議下載各家 APP 直接購票出示 QR code 即可上車。
+
+                    <p class="text-sm text-gray-500 italic bg-gray-50 p-4 rounded-xl border border-gray-100">
+                        *南義、東歐、巴爾幹半島等鐵路較不發達的地區，巴士是當地人的主力交通工具。這些地區也有些隱藏巴士公司，常常班次、路線會比Flixbus多。建議下載各家 APP 直接購票出示 QR code 即可上車。
                     </p>
                 </div>
             </section>
@@ -297,21 +374,33 @@
                 </div>
                 
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <p class="text-gray-700 mb-4">
-                        <strong>時機：</strong>波羅的海三小國往返芬蘭/瑞典、希臘跳島、南義往返西西里島，或英吉利海峽。
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        <strong>時機：</strong>波羅的海三小國往返芬蘭/瑞典、希臘跳島、南義往返西西里島，或英吉利海峽。比較長程的路線可以體驗過夜渡輪(如斯德哥爾摩 - 赫爾辛基)。
                     </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-cyan-50 p-4 rounded-xl border border-cyan-100">
-                            <h4 class="font-bold text-cyan-800 mb-1">希臘 / 義大利 / 西班牙</h4>
-                            <p class="text-sm text-gray-600">強烈推薦使用 <strong>Ferryhopper (App)</strong> 查詢與訂票。介面直覺，支援多家船公司比價，且可直接產生電子登船證。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <div class="bg-cyan-50 p-6 rounded-2xl border border-cyan-100 flex flex-col">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="https://logo.clearbit.com/ferryhopper.com" onerror="this.style.display='none'" alt="Ferryhopper" class="w-8 h-8 rounded bg-white shadow-sm p-1 brand-logo">
+                                <h4 class="font-bold text-cyan-900 text-lg">希臘 / 義大利 / 西班牙</h4>
+                            </div>
+                            <p class="text-sm text-gray-700 mb-5 flex-grow">強烈推薦使用 <strong>Ferryhopper (App)</strong> 查詢與訂票。介面直覺，支援多家船公司比價，且可直接產生電子登船證。</p>
+                            <a href="https://www.ferryhopper.com/" target="_blank" rel="nofollow" class="block text-center bg-cyan-600 text-white font-bold text-sm py-2.5 rounded-xl hover:bg-cyan-700 hover:shadow-md transition">前往 Ferryhopper →</a>
                         </div>
-                        <div class="bg-cyan-50 p-4 rounded-xl border border-cyan-100">
-                            <h4 class="font-bold text-cyan-800 mb-1">波羅的海 / 北海 / 英國</h4>
-                            <p class="text-sm text-gray-600">可使用 <strong>DirectFerries</strong> 進行比價。知名航商包含 Tallink Silja, Viking Line。</p>
+                        
+                        <div class="bg-cyan-50 p-6 rounded-2xl border border-cyan-100 flex flex-col">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="https://logo.clearbit.com/directferries.com" onerror="this.style.display='none'" alt="DirectFerries" class="w-8 h-8 rounded bg-white shadow-sm p-1 brand-logo">
+                                <h4 class="font-bold text-cyan-900 text-lg">波羅的海 / 北海 / 英國</h4>
+                            </div>
+                            <p class="text-sm text-gray-700 mb-5 flex-grow">可使用 <strong>DirectFerries</strong> 進行比價。知名航商包含 Tallink Silja, Viking Line。</p>
+                            <a href="https://www.directferries.com/" target="_blank" rel="nofollow" class="block text-center bg-cyan-600 text-white font-bold text-sm py-2.5 rounded-xl hover:bg-cyan-700 hover:shadow-md transition">前往 DirectFerries →</a>
                         </div>
+
                     </div>
                 </div>
             </section>
+
         </article>
     </main>
 
