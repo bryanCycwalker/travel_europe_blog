@@ -136,51 +136,99 @@
 
                 <div id="card-1" onclick="handleGuideClick('card-1')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border relative overflow-hidden z-10">
                     <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 opacity-50 pointer-events-none group-hover:scale-110 transition">01</div>
+                    
                     <button onclick="closeGuide(event, 'card-1')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
                     
                     <div class="flex items-center gap-5 mb-4 relative z-10">
                         <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🧭</div>
                         <h3 class="font-extrabold text-xl text-gray-800">從零開始的行程規劃</h3>
                     </div>
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">被 IG 美照燒到卻不知從何查起？打破完美主義，用四維度資源盤點與防呆漏斗，教你有效率地生出第一趟行程。</p>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">
+                        被 IG 美照燒到卻不知從何查起？打破完美主義，用四維度資源盤點與防呆漏斗，教你有效率地生出第一趟行程。
+                    </p>
                     
                     <div class="guide-content hidden opacity-0 relative z-10">
                         <div class="pt-6 border-t border-gray-100 mt-2">
                             
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-200 shadow-sm">
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">📊 獨旅四維度 (盤點資源)</div>
-                                    <ul class="text-sm text-gray-600 space-y-2">
-                                        <li>• <strong>🎯 目的地 (動力)：</strong> 拋開現實，心中渴望的風景才是支撐查資料的火種。</li>
-                                        <li>• <strong>💰 預算：</strong> <span class="text-red-500 font-medium">瑞士/北歐</span> > 西歐 > 南歐 > <span class="text-emerald-600 font-medium">東歐</span>。</li>
-                                        <li>• <strong>🚆 便利性：</strong> 德鐵常誤點、巴爾幹依賴巴士且資訊少；注意 Eurail 在西班牙、法國與義大利很多要求強制實體劃位極不友善。</li>
-                                        <li>• <strong>🔋 體力與心力：</strong> 不要小看南歐拖行李的石板路與上下坡，以及大城市(倫敦/巴黎/羅馬)安排大量景點與防小偷帶來的「決策疲勞」。</li>
+                            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg mb-8 text-sm text-indigo-900 leading-relaxed shadow-sm">
+                                <strong>💡 歐洲的淡旺季怎麼分？</strong><br>
+                                台灣的淡季不等於歐洲的淡季！除了最擁擠的 <strong>暑假 (6-9月)</strong> 外，<strong>復活節 (4月)</strong> 與 <strong>聖誕跨年 (12月)</strong> 是當地人傾巢而出的「絕對連假旺季」，只要卡到這三段時間，沒提前買票絕對進不去！
+                            </div>
+                
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+                                    <div class="flex items-center gap-2 mb-4">
+                                        <span class="text-xl">📊</span>
+                                        <div class="text-lg font-extrabold text-gray-800">獨旅四維度 (資源盤點)</div>
+                                    </div>
+                                    <ul class="text-sm text-gray-600 space-y-4">
+                                        <li class="leading-relaxed">
+                                            <span class="font-bold text-gray-800 flex items-center gap-1">🎯 目的地 (動力)：</span>
+                                            拋開現實，心中渴望的風景（海、雪、山或古蹟）才是支撐你查資料的唯一火種。
+                                        </li>
+                                        <li class="leading-relaxed">
+                                            <span class="font-bold text-gray-800 flex items-center gap-1">💰 預算分級：</span>
+                                            <span class="text-red-500 font-bold">瑞/北歐</span> > 西歐 > 南歐 > <span class="text-emerald-600 font-bold">東歐</span>。<br>
+                                            <span class="text-xs text-gray-400">※ 確定預算後同步查「景點通票」，內容常會直接決定你的最終路線。</span>
+                                        </li>
+                                        <li class="leading-relaxed">
+                                            <span class="font-bold text-gray-800 flex items-center gap-1">🚆 便利性與數位化：</span>
+                                            西/北歐英語普及且無現金；巴爾幹依賴巴士且資訊破碎。注意：<span class="text-red-600 font-medium">西、法、義</span> 的高鐵對 Eurail 通票不友善，強制要求實體劃位。
+                                        </li>
+                                        <li class="leading-relaxed">
+                                            <span class="font-bold text-gray-800 flex items-center gap-1">🔋 體力與心力 (血條)：</span>
+                                            南歐石板路是「行李箱殺手」；倫敦/羅馬等大城市的高密度景點會帶來嚴重的<strong>「決策疲勞」</strong>。
+                                        </li>
                                     </ul>
                                 </div>
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-200 shadow-sm">
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">⏳ 防後悔訂票漏斗</div>
-                                    <p class="text-xs text-gray-500 mb-3">大原則：最不確定的最早決定！不要盲目訂票。</p>
-                                    <ul class="text-sm text-gray-600 space-y-2">
-                                        <li><strong>Step 0. 機票與簽證：</strong> 決定不同點進出與申根 90 天限制。</li>
-                                        <li><strong>Step 1. 景點大魔王：</strong> 去官網確認營業時間、年度大修、受天氣限制的體驗(如熱氣球)。</li>
-                                        <li><strong>Step 2. 城際交通：</strong> 上 Omio 查真實班次，避免排到幽靈車班。</li>
-                                        <li><strong>Step 3. 尋找住宿：</strong> 絕對能用錢解決的事放最後。找近車站、高評價、免費取消的。</li>
-                                        <li class="pt-2 border-t border-gray-200 mt-2 text-indigo-700 font-bold">
-                                            <strong>🔄 Step 4. 總體檢：</strong> 結帳前確認通票與學生優惠。若微調天數能省大錢，就回到 Step 1 重新循環！
+                
+                                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+                                    <div class="absolute top-2 right-4 text-4xl opacity-10">⏳</div>
+                                    <div class="flex items-center gap-2 mb-4">
+                                        <span class="text-xl">🌪️</span>
+                                        <div class="text-lg font-extrabold text-gray-800">防後悔規劃漏斗</div>
+                                    </div>
+                                    <p class="text-[11px] text-slate-500 mb-4 font-bold uppercase tracking-wider">大原則：越難更改、名額越少的越早決定</p>
+                                    
+                                    <ul class="space-y-4 relative">
+                                        <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
+                                            <span class="font-bold text-gray-900 block text-sm">Step 1. (點) 熱門景點/體驗</span>
+                                            <span class="text-xs text-gray-600 leading-relaxed block">
+                                                去官網試訂位，熱門點(如《最後的晚餐》)需數月前搶票。
+                                                <span class="text-indigo-600 block mt-1">※ 若一地參觀 3 個以上景點，優先研究「城市通票」。</span>
+                                            </span>
+                                        </li>
+                                        <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
+                                            <span class="font-bold text-gray-900 block text-sm">Step 2. (線) 城際交通串聯</span>
+                                            <span class="text-xs text-gray-600 leading-relaxed block">
+                                                先用 Omio 比價，再進官網確認班次。避免排到只有「幽靈時段」的路線。
+                                                <span class="text-indigo-600 block mt-1">※ 頻繁跨國移動(3次以上)請考慮 Eurail Pass 優化成本。</span>
+                                            </span>
+                                        </li>
+                                        <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
+                                            <span class="font-bold text-gray-900 block text-sm">Step 3. (面) 機票與入境</span>
+                                            <span class="text-xs text-gray-600 leading-relaxed block">考量假期彈性與不同點進出 (Open-jaw)，決定大骨架。</span>
+                                        </li>
+                                        <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
+                                            <span class="font-bold text-gray-900 block text-sm">Step 4. (底) 尋找住宿避風港</span>
+                                            <span class="text-xs text-gray-600 leading-relaxed block">能用錢解決的放最後。找高評分(8.0+)、火車站旁、支援自助入住的。</span>
+                                        </li>
+                                        <li class="relative pl-6 pt-3 border-t border-indigo-100">
+                                            <div class="flex items-center gap-2 text-indigo-700 font-bold text-sm">
+                                                <span>🔄 Step 5. 行程總體檢</span>
+                                            </div>
+                                            <span class="text-[11px] text-gray-500 leading-relaxed block mt-1">最後確認學生/青年優惠、罷工預警。完成後即可一次全訂！</span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg mb-6 text-sm text-indigo-900 leading-relaxed">
-                                <strong>💡 歐洲的淡旺季怎麼分？</strong><br>
-                                台灣的淡季不等於歐洲的淡季！除了最擁擠的<strong>暑假 (6-9月)</strong> 外，<strong>復活節 (4月)</strong> 與 <strong>聖誕跨年 (12月)</strong> 是當地人傾巢而出的「絕對連假旺季」，只要卡到這三段時間，沒提前買票絕對進不去！
-                            </div>
+                
                             <div class="flex flex-col sm:flex-row gap-3 pb-8">
                                 <a href="planning.html" class="inline-block bg-indigo-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-indigo-700 transition shadow-md shadow-indigo-200">
                                     🗺️ 閱讀完整行程規劃心法 →
                                 </a>
                             </div>
-
+                
                         </div>
                     </div>
                 </div>
