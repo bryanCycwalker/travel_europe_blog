@@ -47,6 +47,7 @@
                     <li><a href="#accommodation" class="hover:text-green-600 transition block">🏨 住宿入住確認</a></li>
                     <li><a href="#transport-check" class="hover:text-green-600 transition block">⚠️ 交通狀態與罷工確認</a></li>
                     <li><a href="#internet" class="hover:text-green-600 transition block">📶 網卡挑選與流量評估</a></li>
+                    <li><a href="#weather" class="hover:text-green-600 transition block">🌤️ 環境防禦與天氣預警</a></li>
                     <li><a href="#packing" class="hover:text-green-600 transition block">🎒 獨旅輕量化裝備清單</a></li>
                 </ul>
             </div>
@@ -76,7 +77,7 @@
                         <div class="bg-amber-50 p-5 rounded-xl border border-amber-100">
                             <h4 class="font-bold text-amber-900 mb-2">💳 銀行與刷卡安全（極重要）</h4>
                             <p class="text-xs text-gray-700 leading-relaxed">
-                                <strong>開通國外消費：</strong>確認開啟「國外實體/網路刷卡」與「報備出國日期」。<br>
+                                <strong>開通國外消費：</strong>確認開啟「國外實體/網路刷卡」與「報備出國日期與國家」。<br>
                                 <strong>驗證改用 Email：</strong><span class="text-red-600 font-bold">這點最容易被忽略！</span>在國外網購車票或門票時，3D 驗證碼建議去銀行改成 <strong>Email 接收</strong>。因為國外收簡訊常會斷訊或延遲，Email 只要有網路就能收，是保命關鍵。
                             </p>
                         </div>
@@ -163,6 +164,25 @@
                 </div>
             </section>
 
+            <section id="weather" class="scroll-mt-24">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-2xl">🌤️</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900">環境防禦與天氣預警</h2>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
+                        <h3 class="text-amber-800 font-bold text-lg mb-3 flex items-center gap-2"><span>🛡️</span> 永遠查看最新天氣預報</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed mb-4">
+                            歐洲近年氣候極度異常，每天出門前務必確認當天是否有<strong>熱浪、豪雨、強風或寒流</strong>。南歐的夏季熱浪極易引發中暑；而極端暴雨或冬季大雪，更經常導致德國 (DB) 等跨國鐵路無預警大停駛或路樹倒塌。
+                        </p>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            即使在一般天氣下，歐洲普遍「日夜溫差極大、降雨相當隨興」，且因為空氣乾淨，夏季強烈紫外線直射非常容易讓人曬傷。因此，每天確認天氣不僅是為了準備「洋蔥式穿搭」與防曬雨具，更是為了<strong>判斷交通變數，決定是否需要提早啟動 B 計畫</strong>的保命符。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <section id="packing" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-2xl">🎒</div>
@@ -170,23 +190,48 @@
                 </div>
                 
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
+                    <p class="text-gray-700 mb-6 text-sm">
+                        我通常只帶一個<strong>登機箱尺寸的大後背包</strong>，但只塞能符合免費小包包的量（搭廉航時確保能符合規定），外加一個出門逛街小包包(入住之後)。以下是我的實戰打包清單：
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-8">
                         <div>
-                            <h4 class="font-bold text-orange-700 mb-3 border-l-4 border-orange-500 pl-3">🛠️ 青旅求生必備</h4>
-                            <ul class="text-sm text-gray-700 space-y-3">
-                                <li>• <strong>密碼鎖 (Padlock)：</strong> 置物櫃通常沒鎖，不自己帶鎖等於門戶大開。</li>
-                                <li>• <strong>快乾毛巾/薄浴巾：</strong> 許多青旅不附毛巾，薄的才好晾。</li>
-                                <li>• <strong>拖鞋：</strong> 洗澡或房內走動的絕對必需品。</li>
-                                <li>• <strong>萬用轉接頭：</strong> 萬用圓孔規格，支援瑞士/義大利微細規格最穩。</li>
+                            <h4 class="font-bold text-orange-700 mb-3 border-b pb-1">👕 衣物與洗漱</h4>
+                            <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4">
+                                <li><strong>3 - 4 套內衣褲/襪子：</strong>必買「快乾材質」。青旅很乾（冬天有暖氣、夏天會開窗），手洗一晚就乾。帶 4 套可容錯（如被淋濕）並減緩衣物累積的味道。</li>
+                                <li><strong>薄浴巾：</strong>歐洲很多青旅不附毛巾和吹風機，薄的快乾且不佔空間。</li>
+                                <li><strong>一雙拖鞋：</strong>洗澡或在房內走動必備。</li>
+                                <li><strong>盥洗用品包：</strong>牙刷膏、牙線、刮鬍刀、洗髮沐浴小瓶裝。</li>
+                                <li><strong>保養品：</strong>乳液、防曬乳(夏天)必備，歐洲極度乾燥。</li>
                             </ul>
                         </div>
+
                         <div>
-                            <h4 class="font-bold text-orange-700 mb-3 border-l-4 border-orange-500 pl-3">👕 衣物與健康</h4>
-                            <ul class="text-sm text-gray-700 space-y-3">
-                                <li>• <strong>4 套快乾衣物：</strong> 晚上手洗一晚即乾，減輕背包重量。</li>
-                                <li>• <strong>維他命 C：</strong> 獨旅絕不能生病，每天一顆建立防禦。</li>
-                                <li>• <strong>隱形腰包：</strong> 護照與備用信用卡永遠貼身放置。</li>
-                                <li>• <strong>水瓶：</strong> 歐洲自來水生飲發達，過安檢後裝水省大錢。</li>
+                            <h4 class="font-bold text-orange-700 mb-3 border-b pb-1">🛠️ 青旅與實用工具</h4>
+                            <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4">
+                                <li><strong class="text-red-600">密碼鎖 (Padlock)：</strong><span class="bg-yellow-100 px-1">極度重要！</span>青旅置物櫃通常只提供鎖頭孔，不自己帶鎖等於物品門戶大開。此外，青旅鎖頭孔百百種。通常細到中粗的鎖頭都可以用，但偶爾會遇到只能用粗鎖頭才鎖得住的狀況。</li>
+                                <li><strong>洗衣用品：</strong>水晶肥皂/旅行洗衣粉、至少 4 個折疊衣架（晾內衣褲與毛巾）。</li>
+                                <li><strong>垃圾袋兩個：</strong>一個裝乾淨衣物，一個裝髒衣物。</li>
+                                <li><strong>水瓶：</strong>過安檢後裝水用，省下買礦泉水的錢。</li>
+                                <li><strong>太陽眼鏡：</strong>歐洲的太陽直射會讓眼睛非常不舒服。</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-orange-700 mb-3 border-b pb-1">🔌 電子與文件</h4>
+                            <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4">
+                                <li><strong>萬用轉接頭：</strong>歐洲為雙圓孔，但瑞士、義大利有些微不同，帶萬用的最保險。英國也不一樣。</li>
+                                <li><strong>行動電源：</strong>記得放隨身包，絕對不能托運！</li>
+                                <li><strong>文件：</strong>護照、國際駕照、信用卡與適量現金。</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-orange-700 mb-3 border-b pb-1">💊 健康與其他</h4>
+                            <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4">
+                                <li><strong>個人藥品：</strong>感冒藥、腸胃藥、喉糖。建議每天吃一顆維他命 C。</li>
+                                <li><strong>離線地圖：</strong>出發前在 Google Maps 下載好城市區域，沒網路也能導航。</li>
+                                <li><strong>隨身(防竊)包：</strong>貼身腰包或斜背托特包，放在大外套內側最安全。</li>
                             </ul>
                         </div>
                     </div>
