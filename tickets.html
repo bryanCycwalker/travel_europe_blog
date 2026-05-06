@@ -1848,26 +1848,6 @@
                 }
             });
         }
-        let lastScrollTop = 0;
-const filterHeader = document.getElementById('filter-header');
-
-window.addEventListener('scroll', function() {
-    let lastScrollTop = 0;
-const filterHeader = document.getElementById('filter-header');
-
-window.addEventListener('scroll', function() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop && scrollTop > 300) {
-        // 往下捲動：設為負值隱藏
-        filterHeader.style.top = '-200px'; 
-    } else {
-        // 往上捲動：設回 80px 顯示
-        filterHeader.style.top = '80px'; 
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-}, false);
     </script>
 </body>
 </html>
