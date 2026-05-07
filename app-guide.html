@@ -1,671 +1,1341 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>歐洲獨旅必備 APP：省錢、導航與街頭求生指南 - Europe Solo</title>
+
     <meta name="description" content="歐洲旅行手機必裝！實測 TooGoodToGo 買剩食、TheFork 餐廳半價、Bolt 叫車比價，以及如何用 APP 找免費廁所與寄放行李。">
+
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
+
         html { scroll-behavior: smooth; }
+
         ::-webkit-scrollbar { width: 8px; }
+
         ::-webkit-scrollbar-track { background: #f1f5f9; }
+
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
     </style>
+
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
 
+
+
     <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out">
+
         <div class="text-xl font-bold tracking-tighter">
+
             <a href="index.html" class="hover:opacity-80 transition">EUROPE<span class="text-blue-600">SOLO</span></a>
+
         </div>
+
         <div class="flex items-center space-x-3">
+
             <a href="about.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-sm">關於我</a>
+
         </div>
+
     </nav>
+
     <div class="h-20"></div>
 
+
+
     <header class="bg-emerald-600 text-white py-16 px-6 text-center relative overflow-hidden">
+
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+
         <div class="relative z-10 max-w-4xl mx-auto">
+
             <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">歐洲獨旅省錢與求生 APP</h1>
+
             <p class="text-emerald-100 text-lg md:text-xl max-w-2xl mx-auto">
+
                 從 €3 歐元吃飽的盲盒、半價餐廳，到找免費廁所與寄行李。手機裝對這些 APP，旅費直接省一半。
+
             </p>
+
         </div>
+
     </header>
 
+
+
     <main class="max-w-6xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
+
         
+
         <aside class="hidden lg:block w-64 flex-shrink-0">
+
             <div class="sticky top-32 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+
                 <h3 class="font-bold text-gray-900 mb-4 text-lg border-b pb-2">APP 種類分類</h3>
+
                 <ul class="space-y-3 text-sm font-medium text-gray-500">
+
                     <li><a href="#food" class="hover:text-emerald-600 transition block">🍽️ 飲食省錢神器</a></li>
+
                     <li><a href="#transit" class="hover:text-emerald-600 transition block">🗺️ 交通與導航</a></li>
+
                     <li><a href="#accommodation" class="hover:text-emerald-600 transition block">🏨 住宿找房比價</a></li>
+
                     <li><a href="#survival" class="hover:text-emerald-600 transition block">🚽 街頭求生工具</a></li>
+
                     <li><a href="#social" class="hover:text-emerald-600 transition block">🤝 社交與體驗</a></li>
+
                 </ul>
+
             </div>
+
         </aside>
+
+
 
         <article class="flex-grow space-y-12">
 
+
+
             <div class="bg-emerald-50 p-6 md:p-8 rounded-2xl border-2 border-dashed border-emerald-200 relative overflow-hidden mb-12">
+
                 <div class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-100 rounded-full opacity-50"></div>
+
                 <h3 class="text-xl md:text-2xl font-extrabold text-emerald-900 mb-4 flex items-center relative z-10">
+
                     <span class="mr-3 text-2xl md:text-3xl">💡</span> Bryan 的省錢攻略：下載 APP 前的斷捨離
+
                 </h3>
+
                 
+
                 <div class="space-y-4 text-gray-700 leading-loose relative z-10 text-sm md:text-base">
+
                     <p class="font-bold text-gray-900">
+
                         在開始介紹這份清單前，先破解一個常見迷思：「是不是所有服務都要下載 APP？」
+
                     </p>
+
                     <p>
+
                         其實不需要。像找機票的 Skyscanner，用網頁版就已經相當方便，沒必要額外佔用手機空間(除非你想放著作紀念><)。至於各國國鐵、區域交通或廉航的 APP，建議依照實際行程再決定是否下載。
+
                     </p>
+
+
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+
                         <div class="bg-white/80 p-5 rounded-xl border border-emerald-100 shadow-sm">
+
                             <div class="text-emerald-800 font-bold mb-2 flex items-center gap-2">
+
                                 <span class="text-xl">🧠</span> 更聰明的做法
+
                             </div>
+
                             <p class="text-sm text-gray-700">
+
                                 <strong>「先規劃路線，再選工具」</strong>。建議先參考我的 <a href="transport.html" class="text-emerald-600 font-bold underline">歐洲交通指南</a> 定好大框架，再決定手機該裝什麼。
+
                             </p>
+
                         </div>
+
+
 
                         <div class="bg-white/80 p-5 rounded-xl border border-emerald-100 shadow-sm">
+
                             <div class="text-emerald-800 font-bold mb-2 flex items-center gap-2">
+
                                 <span class="text-xl">⚖️</span> 判斷標準
+
                             </div>
+
                             <p class="text-sm text-gray-700">
+
                                 如果只是短暫停留、景點集中、或僅將城市作為中繼點，<strong>完全不需下載當地交通 APP</strong>；反之，若需頻繁搭乘大眾運輸才需安裝。
+
                             </p>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
+
             
+
             <section id="food" class="scroll-mt-24">
+
                 <div class="flex items-center gap-4 mb-6">
+
                     <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-2xl">🍽️</div>
+
                     <h2 class="text-3xl font-extrabold text-gray-900">飲食省錢神器</h2>
+
                 </div>
+
                 
+
                 <div class="space-y-6">
+
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <img src="https://www.google.com/s2/favicons?domain=toogoodtogo.com&sz=128" alt="TooGoodToGo Logo" class="w-8 h-8 rounded-lg shadow-sm border border-gray-100 bg-white">
+
                             TooGoodToGo (打烊盲盒)
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>推廣不浪費食物的 APP。只要 €4-€5 就能買到麵包店、超市、甚至飯店早餐的「打烊盲盒」，份量通常大到能吃兩餐，絕對是窮遊省錢神物。</p>
+
                         
+
                         <div class="bg-emerald-50 p-5 rounded-xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                             <div class="text-sm text-gray-700 space-y-2 relative z-10">
+
                                 <p>記得挑選評分 <strong>4.0 以上</strong>的店家才不會踩雷。另外，在物價極高的<strong>北歐國家</strong>買通常回本率最高，甚至能拿到超高檔的壽司或烤肉！</p>
+
                                 <p class="text-xs text-gray-500 bg-white/60 p-2 rounded-lg">* 提醒：這款 APP 在西歐、北歐與希臘大城市非常強大，但多數東歐國家（波蘭與捷克除外）、芬蘭與巴爾幹半島目前尚未普及，出發前可先在 APP 內確認。</p>
+
                             </div>
+
                         </div>
+
+
 
                         <div class="bg-orange-50 p-4 rounded-xl border border-orange-100 mb-6">
+
                             <p class="text-sm font-bold text-orange-800 mb-1 flex items-center gap-2"><span>🎁</span> 讀者專屬回饋</p>
+
                             <p class="text-xs text-gray-700 leading-relaxed">
+
                                 透過專屬連結註冊，首次購買盲盒可獲得 <strong>€2 歐元回饋金</strong>！<br>
+
                                 <span class="text-gray-500">* 官方政策：回饋金額可能視當下活動地區與匯率政策浮動。</span><br>
+
                                 👉 <a href="https://tgtg.onelink.me/OGjG/636gjfu5" target="_blank" rel="nofollow" class="text-orange-600 font-bold hover:underline">點此領取 TooGoodToGo 優惠</a>
+
                             </p>
+
                         </div>
 
+
+
                         <div class="flex flex-wrap gap-3 mt-auto">
+
                             <a href="https://toogoodtogo.com/" target="_blank" rel="nofollow" class="bg-emerald-600 text-white text-xs font-bold px-5 py-2.5 rounded-full hover:bg-emerald-700 transition shadow-sm inline-flex items-center gap-1">🌐 前往網站</a>
+
                             <button onclick="smartDownload(event, 'https://apps.apple.com/app/id1060683933', 'https://play.google.com/store/apps/details?id=com.app.tgtg', 'https://toogoodtogo.com/')" class="bg-gray-800 text-white text-xs font-bold px-5 py-2.5 rounded-full hover:bg-gray-900 transition shadow-sm inline-flex items-center gap-1">📱 下載 APP</button>
+
                         </div>
+
                     </div>
+
+
 
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <img src="https://www.google.com/s2/favicons?domain=thefork.com&sz=128" alt="TheFork Logo" class="w-8 h-8 rounded-lg shadow-sm border border-gray-100 bg-white">
+
                             TheFork
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>歐洲最大的餐廳訂位 APP（特別在法國、義大利、西班牙）。隨便訂位都有 -20% 折扣，特定時段甚至能拿到 <strong>-50% (餐點半價)</strong> 的超殺優惠。</p>
+
                         
+
                         <div class="bg-emerald-50 p-5 rounded-xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                             <p class="text-sm text-gray-700 relative z-10">
+
                                 獨旅有時候想對自己好一點，用 TheFork 訂位一個人去吃特色餐廳也不會尷尬，結帳時直接秀出 APP 折扣，省下來的錢還能多點一杯紅酒。
+
                             </p>
+
                         </div>
+
+
 
                         <div class="bg-orange-50 p-4 rounded-xl border border-orange-100 mb-6">
+
                             <p class="text-sm font-bold text-orange-800 mb-1 flex items-center gap-2">
+
                                 <span>🎁</span> 新戶推薦碼：<span class="bg-white px-2 py-0.5 rounded text-orange-600 border border-orange-200 select-all tracking-wider">89E54D6B</span>
+
                             </p>
+
                             <p class="text-xs text-gray-700 leading-relaxed">
+
                                 透過專屬 <a href="https://tfk.io/apg5laxk" target="_blank" rel="nofollow" class="underline hover:text-orange-600 font-bold">下載連結</a> 註冊，並在預訂「首次用餐」時輸入此推薦碼，完食後即可獲得 <strong>1000 Yums (忠誠點數)</strong>。<br>
+
                                 <span class="text-gray-500">* 官方政策：累積的 1000 Yums 可以在下一次預訂參與活動的餐廳時，直接折抵 <strong>€20 歐元</strong>（2000 Yums 甚至可折 €50），非常划算！</span>
+
                             </p>
+
                         </div>
 
+
+
                         <div class="flex flex-wrap gap-3 mt-auto">
+
                             <a href="https://www.thefork.com/" target="_blank" rel="nofollow" class="bg-emerald-600 text-white text-xs font-bold px-5 py-2.5 rounded-full hover:bg-emerald-700 transition shadow-sm inline-flex items-center gap-1">🌐 前往網站</a>
+
                             <button onclick="smartDownload(event, 'https://apps.apple.com/app/id424850908', 'https://play.google.com/store/apps/details?id=com.lafourchette.lafourchette', 'https://www.thefork.com/')" class="bg-gray-800 text-white text-xs font-bold px-5 py-2.5 rounded-full hover:bg-gray-900 transition shadow-sm inline-flex items-center gap-1">📱 下載 APP</button>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </section>
+
+
 
             <section id="transit" class="scroll-mt-24">
+
                 <div class="flex items-center gap-4 mb-6">
+
                     <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl">🗺️</div>
+
                     <h2 class="text-3xl font-extrabold text-gray-900">交通與導航</h2>
+
                 </div>
+
                 
+
                 <div class="space-y-6">
 
+
+
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <div class="flex -space-x-2">
+
                                 <img src="https://www.google.com/s2/favicons?domain=omio.com&sz=128" alt="Omio Logo" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                             </div>
+
                             Omio (交通比價與訂票大師)
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>全歐洲跨國交通必備！完美整合各國火車、長途巴士、飛機與渡輪路線，全中文介面一鍵比價訂票，不用再到處切換各國國鐵 APP。</p>
+
                         
+
                         <div class="bg-emerald-50 p-6 rounded-2xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-3 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                             <p class="text-sm text-gray-700 relative z-10">
+
                                 規劃跨國路線時，我一定先用 Omio 看大方向（火車和巴士的時間與價格對比）。雖然會收取微薄的平台費，但若懶得到處訂票，Omio是個很方便的工具。訂票後 QR Code 會直接存在 APP 內，查票時出示手機即可，超級方便！對於找冷門私鐵或跨國巴士非常有幫助。
+
                             </p>
+
                         </div>
 
+
+
                         <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 mb-6">
+
                             <p class="text-sm font-bold text-blue-800 mb-1 flex items-center gap-2">
+
                                 <span>🎁</span> Omio 新戶邀請碼：<span class="bg-white px-2 py-0.5 rounded text-blue-600 border border-blue-200 select-all tracking-wider">bryanc1p3s6r</span>
+
                             </p>
+
                             <p class="text-xs text-gray-700 leading-relaxed">
+
                                 透過專屬 <a href="https://go-refer.omio.com/Z7c2A7" target="_blank" rel="nofollow" class="underline hover:text-blue-600 font-bold">優惠連結</a> 註冊，或在結帳時輸入代碼，首次訂票即可獲得 <strong>€10 歐元折扣</strong>！<br>
+
                                 <span class="text-gray-500">* 官方政策：首次預訂金額需滿 <strong>€50 歐元</strong> 方可折抵。</span>
+
                             </p>
+
                         </div>
+
+
 
                         <div class="flex flex-col gap-3 mt-auto bg-gray-50 p-4 rounded-xl border border-gray-100">
+
                             <div class="flex items-center justify-between">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=omio.com&sz=32" class="w-4 h-4"> Omio</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://omio.sjv.io/c/7274100/409973/7385" target="_blank" rel="nofollow" class="bg-blue-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-700 transition shadow-sm">🌐 網頁版</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id588947649', 'https://play.google.com/store/apps/details?id=com.goeuro.tickets', 'https://go-refer.omio.com/Z7c2A7')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
 
+
+
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <div class="flex -space-x-2">
+
                                 <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=128" alt="Google Maps" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                                 <img src="https://www.google.com/s2/favicons?domain=citymapper.com&sz=128" alt="Citymapper" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                             </div>
+
                             Google Maps & Citymapper
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>出國必備的雙箭頭。Google Maps 強在找餐廳評價與下載「離線地圖」；而 Citymapper 則是大城市（倫敦、巴黎等）的大眾運輸神兵。</p>
+
                         
+
                         <div class="bg-emerald-50 p-5 rounded-xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                             <p class="text-sm text-gray-700 relative z-10">
+
                                 若要去偏遠地區(比如北歐國家的北部地區)，Google Maps 記得出發前先下載好城市的「離線地圖」。不過Google Maps在巴爾幹資訊的整合上還有待加強。而 Citymapper 甚至會告訴你搭地鐵要坐「第幾節車廂」離出口最近，在巴黎或倫敦那種迷宮般的地鐵站裡，絕對是防迷路神兵利器。
+
                             </p>
+
                         </div>
+
+
 
                         <div class="flex flex-col gap-3 mt-auto">
+
                             <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+
                                 <span class="text-xs font-bold text-gray-700">Google Maps</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://maps.google.com/" target="_blank" class="bg-blue-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-700 transition">🌐 網頁版</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id585027354', 'https://play.google.com/store/apps/details?id=com.google.android.apps.maps', 'https://maps.google.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                             <div class="flex items-center justify-between">
+
                                 <span class="text-xs font-bold text-gray-700">Citymapper</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://citymapper.com/" target="_blank" class="bg-blue-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-700 transition">🌐 網頁版</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id469463298', 'https://play.google.com/store/apps/details?id=com.citymapper.app.release', 'https://citymapper.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
 
+
+
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <div class="flex -space-x-2">
+
                                 <img src="https://www.google.com/s2/favicons?domain=uber.com&sz=128" alt="Uber" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                                 <img src="https://www.google.com/s2/favicons?domain=bolt.eu&sz=128" alt="Bolt" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                             </div>
+
                             Uber & Bolt (叫車比價)
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>趕時間、半夜抵達沒大眾運輸、或是去偏遠景點時的安全叫車選擇。</p>
+
                         
+
                         <div class="bg-emerald-50 p-5 rounded-xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                             <p class="text-sm text-gray-700 relative z-10">
+
                                 歐洲叫車<strong>一定要兩個 APP 切換比價</strong>！尤其在東歐與南歐，Bolt 的價格通常比 Uber 便宜非常多。
+
                             </p>
+
                         </div>
+
+
 
                         <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 mb-6">
+
                             <p class="text-sm font-bold text-blue-800 mb-1 flex items-center gap-2">
+
                                 <span>🎁</span> Bolt 首搭優惠碼：<span class="bg-white px-2 py-0.5 rounded text-blue-600 border border-blue-200 select-all tracking-wider">JQNWYM</span>
+
                             </p>
+
                             <p class="text-xs text-gray-700 leading-relaxed">
+
                                 新戶在 APP 內輸入此代碼，可獲得 <strong>前 5 趟行程高達 70% 折扣</strong>！<br>
+
                                 <span class="text-gray-500">* 官方政策：單趟最高折抵額度會依使用城市當地貨幣有所限制（例如單趟最高折等值 15 RM 或歐元），建議首趟從機場進市區的長途車程直接使用！詳見 <a href="https://invite.bolt.eu/JQNWYM" target="_blank" rel="nofollow" class="underline hover:text-blue-600">優惠詳情</a>。</span>
+
                             </p>
+
                         </div>
 
+
+
                         <div class="flex flex-col gap-3 mt-auto">
+
                             <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+
                                 <span class="text-xs font-bold text-gray-700">Uber</span>
+
                                 <div class="flex gap-2">
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id368677368', 'https://play.google.com/store/apps/details?id=com.ubercab', 'https://www.uber.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition w-full">📱 下載 APP</button>
+
                                 </div>
+
                             </div>
+
                             <div class="flex items-center justify-between">
+
                                 <span class="text-xs font-bold text-gray-700">Bolt</span>
+
                                 <div class="flex gap-2">
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id675033630', 'https://play.google.com/store/apps/details?id=ee.mtakso.client', 'https://bolt.eu/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition w-full">📱 下載 APP</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
+
 
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <div class="flex -space-x-2">
+
                                 <img src="https://www.google.com/s2/favicons?domain=flixbus.com&sz=128" alt="FlixBus" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                                 <img src="https://www.google.com/s2/favicons?domain=blablacar.com&sz=128" alt="BlaBlaCar" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                             </div>
+
                             FlixBus & BlaBlaCar
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>跨國移動的低預算救星。FlixBus 適合睡一晚省住宿；BlaBlaCar 則是歐洲盛行的「共乘 APP」，搭當地人的便車分攤油錢。</p>
+
                         
+
                         <div class="bg-emerald-50 p-5 rounded-xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                             <p class="text-sm text-gray-700 relative z-10">
+
                                 FlixBus APP 內建車票 QR Code，還能隨時查看班次即時位置與延誤狀況，比印出紙本方便太多。而 BlaBlaCar 則是<strong>省錢利器</strong>與<strong>交友寶地</strong>！
+
                             </p>
+
                         </div>
 
+
+
                         <div class="flex flex-col gap-3 mt-auto">
+
                             <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+
                                 <span class="text-xs font-bold text-gray-700">FlixBus</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://www.flixbus.com/" target="_blank" class="bg-blue-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-700 transition">🌐 網頁版</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id778437357', 'https://play.google.com/store/apps/details?id=de.flixbus.app', 'https://www.flixbus.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                             <div class="flex items-center justify-between">
+
                                 <span class="text-xs font-bold text-gray-700">BlaBlaCar</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://www.blablacar.com/" target="_blank" class="bg-blue-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-700 transition">🌐 網頁版</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id341329033', 'https://play.google.com/store/apps/details?id=com.comuto', 'https://www.blablacar.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </section>
+
+
 
             <section id="accommodation" class="scroll-mt-24">
+
                 <div class="flex items-center gap-4 mb-6">
+
                     <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl">🏨</div>
+
                     <h2 class="text-3xl font-extrabold text-gray-900">住宿找房比價</h2>
+
                 </div>
+
                 
+
                 <div class="space-y-6">
+
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <div class="flex -space-x-2">
+
                                 <img src="https://www.google.com/s2/favicons?domain=booking.com&sz=128" alt="Booking" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                                 <img src="https://www.google.com/s2/favicons?domain=agoda.com&sz=128" alt="Agoda" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                                 <img src="https://www.google.com/s2/favicons?domain=trip.com&sz=128" alt="Trip" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                             </div>
+
                             三大綜合訂房網
+
                         </h3>
+
                         
+
                         <div class="bg-emerald-50 p-6 rounded-2xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-3 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                             <ul class="space-y-3 text-sm text-gray-700 relative z-10">
+
                                 <li><span class="text-emerald-700 font-bold">● 房源選擇：</span> <strong>Booking.com</strong> 在歐洲房源最穩、客服最有保障；<strong>Agoda</strong> 與 <strong>Trip.com</strong> 則常有隱藏破盤價。</li>
+
                                 <li><span class="text-emerald-700 font-bold">● 忠誠獎勵：</span> 前兩者具備強大的會員制度，達標後享有 <strong>85 折、免費房間升等、甚至免費機場休息室</strong> 等福利。</li>
+
                                 <li><span class="text-emerald-700 font-bold">● 機加酒保障：</span> 當班機延誤或取消時，平台會協助連動處理住宿理賠與退費（Trip.com 在這方面的客服主動權最高）。</li>
+
                             </ul>
+
                         </div>
+
                         
+
                         <div class="flex flex-col gap-3 mt-auto bg-gray-50 p-4 rounded-xl border border-gray-100">
+
                             <div class="flex items-center justify-between border-b border-gray-200 pb-3">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=booking.com&sz=32" class="w-4 h-4"> Booking.com</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://booking.com" target="_blank" rel="nofollow" class="bg-blue-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-700 transition shadow-sm">🌐 查價</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id367003839', 'https://play.google.com/store/apps/details?id=com.booking', '')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                             <div class="flex items-center justify-between border-b border-gray-200 pb-3">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=agoda.com&sz=32" class="w-4 h-4"> Agoda</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://agoda.com" target="_blank" rel="nofollow" class="bg-red-500 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-red-600 transition shadow-sm">🌐 查價</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id440676901', 'https://play.google.com/store/apps/details?id=com.agoda.mobile.consumer', '')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                             <div class="flex items-center justify-between">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=trip.com&sz=32" class="w-4 h-4"> Trip.com</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://trip.com" target="_blank" rel="nofollow" class="bg-blue-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-900 transition shadow-sm">🌐 查價</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id681752345', 'https://play.google.com/store/apps/details?id=ctrip.english', '')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
+
 
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <img src="https://www.google.com/s2/favicons?domain=hostelworld.com&sz=128" alt="Hostelworld" class="w-8 h-8 rounded-lg shadow-sm border border-gray-100 bg-white">
+
                             Hostelworld
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>專門找全世界「青年旅館」的平台，背包客的最愛。</p>
+
                         
+
                         <div class="bg-emerald-50 p-5 rounded-xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                             <p class="text-sm text-gray-700 relative z-10">
+
                                 Hostelworld 最強的是它的 <strong>「Chat 社交功能」</strong>！只要你訂房，入住前就會自動把你加入該青旅的聊天群組。一個人在國外想找人拼飯、去酒吧，直接在群組喊一聲就行，絕對是破冰神器！
+
                             </p>
+
                         </div>
 
+
+
                         <div class="flex flex-col gap-3 mt-auto bg-gray-50 p-4 rounded-xl border border-gray-100">
+
                             <div class="flex items-center justify-between">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=hostelworld.com&sz=32" class="w-4 h-4"> Hostelworld</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://www.hostelworld.com/" target="_blank" rel="nofollow" class="bg-orange-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-orange-700 transition shadow-sm">🌐 網頁版</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id348890820', 'https://play.google.com/store/apps/details?id=com.hostelworld.app', '')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </section>
+
+
 
             <section id="survival" class="scroll-mt-24">
+
                 <div class="flex items-center gap-4 mb-6">
+
                     <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center text-2xl">🚽</div>
+
                     <h2 class="text-3xl font-extrabold text-gray-900">街頭求生工具</h2>
+
                 </div>
+
+
 
                 <div class="bg-teal-50 p-6 md:p-8 rounded-2xl border-2 border-dashed border-teal-200 relative overflow-hidden mb-12">
+
                     <div class="absolute -top-6 -right-6 w-24 h-24 bg-teal-100 rounded-full opacity-50"></div>
+
                     <h3 class="text-xl md:text-2xl font-extrabold text-teal-900 mb-4 flex items-center relative z-10">
+
                         <span class="mr-3 text-2xl md:text-3xl">🧠</span> Bryan 的生存哲學：隨時清空、補滿
+
                     </h3>
+
                     <div class="space-y-4 text-gray-700 leading-loose relative z-10 text-sm md:text-base">
+
                         <p class="font-bold text-gray-900">
+
                             在歐洲，免費廁所與裝水是「稀缺資源」。<br>
+
                             我的核心心法是：<span class="text-red-600 underline decoration-red-200 underline-offset-4">只要有機會就使用，不要管當下是否急需。</span>
+
                         </p>
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+
                             <div class="bg-white/80 p-4 rounded-xl border border-teal-100 shadow-sm">
+
                                 <p><strong class="text-teal-800">1. 移動站點：</strong> 火車、長途巴士與機場（除了極少數廉航機場）是最佳免費清理時間。</p>
-                            </div>
-                            <div class="bg-white/80 p-4 rounded-xl border border-teal-100 shadow-sm">
-                                <p><strong class="text-teal-800">2. 百貨與速食：</strong> 認準精品百貨；車站與觀光區的速食店通常需憑單據條碼才能進廁所。</p>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-2">* 完整直飲水地圖與防雷細節，請見 <a href="safety-guide.html" class="text-teal-600 font-bold hover:underline">安全與求生全攻略</a>。</p>
-                    </div>
-                </div>
-                
-                <div class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div id="toilet" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full scroll-mt-24">
-                            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                                <div class="flex -space-x-2">
-                                    <img src="https://www.google.com/s2/favicons?domain=jrustonapps.com&sz=128" alt="Flush" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
-                                    <img src="https://www.google.com/s2/favicons?domain=toiletfinder.net&sz=128" alt="Toilet Finder" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
-                                </div>
-                                Flush & Toilet Finder
-                            </h3>
-                            <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>根據定位找出附近的廁所，並標註是否收費或具備無障礙設施。</p>
-                            
-                            <div class="bg-teal-50 p-5 rounded-xl border-2 border-dashed border-teal-200 mb-6 flex-grow relative overflow-hidden">
-                                <h4 class="font-bold text-teal-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
-                                <p class="text-sm text-gray-700 relative z-10">
-                                    <strong>標記不代表一定免費</strong>，有些資訊可能過時。不過若真的憋不住， €1 就還是給它花下去吧。
-                                </p>
+
                             </div>
 
-                            <div class="flex flex-col gap-3 mt-auto border-t border-gray-100 pt-3">
-                                <div class="flex items-center justify-between border-b border-gray-100 pb-3">
-                                    <span class="text-xs font-bold text-gray-700">Flush</span>
-                                    <div class="flex gap-2">
-                                        <button onclick="smartDownload(event, 'https://apps.apple.com/app/id955254528', 'https://play.google.com/store/apps/details?id=com.jrustonapps.flush', 'https://www.jrustonapps.com/apps/flush-toilet-finder')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition w-full">📱 下載 APP</button>
-                                    </div>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-xs font-bold text-gray-700">Toilet Finder</span>
-                                    <div class="flex gap-2">
-                                        <a href="https://toiletfinder.net/" target="_blank" class="bg-teal-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-teal-700 transition">🌐 網頁版</a>
-                                        <button onclick="smartDownload(event, 'https://apps.apple.com/app/id311896604', 'https://play.google.com/store/apps/details?id=com.bto.toilet', 'https://www.toiletfinder.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition">📱 下載 APP</button>
-                                    </div>
-                                </div>
+                            <div class="bg-white/80 p-4 rounded-xl border border-teal-100 shadow-sm">
+
+                                <p><strong class="text-teal-800">2. 百貨與速食：</strong> 認準精品百貨；車站與觀光區的速食店通常需憑單據條碼才能進廁所。</p>
+
                             </div>
+
                         </div>
+
+                        <p class="text-xs text-gray-500 mt-2">* 完整直飲水地圖與防雷細節，請見 <a href="safety-guide.html" class="text-teal-600 font-bold hover:underline">安全與求生全攻略</a>。</p>
+
+                    </div>
+
+                </div>
+
+                
+
+                <div class="space-y-6">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                             <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                                 <div class="flex -space-x-2">
-                                    <img src="https://www.google.com/s2/favicons?domain=findtap.com&sz=128" alt="Tap Logo" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
-                                    <img src="https://www.google.com/s2/favicons?domain=fountainfinderapp.com&sz=128" alt="Fountain Finder" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
+                                    <img src="https://www.google.com/s2/favicons?domain=jrustonapps.com&sz=128" alt="Flush" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
+                                    <img src="https://www.google.com/s2/favicons?domain=toiletfinder.net&sz=128" alt="Toilet Finder" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                                 </div>
-                                Tap & Fountain Finder
+
+                                Flush & Toilet Finder
+
                             </h3>
-                            <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>歐洲超市買瓶裝水不便宜(有時標價還會加上押金)，這兩款 APP 能標示街頭的「免費飲水機」或願意讓你免費裝水的咖啡廳。</p>
+
+                            <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>根據定位找出附近的廁所，並標註是否收費或具備無障礙設施。</p>
+
                             
+
                             <div class="bg-teal-50 p-5 rounded-xl border-2 border-dashed border-teal-200 mb-6 flex-grow relative overflow-hidden">
+
                                 <h4 class="font-bold text-teal-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                                 <p class="text-sm text-gray-700 relative z-10">
-                                    隨身帶個空瓶。幾天下來省下的買水錢，絕對夠你去吃一頓好料的！
+
+                                    <strong>標記不代表一定免費</strong>，有些資訊可能過時。不過若真的憋不住， €1 就還是給它花下去吧。
+
                                 </p>
+
                             </div>
+
+
 
                             <div class="flex flex-col gap-3 mt-auto border-t border-gray-100 pt-3">
+
                                 <div class="flex items-center justify-between border-b border-gray-100 pb-3">
-                                    <span class="text-xs font-bold text-gray-700">Tap</span>
+
+                                    <span class="text-xs font-bold text-gray-700">Flush</span>
+
                                     <div class="flex gap-2">
-                                        <a href="https://findtap.com/" target="_blank" class="bg-teal-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-teal-700 transition">🌐 網頁版</a>
-                                        <button onclick="smartDownload(event, 'https://apps.apple.com/app/id1438558026', 'https://play.google.com/store/apps/details?id=com.findtap.tap.app', 'https://findtap.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition">📱 APP</button>
+
+                                        <button onclick="smartDownload(event, 'https://apps.apple.com/app/id955254528', 'https://play.google.com/store/apps/details?id=com.jrustonapps.flush', 'https://www.jrustonapps.com/apps/flush-toilet-finder')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition w-full">📱 下載 APP</button>
+
                                     </div>
+
                                 </div>
+
                                 <div class="flex items-center justify-between">
-                                    <span class="text-xs font-bold text-gray-700">Fountain Finder</span>
+
+                                    <span class="text-xs font-bold text-gray-700">Toilet Finder</span>
+
                                     <div class="flex gap-2">
-                                        <button onclick="smartDownload(event, 'https://apps.apple.com/app/id1515767527', '', '')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition w-full">📱 下載 APP</button>
+
+                                        <a href="https://toiletfinder.net/" target="_blank" class="bg-teal-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-teal-700 transition">🌐 網頁版</a>
+
+                                        <button onclick="smartDownload(event, 'https://apps.apple.com/app/id311896604', 'https://play.google.com/store/apps/details?id=com.bto.toilet', 'https://www.toiletfinder.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition">📱 下載 APP</button>
+
                                     </div>
+
                                 </div>
+
                             </div>
+
                         </div>
+
+
+
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
+                            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
+                                <div class="flex -space-x-2">
+
+                                    <img src="https://www.google.com/s2/favicons?domain=findtap.com&sz=128" alt="Tap Logo" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
+                                    <img src="https://www.google.com/s2/favicons?domain=fountainfinderapp.com&sz=128" alt="Fountain Finder" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
+                                </div>
+
+                                Tap & Fountain Finder
+
+                            </h3>
+
+                            <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>歐洲超市買瓶裝水不便宜(有時標價還會加上押金)，這兩款 APP 能標示街頭的「免費飲水機」或願意讓你免費裝水的咖啡廳。</p>
+
+                            
+
+                            <div class="bg-teal-50 p-5 rounded-xl border-2 border-dashed border-teal-200 mb-6 flex-grow relative overflow-hidden">
+
+                                <h4 class="font-bold text-teal-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
+                                <p class="text-sm text-gray-700 relative z-10">
+
+                                    隨身帶個空瓶。幾天下來省下的買水錢，絕對夠你去吃一頓好料的！
+
+                                </p>
+
+                            </div>
+
+
+
+                            <div class="flex flex-col gap-3 mt-auto border-t border-gray-100 pt-3">
+
+                                <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+
+                                    <span class="text-xs font-bold text-gray-700">Tap</span>
+
+                                    <div class="flex gap-2">
+
+                                        <a href="https://findtap.com/" target="_blank" class="bg-teal-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-teal-700 transition">🌐 網頁版</a>
+
+                                        <button onclick="smartDownload(event, 'https://apps.apple.com/app/id1438558026', 'https://play.google.com/store/apps/details?id=com.findtap.tap.app', 'https://findtap.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition">📱 APP</button>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="flex items-center justify-between">
+
+                                    <span class="text-xs font-bold text-gray-700">Fountain Finder</span>
+
+                                    <div class="flex gap-2">
+
+                                        <button onclick="smartDownload(event, 'https://apps.apple.com/app/id1515767527', '', '')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition w-full">📱 下載 APP</button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
+
+
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <div class="flex -space-x-2">
+
                                 <img src="https://www.google.com/s2/favicons?domain=usebounce.com&sz=128" alt="Bounce" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                                 <img src="https://www.google.com/s2/favicons?domain=radicalstorage.com&sz=128" alt="Radical Storage" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                             </div>
+
                             Radical Storage / Bounce
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>把行李寄放在市區有合作的咖啡廳、飯店或小超市。比火車站置物櫃便宜且點更多。</p>
+
                         
+
                         <div class="bg-emerald-50 p-5 rounded-xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-2 flex items-center gap-2 relative z-10"><span class="text-lg">💡</span> Bryan 實戰經驗</h4>
+
                             <p class="text-sm text-gray-700 relative z-10">
+
                                 點位極多。避免了火車站櫃位爆滿的焦慮。一件大約 €5。我使用至今未遺失過物品，但貴重物品（護照、筆電）請務必隨身攜帶。
+
                             </p>
+
                         </div>
+
                         
+
                         <div class="flex flex-col gap-3 mt-auto bg-gray-50 p-4 rounded-xl border border-gray-100">
+
                             <div class="flex items-center justify-between">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=usebounce.com&sz=32" class="w-4 h-4"> Bounce</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://go.bounce.com/EUROPESOLO2770801620" target="_blank" rel="nofollow" class="bg-blue-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-700 transition shadow-sm">🌐 預訂寄放</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id1444570755', 'https://play.google.com/store/apps/details?id=com.usebounce.bounce', '')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                             <div class="flex items-center justify-between border-b border-gray-200 pb-3">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=radicalstorage.com&sz=32" class="w-4 h-4"> Radical</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://radicalstorage.com/" target="_blank" rel="nofollow" class="bg-teal-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-teal-700 transition shadow-sm">🌐 預訂寄放</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id1374356237', 'https://play.google.com/store/apps/details?id=com.radicalstorage.app', '')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </section>
+
+
 
             <section id="social" class="scroll-mt-24">
+
                 <div class="flex items-center gap-4 mb-6">
+
                     <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center text-2xl">🤝</div>
+
                     <h2 class="text-3xl font-extrabold text-gray-900">社交與體驗</h2>
+
                 </div>
+
                 
+
                 <div class="space-y-6">
+
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <div class="flex -space-x-2">
+
                                 <img src="https://www.google.com/s2/favicons?domain=meetup.com&sz=128" alt="Meetup" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                                 <img src="https://www.google.com/s2/favicons?domain=getyourguide.com&sz=128" alt="GetYourGuide" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                             </div>
+
                             Meetup / GetYourGuide
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>Meetup 適合參加當地的語言交換、跑步、桌遊或共餐等的互動群組；GetYourGuide 則是訂購當地一日遊的最大平台。</p>
+
                         
+
                         <div class="bg-emerald-50 p-6 rounded-2xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <div class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-100 rounded-full opacity-50"></div>
+
                             <h4 class="font-bold text-emerald-800 mb-3 flex items-center gap-2 relative z-10"><span class="text-xl">💡</span> Bryan 實戰經驗</h4>
+
                             <div class="space-y-4 text-gray-700 relative z-10 text-sm">
+
                                 <p>獨旅太久難免覺得孤單，這時隨便用 GetYourGuide 報名一個當地的 <strong>「Free Walking Tour」</strong> 或 <strong>「Bar hopping (酒吧巡禮)」</strong>，絕對能讓你認識世界各地的旅伴！</p>
+
                                 <div class="bg-white/90 p-4 rounded-xl border border-emerald-100 shadow-sm mt-3">
+
                                     <strong class="text-emerald-900 block mb-1">🏠 加碼老手密技：</strong>
+
                                     除了用 App，一定要多留意<strong>青旅大廳的告示牌！</strong>許多優質青旅每天都會組織有趣的社交活動（如共煮晚餐、電影之夜），通常免費或只需付極少的錢，千萬別害羞。
+
                                 </div>
+
                             </div>
+
                         </div>
+
+
 
                         <div class="flex flex-col gap-3 mt-auto bg-gray-50 p-4 rounded-xl border border-gray-100">
+
                             <div class="flex items-center justify-between border-b border-gray-200 pb-3">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=getyourguide.com&sz=32" class="w-4 h-4"> GetYourGuide</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://gyg.me/HPm7wIcw" target="_blank" rel="nofollow" class="bg-red-500 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-red-600 transition shadow-sm">🌐 找行程體驗</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id705079381', 'https://play.google.com/store/apps/details?id=com.getyourguide.android', '')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                             <div class="flex items-center justify-between">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=meetup.com&sz=32" class="w-4 h-4"> Meetup</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://www.meetup.com/" target="_blank" class="bg-pink-600 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-pink-700 transition shadow-sm">🌐 網頁版</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id375990038', 'https://play.google.com/store/apps/details?id=com.meetup', 'https://www.meetup.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
 
+
+
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
+
                         <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+
                             <div class="flex -space-x-2">
+
                                 <img src="https://www.google.com/s2/favicons?domain=klook.com&sz=128" alt="Klook Logo" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                                 <img src="https://www.google.com/s2/favicons?domain=kkday.com&sz=128" alt="KKday Logo" class="w-8 h-8 rounded-full border-2 border-white shadow-sm bg-white">
+
                             </div>
+
                             Klook & KKday (亞洲旅遊霸主)
+
                         </h3>
+
                         <p class="text-gray-700 text-sm mb-4"><strong>優點：</strong>亞洲旅人的首選平台。提供全中文介面與客服，適合訂購歐洲各國交通通行證、網路網卡以及熱門景點的中文導覽行程。</p>
+
                         
+
                         <div class="bg-emerald-50 p-6 rounded-2xl border-2 border-dashed border-emerald-200 mb-6 flex-grow relative overflow-hidden">
+
                             <h4 class="font-bold text-emerald-800 mb-3 flex items-center gap-2 relative z-10"><span class="text-xl">💡</span> Bryan 實戰經驗</h4>
+
                             <div class="space-y-4 text-sm text-gray-700 relative z-10">
+
                                 <p>在訂購 <strong>Eurail Pass 歐洲火車通行證</strong> 或 <strong>Swiss Travel Pass</strong> 時，這兩個平台常有優於官網的促銷碼，且中文電子憑證出示非常方便。若擔心語言隔閡，報名這裡的中文一日遊也是好選擇。</p>
+
                             </div>
+
                         </div>
+
+
 
                         <div class="bg-orange-50 p-4 rounded-xl border border-orange-100 mb-6">
+
                             <p class="text-sm font-bold text-orange-800 mb-1 flex items-center gap-2">
+
                                 <span>🎁</span> Klook 新戶邀請碼：<span class="bg-white px-2 py-0.5 rounded text-orange-600 border border-orange-200 select-all tracking-wider">LG27PH</span>
+
                             </p>
+
                             <p class="text-xs text-gray-700 leading-relaxed">
+
                                 新戶註冊時輸入此代碼，註冊成功即可獲得 <strong>NT$ 80 優惠回饋金</strong>（或等值當地貨幣），買歐洲鐵路通行證或景點票直接抵用！<br>
+
                                 <span class="text-gray-500">* 官方政策：需為首次註冊綁定之新用戶方可生效。</span>
+
                             </p>
+
                         </div>
+
+
 
                         <div class="flex flex-col gap-3 mt-auto bg-gray-50 p-4 rounded-xl border border-gray-100">
+
                             <div class="flex items-center justify-between border-b border-gray-200 pb-3">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=klook.com&sz=32" class="w-4 h-4"> Klook</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://affiliate.klook.com/redirect?aid=119894&aff_adid=1271480&k_site=https%3A%2F%2Fwww.klook.com%2F" target="_blank" rel="nofollow" class="bg-orange-500 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-orange-600 transition shadow-sm">🌐 找行程</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id959245831', 'https://play.google.com/store/apps/details?id=com.klook', 'https://www.klook.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                             <div class="flex items-center justify-between">
+
                                 <span class="text-sm font-bold text-gray-800 flex items-center gap-2"><img src="https://www.google.com/s2/favicons?domain=kkday.com&sz=32" class="w-4 h-4"> KKday</span>
+
                                 <div class="flex gap-2">
+
                                     <a href="https://www.kkday.com/?cid=24782" target="_blank" rel="nofollow" class="bg-blue-400 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-blue-500 transition shadow-sm">🌐 找行程</a>
+
                                     <button onclick="smartDownload(event, 'https://apps.apple.com/app/id1044431535', 'https://play.google.com/store/apps/details?id=com.kkday.offline', 'https://www.kkday.com/')" class="bg-gray-800 text-white text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full hover:bg-gray-900 transition shadow-sm">📱 APP</button>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </section>
+
             
+
             <div class="pt-12 text-center border-t border-gray-200 mt-8">
+
                 <div class="inline-flex flex-col items-center">
+
                     <span class="text-5xl mb-5 drop-shadow-sm">🌍</span>
+
                     <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">裝備齊全！是時候決定你的第一站了</h3>
+
                     <p class="text-gray-500 mb-8 max-w-lg mx-auto">
-                        六大獨旅行行前攻略已經全部解鎖。現在，回到首頁打開探索地圖，選定你想去的國家，準備出發吧！
+
+                        六大獨旅行前攻略已經全部解鎖。現在，回到首頁打開探索地圖，選定你想去的國家，準備出發吧！
+
                     </p>
+
                     <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+
                         <a href="index.html#explore-map" class="bg-blue-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-blue-700 transition shadow-lg shadow-blue-200 w-full sm:w-auto">
+
                             🗺️ 回首頁開始探索地圖
+
                         </a>
+
                         <a href="index.html#essential-guides" class="bg-white border-2 border-gray-200 text-gray-700 font-bold px-8 py-3.5 rounded-full hover:bg-gray-50 transition shadow-sm w-full sm:w-auto">
+
                             回攻略目錄
+
                         </a>
+
                     </div>
+
                 </div>
+
             </div>
 
+
+
         </article>
+
     </main>
 
+
+
     <footer class="text-center py-12 text-gray-400 text-sm mt-12 border-t border-gray-200">
+
         <p>© 2026 EUROPE SOLO Guide. 去過 41 個歐洲國家的真實紀錄。</p>
+
     </footer>
 
+
+
     <script>
+
         function smartDownload(event, iosUrl, androidUrl, webUrl) {
+
             event.preventDefault(); 
+
             const ua = navigator.userAgent.toLowerCase();
+
             const isIOS = /iphone|ipad|ipod/.test(ua);
+
             const isAndroid = /android/.test(ua);
+
             
+
             if (isIOS && iosUrl) {
+
                 window.open(iosUrl, '_blank');
+
             } else if (isAndroid && androidUrl) {
+
                 window.open(androidUrl, '_blank');
+
             } else {
+
                 window.open(webUrl || iosUrl || androidUrl, '_blank');
+
             }
+
         }
+
     </script>
+
 </body>
+
 </html>
