@@ -9,6 +9,6 @@ const cityData = [
         lng: 11.3308, 
         img: 'images/italy/siena/siena_main.jpg',
         desc: '錫耶納獨旅攻略：比起佛羅倫斯的擁擠，這裡更適合一個人靜靜享受托斯卡尼陽光。整理必訪田野廣場與大教堂心得。', 
-        link: 'siena.html'
+        link: 'cities/siena.html'
     }
 ];
