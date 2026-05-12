@@ -509,7 +509,7 @@
         <p>© 2026 EUROPE SOLO. 去過 41 個歐洲國家的真實紀錄。Built with Passion.</p>
     </footer>
 
-    <script src="cityData.js"></script>
+    <script src="cityData2.js"></script>
     <script>
         const countryMeta = {
             '🇮🇹 義大利 Italy': { region: '南歐', code: 'it' },
@@ -540,11 +540,11 @@
 
         // 計算總篇數：地圖景點文章 (cityData) + 6 篇獨旅新手指南
         const guideCount = 6; 
-        const totalArticles = cityData.length + guideCount;
+        const totalArticles = cityData2.length + guideCount;
         document.getElementById('article-count').innerText = `${totalArticles}+ 篇`;
         
         function generateCountryLists() {
-            const existingCountries = [...new Set(cityData.map(c => c.country))];
+            const existingCountries = [...new Set(cityDat2.map(c => c.country))];
             const grouped = {};
             
             existingCountries.forEach(country => {
@@ -636,7 +636,7 @@
                 marker.options.cityId = item.id;
                 marker.options.country = item.country;
                 marker.on('click', function(e) {
-                    const filteredData = cityData.filter(d => d.id === e.target.options.cityId);
+                    const filteredData = cityData2.filter(d => d.id === e.target.options.cityId);
                     renderCards(filteredData);
                     listTitle.innerText = `📍 ${item.city}`;
                     resetBtn.classList.remove('hidden');
@@ -654,11 +654,11 @@
             }
         }
 
-        renderCards(cityData);
-        updateMapMarkers(cityData, false);
+        renderCards(cityData2);
+        updateMapMarkers(cityData2, false);
 
         window.filterByCountry = function(countryStr) {
-            const filteredData = cityData.filter(d => d.country === countryStr);
+            const filteredData = cityData2.filter(d => d.country === countryStr);
             renderCards(filteredData);
             updateMapMarkers(filteredData, true); 
             
@@ -670,8 +670,8 @@
         };
 
         function resetView() {
-            renderCards(cityData);
-            updateMapMarkers(cityData, false);
+            renderCards(cityData2);
+            updateMapMarkers(cityData2, false);
             listTitle.innerText = `🗺️ 點擊地圖找尋目的地`;
             resetBtn.classList.add('hidden');
         }
