@@ -544,7 +544,7 @@
         document.getElementById('article-count').innerText = `${totalArticles}+ 篇`;
         
         function generateCountryLists() {
-            const existingCountries = [...new Set(cityDat2.map(c => c.country))];
+            const existingCountries = [...new Set(cityData.map(c => c.country))];
             const grouped = {};
             
             existingCountries.forEach(country => {
