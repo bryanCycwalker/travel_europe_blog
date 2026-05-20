@@ -43,9 +43,33 @@
             opacity: 0;
             transition: opacity 0.5s ease 0.2s;
         }
+
+        /* --- 最新通知 Pop-up 動畫 --- */
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-up-enter {
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+
+    <div id="new-article-popup" class="fixed bottom-6 right-6 z-[3000] w-80 bg-white rounded-2xl shadow-2xl border-t-4 border-blue-500 hidden opacity-0">
+        <div class="relative p-5">
+            <button id="close-popup" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition p-1" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="flex items-center gap-2 mb-3">
+                <span class="text-xl">✨</span>
+                <h4 class="font-extrabold text-gray-900 text-sm tracking-wide">最新上線攻略</h4>
+            </div>
+            <div id="popup-content" class="space-y-3"></div>
+        </div>
+    </div>
 
     <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out">
         <a href="index.html" class="text-xl font-bold tracking-tighter hover:opacity-80 transition">
@@ -520,7 +544,8 @@
                 lng: 11.2230, 
                 img: 'images/italy/monteriggioni/monteriggioni_main.jpg',
                 desc: '被但丁寫入《神曲》的防禦古城。獨旅蒙特里久尼最適合沿著圓形城牆漫步，在托斯卡尼的夕陽下，俯瞰金黃色的基安蒂丘陵與橄欖園。', 
-                link: 'cities/monteriggioni.html'
+                link: 'cities/monteriggioni.html',
+                datePublished: '2026-05-15' // 新增日期屬性
             },
             {
                 id: 'siena', 
@@ -531,7 +556,8 @@
                 lng: 11.3308, 
                 img: 'images/italy/siena/siena_main.jpg',
                 desc: '錫耶納獨旅攻略：比起佛羅倫斯的擁擠，這裡更適合一個人靜靜享受托斯卡尼陽光。整理必訪田野廣場與大教堂心得。', 
-                link: 'cities/siena.html'
+                link: 'cities/siena.html',
+                datePublished: '2026-04-28' // 新增日期屬性
             }
         ];
         const countryMeta = {
@@ -561,7 +587,6 @@
         const resetBtn = document.getElementById('reset-btn');
         const listTitle = document.getElementById('list-title');
 
-        // 計算總篇數：地圖景點文章 (cityData) + 6 篇獨旅新手指南
         const guideCount = 6; 
         const totalArticles = cityData.length + guideCount;
         document.getElementById('article-count').innerText = `${totalArticles}+ 篇`;
@@ -897,6 +922,74 @@
                 document.getElementById('essential-guides').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
         }
+
+        // --- ✅ 最新上線 Pop-up 邏輯 ---
+        document.addEventListener("DOMContentLoaded", function() {
+            // 定義：多少天內的文章算「最新上線」
+            const DAYS_CONSIDERED_NEW = 7;
+            const popupElement = document.getElementById('new-article-popup');
+            const popupContent = document.getElementById('popup-content');
+            const closePopupBtn = document.getElementById('close-popup');
+
+            // 取得當天日期
+            const today = new Date();
+            const newArticles = [];
+
+            // 篩選一週內的新文章
+            cityData.forEach(item => {
+                if(item.datePublished) {
+                    const pubDate = new Date(item.datePublished);
+                    const diffTime = Math.abs(today - pubDate);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+                    
+                    if(diffDays <= DAYS_CONSIDERED_NEW) {
+                        newArticles.push(item);
+                    }
+                }
+            });
+
+            // 關閉按鈕事件 (點擊後關閉)
+            closePopupBtn.addEventListener('click', () => {
+                popupElement.classList.remove('pop-up-enter');
+                popupElement.classList.add('hidden');
+            });
+
+            // 判斷並建立視窗內容
+            if(newArticles.length > 0) {
+                let html = '';
+                if(newArticles.length === 1) {
+                    // 只有一篇新文章時的 UI
+                    const article = newArticles[0];
+                    html = `
+                        <h5 class="text-blue-600 font-bold mb-1">${article.city}</h5>
+                        <p class="text-xs text-gray-500 mb-3 border-b border-gray-100 pb-2">發布日期：${article.datePublished}</p>
+                        <a href="${article.link}" class="block w-full text-center bg-blue-600 text-white text-xs font-bold py-2 rounded-lg hover:bg-blue-700 transition shadow-sm">帶我去瞧瞧 →</a>
+                    `;
+                } else {
+                    // 有兩篇以上新文章時的 List UI
+                    html = `<ul class="space-y-3">`;
+                    newArticles.forEach(article => {
+                        html += `
+                            <li class="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                                <h5 class="text-blue-600 font-bold text-sm mb-1">${article.city}</h5>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-gray-400">${article.datePublished}</span>
+                                    <a href="${article.link}" class="text-xs font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded transition">去瞧瞧</a>
+                                </div>
+                            </li>
+                        `;
+                    });
+                    html += `</ul>`;
+                }
+
+                // 插入內容並顯示 Pop-up (加入延遲讓載入體驗更好)
+                popupContent.innerHTML = html;
+                setTimeout(() => {
+                    popupElement.classList.remove('hidden');
+                    popupElement.classList.add('pop-up-enter');
+                }, 1500); // 網頁載入 1.5 秒後才滑出
+            }
+        });
     </script>
 </body>
 </html>
