@@ -68,7 +68,7 @@
     </nav>
     <div class="h-20"></div>
 
-  <aside id="floating-toc" class="fixed inset-y-0 right-0 transform translate-x-full xl:translate-x-0 xl:left-[max(1rem,calc(50vw-40rem))] xl:right-auto xl:w-56 w-64 bg-white/95 backdrop-blur-md shadow-2xl xl:shadow-none xl:bg-transparent z-[2000] xl:z-40 transition-all duration-300 ease-in-out flex flex-col pt-24 px-6 xl:opacity-0 xl:pointer-events-none">
+  <aside id="floating-toc" class="fixed inset-y-0 right-0 transform translate-x-full xl:translate-x-0 xl:left-[max(1rem,calc(50vw-42rem))] xl:right-auto xl:w-56 w-64 bg-white/95 backdrop-blur-md shadow-2xl xl:shadow-none xl:bg-transparent z-[2000] xl:z-40 transition-all duration-500 ease-out flex flex-col pt-24 xl:pt-32 px-6 xl:opacity-0 xl:pointer-events-none">
         
         <div class="flex justify-between items-center mb-6 xl:hidden">
             <h3 class="font-bold text-gray-900 text-lg">快速跳轉</h3>
@@ -143,8 +143,8 @@
                 </div>
             </section>
 
-            <div class="bg-gray-50 p-6 rounded-xl mb-12 border border-gray-100 text-sm">
-                <h3 class="font-bold mb-3">章節導覽</h3>
+<div id="static-toc" class="bg-gray-50 p-6 rounded-xl mb-12 border border-gray-100 text-sm">
+  <h3 class="font-bold mb-3">章節導覽</h3>
                 <div class="flex flex-wrap gap-4 text-blue-600">
                     <a href="#tips" class="hover:underline text-orange-600 font-bold"># 防雷密技</a>
                     <a href="#map" class="hover:underline"># 8大絕美景點</a>
@@ -1237,6 +1237,45 @@ Cortina d'Ampezzo Piazza Roma)</li>
             link.addEventListener('click', () => {
                 if (window.innerWidth < 1280) toggleMobileToc();
             });
+        });
+      
+      // 電腦版：偵測滾動，滑過原始目錄後才顯示左側浮動目錄，並加上阻尼感位移
+        window.addEventListener('scroll', function() {
+            if (!staticToc || !floatingToc || window.innerWidth < 1280) {
+                // 手機版時清除位移，避免版面亂掉
+                floatingToc.style.transform = ''; 
+                return;
+            }
+            
+            const staticTocBottom = staticToc.getBoundingClientRect().bottom;
+            const scrollY = window.scrollY || window.pageYOffset;
+            
+            // 當原始目錄滑出畫面 (bottom < 0)，顯示浮動目錄
+            if (staticTocBottom < 0) {
+                floatingToc.classList.remove('xl:opacity-0', 'xl:pointer-events-none');
+                floatingToc.classList.add('xl:opacity-100', 'xl:pointer-events-auto');
+                
+                // === 新增：阻尼感位移計算 ===
+                // 計算滑過 staticToc 之後向下滾動了多少距離
+                // 將這個距離乘以一個極小的比例 (例如 0.05)，產生緩慢往上的視覺錯覺
+                const offsetAfterToc = scrollY - (staticToc.offsetTop + staticToc.offsetHeight);
+                const dampFactor = 0.05; 
+                let translateY = -(offsetAfterToc * dampFactor);
+                
+                // 限制最大往上位移的幅度 (避免目錄飛到不見)
+                const maxUpwardShift = -80; 
+                if (translateY < maxUpwardShift) translateY = maxUpwardShift;
+                
+                // 套用 Y 軸位移
+                floatingToc.style.transform = `translateY(${translateY}px)`;
+                // ==========================
+
+            } else {
+                floatingToc.classList.add('xl:opacity-0', 'xl:pointer-events-none');
+                floatingToc.classList.remove('xl:opacity-100', 'xl:pointer-events-auto');
+                // 隱藏時重置位移
+                floatingToc.style.transform = 'translateY(0px)';
+            }
         });
     </script>
 </body>
