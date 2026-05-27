@@ -71,7 +71,7 @@
     <section class="max-w-5xl mx-auto px-6 py-20">
         <h2 class="text-3xl font-bold mb-12 text-center">👣 我的旅行足跡</h2>
         
-        <div id="travel-log-container" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+        <div id="travel-log-container" class="grid grid-cols-1 md: gap-8"></div>
     </section>
 
     <section class="bg-gray-900 text-white py-20 px-6 text-center">
@@ -451,45 +451,73 @@
 
         function renderTravelLog() {
             const container = document.getElementById('travel-log-container');
-            container.innerHTML = travelHistory.map(item => `
+            // 注意這裡多加了 index 參數，用來給每個卡片獨立的編號
+            container.innerHTML = travelHistory.map((item, index) => `
                 <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition flex flex-col">
-                    <div class="flex justify-between items-start mb-6 border-b border-gray-100 pb-4">
-                        <h3 class="text-2xl font-bold text-blue-700">${item.country}</h3>
-                        <span class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">${item.year}</span>
+                    
+                    <div class="flex justify-between items-center cursor-pointer group" onclick="toggleTravelCard(${index})">
+                        <h3 class="text-xl md:text-2xl font-bold text-blue-700 group-hover:text-blue-500 transition">${item.country}</h3>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">${item.year}</span>
+                            <button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                                <svg id="travel-icon-${index}" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     
-                    <div class="space-y-5 flex-grow">
-                        ${item.nature && item.nature.length > 0 ? `
-                            <div>
-                                <h4 class="text-sm font-extrabold text-emerald-600 mb-2 flex items-center"><span class="mr-1.5">🌲</span>自然景觀</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    ${formatNatureHeritage(item.nature)}
+                    <div id="travel-content-${index}" class="hidden">
+                        <div class="space-y-5 mt-6 border-t border-gray-100 pt-6">
+                            ${item.nature && item.nature.length > 0 ? `
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-emerald-600 mb-2 flex items-center"><span class="mr-1.5">🌲</span>自然景觀</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        ${formatNatureHeritage(item.nature)}
+                                    </div>
                                 </div>
-                            </div>
-                        ` : ''}
+                            ` : ''}
 
-                        ${item.culture && item.culture.length > 0 ? `
-                            <div>
-                                <h4 class="text-sm font-extrabold text-amber-600 mb-2 flex items-center"><span class="mr-1.5">🏰</span>人文城鎮</h4>
-                                <div class="space-y-3">
-                                    ${item.culture.map(group => `
-                                        <div class="text-sm">
-                                            ${group.region ? `<span class="font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded text-[11px] mr-1 inline-block mb-1 sm:mb-0">${group.region}</span>` : ''}
-                                            <span class="text-gray-600 leading-relaxed">${formatHeritage(group.places)}</span>
-                                        </div>
-                                    `).join('')}
+                            ${item.culture && item.culture.length > 0 ? `
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-amber-600 mb-2 flex items-center"><span class="mr-1.5">🏰</span>人文城鎮</h4>
+                                    <div class="space-y-3">
+                                        ${item.culture.map(group => `
+                                            <div class="text-sm">
+                                                ${group.region ? `<span class="font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded text-[11px] mr-1 inline-block mb-1 sm:mb-0">${group.region}</span>` : ''}
+                                                <span class="text-gray-600 leading-relaxed">${formatHeritage(group.places)}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
                                 </div>
-                            </div>
-                        ` : ''}
+                            ` : ''}
+                        </div>
+
+                        <p class="text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-6 italic bg-gray-50/50 -mx-6 -mb-6 px-6 pb-6 rounded-b-3xl">
+                            " ${item.note} "
+                        </p>
                     </div>
-
-                    <p class="text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-6 italic bg-gray-50/50 -mx-6 -mb-6 px-6 pb-6 rounded-b-3xl">
-                        " ${item.note} "
-                    </p>
                 </div>
             `).join('');
         }
 
+        // 新增：切換展開/收合的專屬函式
+        function toggleTravelCard(index) {
+            const content = document.getElementById(`travel-content-${index}`);
+            const icon = document.getElementById(`travel-icon-${index}`);
+            
+            if (content.classList.contains('hidden')) {
+                // 如果目前是隱藏的 -> 打開它，並讓箭頭旋轉 180 度朝上
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                // 如果目前是打開的 -> 隱藏它，箭頭轉回朝下
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // 初始化執行
         renderTravelLog();
     </script>
 </body>
