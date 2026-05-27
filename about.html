@@ -32,15 +32,16 @@
         </div>
         <div class="text-center md:text-left">
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-                我是 <span class="text-blue-600">Bryan</span>，<br>一個拒絕平庸旅行的獨旅者。
+                我是 <span class="text-blue-600">Bryan</span>，<br>一個熱愛探索世界之美的獨旅者。
             </h1>
             <p class="text-lg text-gray-600 mb-8 max-w-xl">
-                我花了五年的時間，在歐洲的石板路上找尋自由。
-                走過 41 個國家，我發現最美的風景往往不在旅遊書上，而是在那些讓你不知所措的瞬間。
+                我花了三年的時間，在歐洲的石板路上找尋自我。
+                走過 41 個國家，我發現最美的風景往往不在旅遊書上，而是在那些沒有期待的意外瞬間。
             </p>
             <div class="flex flex-wrap justify-center md:justify-start gap-4">
                 <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100 text-blue-600 font-bold">🌍 41 國踩點</div>
-                <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100 text-blue-600 font-bold">🚆 1,500+ 小時大眾運輸</div>
+                <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100 text-blue-600 font-bold">🚆 400+ 歐洲城鎮</div>
+                <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100 text-blue-600 font-bold">🚆 400+ 天的旅遊</div>
             </div>
         </div>
     </section>
@@ -51,17 +52,17 @@
             <h2 class="text-3xl font-bold mb-8 border-l-4 border-blue-600 pl-4">為什麼創立這個網站？</h2>
             <div class="space-y-6 text-gray-700 leading-loose text-lg">
                 <p>
-                    你是否也曾坐在火車站月台，看著因為臨時罷工而取消的班次，感到一陣恐慌？
+                    你是否也曾坐在火車站月台，看著因為臨時罷工(或甚至原因不明)而取消的班次，感到一陣恐慌？
                     或者在擁擠的景點，下意識地死死抓著包包，擔心下一秒錢包就不見了？
                 </p>
                 <p>
-                    這些我都經歷過。我曾為了在瑞士省錢，連續一週吃超市的打折麵包；也曾因為極限轉機，在機場的地板上度過漫漫長夜。
+                    這些我都經歷過。我曾為了在瑞士省錢，連續一週半吃超市的麵包+煙燻火腿；也曾因為省錢沒注意評價，在剛重新裝潢的青旅與床蝨熱吻，留下來的深刻記號幾周不散。
                 </p>
                 <p class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-600 italic">
                     「獨旅不是因為沒有朋友，而是為了能更誠實地面對自己。」
                 </p>
                 <p>
-                    在這個網站，我不分享修圖完美的網美照。我分享的是**「真實的邏輯」**：哪一條公車路線最不容易被扒、哪一個小鎮的旅館主人最熱情、以及如何用最精簡的預算，換取最有質感的旅遊體驗。
+                    在這個網站，我不分享修圖完美的網美照。我分享的是**「真實的邏輯」**：哪一條路線最省錢方便、哪一些景點要先訂票或最值得去、以及如何用最精簡的預算，換取最有質感的旅遊體驗。
                 </p>
             </div>
         </div>
@@ -90,37 +91,401 @@
 
     <script>
         // 【編輯區】以後你只要在這裡新增或修改國家/城市即可
+        // 💡 世界遺產標記：在城市名稱前面加上 * (星號)，程式會自動轉換為 🏛️ 標籤
         const travelHistory = [
             {
+                country: "德國 Germany",
+                year: "2023-2026",
+                note: "住了一年半的家，探索也最深度。",
+                nature: [
+                    "巴伐利亞阿爾卑斯山（Bavarian Alps）", "黑森林（Schwarzwald,）", "薩克森小瑞士（Saxon Switzerland）", "博登湖（Bodensee）", "國王湖（Königssee）"
+                ],
+                culture: [
+                    {
+                        region: "巴伐利亞",
+                        places: "慕尼黑, 紐倫堡, 羅滕堡, 雷根斯堡, 維爾茨堡, 班貝格, 科堡, 拜律特, 帕紹, 奧格斯堡, 蘭休特, 布格豪森, 米滕瓦爾德, 加爾米施-帕滕基興, 羅森海姆, 林道, 因戈爾施塔特"
+                    },
+                    {
+                        region: "巴登-符騰堡",
+                        places: "斯圖加特, 海德堡, 烏爾姆, 佛萊堡, 圖賓根, 喀斯魯, 曼海姆"
+                    },
+                    {
+                        region: "萊茵河中上游地區",
+                        places: "法蘭克福, 美因茨, 達姆斯塔特, 黑朋海姆"
+                    },
+                    {
+                        region: "萊茵中游谷地",
+                        places: "科布倫次, 科赫姆"
+                    },
+                    {
+                        region: "萊茵大城市帶",
+                        places: "科隆, 杜賽道夫, 杜伊斯堡, 埃森, 烏帕塔, 多特蒙德"
+                    },
+                    {
+                        region: "中德",
+                        places: "哥廷根, 漢諾威, 馬格德堡, 瓦爾特堡, 阿爾斯費爾德, 沃爾夫哈根, 埃爾福特, 威瑪, 瑙姆堡, 艾斯萊本"
+                    },
+                    {
+                        region: "薩克森",
+                        places: "德勒斯登, 萊比錫, 開姆尼茨, 包岑, 邁森"
+                    },
+                    {
+                        region: "柏林與布蘭登堡",
+                        places: "柏林, 波茨坦, 維滕貝格, 呂貝瑙"
+                    },
+                    {
+                        region: "北德",
+                        places: "漢堡, 布萊梅, 呂貝克"
+                    },
+                    {
+                        region: "其他",
+                        places: "特里爾, 亞琛, 明斯克"
+                    }
+                ]
+            },
+            {
                 country: "義大利 Italy",
-                cities: "羅馬、佛羅倫斯、錫耶納、拿坡里、威尼斯",
                 year: "2024 - 2026",
-                note: "我的獨旅啟蒙地，對石板路有著又愛又恨的情結。"
+                note: "最常造訪也是總計待最久的國家，每個小鎮都好美好有特色。",
+                nature: [
+                    "高大湖 Garda", "科莫湖 Como", "多洛米蒂 Dolomites", "維蘇威火山 Vesuvius", "阿馬菲海岸 Amalfi"
+                ],
+                culture: [
+                    {
+                        region: "北義",
+                        places: "米蘭, 波隆那, 維羅納, 熱那亞, 帕多瓦, 威尼斯"
+                    },
+                    {
+                        region: "中義",
+                        places: "佛羅倫斯, 錫耶納, 聖吉米尼亞諾, 蒙特里久尼, 比薩, 蒂拉諾, 蒂沃利, 羅馬"
+                    },
+                    {
+                        region: "拿波里灣",
+                        places: "拿波里, 卡布列島, 卡塞塔, 龐貝, 伊斯奇亞島"
+                    },
+                    {
+                        region: "南義與島嶼",
+                        places: "馬泰拉, 西西里島 (卡塔尼亞, 敘拉古, 陶爾米納)"
+                    }
+                ]
+            },
+            {
+                country: "奧地利 Austria",
+                year: "2023 - 2026",
+                note: "在這充滿音樂的阿爾卑斯山國度裡，隨時都想哼幾首真善美。",
+                nature: [
+                    "哈施塔特湖 Hallstätter See", "瓦豪河谷 Wachau Valley"
+                ],
+                culture: [
+                    {
+                        places: "維也納, 薩爾斯堡, 格拉茲, 哈施塔特, 梅爾克, 默德林, 拉姆紹"
+                    }
+                ]
             },
             {
                 country: "法國 France",
-                cities: "巴黎、里昂、尼斯、斯特拉斯堡",
+                year: "2023 - 2026",
+                note: "南轅北側的文化風景，不會去膩的國度。",
+                nature: [
+                    "蔚藍海岸 Côte d'Azur"
+                ],
+                culture: [
+                    {
+                        region: "法蘭西島",
+                        places: "巴黎, 凡爾賽"
+                    },
+                    {
+                        region: "南法",
+                        places: "馬賽, 尼斯, 亞爾, 亞維儂, 尼姆, 奧朗日, 坎城, 昂蒂布, 芒通"
+                    },
+                    {
+                        region: "其他大區",
+                        places: "聖米歇爾山, 里爾, 亞眠, 里昂, 史特拉斯堡, 尼斯, 土魯斯, 卡卡頌"
+                    }
+                ]
+            },
+            {
+                country: "西班牙 Spain",
                 year: "2025",
-                note: "學會了如何在左岸優雅地避開扒手。"
+                note: "朝聖高第夢幻建築、摩爾與西方建築藝術交融之地。",
+                culture: [
+                    {
+                        region: "加泰隆尼亞",
+                        places: "巴塞隆納"
+                    },
+                    {
+                        region: "安達盧西亞",
+                        places: "格拉納達, 哥多華, 塞維利亞"
+                    }
+                ]
+            }, // <--- Bug 1: 這裡補上逗號了
+            {
+                country: "馬爾他 Malta",
+                year: "2025",
+                note: "與家人的探險，有著豐富歷史之地，地中海的珍珠。",
+                culture: [
+                    {
+                        region: "馬爾他島",
+                        places: "瓦萊塔, 姆迪納, 拉巴特, 哈加爾·基姆神廟, 馬爾薩什洛克"
+                    },
+                    {
+                        region: "戈佐島",
+                        places: "奇塔代拉, 沙阿拉"
+                    }
+                ]
+            },
+            {
+                country: "荷蘭 Netherlands",
+                year: "2025",
+                note: "天高草地低、建築雖然風格各異卻不顯得突兀，還有臭名昭彰的大麻味",
+                nature: [
+                    "庫肯霍夫花園 Keukenhof"
+                ],
+                culture: [
+                    {
+                        places: "阿姆斯特丹, 鹿特丹, 海牙, 烏特勒茲, 萊登, 羊角村, 贊丹, 特溫特"
+                    },
+                ]
+            },
+            {
+                country: "比利時 Belgium",
+                year: "2023-2025",
+                note: "不只有尿尿小童，鬆餅啤酒都是一流～",
+                culture: [
+                    {
+                        region: "佛蘭德區",
+                        places: "布魯塞爾, 根特, 布魯日, 安特衛普, 魯汶"
+                    },
+                    {
+                        region: "瓦隆大區",
+                        places: "那慕日, 圖爾奈"
+                    }
+                ]
+            },
+            {
+                country: "冰島 Iceland",
+                year: "2025",
+                note: "冰與火之地，也是我在歐洲最霉運的一次><",
+                nature: [
+                    "教會山 Kirkjufell", "布達教堂 Búðakirkja", "黃金瀑布 Gullfoss Falls",
+                    "間歇泉 Geysir", "辛格維利爾國家公園 Thingvellir National Park",
+                    "藍湖 Blue Lagoon", "凱瑞斯火山口 Kerið Crater",
+                    "塞里雅蘭瀑布 Seljalandsfoss", "斯科加瀑布 Skógafoss",
+                    "費雅德拉冰河峽谷 Fjaðrárgljúfur", "雷尼斯黑沙灘 Black Sand Beach",
+                    "黑瀑布 Svartifoss", "鑽石沙灘 Diamond Beach",
+                    "傑古沙龍冰河湖 Jökulsárlón Glacier Lagoon", "瓦特納冰川 Vatnajökull"
+                ],
+                culture: [
+                    {
+                        places: "雷克雅未克, 維克, 博爾加內斯"
+                    },
+                ]
+            },
+            {
+                country: "葡萄牙 Portugal",
+                year: "2025",
+                note: "全世界最好吃的蛋塔！",
+                culture: [
+                    {
+                        places: "里斯本, 波多, 辛特拉" // <--- Bug 2: 修改為一個完整的字串
+                    }
+                ]
+            },
+            {
+                country: "安道爾 Andorra",
+                year: "2025",
+                note: "庇里牛斯山的小國家，法語與西語的交會處～",
+                culture: [
+                    {
+                        places: "安道爾城"
+                    }
+                ]
+            },
+            {
+                country: "摩納哥 Monaco",
+                year: "2025",
+                note: "依山傍海的港都，西方的香港。",
+                culture: [
+                    {
+                        places: "摩納哥城"
+                    }
+                ]
+            },
+            {
+                country: "盧森堡 Luxembourg",
+                year: "2025",
+                note: "全國大眾交通免費的別樣小國。",
+                culture: [
+                    {
+                        places: "盧森堡"
+                    }
+                ]
+            },
+            {
+                country: "捷克 Czech",
+                year: "2024 - 2025",
+                note: "老城、煙囪捲、啤酒與RegioJet，以及西歐學生稱羨的物價。",
+                culture: [
+                    {
+                        places: "布拉格, 布爾諾, 泰爾奇"
+                    }
+                ]
+            },
+            {
+                country: "梵蒂岡 Vatican",
+                year: "2025",
+                note: "宗教與藝術之世界級朝聖地。",
+                culture: [
+                    {
+                        places: "梵蒂岡城"
+                    }
+                ]
             },
             {
                 country: "瑞士 Switzerland",
-                cities: "蘇黎世、琉森、格林德瓦、策馬特",
                 year: "2024",
-                note: "風景極美，錢包極痛。"
-            }
+                note: "風景極美，錢包極痛的極致鐵道之旅。",
+                nature: [
+                    "少女峰地區 Grindelwald", "馬特洪峰 Zermatt", "琉森湖 Lake Lucerne", "日內瓦湖 Lake Geneva", "蘇黎世湖 Lake Zurich", "圖恩湖 Lake Thun", "伯連納快車 Bernina express", "冰河列車 Glacier Express", "萊茵瀑布 Rhine Falls", "瑞吉峰 Rigi", "皮拉圖斯山 Pilatus", "Stans纜車", "Stoos纜車"
+                ],
+                culture: [
+                    {
+                        region: "德語區",
+                        places: "蘇黎世, 琉森, 伯恩, 巴賽爾, 因特拉肯, 聖加侖, 策馬特, 聖莫里茲, 圖恩"
+                    }, 
+                    {
+                        region: "法語區",
+                        places: "日內瓦, 洛桑, 蒙特魯, 沃韋"
+                    }, 
+                    {
+                        region: "義語區",
+                        places: "貝林佐納, 羅加諾, 盧加諾"
+                    }
+                ]
+            },
+            {
+                country: "列支敦士登 Liechtenstein",
+                year: "2024",
+                note: "能逛的都在一條街上，半日遊剛剛好～",
+                culture: [
+                    {
+                        places: "瓦杜茲"
+                    }
+                ]
+            },
+            {
+                country: "愛爾蘭 Ireland",
+                year: "2024",
+                note: "凱爾特的家鄉。從Guinness到那標誌性的元素，那悲劇的歷史與迷人的民族性令人神魂顛倒。",
+                nature: [
+                    "莫赫斷崖 Cliffs of Moher", "伯倫 The Burren"
+                ],
+                culture: [
+                    {
+                        places: "都柏林, 科克, 高威"
+                    },
+                ]
+            },
+            {
+                country: "英國 The UK",
+                year: "2024",
+                note: "從南邊的經典英格蘭、到北邊的孤獨蘇格蘭高地、甚至是交織著愛恨情仇的北愛爾蘭，每處都訴說的自己獨特的故事。",
+                nature: [
+                    "蘇格蘭高地 Scottish Highlands", "巨人堤道 Giant’s Causeway"
+                ],
+                culture: [
+                    {
+                        region: "英格蘭",
+                        places: "倫敦, 伯明罕, 布里斯托, 牛津, 劍橋, 溫莎, 巴斯, 諾丁漢, 林肯, 切斯特, 利物浦, 曼徹斯特, 謝菲爾德, 約克紐卡素, 達拉謨, 韋爾斯, 索爾茲伯里, 格拉斯頓伯里, 特拉特福"
+                    },
+                    {
+                        region: "蘇格蘭",
+                        places: "愛丁堡, 格拉斯哥"
+                    },
+                    {
+                        region: "北愛爾蘭",
+                        places: "貝爾法斯特"
+                    },
+                    {
+                        region: "威爾斯",
+                        places: "卡地夫"
+                    }
+                ]
+            },
+            {
+                country: "聖馬利諾 St. Marino",
+                year: "2024",
+                note: "矗立在山丘上的三塔之城，擁有無敵美景！",
+                culture: [
+                    {
+                        places: "聖馬利諾"
+                    }
+                ]
+            } // 陣列最後一項可以不加逗號，但我移除了多餘的逗號保持整潔
         ];
+
+        // 輔助函式：將帶有 * 的文字轉換為帶有世界遺產標籤的 HTML
+        function formatHeritage(text) {
+            if (!text) return '';
+            return text.split(',').map(item => {
+                let cleanItem = item.trim();
+                if (cleanItem.startsWith('*')) {
+                    let placeName = cleanItem.substring(1).trim();
+                    return `<span class="inline-flex items-center gap-0.5"><span class="text-[10px]">🏛️</span>${placeName}</span>`;
+                }
+                return cleanItem;
+            }).join(', ');
+        }
+        
+        // 輔助函式：處理自然景點陣列中的世界遺產標記
+        function formatNatureHeritage(natureArray) {
+            if (!natureArray) return '';
+            return natureArray.map(place => {
+                if (place.startsWith('*')) {
+                     let placeName = place.substring(1).trim();
+                     return `<span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded-md border border-emerald-200/60 shadow-sm font-medium flex items-center gap-1"><span class="text-[10px]">🏛️</span>${placeName}</span>`;
+                }
+                return `<span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded-md border border-emerald-100/50">${place}</span>`;
+            }).join('');
+        }
 
         function renderTravelLog() {
             const container = document.getElementById('travel-log-container');
             container.innerHTML = travelHistory.map(item => `
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-blue-600">${item.country}</h3>
-                        <span class="text-xs font-bold text-gray-400 bg-gray-100 px-3 py-1 rounded-full">${item.year}</span>
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition flex flex-col">
+                    <div class="flex justify-between items-start mb-6 border-b border-gray-100 pb-4">
+                        <h3 class="text-2xl font-bold text-blue-700">${item.country}</h3>
+                        <span class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">${item.year}</span>
                     </div>
-                    <p class="text-gray-800 font-medium mb-2">📍 ${item.cities}</p>
-                    <p class="text-gray-500 text-sm leading-relaxed border-t pt-4 mt-4 italic">"${item.note}"</p>
+                    
+                    <div class="space-y-5 flex-grow">
+                        ${item.nature && item.nature.length > 0 ? `
+                            <div>
+                                <h4 class="text-sm font-extrabold text-emerald-600 mb-2 flex items-center"><span class="mr-1.5">🌲</span>自然景觀</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    ${formatNatureHeritage(item.nature)}
+                                </div>
+                            </div>
+                        ` : ''}
+
+                        ${item.culture && item.culture.length > 0 ? `
+                            <div>
+                                <h4 class="text-sm font-extrabold text-amber-600 mb-2 flex items-center"><span class="mr-1.5">🏰</span>人文城鎮</h4>
+                                <div class="space-y-3">
+                                    ${item.culture.map(group => `
+                                        <div class="text-sm">
+                                            ${group.region ? `<span class="font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded text-[11px] mr-1 inline-block mb-1 sm:mb-0">${group.region}</span>` : ''}
+                                            <span class="text-gray-600 leading-relaxed">${formatHeritage(group.places)}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <p class="text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-6 italic bg-gray-50/50 -mx-6 -mb-6 px-6 pb-6 rounded-b-3xl">
+                        " ${item.note} "
+                    </p>
                 </div>
             `).join('');
         }
