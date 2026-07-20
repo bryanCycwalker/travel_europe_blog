@@ -69,27 +69,27 @@
     <div class="h-20"></div>
 
     <aside id="floating-toc" class="fixed inset-y-0 right-0 transform translate-x-full xl:translate-x-0 xl:left-[max(0.5rem,calc(50vw-41rem))] 2xl:left-[max(2rem,calc(50vw-46rem))] xl:right-auto xl:w-44 2xl:w-52 w-64 bg-white/95 backdrop-blur-md shadow-2xl xl:shadow-none xl:bg-transparent z-[2000] xl:z-40 transition-all duration-500 ease-out flex flex-col pt-24 xl:pt-32 px-4 2xl:px-6 xl:opacity-0 xl:pointer-events-none">
-    
-    <div class="flex justify-between items-center mb-6 xl:hidden">
-        <h3 class="font-bold text-gray-900 text-lg">快速跳轉</h3>
-        <button id="close-toc-btn" class="p-2 text-gray-400 hover:text-gray-600 focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-        </button>
-    </div>
+        
+        <div class="flex justify-between items-center mb-6 xl:hidden">
+            <h3 class="font-bold text-gray-900 text-lg">快速跳轉</h3>
+            <button id="close-toc-btn" class="p-2 text-gray-400 hover:text-gray-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </div>
 
-    <div class="flex-1 overflow-y-auto pb-10 xl:border-l-2 xl:border-gray-200 xl:pl-4 space-y-4 text-sm font-medium flex flex-col">
-        <h3 class="hidden xl:block font-extrabold text-gray-900 mb-2 text-base tracking-wide">📍 章節導覽</h3>
-        <a href="#tips" class="text-gray-500 hover:text-orange-600 transition">🛑 獨旅防雷密技</a>
-        <a href="#map" class="text-gray-500 hover:text-blue-600 transition">🗺️ 8大絕美景點</a>
-        <a href="#daytour" class="text-gray-500 hover:text-blue-600 transition">🏔️ 必去一日遊攻略</a>
-        <a href="#festival" class="text-gray-500 hover:text-blue-600 transition">🎉 三大慶典</a>
-        <a href="#transport" class="text-gray-500 hover:text-blue-600 transition">🚆 交通攻略</a>
-        <a href="#accommodation" class="text-gray-500 hover:text-blue-600 transition">🛏️ 住宿建議</a>
-        <a href="#food" class="text-gray-500 hover:text-blue-600 transition">🍝 希臘美食推薦</a>
-        <a href="#restaurant" class="text-gray-500 hover:text-blue-600 transition">🎒 獨旅餐廳推薦</a>
-        <a href="#greece-tips" class="text-gray-500 hover:text-blue-600 transition font-bold">🇬🇷 雅典生存箱</a>
-    </div>
-</aside>
+        <div class="flex-1 overflow-y-auto pb-10 xl:border-l-2 xl:border-gray-200 xl:pl-4 space-y-4 text-sm font-medium flex flex-col">
+            <h3 class="hidden xl:block font-extrabold text-gray-900 mb-2 text-base tracking-wide">📍 章節導覽</h3>
+            <a href="#tips" class="text-gray-500 hover:text-orange-600 transition">🛑 獨旅防雷密技</a>
+            <a href="#map" class="text-gray-500 hover:text-blue-600 transition">🗺️ 8大絕美景點</a>
+            <a href="#daytour" class="text-gray-500 hover:text-blue-600 transition">🏔️ 必去一日遊攻略</a>
+            <a href="#festival" class="text-gray-500 hover:text-blue-600 transition">🎉 三大慶典</a>
+            <a href="#transport" class="text-gray-500 hover:text-blue-600 transition">🚆 交通攻略</a>
+            <a href="#accommodation" class="text-gray-500 hover:text-blue-600 transition">🛏️ 住宿建議</a>
+            <a href="#food" class="text-gray-500 hover:text-blue-600 transition">🍝 希臘美食推薦</a>
+            <a href="#restaurant" class="text-gray-500 hover:text-blue-600 transition">🎒 獨旅餐廳推薦</a>
+            <a href="#greece-tips" class="text-gray-500 hover:text-blue-600 transition font-bold">🇬🇷 雅典生存箱</a>
+        </div>
+    </aside>
 
     <div id="toc-overlay" class="fixed inset-0 bg-black/50 z-[1500] hidden xl:hidden transition-opacity duration-300 opacity-0"></div>
   
@@ -1096,7 +1096,13 @@
                     <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl mb-4">📲</div>
                     <h4 class="font-bold mb-3 text-lg">工具：必備 App 與交通網</h4>
                     <p class="text-red-50 text-sm mb-6 leading-relaxed">
-                        希臘跨城大眾運輸主要以<b>城際巴士 (KTEL)</b> 為主，且不同目的地由不同公司經營，沒有統一的官方網站。長途出發前務必查清是 Kifisos 還是 Liosion 總站唷！
+                        希臘跨城大眾運輸主要以<b>城際巴士 (KTEL)</b> 為主，長途出發前務必查清是 Kifisos 還是 Liosion 總站。而在市區內移動，則強烈建議下載官方公車即時查查神器！
+                    </p>
+                </div>
+                <div class="mt-auto bg-black/20 p-3 rounded-lg border border-white/10 text-xs">
+                    <span class="text-yellow-300 font-bold">💡 Bryan 實戰策略：</span>
+                    <p class="text-red-50 mt-1 leading-normal">
+                        出門前下載 <strong>OASA Telematics App</strong>，能隨時追蹤雅典公車、電車的到站倒數，對喜歡隨性探索又不想在太陽下曬乾乾等公車的獨旅者來說是救命神器！
                     </p>
                 </div>
             </div>
