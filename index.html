@@ -759,7 +759,7 @@
                 const group = new L.featureGroup(markerArray);
                 map.fitBounds(group.getBounds(), { padding: [50, 50], maxZoom: 9 });
             } else if (autoZoom === false) {
-                map.setView([48.0, 10.0], 5);
+                map.setView([46.0, 15.0], 4); // 更改為與初始化相同的全歐洲視角
             }
         }
 
