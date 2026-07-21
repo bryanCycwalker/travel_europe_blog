@@ -128,12 +128,18 @@
     <section class="max-w-5xl mx-auto px-6 py-12 scroll-mt-20">
         <div id="explore-map" class="mb-6 hidden md:block">
             <h2 class="text-3xl font-bold border-l-4 border-blue-600 pl-4 text-gray-900">📑 點擊清單找尋目的地</h2>
+            
+            <div class="mt-5 flex flex-wrap gap-3 ml-4">
+                <button onclick="setTypeFilter('all')" id="btn-type-all" class="type-filter-btn bg-blue-600 text-white border border-transparent px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200">全部</button>
+                <button onclick="setTypeFilter('base')" id="btn-type-base" class="type-filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200">🏨 深度旅遊基地</button>
+                <button onclick="setTypeFilter('daytrip')" id="btn-type-daytrip" class="type-filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200">🎒 順遊 / 一日遊</button>
+            </div>
         </div>
         <div id="desktop-country-list" class="hidden md:block mb-12"></div>
         <div class="flex justify-between items-end mb-4">
             <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4 text-gray-900" id="list-title">🗺️ 點擊地圖找尋目的地</h2>
             <button id="reset-btn" class="hidden text-sm bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-2 rounded-lg transition font-bold shadow-sm border border-blue-200">
-                ✕ 顯示全歐洲
+                ✕ 取消所有篩選
             </button>
         </div>
         <div id="map" class="w-full h-[450px] rounded-2xl shadow-sm border border-gray-200 mb-12 relative overflow-hidden"></div>
@@ -163,7 +169,6 @@
 
                 <div id="card-1" onclick="handleGuideClick('card-1')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border relative overflow-hidden z-10">
                     <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 opacity-50 pointer-events-none group-hover:scale-110 transition">01</div>
-                    
                     <button onclick="closeGuide(event, 'card-1')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
                     
                     <div class="flex items-center gap-5 mb-4 relative z-10">
@@ -176,7 +181,6 @@
                     
                     <div class="guide-content hidden opacity-0 relative z-10">
                         <div class="pt-6 border-t border-gray-100 mt-2">
-                            
                             <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg mb-8 text-sm text-indigo-900 leading-relaxed shadow-sm">
                                 <strong>💡 歐洲的淡旺季怎麼分？</strong><br>
                                 台灣的淡季不等於歐洲的淡季！除了最擁擠的 <strong>暑假 (6-9月)</strong> 外，<strong>復活節 (4月)</strong> 與 <strong>聖誕跨年 (12月)</strong> 是當地人傾巢而出的「絕對連假旺季」，只要卡到這三段時間，沒提前買票絕對進不去！
@@ -191,20 +195,20 @@
                                     <ul class="text-sm text-gray-600 space-y-4">
                                         <li class="leading-relaxed">
                                             <span class="font-bold text-gray-800 flex items-center gap-1">🎯 目的地 (動力)：</span>
-                                            拋開現實，心中渴望的風景（海、雪、山或古蹟）才是支撐你查資料的唯一火種。
+                                            拋開現實，心中渴望的風景才是支撐你查資料的唯一火種。
                                         </li>
                                         <li class="leading-relaxed">
                                             <span class="font-bold text-gray-800 flex items-center gap-1">💰 預算分級：</span>
                                             <span class="text-red-500 font-bold">瑞士/北歐</span> > 西歐 > 南歐 > <span class="text-emerald-600 font-bold">東歐</span>。<br>
-                                            <span class="text-xs text-gray-400">※ 確定預算後同步查「景點通票」，內容常會直接決定你的最終路線。</span>
+                                            <span class="text-xs text-gray-400">※ 確定預算後同步查「景點通票」，內容常會決定最終路線。</span>
                                         </li>
                                         <li class="leading-relaxed">
                                             <span class="font-bold text-gray-800 flex items-center gap-1">🚆 便利性與數位化：</span>
-                                            西/北歐英語普及且無現金；巴爾幹依賴巴士且資訊破碎。注意：<span class="text-red-600 font-medium">西、法、義</span> 的高鐵對 Eurail 通票不友善，強制要求訂位且有額外費用。
+                                            西/北歐無現金；巴爾幹依賴巴士。注意：<span class="text-red-600 font-medium">法、義</span> 高鐵對 Eurail 通票要求訂位費。
                                         </li>
                                         <li class="leading-relaxed">
                                             <span class="font-bold text-gray-800 flex items-center gap-1">🔋 體力與心力 (血條)：</span>
-                                            不要小看南歐拖行李的石板路與上下坡，以及大城市(倫敦/巴黎/羅馬)安排大量景點與防小偷帶來的<strong>「決策疲勞」</strong>。
+                                            不要小看南歐拖行李的石板路與上下坡，以及防小偷帶來的「決策疲勞」。
                                         </li>
                                     </ul>
                                 </div>
@@ -220,31 +224,19 @@
                                     <ul class="space-y-4 relative">
                                         <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
                                             <span class="font-bold text-gray-900 block text-sm">Step 1. (點) 熱門景點/體驗</span>
-                                            <span class="text-xs text-gray-600 leading-relaxed block">
-                                                去官網試訂票，熱門點(如《最後的晚餐》)需數月前搶票。並安排預計的參觀時長。
-                                                <span class="text-indigo-600 block mt-1">※ 若一地參觀 2 個以上景點，請同時考慮可能的「區域景點通票」。</span>
-                                            </span>
+                                            <span class="text-xs text-gray-600 leading-relaxed block">去官網試訂票，熱門點需數月前搶票。</span>
                                         </li>
                                         <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
                                             <span class="font-bold text-gray-900 block text-sm">Step 2. (線) 城際交通串聯</span>
-                                            <span class="text-xs text-gray-600 leading-relaxed block">
-                                                先用 Omio / Skyscanner 比價，再進官網確認班次。避免排到只有「幽靈時段」的路線。
-                                                <span class="text-indigo-600 block mt-1">※ 若一地密集移動 3 次以上，請同時考慮可能的「區域交通通票」。</span>
-                                            </span>
+                                            <span class="text-xs text-gray-600 leading-relaxed block">先用 Omio 比價，再進官網確認班次。</span>
                                         </li>
                                         <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
                                             <span class="font-bold text-gray-900 block text-sm">Step 3. 長程機票與入境</span>
-                                            <span class="text-xs text-gray-600 leading-relaxed block">考量假期彈性與不同點進出 (Open-jaw)，找最划算的機票。</span>
+                                            <span class="text-xs text-gray-600 leading-relaxed block">考量假期彈性找最划算機票。</span>
                                         </li>
                                         <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
                                             <span class="font-bold text-gray-900 block text-sm">Step 4. (底) 尋找住宿避風港</span>
-                                            <span class="text-xs text-gray-600 leading-relaxed block">能用錢解決的放最後。找高評分(8.0+)、火車站旁、支援自助入住的。</span>
-                                        </li>
-                                        <li class="relative pl-6 pt-3 border-t border-indigo-100">
-                                            <div class="flex items-center gap-2 text-indigo-700 font-bold text-sm">
-                                                <span>🔄 Step 5. 行程總體檢</span>
-                                            </div>
-                                            <span class="text-[11px] text-gray-500 leading-relaxed block mt-1">最後確認學生/青年優惠(有時比通票更便宜！)。完成後不要猶豫，一次全訂！</span>
+                                            <span class="text-xs text-gray-600 leading-relaxed block">能用錢解決的放最後。找火車站旁高評分的。</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -255,10 +247,10 @@
                                     🗺️ 閱讀完整行程規劃心法 →
                                 </a>
                             </div>
-                
                         </div>
                     </div>
                 </div>
+
                 <div id="card-2" onclick="handleGuideClick('card-2')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border relative overflow-hidden z-10">
                     <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 opacity-50 pointer-events-none group-hover:scale-110 transition">02</div>
                     <button onclick="closeGuide(event, 'card-2')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
@@ -267,7 +259,7 @@
                         <div class="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🎫</div>
                         <h3 class="font-extrabold text-xl text-gray-800">熱門景點搶票全攻略</h3>
                     </div>
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">不要到了現場才發現沒票社死！從地獄級秒殺景點到淡季免排隊名單，獨旅者必存的通關與代購秘笈。</p>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">不要到了現場才發現沒票社死！從地獄級秒殺景點到淡季免排隊名單，獨旅者必存的通關秘笈。</p>
                     
                     <div class="guide-content hidden opacity-0 relative z-10">
                         <div class="pt-6 border-t border-gray-100 mt-2">
@@ -318,21 +310,17 @@
                         <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🚆</div>
                         <h3 class="font-extrabold text-xl text-gray-800">歐洲跨國交通指南</h3>
                     </div>
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">歐洲交通選擇容易讓人無所適從。教你火車通行證怎麼買最划算？廉價航空與跨國巴士的隱藏費用與比價技巧。</p>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">歐洲交通選擇容易讓人無所適從。教你火車通行證怎麼買最划算？廉航與巴士的隱藏費用與比價技巧。</p>
                     
                     <div class="guide-content hidden opacity-0 relative z-10">
                         <div class="pt-6 border-t border-gray-100 mt-2">
-                            <div class="bg-yellow-50 text-yellow-800 px-4 py-3 rounded-xl mb-6 text-sm font-bold border border-yellow-200 flex items-center gap-3">
-                                <span class="text-xl">🎓</span>
-                                <span>學生注意！出發前務必上 ESN, ISIC 註冊，交通常有專屬 8-9 折優惠！</span>
-                            </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">✈️ 飛機 (廉航)</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
                                         <li>• 跨國長距離首選，常有破盤價</li>
                                         <li>• <span class="text-red-600 font-bold">務必提前線上 Check-in</span></li>
-                                        <li>• 小包行李(Small Bag)尺寸極嚴，登機箱需加購</li>
+                                        <li>• 小包行李尺寸極嚴格</li>
                                     </ul>
                                 </div>
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
@@ -340,7 +328,7 @@
                                     <ul class="text-sm text-gray-600 space-y-1.5">
                                         <li>• 跨國路線記得查兩國國鐵比價</li>
                                         <li>• Eurail Pass 有時須另付訂位費</li>
-                                        <li>• 善用 Italo, RegioJet 等高CP值私鐵</li>
+                                        <li>• 善用 Italo, RegioJet 等私鐵</li>
                                     </ul>
                                 </div>
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
@@ -348,7 +336,7 @@
                                     <ul class="text-sm text-gray-600 space-y-1.5">
                                         <li>• 窮遊與偏鄉小鎮救星</li>
                                         <li>• FlixBus 涵蓋全歐洲</li>
-                                        <li>• 若不介意夜車，能省下一晚住宿費</li>
+                                        <li>• 不介意夜車能省一晚住宿</li>
                                     </ul>
                                 </div>
                             </div>
@@ -367,9 +355,9 @@
                     
                     <div class="flex items-center gap-5 mb-4 relative z-10">
                         <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🎒</div>
-                        <h3 class="font-extrabold text-xl text-gray-800">行前手續、網路與裝備攻略</h3>
+                        <h3 class="font-extrabold text-xl text-gray-800">行前手續與裝備攻略</h3>
                     </div>
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">搞定 ETIAS 入境許可、銀行 Email 驗證與網卡購買時機；並教你如何靠 4 套衣物與一個密碼鎖，在歐洲如魚得水。</p>
+                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">搞定 ETIAS 入境許可與網卡；並教你靠一套快乾衣物與一個密碼鎖，在歐洲如魚得水。</p>
                     
                     <div class="guide-content hidden opacity-0 relative z-10">
                         <div class="pt-6 border-t border-gray-100 mt-2">
@@ -380,15 +368,13 @@
                                         <li>• <strong>ETIAS/EES:</strong> 2026 入境新規申請</li>
                                         <li>• <strong>銀行設定:</strong> 驗證改 Email 接收</li>
                                         <li>• <strong>報備出國:</strong> 避免國外刷卡被鎖</li>
-                                        <li>• <strong>住宿確認:</strong> 提前確認入住程序</li>
                                     </ul>
                                 </div>
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">📶 網路與天氣</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
-                                        <li>• <strong>購買時機:</strong> 提早 2 - 3 天買 eSIM</li>
-                                        <li>• <strong>流量評估:</strong> 15GB/月非常夠用</li>
-                                        <li>• <strong>天氣預警:</strong> 嚴防熱浪與大雪災情</li>
+                                        <li>• <strong>購買時機:</strong> 提早 2-3 天買 eSIM</li>
+                                        <li>• <strong>天氣預警:</strong> 嚴防熱浪與大雪</li>
                                         <li>• <strong>離線地圖:</strong> 沒收訊也能生存</li>
                                     </ul>
                                 </div>
@@ -396,9 +382,8 @@
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🎒 打包精華</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
                                         <li>• <strong>密碼鎖:</strong> 住青旅沒鎖等於沒防</li>
-                                        <li>• <strong>快乾材質:</strong> 內衣褲洗完一晚就乾</li>
-                                        <li>• <strong>萬用轉接:</strong> 包含瑞/義圓孔＋英國三孔規格</li>
-                                        <li>• <strong>隱形腰包:</strong> 護照救命錢貼身不離身</li>
+                                        <li>• <strong>快乾材質:</strong> 洗完一晚就乾</li>
+                                        <li>• <strong>隱形腰包:</strong> 護照救命錢貼身</li>
                                     </ul>
                                 </div>
                             </div>
@@ -427,25 +412,22 @@
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🛡️ 防禦與住宿</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
-                                        <li>• <strong>住宿防雷：</strong> 嚴守 8.0 評分與防床蝨</li>
-                                        <li>• <strong>隱形防護：</strong> 開啟定位通報</li>
+                                        <li>• <strong>住宿防雷：</strong> 嚴守評分與防床蝨</li>
                                         <li>• <strong>街頭防盜：</strong> 財不露白防扒手</li>
                                     </ul>
                                 </div>
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🚰 求生與心態</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
-                                        <li>• <strong>資源調度：</strong> 免費廁所與直飲水地圖</li>
-                                        <li>• <strong>社交禮儀：</strong> 用 Eye Contact 點餐</li>
+                                        <li>• <strong>資源調度：</strong> 免費廁所與飲水</li>
                                         <li>• <strong>擁抱變化：</strong> 備好 B 計畫</li>
                                     </ul>
                                 </div>
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🚨 理賠與應急</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
-                                        <li>• <strong>交通延誤：</strong> EU261 退費申請機制</li>
+                                        <li>• <strong>交通延誤：</strong> EU261 退費申請</li>
                                         <li>• <strong>遺失遭竊：</strong> 警局報案單索取</li>
-                                        <li>• <strong>行李延誤：</strong> 申請 PIR 報告</li>
                                     </ul>
                                 </div>
                             </div>
@@ -474,7 +456,7 @@
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🍽️ 飲食與生存</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
-                                        <li>• <strong>TooGoodToGo:</strong> €5 以內買剩食盲盒</li>
+                                        <li>• <strong>TooGoodToGo:</strong> €5 買剩食盲盒</li>
                                         <li>• <strong>TheFork:</strong> 餐廳訂位常有半價</li>
                                         <li>• <strong>Flush:</strong> 找免費廁所省硬幣</li>
                                     </ul>
@@ -483,16 +465,16 @@
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🗺️ 交通與住宿</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
                                         <li>• <strong>Bolt:</strong> 南歐東歐叫車比 Uber 省</li>
-                                        <li>• <strong>Citymapper:</strong> 大城市地鐵防迷路</li>
-                                        <li>• <strong>Hostelworld:</strong> 內建聊天室好交友</li>
+                                        <li>• <strong>Citymapper:</strong> 地鐵防迷路</li>
+                                        <li>• <strong>Hostelworld:</strong> 內建聊天室</li>
                                     </ul>
                                 </div>
                                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
                                     <div class="text-lg font-extrabold text-gray-800 mb-2">🎒 行李與社交</div>
                                     <ul class="text-sm text-gray-600 space-y-1.5">
-                                        <li>• <strong>Bounce:</strong> 寄放行李比火車站便宜</li>
+                                        <li>• <strong>Bounce:</strong> 寄放行李便宜</li>
                                         <li>• <strong>GetYourGuide:</strong> 報名導覽找旅伴</li>
-                                        <li>• <strong>BlaBlaCar:</strong> 跨國共乘省錢又有趣</li>
+                                        <li>• <strong>BlaBlaCar:</strong> 跨國共乘省錢</li>
                                     </ul>
                                 </div>
                             </div>
@@ -540,12 +522,13 @@
                 country: '🇬🇷 希臘 Greece', 
                 city: 'Athens 雅典', 
                 subtitle: '神話中世紀與現代交織的歷史之城',
-                lat: 37.9838, // 雅典精準緯度
-                lng: 23.7275, // 雅典精準經度
+                lat: 37.9838,
+                lng: 23.7275,
                 img: 'images/greece/athens/athens_main.png',
                 desc: '西方文明的耀眼搖籃！2026年最新自由行指南，為你整理雅典衛城、博物館官網訂票教學，詳解跨城大巴 KTEL 前往德爾斐與科林斯一日遊，以及市區安全平價青旅與在地 Souvlaki 美食地圖。', 
                 link: 'cities/athens.html',
-                datePublished: '2026-07-20'
+                datePublished: '2026-07-20',
+                type: 'base' // 🏨 深度旅遊基地
             },   
             {
                 id: 'luzern', 
@@ -557,7 +540,8 @@
                 img: 'images/switzerland/luzern/luzern_main.png',
                 desc: '坐落在羅伊斯河畔與阿爾卑斯名山間的中古城鎮。獨旅琉森最適合漫步於百年卡貝爾木橋，或搭乘復古蒸汽船與齒軌火車，沉醉在皮拉圖斯山的絕美湖光山色中。', 
                 link: 'cities/luzern.html',
-                datePublished: '2026-05-30' // 新增日期屬性
+                datePublished: '2026-05-30',
+                type: 'base' // 🏨 深度旅遊基地
             },
             {
                 id: 'monteriggioni', 
@@ -569,7 +553,8 @@
                 img: 'images/italy/monteriggioni/monteriggioni_main.jpg',
                 desc: '被但丁寫入《神曲》的防禦古城。獨旅蒙特里久尼最適合沿著圓形城牆漫步，在托斯卡尼的夕陽下，俯瞰金黃色的基安蒂丘陵與橄欖園。', 
                 link: 'cities/monteriggioni.html',
-                datePublished: '2026-05-15' // 新增日期屬性
+                datePublished: '2026-05-15',
+                type: 'daytrip' // 🎒 順遊/一日遊
             },
             {
                 id: 'siena', 
@@ -581,7 +566,8 @@
                 img: 'images/italy/siena/siena_main.jpg',
                 desc: '錫耶納獨旅攻略：比起佛羅倫斯的擁擠，這裡更適合一個人靜靜享受托斯卡尼陽光。整理必訪田野廣場與大教堂心得。', 
                 link: 'cities/siena.html',
-                datePublished: '2026-04-28' // 新增日期屬性
+                datePublished: '2026-04-28',
+                type: 'base' // 🏨 深度旅遊基地
             },
             {
                 id: 'paris', 
@@ -593,7 +579,8 @@
                 img: 'images/france/paris/paris_main.jpg',
                 desc: '巴黎獨旅攻略：藝術、美食與街頭生存的終極指南。完整收錄 22 個經典與深度景點、高 CP 值安全青旅清單，以及獨旅必備的地鐵防消磁與防扒手生存祕笈。', 
                 link: 'cities/paris.html',
-                datePublished: '2026-05-20'
+                datePublished: '2026-05-20',
+                type: 'base' // 🏨 深度旅遊基地
             },
             {
                 id: 'versailles', 
@@ -605,7 +592,8 @@
                 img: 'images/france/versailles/versailles_main.jpg',
                 desc: '凡爾賽獨旅全攻略：深度探索太陽王路易十四的極致奢華。完整收錄宮殿鏡廳、皇家大花園與特里亞農宮祕境，並包含 RER C 線交通指南與旺季強制時段預約自救心法。', 
                 link: 'cities/versailles.html',
-                datePublished: '2026-05-21'
+                datePublished: '2026-05-21',
+                type: 'daytrip' // 🎒 順遊/一日遊
             },
             {
                 id: 'dolomites', 
@@ -617,7 +605,8 @@
                 img: 'images/italy/dolomites/dolomites_main.png',
                 desc: '多洛米蒂獨旅全攻略：白雲石山脈的不自駕自由行指南！完整收錄刀鋒山、三尖峰、富內斯山谷等 12 大絕美景點徒步路線，並包含超詳細的公車交通網、三大纜車通票比較，與搶手高山屋預訂實戰私房筆記。', 
                 link: 'cities/dolomites.html',
-                datePublished: '2026-05-27'
+                datePublished: '2026-05-27',
+                type: 'base' // 🏨 深度旅遊基地
             }
         ];
         const countryMeta = {
@@ -652,6 +641,10 @@
         const totalArticles = cityData.length + guideCount;
         document.getElementById('article-count').innerText = `${totalArticles}+ 篇`;
         
+        // --- 狀態管理 ---
+        let currentCountryFilter = 'all';
+        let currentTypeFilter = 'all';
+
         function generateCountryLists() {
             const existingCountries = [...new Set(cityData.map(c => c.country))];
             const grouped = {};
@@ -707,10 +700,15 @@
             cityGrid.innerHTML = '';
             if (data.length === 0) return;
             data.forEach(item => {
+                const typeTag = item.type === 'base' 
+                    ? `<span class="absolute top-4 right-4 bg-blue-600/90 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-blue-400/30">🏨 深度旅遊基地</span>`
+                    : `<span class="absolute top-4 right-4 bg-orange-500/90 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-orange-400/30">🎒 順遊 / 一日遊</span>`;
+
                 const cardHTML = `
                     <a href="${item.link}" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="${item.img}" alt="${item.city}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            ${typeTag}
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
                             <span class="text-blue-600 text-xs font-bold uppercase tracking-wider mb-1">${item.country}</span>
@@ -759,32 +757,79 @@
                 const group = new L.featureGroup(markerArray);
                 map.fitBounds(group.getBounds(), { padding: [50, 50], maxZoom: 9 });
             } else if (autoZoom === false) {
-                map.setView([46.0, 15.0], 4); // 更改為與初始化相同的全歐洲視角
+                map.setView([46.0, 15.0], 4); 
             }
         }
 
-        renderCards(cityData);
-        updateMapMarkers(cityData, false);
+        // --- 核心篩選邏輯 ---
+        function applyFilters(autoZoomMap = false) {
+            let filtered = cityData;
+            
+            if (currentCountryFilter !== 'all') {
+                filtered = filtered.filter(d => d.country === currentCountryFilter);
+            }
+            if (currentTypeFilter !== 'all') {
+                filtered = filtered.filter(d => d.type === currentTypeFilter);
+            }
+
+            renderCards(filtered);
+            updateMapMarkers(filtered, autoZoomMap);
+
+            // 更新標題與重置按鈕狀態
+            if (currentCountryFilter === 'all' && currentTypeFilter === 'all') {
+                listTitle.innerText = `🗺️ 點擊地圖找尋目的地`;
+                resetBtn.classList.add('hidden');
+            } else {
+                let titleParts = [];
+                if (currentCountryFilter !== 'all') titleParts.push(currentCountryFilter);
+                if (currentTypeFilter !== 'all') titleParts.push(currentTypeFilter === 'base' ? '深度旅遊基地' : '一日遊景點');
+                listTitle.innerText = `📍 篩選：${titleParts.join(' - ')}`;
+                resetBtn.classList.remove('hidden');
+            }
+        }
+
+        window.setTypeFilter = function(type) {
+            currentTypeFilter = type;
+            
+            // 更新按鈕視覺狀態
+            document.querySelectorAll('.type-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'border-transparent');
+                btn.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+            });
+            const activeBtn = document.getElementById(`btn-type-${type}`);
+            activeBtn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+            activeBtn.classList.add('bg-blue-600', 'text-white', 'border-transparent');
+            
+            applyFilters(currentCountryFilter !== 'all'); // 如果有選國家就 Zoom in，否則不 Zoom
+        };
 
         window.filterByCountry = function(countryStr) {
-            const filteredData = cityData.filter(d => d.country === countryStr);
-            renderCards(filteredData);
-            updateMapMarkers(filteredData, true); 
-            
-            listTitle.innerText = `📍 ${countryStr}`;
-            resetBtn.classList.remove('hidden');
-            
+            currentCountryFilter = countryStr;
             document.getElementById('mobile-menu').classList.add('hidden');
             document.getElementById('list-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            applyFilters(true); // 點擊國家時，地圖自動縮放
         };
 
         function resetView() {
-            renderCards(cityData);
-            updateMapMarkers(cityData, false);
-            listTitle.innerText = `🗺️ 點擊地圖找尋目的地`;
-            resetBtn.classList.add('hidden');
+            currentCountryFilter = 'all';
+            currentTypeFilter = 'all';
+            
+            // 恢復 Type 按鈕 UI 為「全部」
+            document.querySelectorAll('.type-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'border-transparent');
+                btn.classList.add('bg-white', 'text-gray-600', 'border-gray-200');
+            });
+            const allBtn = document.getElementById('btn-type-all');
+            allBtn.classList.remove('bg-white', 'text-gray-600', 'border-gray-200');
+            allBtn.classList.add('bg-blue-600', 'text-white', 'border-transparent');
+
+            applyFilters(false);
         }
         resetBtn.addEventListener('click', resetView);
+        // --- 核心篩選邏輯 結束 ---
+
+        // 初始化
+        applyFilters(false);
 
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.remove('hidden');
@@ -984,9 +1029,7 @@
             }, 100);
         }
 
-        // --- ✅ 最新上線 Pop-up 邏輯 ---
-        // --- ✅ 最新上線 Pop-up 邏輯 ---
-        // --- ✅ 最新上線 Pop-up 終極修正版（支援新網頁自動解鎖） ---
+        // --- 最新上線 Pop-up 邏輯 ---
         document.addEventListener("DOMContentLoaded", function() {
             const DAYS_CONSIDERED_NEW = 7;
             const popupElement = document.getElementById('new-article-popup');
@@ -996,7 +1039,6 @@
             const today = new Date();
             const newArticles = [];
 
-            // 1. 【核心改動】不再用 true/false，而是抓出一個「已被拒絕的文章 ID 清單」陣列
             let dismissedIds = JSON.parse(localStorage.getItem('dismissedArticlePopups') || '[]');
 
             cityData.forEach(item => {
@@ -1005,14 +1047,12 @@
                     const diffTime = Math.abs(today - pubDate);
                     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
                     
-                    // 2. 【核心改動】判定條件：7 天內，且這個城市的 ID「不在」已被拒絕的清單內
                     if(diffDays <= DAYS_CONSIDERED_NEW && !dismissedIds.includes(item.id)) {
                         newArticles.push(item);
                     }
                 }
             });
 
-            // 右上角 ✕ 關閉按鈕（只關閉當次，重整會再出現）
             closePopupBtn.addEventListener('click', () => {
                 popupElement.classList.remove('pop-up-enter');
                 popupElement.classList.add('hidden');
@@ -1057,15 +1097,12 @@
 
                 popupContent.innerHTML = html;
 
-                // 3. 【核心改動】點擊「不再顯示」時的行為
                 document.getElementById('never-show-btn').addEventListener('click', () => {
-                    // 只把「目前畫面上這幾篇」新文章的 ID 塞進拒絕陣列裡
                     newArticles.forEach(article => {
                         if(!dismissedIds.includes(article.id)) {
                             dismissedIds.push(article.id);
                         }
                     });
-                    // 儲存更新後的陣列回瀏覽器
                     localStorage.setItem('dismissedArticlePopups', JSON.stringify(dismissedIds));
                     
                     popupElement.classList.remove('pop-up-enter');
