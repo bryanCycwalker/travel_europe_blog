@@ -59,9 +59,37 @@
             <a href="https://europesolo.com/about.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-sm">
                 關於我
             </a>
+            <button id="toc-menu-btn" class="xl:hidden p-2 text-gray-600 hover:text-blue-600 transition focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
     </nav>
     <div class="h-20"></div>
+
+    <aside id="floating-toc" class="fixed inset-y-0 right-0 transform translate-x-full xl:translate-x-0 xl:left-[max(0.5rem,calc(50vw-41rem))] 2xl:left-[max(2rem,calc(50vw-46rem))] xl:right-auto xl:w-44 2xl:w-52 w-64 bg-white/95 backdrop-blur-md shadow-2xl xl:shadow-none xl:bg-transparent z-[2000] xl:z-40 transition-all duration-500 ease-out flex flex-col pt-24 xl:pt-32 px-4 2xl:px-6 xl:opacity-0 xl:pointer-events-none">
+        <div class="flex justify-between items-center mb-6 xl:hidden">
+            <h3 class="font-bold text-gray-900 text-lg">快速跳轉</h3>
+            <button id="close-toc-btn" class="p-2 text-gray-400 hover:text-gray-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto pb-10 xl:border-l-2 xl:border-gray-200 xl:pl-4 space-y-4 text-sm font-medium flex flex-col">
+            <h3 class="hidden xl:block font-extrabold text-gray-900 mb-2 text-base tracking-wide">📍 章節導覽</h3>
+            <a href="#tips" class="text-gray-500 hover:text-orange-600 transition">🛑 獨旅防雷密技</a>
+            <a href="#map" class="text-gray-500 hover:text-blue-600 transition">🗺️ 景點地圖</a>
+            <a href="#transport" class="text-gray-500 hover:text-blue-600 transition">🚆 交通攻略</a>
+            <a href="#palio" class="text-gray-500 hover:text-blue-600 transition">🐎 年度慶典</a>
+            <a href="#accommodation" class="text-gray-500 hover:text-blue-600 transition">🛏️ 住宿建議</a>
+            <a href="#food" class="text-gray-500 hover:text-blue-600 transition">🍝 美食推薦</a>
+            <a href="#day-trips" class="text-gray-500 hover:text-blue-600 transition">🚐 必訪一日遊</a>
+            <a href="#italy-tips" class="text-gray-500 hover:text-blue-600 transition font-bold">🇮🇹 義大利生存箱</a>
+        </div>
+    </aside>
+
+    <div id="toc-overlay" class="fixed inset-0 bg-black/50 z-[1500] hidden xl:hidden transition-opacity duration-300 opacity-0"></div>
 
     <main class="max-w-4xl mx-auto mt-8 bg-white shadow-xl rounded-2xl overflow-hidden mb-12">
         
@@ -112,7 +140,7 @@
                 </div>
             </section>
 
-            <div class="bg-gray-50 p-6 rounded-xl mb-12 border border-gray-100 text-sm">
+            <div id="static-toc" class="bg-gray-50 p-6 rounded-xl mb-12 border border-gray-100 text-sm">
                 <h3 class="font-bold mb-3">章節導覽</h3>
                 <div class="flex flex-wrap gap-4 text-blue-600">
                     <a href="#tips" class="hover:underline text-orange-600 font-bold"># 防雷密技</a>
@@ -436,7 +464,7 @@
                             <thead class="bg-gray-100 border-b border-gray-200 text-gray-800">
                                 <tr>
                                     <th class="px-4 py-3 font-bold w-[18%]">🏨 住宿名稱</th>
-                                    <th class="px-4 py-3 font-bold w-[14%]">💰 價格感受</th>
+                                    <th class="px-4 py-3 font-bold w-[14%]">💰 平均房價參考</th>
                                     <th class="px-4 py-3 font-bold w-[15%]">⭐ 評分 / 口碑</th>
                                     <th class="px-4 py-3 font-bold w-[14%]">🛡️ 安全感</th>
                                     <th class="px-4 py-3 font-bold w-[14%]">🚶 交通 / 近景點</th>
@@ -449,14 +477,14 @@
                                     <td class="px-4 py-4 align-top">
                                         <span class="font-extrabold text-gray-900 block mb-2">Casa di Alfredo Affittacamere</span>
                                         <a href="https://www.google.com/maps/place/Casa+di+Alfredo+Affittacamere+-+Double+Room+with+Shared+Bathroom/@43.3283482,11.3232251,17z/data=!4m14!1m2!2m1!1sCasa+di+Alfredo+Affittacamere!3m10!1s0x132a2cc155b3729d:0xc90cffbc6a4a3e5d!5m2!4m1!1i1!8m2!3d43.3283386!4d11.3258496!15sCh1DYXNhIGRpIEFsZnJlZG8gQWZmaXR0YWNhbWVyZZIBD3ZhY2F0aW9uX3JlbnRhbOABAA!16s%2Fg%2F11z5c6_xyg!17BQ0FF?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 看地圖
+                                            📍 看地圖
                                         </a>
                                     </td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">最便宜梯隊，約從 55 歐起。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">評分約 8.6，評論量接近千則，屬於便宜又不差的類型。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">市中心型住宿，獨旅通常夠方便，但更像簡單型房間。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">離核心區不遠，屬於可步行玩景點的類型。</td>
-                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">便宜與評分平衡最好，很適合願意接受小瑕疵、不想踩大雷的人。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">約 55 歐起/晚</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">約 8.6 / 10<br><span class="text-gray-400 text-[10px] block">高CP值</span></td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">市中心型住宿，對獨旅非常方便與安全。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">離核心區不遠，可步行玩景點。</td>
+                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">平價與評分平衡好，不踩雷首選。</td>
                                     <td class="px-4 py-4 align-top">
                                         <div class="flex flex-col gap-2">
                                             <a href="https://www.booking.com/searchresults.zh-tw.html?dest_id=3401039&dest_type=hotel" target="_blank" rel="nofollow" class="text-center bg-blue-600 text-white text-[10px] font-bold py-1.5 rounded hover:bg-blue-700 transition shadow-sm">Booking.com</a>
@@ -469,14 +497,14 @@
                                     <td class="px-4 py-4 align-top">
                                         <span class="font-extrabold text-gray-900 block mb-2">B&B Siena In Centro - Diffuso</span>
                                         <a href="https://www.google.com/maps/search/?api=1&query=B%26B+Siena+In+Centro+-+Diffuso+Siena" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 看地圖
+                                            📍 看地圖
                                         </a>
                                     </td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">價格起點約 99 歐，不是最低，但仍屬市中心實用價位。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">評分約 8.6，位置評分高，優勢很明顯。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">市中心、走路方便，對獨旅算安心。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">離 Piazza del Campo 很近，景點可步行到達。</td>
-                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">如果你把近景點放很前面，這間很強，而且整體不算貴到離譜。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">約 99 歐起/晚</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">約 8.6 / 10<br><span class="text-gray-400 text-[10px] block">地點超棒</span></td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">市中心繁華地段，獨旅非常安心。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">離 Piazza del Campo 僅幾步路。</td>
+                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">想住古城精華區的首選。</td>
                                     <td class="px-4 py-4 align-top">
                                         <div class="flex flex-col gap-2">
                                             <a href="https://www.booking.com/searchresults.zh-tw.html?dest_id=88973&dest_type=hotel" target="_blank" rel="nofollow" class="text-center bg-blue-600 text-white text-[10px] font-bold py-1.5 rounded hover:bg-blue-700 transition shadow-sm">Booking.com</a>
@@ -489,14 +517,14 @@
                                     <td class="px-4 py-4 align-top">
                                         <span class="font-extrabold text-gray-900 block mb-2">Casa di Osio</span>
                                         <a href="https://www.google.com/maps/search/?api=1&query=Casa+di+Osio+Siena" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 看地圖
+                                            📍 看地圖
                                         </a>
                                     </td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">價格約 74 歐起，屬於很有競爭力的價位。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">評分約 8.4，屬於穩定、實用型。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">市中心位置，獨旅方便度不錯。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">中心區，走路逛景點很省事。</td>
-                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">CP 值很高，如果你想壓預算，這間是很合理的中段選擇。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">約 74 歐起/晚</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">約 8.4 / 10<br><span class="text-gray-400 text-[10px] block">溫馨實用</span></td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">市中心安全街區。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">中心區，步行景點省事。</td>
+                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">超高 CP 值，小資獨旅好選擇。</td>
                                     <td class="px-4 py-4 align-top">
                                         <div class="flex flex-col gap-2">
                                             <a href="https://www.booking.com/searchresults.zh-tw.html?dest_id=683241&dest_type=hotel" target="_blank" rel="nofollow" class="text-center bg-blue-600 text-white text-[10px] font-bold py-1.5 rounded hover:bg-blue-700 transition shadow-sm">Booking.com</a>
@@ -509,14 +537,14 @@
                                     <td class="px-4 py-4 align-top">
                                         <span class="font-extrabold text-gray-900 block mb-2">NH Siena</span>
                                         <a href="https://www.google.com/maps/search/?api=1&query=NH+Siena" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 看地圖
+                                            📍 看地圖
                                         </a>
                                     </td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">價格通常不會太誇張，屬於中低價帶。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">Agoda 顯示評分 8.5，口碑穩定。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">連鎖型飯店，對獨旅通常更安心。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">位置方便，適合作為進出 Siena 的基地。</td>
-                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">穩、好找、不太麻煩，適合不想把時間耗在住宿細節上的人。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">中低價位/晚</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">約 8.5 / 10<br><span class="text-gray-400 text-[10px] block">知名連鎖</span></td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">大飯店管理，極度安全。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">進出 Siena 交通樞紐附近。</td>
+                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">品質穩定，不想花時間挑房首選。</td>
                                     <td class="px-4 py-4 align-top">
                                         <div class="flex flex-col gap-2">
                                             <a href="https://www.booking.com/searchresults.zh-tw.html?dest_id=83389&dest_type=hotel" target="_blank" rel="nofollow" class="text-center bg-blue-600 text-white text-[10px] font-bold py-1.5 rounded hover:bg-blue-700 transition shadow-sm">Booking.com</a>
@@ -529,14 +557,14 @@
                                     <td class="px-4 py-4 align-top">
                                         <span class="font-extrabold text-gray-900 block mb-2">Hotel Italia Siena</span>
                                         <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Italia+Siena" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 看地圖
+                                            📍 看地圖
                                         </a>
                                     </td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">常被列為 Siena 便宜飯店之一。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">評價量大，屬於市場驗證充分的類型。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">比較偏「穩定保守」而不是設計感路線。</td>
-                                    <td class="px-4 py-4 leading-relaxed align-top">靠近火車站，進出最省力，走到古城區也可接受。</td>
-                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">如果你重視交通方便勝過超近景點，它很值得放進前三考慮。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">平價實惠/晚</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">約 8.2 / 10<br><span class="text-gray-400 text-[10px] block">評價量大</span></td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">車站旁，治安穩定。</td>
+                                    <td class="px-4 py-4 leading-relaxed align-top">近火車站，搭車極度方便。</td>
+                                    <td class="px-4 py-4 text-blue-700 font-bold leading-relaxed align-top">拖大行李或轉乘火車者最推。</td>
                                     <td class="px-4 py-4 align-top">
                                         <div class="flex flex-col gap-2">
                                             <a href="https://www.booking.com/searchresults.zh-tw.html?dest_id=81678&dest_type=hotel" target="_blank" rel="nofollow" class="text-center bg-blue-600 text-white text-[10px] font-bold py-1.5 rounded hover:bg-blue-700 transition shadow-sm">Booking.com</a>
@@ -649,7 +677,7 @@
                                         <span class="inline-block bg-red-100 text-red-600 text-[10px] px-2 py-0.5 rounded font-bold mb-1.5 tracking-wider border border-red-200">🔥 親測推薦</span>
                                         <span class="font-extrabold text-gray-900 block mb-2 text-base">Du' Cose da Berna</span>
                                         <a href="https://maps.app.goo.gl/w3u5ek1X4dXBferz9" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 在地圖開啟
+                                            📍 在地圖開啟
                                         </a>
                                     </td>
                                     <td class="px-4 py-4 leading-relaxed align-top text-green-700 font-bold">很低<br><span class="text-[10px] font-normal text-gray-500">8–12 歐主菜</span></td>
@@ -665,7 +693,7 @@
                                     <td class="px-4 py-4 align-top">
                                         <span class="font-extrabold text-gray-900 block mb-2">Permalico</span>
                                         <a href="https://maps.app.goo.gl/kjXBzLwsnPCLiWUH9" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 在地圖開啟
+                                            📍 在地圖開啟
                                         </a>
                                     </td>
                                     <td class="px-4 py-4 leading-relaxed align-top text-green-700 font-bold">低<br><span class="text-[10px] font-normal text-gray-500">預算友善首選</span></td>
@@ -681,7 +709,7 @@
                                     <td class="px-4 py-4 align-top">
                                         <span class="font-extrabold text-gray-900 block mb-2">Bargello</span>
                                         <a href="https://maps.app.goo.gl/eLjq44thJdAXVnrD9" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 在地圖開啟
+                                            📍 在地圖開啟
                                         </a>
                                     </td>
                                     <td class="px-4 py-4 leading-relaxed align-top text-green-700 font-bold">低<br><span class="text-[10px] font-normal text-gray-500">平價小館</span></td>
@@ -697,7 +725,7 @@
                                     <td class="px-4 py-4 align-top">
                                         <span class="font-extrabold text-gray-900 block mb-2">Trombicche</span>
                                         <a href="https://maps.app.goo.gl/pkkMDy1MsMCp8pdC6" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 在地圖開啟
+                                            📍 在地圖開啟
                                         </a>
                                     </td>
                                     <td class="px-4 py-4 leading-relaxed align-top text-green-700 font-bold">低到中<br><span class="text-[10px] font-normal text-gray-500">經濟實惠</span></td>
@@ -713,7 +741,7 @@
                                     <td class="px-4 py-4 align-top">
                                         <span class="font-extrabold text-gray-900 block mb-2">Consorzio Agrario (外帶小吃)</span>
                                         <a href="https://maps.app.goo.gl/SU4R7wSMQgsndTJx6" target="_blank" rel="nofollow" class="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-600 text-[10px] font-bold px-2 py-1 rounded hover:bg-gray-100 hover:text-blue-600 transition shadow-sm">
-                                            <img src="https://www.google.com/s2/favicons?domain=maps.google.com&sz=32" class="w-3 h-3" alt="Map"> 在地圖開啟
+                                            📍 在地圖開啟
                                         </a>
                                     </td>
                                     <td class="px-4 py-4 leading-relaxed align-top text-green-700 font-bold">很低<br><span class="text-[10px] font-normal text-gray-500">3–5 歐三明治</span></td>
@@ -731,8 +759,8 @@
                 </div>
             </section>
 
-            <section class="mb-16 scroll-mt-24 pt-10 border-t border-gray-200">
-                <h2 id="day-trips" class="text-2xl font-bold border-l-4 border-blue-600 pl-4 mb-6">🚐 錫耶納近郊：適合獨旅的一日遊小鎮</h2>
+            <section id="day-trips" class="mb-16 scroll-mt-24 pt-10 border-t border-gray-200">
+                <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4 mb-6">🚐 錫耶納近郊：適合獨旅的一日遊小鎮</h2>
                 <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm">
                     <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                         <span>📍</span> 3 大必訪托斯卡尼絕美小鎮
@@ -860,14 +888,70 @@
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // 向下捲動且超過 100px：隱藏導覽列
                 mainNav.style.transform = 'translateY(-100%)';
             } else {
-                // 向上捲動：顯示導覽列
                 mainNav.style.transform = 'translateY(0)';
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         }, false);
+
+        const staticToc = document.getElementById('static-toc');
+        const floatingToc = document.getElementById('floating-toc');
+        const tocMenuBtn = document.getElementById('toc-menu-btn');
+        const closeTocBtn = document.getElementById('close-toc-btn');
+        const tocOverlay = document.getElementById('toc-overlay');
+        const tocLinks = floatingToc.querySelectorAll('a');
+
+        function toggleMobileToc() {
+            const isClosed = floatingToc.classList.contains('translate-x-full');
+            if (isClosed) {
+                floatingToc.classList.remove('translate-x-full');
+                tocOverlay.classList.remove('hidden');
+                setTimeout(() => tocOverlay.classList.remove('opacity-0'), 10);
+            } else {
+                floatingToc.classList.add('translate-x-full');
+                tocOverlay.classList.add('opacity-0');
+                setTimeout(() => tocOverlay.classList.add('hidden'), 300);
+            }
+        }
+
+        tocMenuBtn.addEventListener('click', toggleMobileToc);
+        closeTocBtn.addEventListener('click', toggleMobileToc);
+        tocOverlay.addEventListener('click', toggleMobileToc);
+
+        tocLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1280) toggleMobileToc();
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            if (!staticToc || !floatingToc || window.innerWidth < 1280) {
+                floatingToc.style.transform = ''; 
+                return;
+            }
+            
+            const staticTocBottom = staticToc.getBoundingClientRect().bottom;
+            const scrollY = window.scrollY || window.pageYOffset;
+            
+            if (staticTocBottom < 0) {
+                floatingToc.classList.remove('xl:opacity-0', 'xl:pointer-events-none');
+                floatingToc.classList.add('xl:opacity-100', 'xl:pointer-events-auto');
+                
+                const offsetAfterToc = scrollY - (staticToc.offsetTop + staticToc.offsetHeight);
+                const dampFactor = 0.05; 
+                let translateY = -(offsetAfterToc * dampFactor);
+                
+                const maxUpwardShift = -80; 
+                if (translateY < maxUpwardShift) translateY = maxUpwardShift;
+                
+                floatingToc.style.transform = `translateY(${translateY}px)`;
+            } else {
+                floatingToc.classList.add('xl:opacity-0', 'xl:pointer-events-none');
+                floatingToc.classList.remove('xl:opacity-100', 'xl:pointer-events-auto');
+                floatingToc.style.transform = 'translateY(0px)';
+            }
+        });
     </script>
 </body>
 </html>
