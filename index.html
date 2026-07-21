@@ -700,13 +700,18 @@
             cityGrid.innerHTML = '';
             if (data.length === 0) return;
             data.forEach(item => {
-                // 💡 改用淡色背景 (bg-blue-100 / bg-orange-100) 與深色文字 (text-blue-800 / text-orange-800)
-            const typeTag = item.type === 'base' 
-                ? `<span class="absolute top-4 right-4 bg-blue-100/90 backdrop-blur-sm text-blue-800 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-blue-200/80">🏨 深度旅遊基地</span>`
-                : `<span class="absolute top-4 right-4 bg-orange-100/90 backdrop-blur-sm text-orange-800 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-orange-200/80">🎒 順遊 / 一日遊</span>`;
+                const isBase = item.type === 'base';
                 
+                // 💡 動態指定卡片整體的淡色背景與邊框色
+                const cardBg = isBase ? 'bg-blue-50/60' : 'bg-orange-50/60';
+                const borderColor = isBase ? 'border-blue-100' : 'border-orange-100';
+                
+                const typeTag = isBase 
+                    ? `<span class="absolute top-4 right-4 bg-blue-100/90 backdrop-blur-sm text-blue-800 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-blue-200/80">🏨 深度旅遊基地</span>`
+                    : `<span class="absolute top-4 right-4 bg-orange-100/90 backdrop-blur-sm text-orange-800 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-orange-200/80">🎒 順遊 / 一日遊</span>`;
+        
                 const cardHTML = `
-                    <a href="${item.link}" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full transform hover:-translate-y-1">
+                    <a href="${item.link}" class="group ${cardBg} rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border ${borderColor} flex flex-col h-full transform hover:-translate-y-1">
                         <div class="h-48 bg-gray-200 overflow-hidden relative">
                             <img src="${item.img}" alt="${item.city}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             ${typeTag}
@@ -715,7 +720,7 @@
                             <span class="text-blue-600 text-xs font-bold uppercase tracking-wider mb-1">${item.country}</span>
                             <h3 class="text-xl font-bold text-gray-900">${item.city}</h3>
                             <p class="text-sm text-gray-500 font-medium mt-1 mb-4">${item.subtitle}</p>
-                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mt-auto pt-4 border-t border-gray-50">${item.desc}</p>
+                            <p class="text-gray-600 text-sm leading-relaxed line-clamp-3 mt-auto pt-4 border-t border-gray-200/60">${item.desc}</p>
                         </div>
                     </a>
                 `;
