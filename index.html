@@ -695,8 +695,9 @@
                         const cnName = parts[1] || '';
                         const enName = parts[2] || '';
 
+                        // 💡 重點修改在這裡：加入 shrink-0 防止被擠壓，並調整手機版寬度為 30% 左右
                         html += `
-                            <button onclick="filterByCountry('${c.name}')" class="relative group overflow-hidden ${style.btnBg} border border-transparent rounded-xl w-[calc(33.333%-0.5rem)] sm:w-24 h-16 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 flex flex-col items-center justify-center">
+                            <button onclick="filterByCountry('${c.name}')" class="shrink-0 relative group overflow-hidden ${style.btnBg} border border-transparent rounded-xl w-[calc(33.333%-0.5rem)] sm:w-24 h-16 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300 flex flex-col items-center justify-center">
                                 <div class="absolute inset-0 bg-cover bg-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block" style="background-image: url('https://flagcdn.com/w320/${c.code}.png');"></div>
                                 <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"></div>
                                 
