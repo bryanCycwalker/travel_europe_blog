@@ -668,7 +668,13 @@
         let currentTypeFilter = 'all';
 
         function generateCountryLists() {
-            const existingCountries = [...new Set(cityData.map(c => c.country))];
+            // 1. 先根據目前的「標籤」過濾出有符合的城市
+            const filteredCities = currentTypeFilter === 'all' 
+                ? cityData 
+                : cityData.filter(c => c.type === currentTypeFilter);
+                
+            // 2. 再從過濾後的城市中，取得該標籤存在的國家名單
+            const existingCountries = [...new Set(filteredCities.map(c => c.country))];
             const grouped = {};
             
             existingCountries.forEach(country => {
@@ -799,6 +805,8 @@
 
         // --- 核心篩選邏輯 ---
         function applyFilters(autoZoomMap = false) {
+            generateCountryLists(); // 每次套用篩選時，同步更新國家選單
+            
             let filtered = cityData;
             
             if (currentCountryFilter !== 'all') {
@@ -831,6 +839,7 @@
 
         window.setTypeFilter = function(type) {
             currentTypeFilter = type;
+            currentCountryFilter = 'all'; // 切換標籤時，自動將國家重置為全部
             
             // 1. 重置所有樣式
             document.querySelectorAll('.type-filter-btn, .m-type-filter-btn').forEach(btn => {
