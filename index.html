@@ -95,6 +95,7 @@
         <div class="p-4 bg-white border-b border-gray-200 flex flex-wrap gap-2">
             <button onclick="setTypeFilter('all')" id="m-btn-type-all" class="m-type-filter-btn bg-slate-800 text-white border border-transparent px-3 py-1.5 rounded-full text-xs font-bold shadow-sm">全部</button>
             <button onclick="setTypeFilter('base')" id="m-btn-type-base" class="m-type-filter-btn bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm">🏨 深度旅遊基地</button>
+            <button onclick="setTypeFilter('region')" id="m-btn-type-region" class="m-type-filter-btn bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm">🌲 深度探索地區</button>
             <button onclick="setTypeFilter('daytrip')" id="m-btn-type-daytrip" class="m-type-filter-btn bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm">🎒 順遊 / 一日遊</button>
         </div>
     
@@ -139,6 +140,7 @@
             <div class="mt-5 flex flex-wrap gap-3 ml-4">
                 <button onclick="setTypeFilter('all')" id="btn-type-all" class="type-filter-btn bg-blue-600 text-white border border-transparent px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200">全部</button>
                 <button onclick="setTypeFilter('base')" id="btn-type-base" class="type-filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200">🏨 深度旅遊基地</button>
+                <button onclick="setTypeFilter('region')" id="btn-type-region" class="type-filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200">🌲 深度探索地區</button>
                 <button onclick="setTypeFilter('daytrip')" id="btn-type-daytrip" class="type-filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200">🎒 順遊 / 一日遊</button>
             </div>
         </div>
@@ -626,7 +628,7 @@
                 desc: '多洛米蒂獨旅全攻略：白雲石山脈的不自駕自由行指南！完整收錄刀鋒山、三尖峰、富內斯山谷等 12 大絕美景點徒步路線，並包含超詳細的公車交通網、三大纜車通票比較，與搶手高山屋預訂實戰私房筆記。', 
                 link: 'cities/dolomites.html',
                 datePublished: '2026-05-27',
-                type: 'base' // 🏨 深度旅遊基地
+                type: 'region' // 🏨 深度探索地區
             }
         ];
         const countryMeta = {
@@ -721,6 +723,22 @@
             if (data.length === 0) return;
             data.forEach(item => {
                 const isBase = item.type === 'base';
+                const isRegion = item.type === 'region';
+                
+                // 動態指定卡片背景與邊框配色
+                let cardBg = 'bg-orange-50/60';
+                let borderColor = 'border-orange-100';
+                let typeTag = `<span class="absolute top-4 right-4 bg-orange-100/90 backdrop-blur-sm text-orange-800 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-orange-200/80">🎒 順遊 / 一日遊</span>`;
+        
+                if (isBase) {
+                    cardBg = 'bg-blue-50/60';
+                    borderColor = 'border-blue-100';
+                    typeTag = `<span class="absolute top-4 right-4 bg-blue-100/90 backdrop-blur-sm text-blue-800 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-blue-200/80">🏨 深度旅遊基地</span>`;
+                } else if (isRegion) {
+                    cardBg = 'bg-emerald-50/60';
+                    borderColor = 'border-emerald-100';
+                    typeTag = `<span class="absolute top-4 right-4 bg-emerald-100/90 backdrop-blur-sm text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-emerald-200/80">🌲 深度探索地區</span>`;
+                }
                 
                 // 💡 動態指定卡片整體的淡色背景與邊框色
                 const cardBg = isBase ? 'bg-blue-50/60' : 'bg-orange-50/60';
