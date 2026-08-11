@@ -783,7 +783,7 @@
             });
         }
 
-        const map = L.map('map').setView([46.0, 15.0], 4.5);
+        const map = L.map('map').setView([46.0, 15.0], 5);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; OSM & CARTO', subdomains: 'abcd', maxZoom: 20
         }).addTo(map);
@@ -818,7 +818,7 @@
                 const group = new L.featureGroup(markerArray);
                 map.fitBounds(group.getBounds(), { padding: [50, 50], maxZoom: 9 });
             } else if (autoZoom === false) {
-                map.setView([46.0, 15.0], 4.5); 
+                map.setView([46.0, 15.0], 5); 
             }
         }
 
