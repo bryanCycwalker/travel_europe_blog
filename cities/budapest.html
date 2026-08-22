@@ -206,6 +206,8 @@
                 <!-- 篩選按鈕區塊 -->
                 <div class="flex flex-wrap gap-2 mb-8" id="attraction-filters">
                     <button class="filter-btn bg-amber-600 text-white border border-transparent px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="all">全部顯示</button>
+                    <button class="filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="免費">🆓 免費</button>
+                    <button class="filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="登高">⛰️ 登高</button>
                     <button class="filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="公共建築">🏛️ 公共建築</button>
                     <button class="filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="宗教建築">⛪ 宗教建築</button>
                     <button class="filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="王宮城堡">🏰 王宮城堡</button>
@@ -246,10 +248,10 @@
                     </div>
 
                     <!-- 2. 多瑙河岸的鞋子 -->
-                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="紀念地">
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="紀念地,免費">
                         <div class="relative mb-4">
                             <img src="../images/hungary/budapest/shoes_danube.png" alt="多瑙河岸的鞋子" class="rounded-xl h-48 w-full object-cover bg-gray-200">
-                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">紀念地</span>
+                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">紀念地 / 免費</span>
                         </div>
                         <div class="flex flex-col">
                             <h3 class="font-bold text-lg mb-2">2. 多瑙河岸的鞋子 (Cipők a Duna-parton)</h3>
@@ -291,10 +293,10 @@
                     </div>
 
                     <!-- 4. 安德拉什大街 -->
-                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="逛街行程">
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="逛街行程,免費">
                         <div class="relative mb-4">
                             <img src="../images/hungary/budapest/andrassy.png" alt="安德拉什大街" class="rounded-xl h-48 w-full object-cover bg-gray-200">
-                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">逛街行程</span>
+                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">逛街行程 / 免費</span>
                         </div>
                         <div class="flex flex-col">
                             <h3 class="font-bold text-lg mb-2">4. 安德拉什大街 (Andrássy út)</h3>
@@ -453,10 +455,10 @@
                     </div>
 
                     <!-- 11. 塞切尼鏈橋 -->
-                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="公共建築">
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="公共建築,免費">
                         <div class="relative mb-4">
                             <img src="../images/hungary/budapest/chain_bridge.png" alt="塞切尼鏈橋" class="rounded-xl h-48 w-full object-cover bg-gray-200">
-                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">公共建築</span>
+                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">公共建築 / 免費</span>
                         </div>
                         <div class="flex flex-col">
                             <h3 class="font-bold text-lg mb-2">11. 塞切尼鏈橋 (Széchenyi Lánchíd)</h3>
@@ -475,10 +477,10 @@
                     </div>
 
                     <!-- 12. 布達城堡 -->
-                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="王宮城堡">
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="王宮城堡,免費,登高">
                         <div class="relative mb-4">
                             <img src="../images/hungary/budapest/buda_castle.png" alt="布達城堡" class="rounded-xl h-48 w-full object-cover bg-gray-200">
-                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">王宮城堡</span>
+                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">王宮城堡 / 免費 / 登高</span>
                         </div>
                         <div class="flex flex-col">
                             <h3 class="font-bold text-lg mb-2">12. 布達城堡 (Budavári Palota)</h3>
@@ -566,10 +568,10 @@
                     </div>
 
                     <!-- 16. 布達佩斯城堡山纜車 -->
-                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="交通體驗">
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="交通體驗,登高">
                         <div class="relative mb-4">
                             <img src="../images/hungary/budapest/funicular.png" alt="布達佩斯城堡山纜車" class="rounded-xl h-48 w-full object-cover bg-gray-200">
-                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">交通體驗</span>
+                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">交通體驗 / 登高</span>
                         </div>
                         <div class="flex flex-col">
                             <h3 class="font-bold text-lg mb-2">16. 布達佩斯城堡山纜車 (Budapest Castle Hill Funicular)</h3>
@@ -586,10 +588,10 @@
                     </div>
 
                     <!-- 17. 漁人堡 -->
-                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="王宮城堡">
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="王宮城堡,免費,登高">
                         <div class="relative mb-4">
                             <img src="../images/hungary/budapest/fishermans_bastion.png" alt="漁人堡" class="rounded-xl h-48 w-full object-cover bg-gray-200">
-                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">王宮城堡</span>
+                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">王宮城堡 / 免費 / 登高</span>
                         </div>
                         <div class="flex flex-col">
                             <h3 class="font-bold text-lg mb-2">17. 漁人堡 (Halászbástya)</h3>
@@ -612,10 +614,10 @@
                     </div>
 
                     <!-- 18. 馬加什教堂 -->
-                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="宗教建築">
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="宗教建築,登高">
                         <div class="relative mb-4">
                             <img src="../images/hungary/budapest/matthias_church.png" alt="馬加什教堂" class="rounded-xl h-48 w-full object-cover bg-gray-200">
-                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">宗教建築</span>
+                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">宗教建築 / 登高</span>
                         </div>
                         <div class="flex flex-col">
                             <h3 class="font-bold text-lg mb-2">18. 馬加什教堂 (Budavári Nagyboldogasszony-templom)</h3>
@@ -638,10 +640,10 @@
                     </div>
 
                     <!-- 19. 瑪麗亞瑪丹娜塔 -->
-                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="宗教建築">
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="宗教建築,登高">
                         <div class="relative mb-4">
                             <img src="../images/hungary/budapest/maria_magdolna.png" alt="瑪麗亞瑪丹娜塔" class="rounded-xl h-48 w-full object-cover bg-gray-200">
-                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">宗教建築</span>
+                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">宗教建築 / 登高</span>
                         </div>
                         <div class="flex flex-col">
                             <h3 class="font-bold text-lg mb-2">19. 瑪麗亞瑪丹娜塔 (Mária Magdolna Torony)</h3>
@@ -664,10 +666,10 @@
                     </div>
 
                     <!-- 20. 英雄廣場 -->
-                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="紀念地">
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="紀念地,免費">
                         <div class="relative mb-4">
                             <img src="../images/hungary/budapest/heroes_square.png" alt="英雄廣場" class="rounded-xl h-48 w-full object-cover bg-gray-200">
-                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">紀念地</span>
+                            <span class="absolute top-3 right-3 bg-amber-100/90 backdrop-blur-sm text-amber-800 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-amber-200/80">紀念地 / 免費</span>
                         </div>
                         <div class="flex flex-col">
                             <h3 class="font-bold text-lg mb-2">20. 英雄廣場 (Hősök tere)</h3>
