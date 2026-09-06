@@ -88,7 +88,7 @@
         <div class="flex-1 overflow-y-auto pb-10 xl:border-l-2 xl:border-gray-200 xl:pl-4 space-y-4 text-sm font-medium flex flex-col">
             <h3 class="hidden xl:block font-extrabold text-gray-900 mb-2 text-base tracking-wide">📍 章節導覽</h3>
             <a href="#tips" class="text-gray-500 hover:text-zinc-800 transition">🛑 獨旅防雷密技</a>
-            <a href="#map" class="text-gray-500 hover:text-zinc-800 transition">🗺️ 22大必訪景點</a>
+            <a href="#map" class="text-gray-500 hover:text-zinc-800 transition">🗺️ 24大必訪景點</a>
             <a href="#daytour" class="text-gray-500 hover:text-zinc-800 transition">🏔️ 近郊一日遊</a>
             <a href="#festival" class="text-gray-500 hover:text-zinc-800 transition">🎉 三大年度慶典</a>
             <a href="#transport" class="text-gray-500 hover:text-zinc-800 transition">🚆 交通全攻略</a>
@@ -152,7 +152,7 @@
                 <h3 class="font-bold mb-3">章節導覽</h3>
                 <div class="flex flex-wrap gap-4 text-zinc-800">
                     <a href="#tips" class="hover:underline text-orange-600 font-bold"># 獨旅防雷密技</a>
-                    <a href="#map" class="hover:underline"># 22大必訪景點</a>
+                    <a href="#map" class="hover:underline"># 24大必訪景點</a>
                     <a href="#daytour" class="hover:underline"># 近郊一日遊</a>
                     <a href="#festival" class="hover:underline"># 三大年度慶典</a>
                     <a href="#transport" class="hover:underline text-emerald-600 font-bold"># 交通全攻略</a>
@@ -187,9 +187,9 @@
             </section>
 
             <section class="mb-16 scroll-mt-24">
-                <h2 id="map" class="text-2xl font-bold border-l-4 border-zinc-800 pl-4 mb-6">🗺️ 必做體驗：慕尼黑 22 大絕美景點</h2>
+                <h2 id="map" class="text-2xl font-bold border-l-4 border-zinc-800 pl-4 mb-6">🗺️ 必做體驗：慕尼黑 24 大絕美景點</h2>
                 <p class="text-sm text-gray-700 leading-relaxed mb-6">
-                    慕尼黑不僅擁有奢華的王宮與古典教堂，更有全球首屈一指的科技博物館與廣闊的綠地公園。以下整理出你此生必訪的 22 大經典地標：
+                    慕尼黑不僅擁有奢華的王宮與古典教堂，更有全球首屈一指的科技博物館與廣闊的綠地公園。以下整理出你此生必訪的 24 大經典地標：
                 </p>
                 
                 <!-- 篩選按鈕區塊 -->
@@ -205,6 +205,7 @@
                     <button class="filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="公園">🌳 公園</button>
                     <button class="filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="特色景點">✨ 特色景點</button>
                     <button class="filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="飲食餐廳">🍽️ 飲食餐廳</button>
+                    <button class="filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition" data-filter="球場">⚽ 球場</button>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8" id="attractions-grid">
@@ -226,7 +227,7 @@
                         <div class="flex flex-col space-y-2 mt-auto pt-4">
                             <div class="grid grid-cols-2 gap-2">
                                 <a href="https://www.trip.com/t/as3qUu9DxV2" target="_blank" rel="nofollow" class="block bg-gray-900 border border-gray-900 text-white text-center text-xs font-bold py-1.5 rounded-lg hover:bg-black transition shadow-md">🎟️ 平台訂票</a>
-                                <a href="https://ticketshop-residenz-muenchen.de/en" target="_blank" rel="nofollow" class="block bg-gray-50 border border-gray-200 text-gray-700 text-center text-xs font-bold py-1.5 rounded-lg hover:bg-gray-100 transition shadow-sm">🌐 官網購票</a>
+                                <a href="https://ticketshop-residenz-muenchen.de/en" target="_blank" rel="nofollow" class="block bg-gray-50 border border-gray-200 text-gray-700 text-center text-xs font-bold py-1.5 rounded-lg hover:bg-gray-100 transition shadow-sm truncate">🌐 官網購票</a>
                             </div>
                             <a href="https://maps.app.goo.gl/3DLztJ9nrhfieMo86" target="_blank" rel="nofollow" class="block w-full bg-emerald-50/40 border border-emerald-100 text-emerald-700 text-center text-sm font-bold py-2.5 rounded-lg hover:bg-emerald-100 hover:text-emerald-800 hover:border-emerald-200 transition shadow-sm">
                                 📍 查看地圖
@@ -701,6 +702,56 @@
                         </div>
                     </div>
 
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="博物館">
+                        <div class="relative mb-4">
+                            <img src="../images/germany/munich/bmw_museum.png" alt="寶馬博物館" class="rounded-xl h-48 w-full object-cover bg-gray-200">
+                            <span class="absolute top-3 right-3 bg-zinc-800/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-zinc-700/80">博物館</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">23. 寶馬博物館 (BMW Museum)</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                展示 BMW 汽車、機車及引擎技術的百年歷史發展。建築外觀宛如一個巨大的銀色碗，與旁邊的四缸大樓總部相映成趣，是車迷必訪的朝聖地。
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border-t border-gray-100 flex-grow flex flex-col">
+                            <p class="text-xs text-gray-500 italic">💭 Bryan 親測：就算不是車迷，看不同時期BMW的車子也是蠻有趣的，而且展場做得很好～</p>
+                        </div>
+                        <div class="flex flex-col space-y-2 mt-auto pt-4">
+                            <div class="grid grid-cols-2 gap-2">
+                                <a href="https://www.trip.com/t/TvPAUXOTCW2" target="_blank" rel="nofollow" class="block bg-gray-900 border border-gray-900 text-white text-center text-xs font-bold py-2.5 rounded-lg hover:bg-black transition shadow-md">🎟️ 平台訂票</a>
+                                <a href="https://tkts.bmw-welt.com/en" target="_blank" rel="nofollow" class="block bg-gray-50 border border-gray-200 text-gray-700 text-center text-xs font-bold py-2.5 rounded-lg hover:bg-gray-100 transition shadow-sm truncate">🌐 官網購票</a>
+                            </div>
+                            <a href="https://maps.app.goo.gl/gQZoKc8pRnNs7WkH7" target="_blank" rel="nofollow" class="block w-full bg-emerald-50/40 border border-emerald-100 text-emerald-700 text-center text-sm font-bold py-2.5 rounded-lg hover:bg-emerald-100 hover:text-emerald-800 hover:border-emerald-200 transition shadow-sm">
+                                📍 查看地圖
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="attraction-card bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full hover:shadow-md transition" data-category="球場">
+                        <div class="relative mb-4">
+                            <img src="../images/germany/munich/allianz_arena.png" alt="安聯球場" class="rounded-xl h-48 w-full object-cover bg-gray-200">
+                            <span class="absolute top-3 right-3 bg-zinc-800/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-zinc-700/80">球場</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="font-bold text-lg mb-2">24. 安聯球場 (Allianz Arena)</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                德甲豪門拜仁慕尼黑 (FC Bayern Munich) 的主場。外觀由數千個菱形氣墊構成，夜晚點燈時極為壯觀，是全世界最現代化的足球聖地之一。
+                            </p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border-t border-gray-100 flex-grow flex flex-col">
+                            <p class="text-xs text-gray-500 italic">💭 Bryan 親測：若來的時候沒有球賽，裏頭的博物館也可以看看唷～～當然若你是FC Bayern迷是一定要進來的！</p>
+                        </div>
+                        <div class="flex flex-col space-y-2 mt-auto pt-4">
+                            <div class="grid grid-cols-2 gap-2">
+                                <a href="https://www.trip.com/t/wSOaiASTCW2" target="_blank" rel="nofollow" class="block bg-gray-900 border border-gray-900 text-white text-center text-xs font-bold py-2.5 rounded-lg hover:bg-black transition shadow-md">🎟️ 平台訂票</a>
+                                <a href="https://allianz-arena.com/en/tours-museum" target="_blank" rel="nofollow" class="block bg-gray-50 border border-gray-200 text-gray-700 text-center text-xs font-bold py-2.5 rounded-lg hover:bg-gray-100 transition shadow-sm truncate">🌐 官網購票</a>
+                            </div>
+                            <a href="https://maps.app.goo.gl/qpVNFDcW2ZGAfCin8" target="_blank" rel="nofollow" class="block w-full bg-emerald-50/40 border border-emerald-100 text-emerald-700 text-center text-sm font-bold py-2.5 rounded-lg hover:bg-emerald-100 hover:text-emerald-800 hover:border-emerald-200 transition shadow-sm">
+                                📍 查看地圖
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- 慕尼黑 Google Map iframe -->
@@ -829,9 +880,6 @@
                                         <span class="font-bold text-zinc-700 shrink-0">🚆 交通：</span>
                                         <span>從慕尼黑東站搭乘 <a href="https://www.bahn.de/buchung/fahrplan/suche#sts=true&so=M%C3%BCnchen%20Ost&zo=Bahnhof%2C%20Burghausen&soid=A%3D1%40O%3DM%C3%BCnchen%20Ost%40X%3D11604975%40Y%3D48127437%40U%3D80%40L%3D8000262%40p%3D1787166749%40i%3DU%C3%97008020234%40&zoid=A%3D1%40O%3DBahnhof%2C%20Burghausen%40X%3D12829054%40Y%3D48174154%40U%3D80%40L%3D875129%40p%3D1787166749%40&soei=8000262&zoei=875129&vm=03,04,05,06" target="_blank" class="text-blue-600 font-bold hover:underline">RB40 轉 RB42 (往 Burghausen)</a></span>
                                     </div>
-                                    <div class="text-gray-500 pt-1 border-t border-dashed border-gray-200 mt-2">
-                                        <span class="text-orange-600 font-bold">💡 站長筆記：</span>不愧是金氏紀錄認證全世界最長的城堡，走過五個庭院每個都令人印象深刻～
-                                    </div>
                                 </div>
                             </div>
                             <div class="mt-5">
@@ -959,8 +1007,7 @@
                                     <div class="text-gray-500 pt-1 border-t border-dashed border-gray-200 mt-2">
                                         <strong class="text-gray-700">必看景點：</strong>
                                         <a href="https://maps.app.goo.gl/Ubkc4LjUXzkSJx7n8" target="_blank" class="text-blue-600 hover:underline">木偶博物館</a>、
-                                        <a href="https://maps.app.goo.gl/4usmZha5rHRjjrhh8" target="_blank" class="text-blue-600 hover:underline">奧格斯堡主教座堂</a><br>
-                                        <span class="text-orange-600 font-bold mt-1 inline-block">💡 站長筆記：</span>這裡最知名的大概就是木偶劇院了！這裡有個博物館一定要去(雖然都是德文的😂)，另外由於以前是重要的主教區，大教堂非常雄偉，也一定要去！
+                                        <a href="https://maps.app.goo.gl/4usmZha5rHRjjrhh8" target="_blank" class="text-blue-600 hover:underline">奧格斯堡主教座堂</a>
                                     </div>
                                 </div>
                             </div>
@@ -1255,23 +1302,23 @@
                             </div>
 
                             <!-- 德國 49 歐月票 -->
-                                <div class="bg-red-50 p-5 rounded-xl border border-red-200 shadow-sm flex flex-col">
-                                    <div class="flex items-center justify-between mb-2">
-                                        <h4 class="font-bold text-red-900 text-base">德國月票 (Deutschland-Ticket)</h4>
-                                        <span class="bg-red-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm">終極省錢大絕</span>
-                                    </div>
-                                    <p class="text-xs text-gray-700 mb-3 leading-relaxed">
-                                        <strong>適合對象：</strong>行程跨越德國多個邦、旅行超過 3-5 天的旅人。<br>
-                                        <strong>包含內容：</strong>訂閱制（可隨時取消）。一個月內<strong>全德國無限次搭乘</strong>所有的市內交通與慢車（RE, RB），是你玩遍德國（含新天鵝堡、國王湖交通）的無敵神卡！
-                                    </p>
-                                    <div class="text-red-700 font-bold text-lg mb-4">63€ / 月</div>
-                                    <p class="text-[11px] text-red-800 bg-red-100 p-2 rounded mb-4 italic">
-                                        ⚠️ <strong>注意：</strong>這是訂閱制服務。購買後請務必在規定期限內（通常是當月10號前）手動申請取消次月扣款。
-                                    </p>
-                                    <a href="https://int.bahn.de/en/offers/regional/deutschland-ticket" target="_blank" rel="nofollow" class="mt-auto block w-full text-center bg-red-600 text-white font-bold text-xs py-2.5 rounded-lg hover:bg-red-700 transition shadow-sm">
-                                        🚄 德鐵官網訂購月票 (Deutschland-Ticket)
-                                    </a>
+                            <div class="bg-red-50 p-5 rounded-xl border border-red-200 shadow-sm flex flex-col">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-bold text-red-900 text-base">德國月票 (Deutschland-Ticket)</h4>
+                                    <span class="bg-red-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm">終極省錢大絕</span>
                                 </div>
+                                <p class="text-xs text-gray-700 mb-3 leading-relaxed">
+                                    <strong>適合對象：</strong>行程跨越德國多個邦、旅行超過 3-5 天的旅人。<br>
+                                    <strong>包含內容：</strong>訂閱制（可隨時取消）。一個月內<strong>全德國無限次搭乘</strong>所有的市內交通與慢車（RE, RB），是你玩遍德國（含新天鵝堡、國王湖交通）的無敵神卡！
+                                </p>
+                                <div class="text-red-700 font-bold text-lg mb-4">63€ / 月</div>
+                                <p class="text-[11px] text-red-800 bg-red-100 p-2 rounded mb-4 italic">
+                                    ⚠️ <strong>注意：</strong>這是訂閱制服務。購買後請務必在規定期限內（通常是當月10號前）手動申請取消次月扣款。
+                                </p>
+                                <a href="https://int.bahn.de/en/offers/regional/deutschland-ticket" target="_blank" rel="nofollow" class="mt-auto block w-full text-center bg-red-600 text-white font-bold text-xs py-2.5 rounded-lg hover:bg-red-700 transition shadow-sm">
+                                    🚄 德鐵官網訂購月票 (Deutschland-Ticket)
+                                </a>
+                            </div>
 
                         </div>
                     </div>
@@ -1740,7 +1787,7 @@
                             card.style.display = 'flex';
                             if (titleEl) {
                                 if (filterValue === 'all') {
-                                    // 顯示全部時還原原本號碼 (1 ~ 22)
+                                    // 顯示全部時還原原本號碼 (1 ~ 24)
                                     titleEl.innerText = titleEl.getAttribute('data-orig-text');
                                 } else {
                                     // 依篩選出來的順序重新給予 1, 2, 3... 編號
