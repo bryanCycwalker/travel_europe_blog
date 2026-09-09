@@ -835,10 +835,16 @@
         }
 
         const map = L.map('map').setView([56.0, 15.0], 3);
+
+        // 換成選項 B 的 Esri 淺灰底圖（無浮水印）
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
             maxZoom: 16
         }).addTo(map);
+        
+        // 宣告國家填色用的變數
+        let countryGeoJsonLayer = null;
+        let rawEuropeGeoJson = null;
 
         const markers = L.markerClusterGroup({ 
             showCoverageOnHover: false, 
@@ -874,6 +880,48 @@
             }
         }
 
+        // --- 國家邊界填色核心函式 ---
+        function getActiveCountryCodes(activeList = cityData) {
+            const codes = new Set();
+            activeList.forEach(item => {
+                const meta = countryMeta[item.country];
+                if (meta && meta.code) codes.add(meta.code.toUpperCase());
+            });
+            return codes;
+        }
+
+        function renderCountryHighlight(activeList = cityData) {
+            if (!rawEuropeGeoJson) return;
+            if (countryGeoJsonLayer) map.removeLayer(countryGeoJsonLayer);
+
+            const activeCodes = getActiveCountryCodes(activeList);
+
+            countryGeoJsonLayer = L.geoJson(rawEuropeGeoJson, {
+                style: function (feature) {
+                    const code = (feature.properties.ISO2 || feature.properties.ISO_A2 || '').toUpperCase();
+                    const isActive = activeCodes.has(code);
+                    return {
+                        fillColor: isActive ? '#3b82f6' : 'transparent',
+                        weight: isActive ? 1.5 : 0,
+                        opacity: 0.8,
+                        color: '#2563eb',
+                        fillOpacity: isActive ? 0.25 : 0
+                    };
+                }
+            });
+            countryGeoJsonLayer.addTo(map);
+            countryGeoJsonLayer.bringToBack();
+        }
+
+        // 載入歐洲國家邊界檔
+        fetch('https://raw.githubusercontent.com/leakyMirror/map-of-europe/master/GeoJSON/europe.geojson')
+            .then(res => res.json())
+            .then(data => {
+                rawEuropeGeoJson = data;
+                renderCountryHighlight();
+            })
+            .catch(err => console.error('無法載入歐洲地圖邊界：', err));
+        
         // --- 核心篩選邏輯 ---
         function applyFilters(autoZoomMap = false) {
             generateCountryLists(); // 每次套用篩選時，同步更新國家選單
@@ -893,7 +941,8 @@
 
             renderCards(filtered);
             updateMapMarkers(filtered, autoZoomMap);
-
+            renderCountryHighlight(filtered);
+            
             // 更新標題與重置按鈕狀態
             if (currentCountryFilter === 'all' && currentTypeFilter === 'all') {
                 listTitle.innerText = `🗺️ 點擊地圖找尋目的地`;
