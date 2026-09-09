@@ -710,12 +710,12 @@
         const regionOrder = ['北歐', '西歐', '中歐', '東歐', '南歐', '其他'];
 
         const regionStyles = {
-            '北歐': { btnBg: 'bg-slate-200', text: 'text-slate-600', icon: '❄️' },
-            '西歐': { btnBg: 'bg-blue-100', text: 'text-blue-700', icon: '🍷' },
-            '中歐': { btnBg: 'bg-emerald-100', text: 'text-emerald-700', icon: '🌲' },
-            '東歐': { btnBg: 'bg-amber-100', text: 'text-amber-700', icon: '🏰' },
-            '南歐': { btnBg: 'bg-cyan-100', text: 'text-cyan-700', icon: '☀️' },
-            '其他': { btnBg: 'bg-gray-200', text: 'text-gray-600', icon: '📍' }
+            '北歐': { btnBg: 'bg-slate-200', text: 'text-slate-600', icon: '❄️', color: '#64748b', border: '#475569' },   // Slate 灰藍
+            '西歐': { btnBg: 'bg-blue-100', text: 'text-blue-700', icon: '🍷', color: '#3b82f6', border: '#1d4ed8' },     // Blue 經典藍
+            '中歐': { btnBg: 'bg-emerald-100', text: 'text-emerald-700', icon: '🌲', color: '#10b981', border: '#047857' }, // Emerald 翡翠綠
+            '東歐': { btnBg: 'bg-amber-100', text: 'text-amber-700', icon: '🏰', color: '#f59e0b', border: '#b45309' },   // Amber 琥珀橘黃
+            '南歐': { btnBg: 'bg-cyan-100', text: 'text-cyan-700', icon: '☀️', color: '#06b6d4', border: '#0e7490' },     // Cyan 天空藍綠
+            '其他': { btnBg: 'bg-gray-200', text: 'text-gray-600', icon: '📍', color: '#9ca3af', border: '#4b5563' }
         };
 
         const cityGrid = document.getElementById('city-grid');
@@ -941,25 +941,57 @@ map.on('zoomend', () => {
             return codes;
         }
 
+        // 建立快速查詢對應表：從 code 查 region
+        const codeToRegionMap = {};
+        Object.values(countryMeta).forEach(meta => {
+            if (meta.code && meta.region) {
+                codeToRegionMap[meta.code.toUpperCase()] = meta.region;
+            }
+        });
+        
         function renderCountryHighlight(activeList = cityData) {
             if (!rawEuropeGeoJson) return;
             if (countryGeoJsonLayer) map.removeLayer(countryGeoJsonLayer);
-
+        
             const activeCodes = getActiveCountryCodes(activeList);
-
+        
             countryGeoJsonLayer = L.geoJson(rawEuropeGeoJson, {
                 style: function (feature) {
                     const code = (feature.properties.ISO2 || feature.properties.ISO_A2 || '').toUpperCase();
                     const isActive = activeCodes.has(code);
+        
+                    if (!isActive) {
+                        return {
+                            fillColor: 'transparent',
+                            weight: 0,
+                            opacity: 0,
+                            fillOpacity: 0
+                        };
+                    }
+        
+                    // 取得所屬區域與配色
+                    const region = codeToRegionMap[code] || '其他';
+                    const style = regionStyles[region] || regionStyles['其他'];
+        
                     return {
-                        fillColor: isActive ? '#3b82f6' : 'transparent',
-                        weight: isActive ? 1.5 : 0,
-                        opacity: 0.8,
-                        color: '#2563eb',
-                        fillOpacity: isActive ? 0.25 : 0
+                        fillColor: style.color,
+                        weight: 1.5,
+                        opacity: 0.85,
+                        color: style.border,
+                        fillOpacity: 0.35 // 可依喜好調整濃度 (0.3 ~ 0.4 視覺最適中)
                     };
+                },
+                onEachFeature: function (feature, layer) {
+                    const code = (feature.properties.ISO2 || feature.properties.ISO_A2 || '').toUpperCase();
+                    if (activeCodes.has(code)) {
+                        layer.on({
+                            mouseover: (e) => e.target.setStyle({ fillOpacity: 0.6 }),
+                            mouseout: (e) => e.target.setStyle({ fillOpacity: 0.35 })
+                        });
+                    }
                 }
             });
+        
             countryGeoJsonLayer.addTo(map);
             countryGeoJsonLayer.bringToBack();
         }
