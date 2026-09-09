@@ -1473,33 +1473,68 @@ map.on('zoomend', () => {
         subForm.addEventListener('submit', async (e) => {
             e.preventDefault();
         
-            // 1. 嚴格驗證 Email 格式
             const email = emailInput.value.trim();
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const emailPattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
             if (!emailPattern.test(email)) {
                 showStatus('請填寫正確的電子信箱格式！', 'text-red-500');
                 return;
             }
         
             submitBtn.disabled = true;
-            submitBtn.innerText = '驗證中...';
+            submitBtn.innerText = '處理中...';
         
             try {
-                // 2. 執行 reCAPTCHA v3 人類/AI 機器人判定
+                // 1. reCAPTCHA 驗證
                 const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'subscribe' });
-                
-                if (!token) {
-                    throw new Error('無法通過機器人檢測');
+                if (!token) throw new Error('無法通過驗證');
+        
+                // 2. 獲取 IP 與地理資訊
+                let ip = '';
+                let country = '';
+                let countryCode = '';
+                let city = '';
+                let region = '';
+        
+                try {
+                    const geoRes = await fetch('https://ipapi.co/json/');
+                    if (geoRes.ok) {
+                        const data = await geoRes.json();
+                        ip = data.ip || '';
+                        country = data.country_name || '';
+                        countryCode = data.country_code || '';
+                        city = data.city || '';
+                        region = data.region || '';
+                    }
+                } catch (geoErr) {
+                    console.warn('無法抓取地理資訊，略過：', geoErr);
                 }
+        
+                // 3. 獲取頁面與裝置環境資訊
+                const pageUrl = window.location.href;
+                const referrer = document.referrer || 'Direct / Bookmark';
+                const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+                const browserLanguage = navigator.language || '';
         
                 submitBtn.innerText = '儲存中...';
         
-                // 3. 寫入 Firebase Firestore
+                // 4. 寫入 Firebase Firestore（只存入你指定的指定欄位）
                 await window.addDoc(window.collection(window.db, "subscribers"), {
                     email: email,
                     recaptchaToken: token,
+                    
+                    // 地理與時間
+                    ip: ip,
                     createdAt: window.serverTimestamp(),
-                    source: 'author-bio'
+                    country: country,
+                    countryCode: countryCode,
+                    city: city,
+                    region: region,
+        
+                    // 頁面與設備
+                    pageUrl: pageUrl,
+                    referrer: referrer,
+                    deviceType: deviceType,
+                    browserLanguage: browserLanguage
                 });
         
                 // 成功反饋
