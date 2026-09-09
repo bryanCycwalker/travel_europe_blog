@@ -916,7 +916,17 @@
         // 宣告國家填色用的變數
         let countryGeoJsonLayer = null;
         let rawEuropeGeoJson = null;
+        let selectedCountryCode = null; // 👈 新增：記錄目前點選的國家
 
+        // 👈 新增：點擊地圖空白處時取消反白，恢復正常亮度
+        map.on('click', (e) => {
+            if (e.originalEvent && e.originalEvent._stopped) return;
+            if (selectedCountryCode) {
+                selectedCountryCode = null;
+                updateMapHighlight();
+            }
+        });
+        
         const markersLayer = L.layerGroup().addTo(map);
 
         function updateMapMarkers(data, autoZoom = false) {
@@ -938,6 +948,7 @@
                 if (map.getZoom() >= 6 || items.length === 1) {
                     items.forEach(item => {
                         const marker = L.marker([item.lat, item.lng]);
+                        marker._countryName = item.country; // 👈 加這行
                         marker.bindPopup(`<b>${item.city}</b><br><a href="${item.link}" class="text-blue-600 text-xs hover:underline">閱讀攻略 →</a>`);
                         marker.on('click', () => {
                             renderCards([item]);
@@ -968,6 +979,7 @@
                     });
         
                     const clusterMarker = L.marker([avgLat, avgLng], { icon: clusterIcon });
+                    clusterMarker._countryName = countryName; // 👈 加這行
         
                     // 點擊國家徽章：縮放展開該國邊界，並連動下方文章卡片
                     clusterMarker.on('click', () => {
@@ -982,6 +994,7 @@
             });
         
             // 自動縮放視角
+            updateMapHighlight(); // 👈 確保每次重新繪製 Marker 後立刻套用當前亮度狀態
             if (autoZoom && allCoordinates.length > 0) {
                 const bounds = L.latLngBounds(allCoordinates);
                 map.fitBounds(bounds, { padding: [50, 50], maxZoom: 7 });
@@ -1042,27 +1055,49 @@ map.on('zoomend', () => {
                     // 取得所屬區域與配色
                     const region = codeToRegionMap[code] || '其他';
                     const style = regionStyles[region] || regionStyles['其他'];
+
+                    // 計算透明度：若有選中特定國家，未選中的調暗(0.12)，選中的加亮(0.65)
+                    let opacity = 0.35;
+                    if (selectedCountryCode) {
+                        opacity = (code === selectedCountryCode) ? 0.65 : 0.12;
+                    }
         
                     return {
                         fillColor: style.color,
-                        stroke: false,       // 👈 移除外框 border 顏色
-                        fillOpacity: 0.35
+                        stroke: false,       // 移除外框線
+                        fillOpacity: opacity
                     };
                 },
                 onEachFeature: function (feature, layer) {
                     const code = (feature.properties.ISO2 || feature.properties.ISO_A2 || '').toUpperCase();
                     if (activeCodes.has(code)) {
                         layer.on({
-                            mouseover: (e) => e.target.setStyle({ fillOpacity: 0.6 }),
-                            mouseout: (e) => e.target.setStyle({ fillOpacity: 0.35 }),
-                            // 👈 點擊平滑放大並以該國幾何中心置中
+                            mouseover: (e) => {
+                                if (!selectedCountryCode) {
+                                    e.target.setStyle({ fillOpacity: 0.6 });
+                                }
+                            },
+                            mouseout: (e) => {
+                                if (!selectedCountryCode) {
+                                    e.target.setStyle({ fillOpacity: 0.35 });
+                                }
+                            },
+                            // 點擊國家多邊形：高亮切換 + 平滑放大置中
                             click: (e) => {
-                                map.fitBounds(e.target.getBounds(), {
-                                    padding: [30, 30],
-                                    maxZoom: 7,
-                                    animate: true,
-                                    duration: 0.8
-                                });
+                                L.DomEvent.stopPropagation(e); // 阻止事件傳給 map.click
+
+                                // 點同一國就取消，點不同國就切換
+                                selectedCountryCode = (selectedCountryCode === code) ? null : code;
+                                updateMapHighlight();
+
+                                if (selectedCountryCode) {
+                                    map.fitBounds(e.target.getBounds(), {
+                                        padding: [30, 30],
+                                        maxZoom: 7,
+                                        animate: true,
+                                        duration: 0.8
+                                    });
+                                }
                             }
                         });
                     }
@@ -1071,6 +1106,41 @@ map.on('zoomend', () => {
         
             countryGeoJsonLayer.addTo(map);
             countryGeoJsonLayer.bringToBack();
+            updateMapHighlight();
+        }
+
+        // 刷新地圖與標籤亮度的核心函式
+        function updateMapHighlight() {
+            // 1. 更新國家多邊形的透明度
+            if (countryGeoJsonLayer) {
+                countryGeoJsonLayer.setStyle(countryGeoJsonLayer.options.style);
+            }
+
+            // 2. 更新標籤/徽章的透明度
+            markersLayer.eachLayer(layer => {
+                const el = layer.getElement();
+                if (!el) return;
+
+                const markerCountry = layer._countryName;
+                const meta = markerCountry ? countryMeta[markerCountry] : null;
+                const markerCode = meta && meta.code ? meta.code.toUpperCase() : '';
+
+                if (!selectedCountryCode) {
+                    // 全部恢復正常亮度
+                    el.style.opacity = '1';
+                    el.style.filter = 'none';
+                } else if (markerCode === selectedCountryCode) {
+                    // 被選中該國的標籤：維持高亮並加上發光陰影
+                    el.style.opacity = '1';
+                    el.style.filter = 'drop-shadow(0 0 6px rgba(59, 130, 246, 0.8))';
+                    el.style.transition = 'opacity 0.3s, filter 0.3s';
+                } else {
+                    // 其他國家的標籤：調暗並淡化
+                    el.style.opacity = '0.2';
+                    el.style.filter = 'grayscale(80%)';
+                    el.style.transition = 'opacity 0.3s, filter 0.3s';
+                }
+            });
         }
 
         // 載入歐洲國家邊界檔
