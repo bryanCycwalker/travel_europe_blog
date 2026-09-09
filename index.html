@@ -53,6 +53,34 @@
             animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
+    <!-- Google reCAPTCHA v3 (請替換 YOUR_RECAPTCHA_SITE_KEY) -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcZWbEtAAAAAGUbDVdGyE-Hdis9lPgicENsV7rE"></script>
+    
+    <!-- Firebase SDK (模組化引入) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    
+        // 替換為你的 Firebase 專案配置
+        const firebaseConfig = {
+            apiKey: "AIzaSyComDTkoNW6bOpdEpj00aLHE3XZ3BxXQew",
+            authDomain: "europe-solo-travel.firebaseapp.com",
+            projectId: "europe-solo-travel",
+            storageBucket: "europe-solo-travel.firebasestorage.app",
+            messagingSenderId: "110377338481",
+            appId: "1:110377338481:web:5645f6134c15bc82013dd0",
+            measurementId: "G-PT5DQV0DRX"
+          };
+    
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // 掛載給表單呼叫
+        window.db = db;
+        window.addDoc = addDoc;
+        window.collection = collection;
+        window.serverTimestamp = serverTimestamp;
+    </script>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
 
@@ -520,9 +548,40 @@
                     旅途中，我曾因班次臨時取消而極限改票，也曾為了在瑞士節省開支，幾乎只靠超市過活，卻依然吃得心滿意足。<br><br>
                     創立 <strong>Solo Europe 41</strong> 的初衷，是希望將這些實戰經驗轉化為有溫度的獨旅指南。讓你在面對歐洲旅途中那些突如其來的變數時，不再手足無措，而是更從容地應對。
                 </p>
-                <div class="flex items-center justify-center md:justify-start space-x-4 mt-6">
-                    <a href="mailto:u8823011714@gmail.com?subject=Solo Europe 歐洲獨旅攻略諮詢" class="bg-gray-900 text-white text-sm font-bold py-2.5 px-6 rounded-lg hover:bg-gray-800 transition">✉️ 寫信給我</a>
-                    <span class="text-gray-400 text-sm">合作邀約 / 行程諮詢</span>
+                <div class="mt-6 flex flex-col items-center md:items-start">
+                    <!-- 按鈕列：新城市訂閱按鈕置左，寫信給我往右推 -->
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+                        <button id="toggle-subscribe-btn" type="button" class="bg-blue-600 text-white text-sm font-bold py-2.5 px-6 rounded-lg hover:bg-blue-700 transition shadow-sm flex items-center gap-2">
+                            🔔 訂閱新城市攻略
+                        </button>
+                        <a href="mailto:u8823011714@gmail.com?subject=Solo Europe 歐洲獨旅攻略諮詢" class="bg-gray-900 text-white text-sm font-bold py-2.5 px-6 rounded-lg hover:bg-gray-800 transition">
+                            ✉️ 寫信給我
+                        </a>
+                        <span class="text-gray-400 text-sm hidden sm:inline">合作邀約 / 行程諮詢</span>
+                    </div>
+                
+                    <!-- 點擊訂閱後滑出的輸入框 -->
+                    <div id="subscribe-container" class="hidden w-full max-w-md mt-4 transition-all duration-300">
+                        <form id="subscribe-form" class="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl p-1.5 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 shadow-inner">
+                            <input 
+                                type="email" 
+                                id="subscriber-email" 
+                                name="email" 
+                                required 
+                                placeholder="輸入您的 Email (例：bryan@example.com)" 
+                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                class="flex-grow px-3 py-2 text-sm bg-transparent border-none outline-none text-gray-800 placeholder-gray-400"
+                            >
+                            <button 
+                                type="submit" 
+                                id="subscribe-submit-btn" 
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-5 py-2 rounded-lg transition disabled:opacity-50 shrink-0"
+                            >
+                                送出
+                            </button>
+                        </form>
+                        <p id="subscribe-status" class="text-xs mt-1.5 pl-2 font-medium hidden"></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1394,6 +1453,78 @@ map.on('zoomend', () => {
                 }, 1500); 
             }
         });
+        const RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY"; // 替換為你的 reCAPTCHA v3 Site Key
+
+        const toggleSubBtn = document.getElementById('toggle-subscribe-btn');
+        const subContainer = document.getElementById('subscribe-container');
+        const subForm = document.getElementById('subscribe-form');
+        const emailInput = document.getElementById('subscriber-email');
+        const submitBtn = document.getElementById('subscribe-submit-btn');
+        const statusText = document.getElementById('subscribe-status');
+        
+        // 展開 / 收合輸入欄
+        toggleSubBtn.addEventListener('click', () => {
+            subContainer.classList.toggle('hidden');
+            if (!subContainer.classList.contains('hidden')) {
+                emailInput.focus();
+            }
+        });
+        
+        // 表單送出處理
+        subForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+        
+            // 1. 嚴格驗證 Email 格式
+            const email = emailInput.value.trim();
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                showStatus('請填寫正確的電子信箱格式！', 'text-red-500');
+                return;
+            }
+        
+            submitBtn.disabled = true;
+            submitBtn.innerText = '驗證中...';
+        
+            try {
+                // 2. 執行 reCAPTCHA v3 人類/AI 機器人判定
+                const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'subscribe' });
+                
+                if (!token) {
+                    throw new Error('無法通過機器人檢測');
+                }
+        
+                submitBtn.innerText = '儲存中...';
+        
+                // 3. 寫入 Firebase Firestore
+                await window.addDoc(window.collection(window.db, "subscribers"), {
+                    email: email,
+                    recaptchaToken: token,
+                    createdAt: window.serverTimestamp(),
+                    source: 'author-bio'
+                });
+        
+                // 成功反饋
+                showStatus('🎉 訂閱成功！新文章上線時會通知你。', 'text-emerald-600');
+                emailInput.value = '';
+                setTimeout(() => {
+                    subContainer.classList.add('hidden');
+                    statusText.classList.add('hidden');
+                }, 4000);
+        
+            } catch (error) {
+                console.error("訂閱失敗：", error);
+                showStatus('訂閱失敗，請確認網路連線或稍後再試。', 'text-red-500');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = '送出';
+            }
+        });
+        
+        function showStatus(msg, colorClass) {
+            statusText.innerText = msg;
+            statusText.className = `text-xs mt-1.5 pl-2 font-medium ${colorClass}`;
+            statusText.classList.remove('hidden');
+        }
     </script>
 </body>
 </html>
