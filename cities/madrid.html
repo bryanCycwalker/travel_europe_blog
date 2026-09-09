@@ -1300,15 +1300,58 @@
             <section id="author-bio" class="mt-16 pt-12 border-t border-gray-200">
                 <div class="flex flex-col md:flex-row items-center md:items-start gap-6 bg-gray-50 p-8 rounded-2xl shadow-inner">
                     <img src="../images/auther.jpg" alt="歐洲獨旅部落客 Bryan" class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-sm border-4 border-white">
-                    <div class="text-center md:text-left">
+                    <div class="text-center md:text-left flex-grow">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Bryan | Europe Solo Guide</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4 italic">
+                        <p class="text-gray-600 text-sm leading-relaxed mb-3 italic">
                             「獨旅不是孤單，而是給自己一場完整的自由。」
                         </p>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        <p class="text-gray-600 text-sm leading-relaxed mb-5">
                             熱愛穿梭在歐洲老城區的石板路上與壯麗群山間。目前已獨自走訪 41 個歐洲國家，致力於將複雜的交通、住宿與隱藏景點，轉化為有溫度的獨旅攻略。希望這篇文章能幫你省下找資料的時間，把精力留給旅途中的美好。
                         </p>
-                        <a href="mailto:bryanchen5214@gmail.com?subject=Solo Europe 歐洲獨旅攻略諮詢" class="inline-block text-sm font-bold text-sky-600 hover:text-sky-800 transition">✉️ 聯繫我 / 合作邀約</a>
+
+                        <!-- 按鈕列：訂閱與寫信 -->
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+                            <button id="toggle-subscribe-btn" type="button" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-sm flex items-center gap-1.5 cursor-pointer">
+                                <span>🔔 訂閱新城市攻略</span>
+                            </button>
+                            <a href="mailto:bryanchen5214@gmail.com?subject=Solo Europe 歐洲獨旅攻略諮詢" class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-900 transition shadow-sm flex items-center gap-1.5">
+                                <span>✉️ 寫信給我</span>
+                            </a>
+                            <span class="text-xs text-gray-400 font-medium">合作邀約 / 行程諮詢</span>
+                        </div>
+
+                        <!-- 訂閱輸入框（點擊上方按鈕後滑出） -->
+                        <div id="subscribe-container" class="hidden w-full max-w-md mt-4 transition-all duration-300">
+                            <form id="subscribe-form" class="bg-white border border-gray-200 rounded-2xl p-2.5 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 shadow-sm">
+                                <div class="flex items-center gap-2">
+                                    <input 
+                                        type="email" 
+                                        id="subscriber-email" 
+                                        name="email" 
+                                        required 
+                                        placeholder="輸入您的 Email (例：bryan@example.com)" 
+                                        class="flex-grow px-2 py-1.5 text-sm bg-transparent border-none outline-none text-gray-800 placeholder-gray-400"
+                                    >
+                                    <button 
+                                        type="submit" 
+                                        id="subscribe-submit-btn" 
+                                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-5 py-2 rounded-xl transition disabled:opacity-50 shrink-0 shadow-sm cursor-pointer"
+                                    >
+                                        送出
+                                    </button>
+                                </div>
+
+                                <!-- 隱私聲明 -->
+                                <div class="flex items-center gap-1.5 mt-2 pt-2 border-t border-gray-100 px-2 text-[11px] text-gray-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                    <span>承諾尊重隱私：信箱僅用於新攻略上線通知，絕不作他用或商業推銷。</span>
+                                </div>
+                            </form>
+
+                            <p id="subscribe-status" class="text-xs mt-2 pl-2 font-medium hidden"></p>
+                        </div>
                     </div>
                 </div>
             </section>
