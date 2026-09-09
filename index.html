@@ -781,12 +781,59 @@
         const regionOrder = ['北歐', '西歐', '中歐', '東歐', '南歐', '其他'];
 
         const regionStyles = {
-            '北歐': { btnBg: 'bg-slate-200', text: 'text-slate-600', icon: '❄️', color: '#64748b', border: '#475569' },   // Slate 灰藍
-            '西歐': { btnBg: 'bg-blue-100', text: 'text-blue-700', icon: '🍷', color: '#3b82f6', border: '#1d4ed8' },     // Blue 經典藍
-            '中歐': { btnBg: 'bg-emerald-100', text: 'text-emerald-700', icon: '🌲', color: '#10b981', border: '#047857' }, // Emerald 翡翠綠
-            '東歐': { btnBg: 'bg-amber-100', text: 'text-amber-700', icon: '🏰', color: '#f59e0b', border: '#b45309' },   // Amber 琥珀橘黃
-            '南歐': { btnBg: 'bg-cyan-100', text: 'text-cyan-700', icon: '☀️', color: '#06b6d4', border: '#0e7490' },     // Cyan 天空藍綠
-            '其他': { btnBg: 'bg-gray-200', text: 'text-gray-600', icon: '📍', color: '#9ca3af', border: '#4b5563' }
+            // ❄️ 北歐：冰雪極光、冷調灰白風格（按鈕用白灰底，填色用高明度淺霧銀）
+            '北歐': { 
+                btnBg: 'bg-slate-100', 
+                text: 'text-slate-600', 
+                icon: '❄️', 
+                color: '#cbd5e1',     // 霧雪冷灰白 (Slate 300)
+                border: '#94a3b8' 
+            },
+
+            // 🍷 西歐：經典歐洲印象、文藝紳士深邃藍
+            '西歐': { 
+                btnBg: 'bg-blue-100', 
+                text: 'text-blue-700', 
+                icon: '🍷', 
+                color: '#3b82f6',     // 經典法德英藍 (Blue 500)
+                border: '#1d4ed8' 
+            },
+
+            // 🌲 中歐：阿爾卑斯山脈、黑森林純淨綠意
+            '中歐': { 
+                btnBg: 'bg-emerald-100', 
+                text: 'text-emerald-700', 
+                icon: '🌲', 
+                color: '#10b981',     // 森林翡翠綠 (Emerald 500)
+                border: '#047857' 
+            },
+
+            // 🏰 東歐：布拉格金色之城、波希米亞琥珀復古風
+            '東歐': { 
+                btnBg: 'bg-amber-100', 
+                text: 'text-amber-700', 
+                icon: '🏰', 
+                color: '#f59e0b',     // 復古琥珀金黃 (Amber 500)
+                border: '#b45309' 
+            },
+
+            // ☀️ 南歐：地中海艷陽、西班牙熱情磚紅、義大利紅瓦暖橘
+            '南歐': { 
+                btnBg: 'bg-rose-100', 
+                text: 'text-rose-700', 
+                icon: '☀️', 
+                color: '#f43f5e',     // 熱情地中海珊瑚紅 (Rose 500)
+                border: '#be123c' 
+            },
+
+            // 📍 其他
+            '其他': { 
+                btnBg: 'bg-gray-100', 
+                text: 'text-gray-600', 
+                icon: '📍', 
+                color: '#9ca3af', 
+                border: '#4b5563' 
+            }
         };
 
         const cityGrid = document.getElementById('city-grid');
