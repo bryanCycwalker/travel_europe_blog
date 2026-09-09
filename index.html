@@ -846,39 +846,90 @@
         let countryGeoJsonLayer = null;
         let rawEuropeGeoJson = null;
 
-        const markers = L.markerClusterGroup({ 
-            showCoverageOnHover: false, 
-            maxClusterRadius: 80,
-            disableClusteringAtZoom: 8 
-        });
-        map.addLayer(markers);
+        const markersLayer = L.layerGroup().addTo(map);
 
         function updateMapMarkers(data, autoZoom = false) {
-            markers.clearLayers();
-            const markerArray = [];
+            markersLayer.clearLayers();
+            const allCoordinates = [];
+        
+            // 1. 依照國家分組
+            const groups = {};
             data.forEach(item => {
-                const marker = L.marker([item.lat, item.lng]);
-                marker.bindPopup(`<b>${item.city}</b><br><a href="${item.link}" class="text-blue-600 text-xs hover:underline">閱讀攻略 →</a>`);
-                marker.options.cityId = item.id;
-                marker.options.country = item.country;
-                marker.on('click', function(e) {
-                    const filteredData = cityData.filter(d => d.id === e.target.options.cityId);
-                    renderCards(filteredData);
-                    listTitle.innerText = `📍 ${item.city}`;
-                    resetBtn.classList.remove('hidden');
-                    document.getElementById('explore-map').scrollIntoView({ behavior: 'smooth' });
-                });
-                markers.addLayer(marker);
-                markerArray.push(marker);
+                if (!groups[item.country]) groups[item.country] = [];
+                groups[item.country].push(item);
             });
-            
-            if (autoZoom && markerArray.length > 0) {
-                const group = new L.featureGroup(markerArray);
-                map.fitBounds(group.getBounds(), { padding: [50, 50], maxZoom: 9 });
-            } else if (autoZoom === false) {
-                map.setView([56.0, 15.0], 3); 
+        
+            // 2. 針對各國建立標記
+            Object.keys(groups).forEach(countryName => {
+                const items = groups[countryName];
+        
+                // 情況 A：若目前縮放層級較高（Zoom >= 6），或是該國只有 1 篇攻略，直接顯示所有城市獨立標記
+                if (map.getZoom() >= 6 || items.length === 1) {
+                    items.forEach(item => {
+                        const marker = L.marker([item.lat, item.lng]);
+                        marker.bindPopup(`<b>${item.city}</b><br><a href="${item.link}" class="text-blue-600 text-xs hover:underline">閱讀攻略 →</a>`);
+                        marker.on('click', () => {
+                            renderCards([item]);
+                            listTitle.innerText = `📍 ${item.city}`;
+                            resetBtn.classList.remove('hidden');
+                        });
+                        markersLayer.addLayer(marker);
+                        allCoordinates.push([item.lat, item.lng]);
+                    });
+                } 
+                // 情況 B：該國有複數篇文章，且處於宏觀視角，顯示「國家聚合徽章」
+                else {
+                    // 計算該國所有城市的中心座標
+                    const avgLat = items.reduce((sum, i) => sum + i.lat, 0) / items.length;
+                    const avgLng = items.reduce((sum, i) => sum + i.lng, 0) / items.length;
+                    const flag = countryName.split(' ')[0] || '📍';
+        
+                    // 建立聚合徽章樣式
+                    const clusterIcon = L.divIcon({
+                        html: `
+                            <div style="background:#2563eb; color:white; width:38px; height:38px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 4px 8px rgba(0,0,0,0.25); border:2px solid white; cursor:pointer; transform:translate(-50%, -50%);">
+                                <span style="font-size:13px; line-height:1;">${flag}</span>
+                                <span style="font-size:11px; font-weight:800; line-height:1;">${items.length}</span>
+                            </div>
+                        `,
+                        className: '',
+                        iconSize: [0, 0]
+                    });
+        
+                    const clusterMarker = L.marker([avgLat, avgLng], { icon: clusterIcon });
+        
+                    // 點擊國家徽章：縮放展開該國邊界，並連動下方文章卡片
+                    clusterMarker.on('click', () => {
+                        const bounds = L.latLngBounds(items.map(i => [i.lat, i.lng]));
+                        map.fitBounds(bounds, { padding: [80, 80], maxZoom: 7 });
+                        filterByCountry(countryName);
+                    });
+        
+                    markersLayer.addLayer(clusterMarker);
+                    allCoordinates.push([avgLat, avgLng]);
+                }
+            });
+        
+            // 自動縮放視角
+            if (autoZoom && allCoordinates.length > 0) {
+                const bounds = L.latLngBounds(allCoordinates);
+                map.fitBounds(bounds, { padding: [50, 50], maxZoom: 7 });
+            } else if (autoZoom === false && currentCountryFilter === 'all') {
+                map.setView([56.0, 15.0], 3);
             }
         }
+
+// 監聽縮放事件：當使用者手動滾輪放大/縮小時，動態切換「國家徽章」與「單一城市圖釘」
+map.on('zoomend', () => {
+    let currentData = cityData;
+    if (currentCountryFilter !== 'all') currentData = currentData.filter(d => d.country === currentCountryFilter);
+    if (currentTypeFilter !== 'all') {
+        currentData = currentTypeFilter === 'direct' 
+            ? currentData.filter(d => d.directFlight === true)
+            : currentData.filter(d => d.type === currentTypeFilter);
+    }
+    updateMapMarkers(currentData, null); // 傳 null 避免重新調整視角
+});
 
         // --- 國家邊界填色核心函式 ---
         function getActiveCountryCodes(activeList = cityData) {
