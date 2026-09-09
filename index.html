@@ -1034,8 +1034,7 @@ map.on('zoomend', () => {
                     if (!isActive) {
                         return {
                             fillColor: 'transparent',
-                            weight: 0,
-                            opacity: 0,
+                            stroke: false,
                             fillOpacity: 0
                         };
                     }
@@ -1046,10 +1045,8 @@ map.on('zoomend', () => {
         
                     return {
                         fillColor: style.color,
-                        weight: 1.5,
-                        opacity: 0.85,
-                        color: style.border,
-                        fillOpacity: 0.35 // 可依喜好調整濃度 (0.3 ~ 0.4 視覺最適中)
+                        stroke: false,       // 👈 移除外框 border 顏色
+                        fillOpacity: 0.35
                     };
                 },
                 onEachFeature: function (feature, layer) {
@@ -1057,7 +1054,16 @@ map.on('zoomend', () => {
                     if (activeCodes.has(code)) {
                         layer.on({
                             mouseover: (e) => e.target.setStyle({ fillOpacity: 0.6 }),
-                            mouseout: (e) => e.target.setStyle({ fillOpacity: 0.35 })
+                            mouseout: (e) => e.target.setStyle({ fillOpacity: 0.35 }),
+                            // 👈 點擊平滑放大並以該國幾何中心置中
+                            click: (e) => {
+                                map.fitBounds(e.target.getBounds(), {
+                                    padding: [30, 30],
+                                    maxZoom: 7,
+                                    animate: true,
+                                    duration: 0.8
+                                });
+                            }
                         });
                     }
                 }
