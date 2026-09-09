@@ -1681,5 +1681,120 @@
             });
         });
     </script>
+    <!-- Firebase SDK 與 訂閱腳本 -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyComDTkoNW6bOpdEpj00aLHE3XZ3BxXQew",
+            authDomain: "europe-solo-travel.firebaseapp.com",
+            projectId: "europe-solo-travel",
+            storageBucket: "europe-solo-travel.firebasestorage.app",
+            messagingSenderId: "110377338481",
+            appId: "1:110377338481:web:5645f6134c15bc82013dd0",
+            measurementId: "G-PT5DQV0DRX"
+          };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const RECAPTCHA_SITE_KEY = "6LcZWbEtAAAAAGUbDVdGyE-Hdis9lPgicENsV7rE";
+
+        const toggleBtn = document.getElementById('toggle-subscribe-btn');
+        const subContainer = document.getElementById('subscribe-container');
+        const subForm = document.getElementById('subscribe-form');
+        const emailInput = document.getElementById('subscriber-email');
+        const submitBtn = document.getElementById('subscribe-submit-btn');
+        const statusText = document.getElementById('subscribe-status');
+
+        function showStatus(msg, colorClass) {
+            statusText.innerText = msg;
+            statusText.className = `text-xs mt-2 pl-2 font-medium ${colorClass}`;
+            statusText.classList.remove('hidden');
+        }
+
+        // 點擊按鈕展開/收合輸入框
+        toggleBtn.addEventListener('click', () => {
+            subContainer.classList.toggle('hidden');
+            if (!subContainer.classList.contains('hidden')) {
+                emailInput.focus();
+            }
+        });
+
+        // 表單送出處理
+        subForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+            const emailPattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                showStatus('請填寫正確的電子信箱格式！', 'text-red-500');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = '處理中...';
+
+            try {
+                // 1. reCAPTCHA 驗證
+                const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'subscribe' });
+                if (!token) throw new Error('無法通過驗證');
+
+                // 2. 獲取 IP 與地理資訊
+                let ip = '', country = '', countryCode = '', city = '', region = '';
+                try {
+                    const geoRes = await fetch('https://ipapi.co/json/');
+                    if (geoRes.ok) {
+                        const data = await geoRes.json();
+                        ip = data.ip || '';
+                        country = data.country_name || '';
+                        countryCode = data.country_code || '';
+                        city = data.city || '';
+                        region = data.region || '';
+                    }
+                } catch (geoErr) {
+                    console.warn('略過地理資訊：', geoErr);
+                }
+
+                // 3. 獲取頁面與裝置環境資訊
+                const pageUrl = window.location.href;
+                const referrer = document.referrer || 'Direct / Bookmark';
+                const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+                const browserLanguage = navigator.language || '';
+
+                submitBtn.innerText = '儲存中...';
+
+                // 4. 寫入 Firestore
+                await addDoc(collection(db, "subscribers"), {
+                    email: email,
+                    recaptchaToken: token,
+                    ip: ip,
+                    createdAt: serverTimestamp(),
+                    country: country,
+                    countryCode: countryCode,
+                    city: city,
+                    region: region,
+                    pageUrl: pageUrl,
+                    referrer: referrer,
+                    deviceType: deviceType,
+                    browserLanguage: browserLanguage
+                });
+
+                showStatus('🎉 訂閱成功！新文章上線時會通知你。', 'text-emerald-600');
+                emailInput.value = '';
+                setTimeout(() => {
+                    subContainer.classList.add('hidden');
+                    statusText.classList.add('hidden');
+                }, 4000);
+
+            } catch (error) {
+                console.error("訂閱失敗：", error);
+                showStatus('訂閱失敗，請確認網路連線或稍後再試。', 'text-red-500');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = '送出';
+            }
+        });
+    </script>
 </body>
 </html>
