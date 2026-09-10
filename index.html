@@ -613,7 +613,7 @@
                 發現哪裡資訊有誤或有改進建議？歡迎直接留言讓我知道！
             </p>
             <form id="feedback-form" class="space-y-3">
-                <input type="text" id="feedback-contact" placeholder="稱呼或 Email（選填）" class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500" />
+            <input type="text" id="feedback-contact" placeholder="您的 Email 或稱呼（選填）" class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500" />
                 <textarea id="feedback-content" required minlength="10" rows="3" placeholder="請至少輸入 10 個字的使用體驗或錯誤回報..." class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 resize-none"></textarea>                <button type="submit" class="w-full bg-blue-600 text-white font-bold text-xs py-2 rounded-lg hover:bg-blue-700 transition shadow-sm cursor-pointer" id="feedback-submit-btn">
                     送出回饋
                 </button>
@@ -1740,8 +1740,8 @@ map.on('zoomend', () => {
         feedbackForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // ⏱️ 檢查冷卻時間（60 秒）
-            const COOLDOWN_TIME = 60 * 1000; // 60 秒 (毫秒)
+            // ⏱️ 1. 檢查 60 秒冷卻時間
+            const COOLDOWN_TIME = 60 * 1000;
             const lastFeedbackTime = localStorage.getItem('last_feedback_time');
             const now = Date.now();
 
@@ -1753,21 +1753,15 @@ map.on('zoomend', () => {
                 return;
             }
             
-            const contact = document.getElementById('feedback-contact').value.trim();
+            const emailOrContact = document.getElementById('feedback-contact').value.trim();
             const content = document.getElementById('feedback-content').value.trim();
 
-            // 👇 檢查字數是否至少 10 個字 👇
+            // ⚠️ 2. 檢查字數是否至少 10 個字
             if (content.length < 10) {
                 feedbackStatus.innerText = `⚠️ 內容至少需填寫 10 個字喔！（目前 ${content.length} 字）`;
                 feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-red-500';
                 feedbackStatus.classList.remove('hidden');
                 document.getElementById('feedback-content').focus();
-                return; // 阻止送出
-            }
-            if(!content) {
-                feedbackStatus.innerText = '請填寫反饋內容！';
-                feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-red-500';
-                feedbackStatus.classList.remove('hidden');
                 return;
             }
 
@@ -1775,19 +1769,49 @@ map.on('zoomend', () => {
             feedbackSubmitBtn.innerText = '傳送中...';
 
             try {
+                // 3. reCAPTCHA 驗證
                 const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_feedback' });
                 if (!token) throw new Error('無法通過驗證');
 
-                const pageUrl = window.location.href;
-                const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+                // 4. 獲取 IP 與地理資訊
+                let ip = '', country = '', countryCode = '', city = '', region = '';
+                try {
+                    const geoRes = await fetch('https://ipapi.co/json/');
+                    if (geoRes.ok) {
+                        const data = await geoRes.json();
+                        ip = data.ip || '';
+                        country = data.country_name || '';
+                        countryCode = data.country_code || '';
+                        city = data.city || '';
+                        region = data.region || '';
+                    }
+                } catch (geoErr) {
+                    console.warn('無法抓取地理資訊，略過：', geoErr);
+                }
 
+                // 5. 獲取頁面與裝置環境資訊
+                const pageUrl = window.location.href;
+                const referrer = document.referrer || 'Direct / Bookmark';
+                const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+                const browserLanguage = navigator.language || '';
+
+                feedbackSubmitBtn.innerText = '儲存中...';
+
+                // 6. 寫入 Firestore 'feedbacks' collection（包含完整的環境與地理欄位）
                 await window.addDoc(window.collection(window.db, "feedbacks"), {
-                    contact: contact || '匿名',
                     content: content,
-                    pageUrl: pageUrl,
-                    deviceType: deviceType,
+                    email: emailOrContact || '匿名',
+                    browserLanguage: browserLanguage,
+                    city: city,
+                    country: country,
+                    countryCode: countryCode,
                     createdAt: window.serverTimestamp(),
-                    recaptchaToken: token
+                    deviceType: deviceType,
+                    ip: ip,
+                    pageUrl: pageUrl,
+                    recaptchaToken: token,
+                    referrer: referrer,
+                    region: region
                 });
 
                 // ✅ 寫入成功後，記錄當前時間戳記
