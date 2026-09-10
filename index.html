@@ -614,8 +614,7 @@
             </p>
             <form id="feedback-form" class="space-y-3">
                 <input type="text" id="feedback-contact" placeholder="稱呼或 Email（選填）" class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500" />
-                <textarea id="feedback-content" required rows="3" placeholder="請描述您的使用體驗或內容錯誤..." class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 resize-none"></textarea>
-                <button type="submit" class="w-full bg-blue-600 text-white font-bold text-xs py-2 rounded-lg hover:bg-blue-700 transition shadow-sm cursor-pointer" id="feedback-submit-btn">
+                <textarea id="feedback-content" required minlength="10" rows="3" placeholder="請至少輸入 10 個字的使用體驗或錯誤回報..." class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 resize-none"></textarea>                <button type="submit" class="w-full bg-blue-600 text-white font-bold text-xs py-2 rounded-lg hover:bg-blue-700 transition shadow-sm cursor-pointer" id="feedback-submit-btn">
                     送出回饋
                 </button>
             </form>
@@ -1757,6 +1756,14 @@ map.on('zoomend', () => {
             const contact = document.getElementById('feedback-contact').value.trim();
             const content = document.getElementById('feedback-content').value.trim();
 
+            // 👇 檢查字數是否至少 10 個字 👇
+            if (content.length < 10) {
+                feedbackStatus.innerText = `⚠️ 內容至少需填寫 10 個字喔！（目前 ${content.length} 字）`;
+                feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-red-500';
+                feedbackStatus.classList.remove('hidden');
+                document.getElementById('feedback-content').focus();
+                return; // 阻止送出
+            }
             if(!content) {
                 feedbackStatus.innerText = '請填寫反饋內容！';
                 feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-red-500';
