@@ -1181,12 +1181,12 @@
     </main>
 
     <!-- 👉 右側意見回饋懸浮卡片 👉 -->
-    <div id="feedback-widget" class="fixed right-0 top-1/2 -translate-y-1/2 z-[3000] flex items-center transition-transform duration-300 ease-in-out translate-x-[calc(100%-2.5rem)]">
-        <!-- 吸附按鈕標籤（露出 2.5rem / w-10） -->
+    <div id="feedback-widget" class="fixed right-0 top-1/2 -translate-y-1/2 z-[3000] flex items-center transition-transform duration-300 ease-in-out translate-x-80">
+        <!-- 吸附按鈕標籤（寬度 w-10） -->
         <button type="button" onclick="toggleFeedback()" class="bg-blue-600 text-white w-10 py-3 rounded-l-xl shadow-md font-bold text-xs [writing-mode:vertical-lr] tracking-widest hover:bg-blue-700 transition cursor-pointer flex items-center justify-center shrink-0">
             意見回饋
         </button>
-        <!-- 展開後的反饋卡片 -->
+        <!-- 展開後的反饋卡片 (寬度 w-80) -->
         <div class="w-80 bg-white p-5 rounded-l-2xl shadow-2xl border border-gray-200 border-r-0 text-sm shrink-0">
             <div class="flex justify-between items-center mb-3 border-b border-gray-100 pb-2">
                 <h4 class="font-extrabold text-gray-900 flex items-center gap-1.5">
@@ -1212,6 +1212,16 @@
         <p>© 2026 EUROPE SOLO Guide. 去過 41 個歐洲國家的真實紀錄。</p>
     </footer>
 
+    // 👇 新增：把開關放在最優先執行的區域 👇
+        window.toggleFeedback = function() {
+            const widget = document.getElementById('feedback-widget');
+            if (widget) {
+                // 精準切換右移 80 樣式
+                widget.classList.toggle('translate-x-80');
+            }
+        };
+        // 👆 新增結束 👆
+    
     <script>
         let lastScrollTop = 0;
         const mainNav = document.getElementById('main-nav');
@@ -1417,15 +1427,6 @@
             statusText.className = `text-xs mt-2 pl-2 font-medium ${colorClass}`;
             statusText.classList.remove('hidden');
         }
-
-        // 👇 新增：意見回饋表單邏輯 👇
-        window.toggleFeedback = function() {
-            const widget = document.getElementById('feedback-widget');
-            if (widget) {
-                // 切換右側位移樣式
-                widget.classList.toggle('translate-x-[calc(100%-2.5rem)]');
-            }
-        };
 
         const feedbackForm = document.getElementById('feedback-form');
         const feedbackSubmitBtn = document.getElementById('feedback-submit-btn');
