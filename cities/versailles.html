@@ -698,6 +698,126 @@
                 submitBtn.innerText = '送出';
             }
         });
+        function showStatus(msg, colorClass) {
+            statusText.innerText = msg;
+            statusText.className = `text-xs mt-2 pl-2 font-medium ${colorClass}`;
+            statusText.classList.remove('hidden');
+        }
+
+        // 👇 新增：意見回饋表單邏輯 👇
+        window.toggleFeedback = function() {
+            const widget = document.getElementById('feedback-widget');
+            widget.classList.toggle('translate-x-[calc(100%-2.5rem)]');
+        };
+
+        const feedbackForm = document.getElementById('feedback-form');
+        const feedbackSubmitBtn = document.getElementById('feedback-submit-btn');
+        const feedbackStatus = document.getElementById('feedback-status');
+
+        if (feedbackForm) {
+            feedbackForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // ⏱️ 1. 檢查 60 秒冷卻時間
+                const COOLDOWN_TIME = 60 * 1000;
+                const lastFeedbackTime = localStorage.getItem('last_feedback_time');
+                const now = Date.now();
+
+                if (lastFeedbackTime && (now - parseInt(lastFeedbackTime, 10)) < COOLDOWN_TIME) {
+                    const remainingSec = Math.ceil((COOLDOWN_TIME - (now - parseInt(lastFeedbackTime, 10))) / 1000);
+                    feedbackStatus.innerText = `⏳ 傳送太頻繁囉，請等候 ${remainingSec} 秒後再試。`;
+                    feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-amber-600';
+                    feedbackStatus.classList.remove('hidden');
+                    return;
+                }
+                
+                const emailOrContact = document.getElementById('feedback-contact').value.trim();
+                const content = document.getElementById('feedback-content').value.trim();
+
+                // ⚠️ 2. 檢查字數是否至少 10 個字
+                if (content.length < 10) {
+                    feedbackStatus.innerText = `⚠️ 內容至少需填寫 10 個字喔！（目前 ${content.length} 字）`;
+                    feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-red-500';
+                    feedbackStatus.classList.remove('hidden');
+                    document.getElementById('feedback-content').focus();
+                    return;
+                }
+
+                feedbackSubmitBtn.disabled = true;
+                feedbackSubmitBtn.innerText = '傳送中...';
+
+                try {
+                    // 3. reCAPTCHA 驗證
+                    const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_feedback' });
+                    if (!token) throw new Error('無法通過驗證');
+
+                    // 4. 獲取 IP 與地理資訊
+                    let ip = '', country = '', countryCode = '', city = '', region = '';
+                    try {
+                        const geoRes = await fetch('https://ipapi.co/json/');
+                        if (geoRes.ok) {
+                            const data = await geoRes.json();
+                            ip = data.ip || '';
+                            country = data.country_name || '';
+                            countryCode = data.country_code || '';
+                            city = data.city || '';
+                            region = data.region || '';
+                        }
+                    } catch (geoErr) {
+                        console.warn('無法抓取地理資訊，略過：', geoErr);
+                    }
+
+                    // 5. 獲取頁面與裝置環境資訊
+                    const pageUrl = window.location.href;
+                    const referrer = document.referrer || 'Direct / Bookmark';
+                    const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+                    const browserLanguage = navigator.language || '';
+
+                    feedbackSubmitBtn.innerText = '儲存中...';
+
+                    // 6. 寫入 Firestore 'feedbacks' collection
+                    await addDoc(collection(db, "feedbacks"), {
+                        content: content,
+                        email: emailOrContact || '匿名',
+                        browserLanguage: browserLanguage,
+                        city: city,
+                        country: country,
+                        countryCode: countryCode,
+                        createdAt: serverTimestamp(),
+                        deviceType: deviceType,
+                        ip: ip,
+                        pageUrl: pageUrl,
+                        recaptchaToken: token,
+                        referrer: referrer,
+                        region: region
+                    });
+
+                    // ✅ 寫入成功後，記錄當前時間戳記
+                    localStorage.setItem('last_feedback_time', Date.now().toString());
+
+                    feedbackStatus.innerText = '✅ 感謝您的寶貴反饋！';
+                    feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-emerald-600';
+                    feedbackStatus.classList.remove('hidden');
+                    
+                    feedbackForm.reset();
+
+                    setTimeout(() => {
+                        toggleFeedback();
+                        feedbackStatus.classList.add('hidden');
+                    }, 2000);
+
+                } catch (error) {
+                    console.error("反饋送出失敗：", error);
+                    feedbackStatus.innerText = '送出失敗，請稍後再試。';
+                    feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-red-500';
+                    feedbackStatus.classList.remove('hidden');
+                } finally {
+                    feedbackSubmitBtn.disabled = false;
+                    feedbackSubmitBtn.innerText = '送出回饋';
+                }
+            });
+        }
+        // 👆 新增結束 👆
     </script>
 </body>
 </html>
