@@ -784,18 +784,18 @@
     </main>
 
         <!-- 👉 右側意見回饋懸浮卡片 👉 -->
-    <div id="feedback-widget" class="fixed right-0 top-1/2 -translate-y-1/2 z-[3000] flex items-center transition-transform duration-300 translate-x-[calc(100%-2.5rem)]">
-        <!-- 吸附按鈕標籤（改放在左邊，露出 2.5rem） -->
-        <button onclick="toggleFeedback()" class="bg-blue-600 text-white px-2 py-3 rounded-l-xl shadow-md font-bold text-xs [writing-mode:vertical-lr] tracking-widest hover:bg-blue-700 transition cursor-pointer">
+    <div id="feedback-widget" class="fixed right-0 top-1/2 -translate-y-1/2 z-[3000] flex items-center transition-transform duration-300 ease-in-out translate-x-[calc(100%-2.5rem)]">
+        <!-- 吸附按鈕標籤（露出 2.5rem / w-10） -->
+        <button type="button" onclick="toggleFeedback()" class="bg-blue-600 text-white w-10 py-3 rounded-l-xl shadow-md font-bold text-xs [writing-mode:vertical-lr] tracking-widest hover:bg-blue-700 transition cursor-pointer flex items-center justify-center shrink-0">
             意見回饋
         </button>
-        <!-- 展開後的反饋卡片（圓角改向左邊） -->
-        <div class="w-80 bg-white p-5 rounded-l-2xl shadow-2xl border border-gray-200 border-r-0 text-sm">
+        <!-- 展開後的反饋卡片 -->
+        <div class="w-80 bg-white p-5 rounded-l-2xl shadow-2xl border border-gray-200 border-r-0 text-sm shrink-0">
             <div class="flex justify-between items-center mb-3 border-b border-gray-100 pb-2">
                 <h4 class="font-extrabold text-gray-900 flex items-center gap-1.5">
                     <span>💬</span> 網站建議與糾錯
                 </h4>
-                <button onclick="toggleFeedback()" class="text-gray-400 hover:text-gray-600 text-lg">✕</button>
+                <button type="button" onclick="toggleFeedback()" class="text-gray-400 hover:text-gray-600 text-lg">✕</button>
             </div>
             <p class="text-xs text-gray-500 mb-3 leading-relaxed">
                 發現哪裡資訊有誤或有改進建議？歡迎直接留言讓我知道！
@@ -810,7 +810,6 @@
             <p id="feedback-status" class="text-xs mt-2 text-center font-medium hidden"></p>
         </div>
     </div>
-    <!-- 👆 新增結束 👆 -->
 
     <footer class="text-center py-12 text-gray-400 text-sm">
         <p>© 2026 EUROPE SOLO Guide. 去過 41 個歐洲國家的真實紀錄。</p>
@@ -1080,7 +1079,10 @@
         // 👇 新增：意見回饋表單邏輯 👇
         window.toggleFeedback = function() {
             const widget = document.getElementById('feedback-widget');
-            widget.classList.toggle('translate-x-[calc(100%-2.5rem)]');
+            if (widget) {
+                // 切換右側位移樣式
+                widget.classList.toggle('translate-x-[calc(100%-2.5rem)]');
+            }
         };
 
         const feedbackForm = document.getElementById('feedback-form');
