@@ -1308,7 +1308,7 @@
             }
         });
     </script>
-    <!-- Firebase SDK 與 訂閱腳本 -->
+    <!-- Firebase SDK 與 訂閱 / 反饋腳本 -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -1321,12 +1321,21 @@
             messagingSenderId: "110377338481",
             appId: "1:110377338481:web:5645f6134c15bc82013dd0",
             measurementId: "G-PT5DQV0DRX"
-          };
+        };
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const RECAPTCHA_SITE_KEY = "6LcZWbEtAAAAAGUbDVdGyE-Hdis9lPgicENsV7rE";
 
+        // --- 全域開關函式（確保 HTML onclick 找得到） ---
+        window.toggleFeedback = function() {
+            const widget = document.getElementById('feedback-widget');
+            if (widget) {
+                widget.classList.toggle('translate-x-80');
+            }
+        };
+
+        // --- 訂閱表單 DOM 元素 ---
         const toggleBtn = document.getElementById('toggle-subscribe-btn');
         const subContainer = document.getElementById('subscribe-container');
         const subForm = document.getElementById('subscribe-form');
@@ -1334,100 +1343,114 @@
         const submitBtn = document.getElementById('subscribe-submit-btn');
         const statusText = document.getElementById('subscribe-status');
 
+        // 只保留單一 showStatus 宣告
         function showStatus(msg, colorClass) {
             statusText.innerText = msg;
             statusText.className = `text-xs mt-2 pl-2 font-medium ${colorClass}`;
             statusText.classList.remove('hidden');
         }
 
-        // 點擊按鈕展開/收合輸入框
-        toggleBtn.addEventListener('click', () => {
-            subContainer.classList.toggle('hidden');
-            if (!subContainer.classList.contains('hidden')) {
-                emailInput.focus();
-            }
-        });
+        // 展開 / 收合訂閱輸入框
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                subContainer.classList.toggle('hidden');
+                if (!subContainer.classList.contains('hidden')) {
+                    emailInput.focus();
+                }
+            });
+        }
 
-        // 表單送出處理
-        subForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        // ==========================================
+        // 1. 訂閱電子報表單送出邏輯
+        // ==========================================
+        if (subForm) {
+            subForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
 
-            const email = emailInput.value.trim();
-            const emailPattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
-            if (!emailPattern.test(email)) {
-                showStatus('請填寫正確的電子信箱格式！', 'text-red-500');
-                return;
-            }
+                // ⏱️ 檢查訂閱冷卻時間（60 秒）
+                const COOLDOWN_TIME = 60 * 1000;
+                const lastSubTime = localStorage.getItem('last_subscribe_time');
+                const now = Date.now();
 
-            submitBtn.disabled = true;
-            submitBtn.innerText = '處理中...';
-
-            try {
-                // 1. reCAPTCHA 驗證
-                const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'subscribe' });
-                if (!token) throw new Error('無法通過驗證');
-
-                // 2. 獲取 IP 與地理資訊
-                let ip = '', country = '', countryCode = '', city = '', region = '';
-                try {
-                    const geoRes = await fetch('https://ipapi.co/json/');
-                    if (geoRes.ok) {
-                        const data = await geoRes.json();
-                        ip = data.ip || '';
-                        country = data.country_name || '';
-                        countryCode = data.country_code || '';
-                        city = data.city || '';
-                        region = data.region || '';
-                    }
-                } catch (geoErr) {
-                    console.warn('略過地理資訊：', geoErr);
+                if (lastSubTime && (now - parseInt(lastSubTime, 10)) < COOLDOWN_TIME) {
+                    const remainingSec = Math.ceil((COOLDOWN_TIME - (now - parseInt(lastSubTime, 10))) / 1000);
+                    showStatus(`⏳ 請求太頻繁，請於 ${remainingSec} 秒後再嘗試訂閱。`, 'text-amber-600');
+                    return;
                 }
 
-                // 3. 獲取頁面與裝置環境資訊
-                const pageUrl = window.location.href;
-                const referrer = document.referrer || 'Direct / Bookmark';
-                const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
-                const browserLanguage = navigator.language || '';
+                const email = emailInput.value.trim();
+                const emailPattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+                if (!emailPattern.test(email)) {
+                    showStatus('請填寫正確的電子信箱格式！', 'text-red-500');
+                    return;
+                }
 
-                submitBtn.innerText = '儲存中...';
+                submitBtn.disabled = true;
+                submitBtn.innerText = '處理中...';
 
-                // 4. 寫入 Firestore
-                await addDoc(collection(db, "subscribers"), {
-                    email: email,
-                    recaptchaToken: token,
-                    ip: ip,
-                    createdAt: serverTimestamp(),
-                    country: country,
-                    countryCode: countryCode,
-                    city: city,
-                    region: region,
-                    pageUrl: pageUrl,
-                    referrer: referrer,
-                    deviceType: deviceType,
-                    browserLanguage: browserLanguage
-                });
+                try {
+                    const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'subscribe' });
+                    if (!token) throw new Error('無法通過驗證');
 
-                showStatus('🎉 訂閱成功！新文章上線時會通知你。', 'text-emerald-600');
-                emailInput.value = '';
-                setTimeout(() => {
-                    subContainer.classList.add('hidden');
-                    statusText.classList.add('hidden');
-                }, 4000);
+                    let ip = '', country = '', countryCode = '', city = '', region = '';
+                    try {
+                        const geoRes = await fetch('https://ipapi.co/json/');
+                        if (geoRes.ok) {
+                            const data = await geoRes.json();
+                            ip = data.ip || '';
+                            country = data.country_name || '';
+                            countryCode = data.country_code || '';
+                            city = data.city || '';
+                            region = data.region || '';
+                        }
+                    } catch (geoErr) {
+                        console.warn('略過地理資訊：', geoErr);
+                    }
 
-            } catch (error) {
-                console.error("訂閱失敗：", error);
-                showStatus('訂閱失敗，請確認網路連線或稍後再試。', 'text-red-500');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerText = '送出';
-            }
-        });
-        function showStatus(msg, colorClass) {
-            statusText.innerText = msg;
-            statusText.className = `text-xs mt-2 pl-2 font-medium ${colorClass}`;
-            statusText.classList.remove('hidden');
+                    const pageUrl = window.location.href;
+                    const referrer = document.referrer || 'Direct / Bookmark';
+                    const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+                    const browserLanguage = navigator.language || '';
+
+                    submitBtn.innerText = '儲存中...';
+
+                    await addDoc(collection(db, "subscribers"), {
+                        email: email,
+                        recaptchaToken: token,
+                        ip: ip,
+                        createdAt: serverTimestamp(),
+                        country: country,
+                        countryCode: countryCode,
+                        city: city,
+                        region: region,
+                        pageUrl: pageUrl,
+                        referrer: referrer,
+                        deviceType: deviceType,
+                        browserLanguage: browserLanguage
+                    });
+
+                    localStorage.setItem('last_subscribe_time', Date.now().toString());
+
+                    showStatus('🎉 訂閱成功！新文章上線時會通知你。', 'text-emerald-600');
+                    emailInput.value = '';
+                    setTimeout(() => {
+                        subContainer.classList.add('hidden');
+                        statusText.classList.add('hidden');
+                    }, 4000);
+
+                } catch (error) {
+                    console.error("訂閱失敗：", error);
+                    showStatus('訂閱失敗，請確認網路連線或稍後再試。', 'text-red-500');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = '送出';
+                }
+            });
         }
 
+        // ==========================================
+        // 2. 右側意見回饋表單送出邏輯
+        // ==========================================
         const feedbackForm = document.getElementById('feedback-form');
         const feedbackSubmitBtn = document.getElementById('feedback-submit-btn');
         const feedbackStatus = document.getElementById('feedback-status');
@@ -1436,7 +1459,6 @@
             feedbackForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
-                // ⏱️ 1. 檢查 60 秒冷卻時間
                 const COOLDOWN_TIME = 60 * 1000;
                 const lastFeedbackTime = localStorage.getItem('last_feedback_time');
                 const now = Date.now();
@@ -1452,7 +1474,6 @@
                 const emailOrContact = document.getElementById('feedback-contact').value.trim();
                 const content = document.getElementById('feedback-content').value.trim();
 
-                // ⚠️ 2. 檢查字數是否至少 10 個字
                 if (content.length < 10) {
                     feedbackStatus.innerText = `⚠️ 內容至少需填寫 10 個字喔！（目前 ${content.length} 字）`;
                     feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-red-500';
@@ -1465,11 +1486,9 @@
                 feedbackSubmitBtn.innerText = '傳送中...';
 
                 try {
-                    // 3. reCAPTCHA 驗證
                     const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_feedback' });
                     if (!token) throw new Error('無法通過驗證');
 
-                    // 4. 獲取 IP 與地理資訊
                     let ip = '', country = '', countryCode = '', city = '', region = '';
                     try {
                         const geoRes = await fetch('https://ipapi.co/json/');
@@ -1485,7 +1504,6 @@
                         console.warn('無法抓取地理資訊，略過：', geoErr);
                     }
 
-                    // 5. 獲取頁面與裝置環境資訊
                     const pageUrl = window.location.href;
                     const referrer = document.referrer || 'Direct / Bookmark';
                     const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
@@ -1493,7 +1511,6 @@
 
                     feedbackSubmitBtn.innerText = '儲存中...';
 
-                    // 6. 寫入 Firestore 'feedbacks' collection
                     await addDoc(collection(db, "feedbacks"), {
                         content: content,
                         email: emailOrContact || '匿名',
@@ -1510,7 +1527,6 @@
                         region: region
                     });
 
-                    // ✅ 寫入成功後，記錄當前時間戳記
                     localStorage.setItem('last_feedback_time', Date.now().toString());
 
                     feedbackStatus.innerText = '✅ 感謝您的寶貴反饋！';
@@ -1520,7 +1536,7 @@
                     feedbackForm.reset();
 
                     setTimeout(() => {
-                        toggleFeedback();
+                        window.toggleFeedback();
                         feedbackStatus.classList.add('hidden');
                     }, 2000);
 
@@ -1535,7 +1551,6 @@
                 }
             });
         }
-        // 👆 新增結束 👆
     </script>
 </body>
 </html>
