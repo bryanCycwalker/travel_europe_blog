@@ -1181,9 +1181,14 @@
     </main>
 
     <!-- 👇 新增：左側意見回饋懸浮卡片 👇 -->
-    <div id="feedback-widget" class="fixed left-0 top-1/2 -translate-y-1/2 z-[3000] flex items-center transition-transform duration-300 -translate-x-[calc(100%-2.5rem)]">
-        <!-- 展開後的反饋卡片 -->
-        <div class="w-80 bg-white p-5 rounded-r-2xl shadow-2xl border border-gray-200 border-l-0 text-sm">
+    <!-- 👉 右側意見回饋懸浮卡片 👉 -->
+    <div id="feedback-widget" class="fixed right-0 top-1/2 -translate-y-1/2 z-[3000] flex items-center transition-transform duration-300 translate-x-[calc(100%-2.5rem)]">
+        <!-- 吸附按鈕標籤（改放在左邊，露出 2.5rem） -->
+        <button onclick="toggleFeedback()" class="bg-blue-600 text-white px-2 py-3 rounded-l-xl shadow-md font-bold text-xs [writing-mode:vertical-lr] tracking-widest hover:bg-blue-700 transition cursor-pointer">
+            意見回饋
+        </button>
+        <!-- 展開後的反饋卡片（圓角改向左邊） -->
+        <div class="w-80 bg-white p-5 rounded-l-2xl shadow-2xl border border-gray-200 border-r-0 text-sm">
             <div class="flex justify-between items-center mb-3 border-b border-gray-100 pb-2">
                 <h4 class="font-extrabold text-gray-900 flex items-center gap-1.5">
                     <span>💬</span> 網站建議與糾錯
@@ -1202,10 +1207,6 @@
             </form>
             <p id="feedback-status" class="text-xs mt-2 text-center font-medium hidden"></p>
         </div>
-        <!-- 吸附按鈕標籤 -->
-        <button onclick="toggleFeedback()" class="bg-blue-600 text-white px-2 py-3 rounded-r-xl shadow-md font-bold text-xs [writing-mode:vertical-lr] tracking-widest hover:bg-blue-700 transition cursor-pointer">
-            意見回饋
-        </button>
     </div>
     <!-- 👆 新增結束 👆 -->
     
