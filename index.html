@@ -948,7 +948,12 @@
         function renderCards(data) {
             cityGrid.innerHTML = '';
             if (data.length === 0) return;
-            data.forEach(item => {
+            
+            // 👇 新增：將傳遞進來的資料依照 city (城市名稱 A-Z) 排序
+            const sortedData = [...data].sort((a, b) => a.city.localeCompare(b.city, 'en'));
+
+            // 注意這裡改成 sortedData.forEach
+            sortedData.forEach(item => {
                 const isBase = item.type === 'base';
                 const isRegion = item.type === 'region';
                 
