@@ -73,6 +73,11 @@
           };
     
         const app = initializeApp(firebaseConfig);
+        // 👇 2. 加入這段：初始化 App Check（自動向 reCAPTCHA 驗證）
+        const appCheck = initializeAppCheck(app, {
+            provider: new ReCaptchaEnterpriseProvider('6LcZWbEtAAAAAGUbDVdGyE-Hdis9lPgicENsV7rE'),
+            isTokenAutoRefreshEnabled: true
+        });
         const db = getFirestore(app);
     
         // 掛載給表單呼叫
