@@ -58,8 +58,8 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-    
-        // 替換為你的 Firebase 專案配置
+        import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check.js";
+
         const firebaseConfig = {
             apiKey: "AIzaSyComDTkoNW6bOpdEpj00aLHE3XZ3BxXQew",
             authDomain: "europe-solo-travel.firebaseapp.com",
@@ -68,17 +68,19 @@
             messagingSenderId: "110377338481",
             appId: "1:110377338481:web:5645f6134c15bc82013dd0",
             measurementId: "G-PT5DQV0DRX"
-          };
-    
+        };
+
         const app = initializeApp(firebaseConfig);
-        // 👇 2. 加入這段：初始化 App Check（自動向 reCAPTCHA 驗證）
+
+        // 初始化 App Check：自動為 Firestore 請求附帶 reCAPTCHA Enterprise 評分權杖
         const appCheck = initializeAppCheck(app, {
             provider: new ReCaptchaEnterpriseProvider('6LcZWbEtAAAAAGUbDVdGyE-Hdis9lPgicENsV7rE'),
             isTokenAutoRefreshEnabled: true
         });
+
         const db = getFirestore(app);
-    
-        // 掛載給表單呼叫
+
+        // 掛載給全域表單呼叫
         window.db = db;
         window.addDoc = addDoc;
         window.collection = collection;
@@ -564,7 +566,6 @@
                     </div>
                 
                     <!-- 點擊訂閱後滑出的輸入框 -->
-                    <!-- 點擊訂閱後滑出的輸入框 -->
                     <div id="subscribe-container" class="hidden w-full max-w-md mt-4 transition-all duration-300">
                         <form id="subscribe-form" class="bg-gray-50 border border-gray-200 rounded-2xl p-2.5 focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 shadow-inner">
                             <!-- 上層：原本的信箱輸入列與送出按鈕 -->
@@ -617,7 +618,8 @@
             </p>
             <form id="feedback-form" class="space-y-3">
             <input type="text" id="feedback-contact" placeholder="您的 Email 或稱呼（選填）" class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500" />
-                <textarea id="feedback-content" required minlength="10" rows="3" placeholder="請至少輸入 10 個字的使用體驗或錯誤回報..." class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 resize-none"></textarea>                <button type="submit" class="w-full bg-blue-600 text-white font-bold text-xs py-2 rounded-lg hover:bg-blue-700 transition shadow-sm cursor-pointer" id="feedback-submit-btn">
+                <textarea id="feedback-content" required minlength="10" rows="3" placeholder="請至少輸入 10 個字的使用體驗或錯誤回報..." class="w-full text-xs px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 resize-none"></textarea>
+                <button type="submit" class="w-full bg-blue-600 text-white font-bold text-xs py-2 rounded-lg hover:bg-blue-700 transition shadow-sm cursor-pointer" id="feedback-submit-btn">
                     送出回饋
                 </button>
             </form>
@@ -646,7 +648,7 @@
                 desc: '德國最古老的文藝復興城市之一！漫步世界最早的社會住宅福格社區、金碧輝煌的市政廳黃金廳，欣賞傳奇的木偶劇院，並享受核心市區電車完全免費的悠閒獨旅步調。', 
                 link: 'cities/augsburg.html',
                 datePublished: '2026-09-13',
-                type: 'daytrip' // 🎒 順遊 / 一日遊（若你想將它定位為住宿基地，可改為 'base'）
+                type: 'daytrip'
             },
             {
                 id: 'munich', 
@@ -659,8 +661,8 @@
                 desc: '德國最富裕且傳統的百萬大城！完整景點攻略帶你探索慕尼黑王宮、新市政廳，詳解新天鵝堡等近郊一日遊，以及在地烤豬腳與啤酒狂歡！', 
                 link: 'cities/munich.html',
                 datePublished: '2026-09-06',
-                type: 'base', // 🏨 深度旅遊基地
-                directFlight: true // ✈️ 台灣直航
+                type: 'base',
+                directFlight: true
             },
             {
                 id: 'budapest', 
@@ -672,8 +674,8 @@
                 img: 'images/hungary/budapest/budapest_main.png',
                 desc: '東歐最迷人的雙子城！完整景點攻略帶你探索國會大廈、漁人堡與多瑙河遊船，詳解聖安德烈等近郊一日遊，以及在地燉牛肉美食與平價青旅推薦。', 
                 link: 'cities/budapest.html',
-                datePublished: '2026-08-22', // 已經設為今天的日期
-                type: 'base' // 🏨 深度旅遊基地
+                datePublished: '2026-08-22',
+                type: 'base'
             },
             {
                 id: 'reykjavik', 
@@ -686,7 +688,7 @@
                 desc: '全球最極致的大自然奇觀門戶！2026年最新自由行指南，帶你探索哈爾格林姆教堂、太陽行者號與哈爾帕音樂廳，詳解黃金圈、南岸黑沙灘與極光一日遊，以及市區安全平價青旅與在地羊肉湯美食地圖。', 
                 link: 'cities/reykjavik.html',
                 datePublished: '2026-08-11',
-                type: 'base' // 🏨 深度旅遊基地
+                type: 'base'
             },
             {
                 id: 'madrid', 
@@ -699,7 +701,7 @@
                 desc: '西班牙的文化與藝術樞紐！2026年最新自由行指南，帶你探索馬德里王宮、普拉多博物館與德波神廟，詳解近郊世界遺產古城托雷多與塞哥維亞等一日遊，以及市區安全平價青旅與在地 Tapas 美食地圖。', 
                 link: 'cities/madrid.html',
                 datePublished: '2026-08-06',
-                type: 'base' // 🏨 深度旅遊基地
+                type: 'base'
             },
             {
                 id: 'thessaloniki', 
@@ -712,7 +714,7 @@
                 desc: '希臘第二大城與美食之都！2026年最新自由行指南，帶你探索白塔、古羅馬廣場與地下博物館地圖，詳解近郊邁泰奧拉天空之城與維爾吉納一日遊，以及市區安全平價青旅與在地小吃地圖。', 
                 link: 'cities/thessaloniki.html',
                 datePublished: '2026-08-11',
-                type: 'base' // 🏨 深度旅遊基地
+                type: 'base'
             },
             {
                 id: 'athens', 
@@ -725,7 +727,7 @@
                 desc: '西方文明的耀眼搖籃！2026年最新自由行指南，為你整理雅典衛城、博物館官網訂票教學，詳解跨城大巴 KTEL 前往德爾斐與科林斯一日遊，以及市區安全平價青旅與在地 Souvlaki 美食地圖。', 
                 link: 'cities/athens.html',
                 datePublished: '2026-07-20',
-                type: 'base' // 🏨 深度旅遊基地
+                type: 'base'
             },   
             {
                 id: 'luzern', 
@@ -738,7 +740,7 @@
                 desc: '坐落在羅伊斯河畔與阿爾卑斯名山間的中古城鎮。獨旅琉森最適合漫步於百年卡貝爾木橋，或搭乘復古蒸汽船與齒軌火車，沉醉在皮拉圖斯山的絕美湖光山色中。', 
                 link: 'cities/luzern.html',
                 datePublished: '2026-05-30',
-                type: 'base' // 🏨 深度旅遊基地
+                type: 'base'
             },
             {
                 id: 'monteriggioni', 
@@ -751,7 +753,7 @@
                 desc: '被但丁寫入《神曲》的防禦古城。獨旅蒙特里久尼最適合沿著圓形城牆漫步，在托斯卡尼的夕陽下，俯瞰金黃色的基安蒂丘陵與橄欖園。', 
                 link: 'cities/monteriggioni.html',
                 datePublished: '2026-05-15',
-                type: 'daytrip' // 🎒 順遊/一日遊
+                type: 'daytrip'
             },
             {
                 id: 'siena', 
@@ -764,7 +766,7 @@
                 desc: '錫耶納獨旅攻略：比起佛羅倫斯的擁擠，這裡更適合一個人靜靜享受托斯卡尼陽光。整理必訪田野廣場與大教堂心得。', 
                 link: 'cities/siena.html',
                 datePublished: '2026-04-28',
-                type: 'base' // 🏨 深度旅遊基地
+                type: 'base'
             },
             {
                 id: 'paris', 
@@ -777,8 +779,8 @@
                 desc: '巴黎獨旅攻略：藝術、美食與街頭生存的終極指南。完整收錄 22 個經典與深度景點、高 CP 值安全青旅清單，以及獨旅必備的地鐵防消磁與防扒手生存祕笈。', 
                 link: 'cities/paris.html',
                 datePublished: '2026-05-20',
-                type: 'base', // 🏨 深度旅遊基地
-                directFlight: true // ✈️ 台灣直航
+                type: 'base',
+                directFlight: true
             },
             {
                 id: 'versailles', 
@@ -791,7 +793,7 @@
                 desc: '凡爾賽獨旅全攻略：深度探索太陽王路易十四的極致奢華。完整收錄宮殿鏡廳、皇家大花園與特里亞農宮祕境，並包含 RER C 線交通指南與旺季強制時段預約自救心法。', 
                 link: 'cities/versailles.html',
                 datePublished: '2026-05-21',
-                type: 'daytrip' // 🎒 順遊/一日遊
+                type: 'daytrip'
             },
             {
                 id: 'dolomites', 
@@ -804,7 +806,7 @@
                 desc: '多洛米蒂獨旅全攻略：白雲石山脈的不自駕自由行指南！完整收錄刀鋒山、三尖峰、富內斯山谷等 12 大絕美景點徒步路線，並包含超詳細的公車交通網、三大纜車通票比較，與搶手高山屋預訂實戰私房筆記。', 
                 link: 'cities/dolomites.html',
                 datePublished: '2026-05-27',
-                type: 'region' // 🌲 深度探索地區
+                type: 'region'
             }
         ];
         const countryMeta = {
@@ -824,59 +826,12 @@
         const regionOrder = ['北歐', '西歐', '中歐', '東歐', '南歐', '其他'];
 
         const regionStyles = {
-            // ❄️ 北歐：冰雪極光、冷調灰白風格（按鈕用白灰底，填色用高明度淺霧銀）
-            '北歐': { 
-                btnBg: 'bg-slate-200', 
-                text: 'text-slate-700', 
-                icon: '❄️', 
-                color: '#64748b',     // 換回原本的冷灰藍 (Slate 500/600)
-                border: '#475569' 
-            },
-
-            // 🍷 西歐：經典歐洲印象、文藝紳士深邃藍
-            '西歐': { 
-                btnBg: 'bg-blue-100', 
-                text: 'text-blue-700', 
-                icon: '🍷', 
-                color: '#3b82f6',     // 經典法德英藍 (Blue 500)
-                border: '#1d4ed8' 
-            },
-
-            // 🌲 中歐：阿爾卑斯山脈、黑森林純淨綠意
-            '中歐': { 
-                btnBg: 'bg-emerald-100', 
-                text: 'text-emerald-700', 
-                icon: '🌲', 
-                color: '#10b981',     // 森林翡翠綠 (Emerald 500)
-                border: '#047857' 
-            },
-
-            // 🏰 東歐：布拉格金色之城、波希米亞琥珀復古風
-            '東歐': { 
-                btnBg: 'bg-amber-100', 
-                text: 'text-amber-700', 
-                icon: '🏰', 
-                color: '#f59e0b',     // 復古琥珀金黃 (Amber 500)
-                border: '#b45309' 
-            },
-
-            // ☀️ 南歐：地中海艷陽、西班牙熱情磚紅、義大利紅瓦暖橘
-            '南歐': { 
-                btnBg: 'bg-rose-100', 
-                text: 'text-rose-700', 
-                icon: '☀️', 
-                color: '#f43f5e',     // 熱情地中海珊瑚紅 (Rose 500)
-                border: '#be123c' 
-            },
-
-            // 📍 其他
-            '其他': { 
-                btnBg: 'bg-gray-100', 
-                text: 'text-gray-600', 
-                icon: '📍', 
-                color: '#9ca3af', 
-                border: '#4b5563' 
-            }
+            '北歐': { btnBg: 'bg-slate-200', text: 'text-slate-700', icon: '❄️', color: '#64748b', border: '#475569' },
+            '西歐': { btnBg: 'bg-blue-100', text: 'text-blue-700', icon: '🍷', color: '#3b82f6', border: '#1d4ed8' },
+            '中歐': { btnBg: 'bg-emerald-100', text: 'text-emerald-700', icon: '🌲', color: '#10b981', border: '#047857' },
+            '東歐': { btnBg: 'bg-amber-100', text: 'text-amber-700', icon: '🏰', color: '#f59e0b', border: '#b45309' },
+            '南歐': { btnBg: 'bg-rose-100', text: 'text-rose-700', icon: '☀️', color: '#f43f5e', border: '#be123c' },
+            '其他': { btnBg: 'bg-gray-100', text: 'text-gray-600', icon: '📍', color: '#9ca3af', border: '#4b5563' }
         };
 
         const cityGrid = document.getElementById('city-grid');
@@ -887,17 +842,14 @@
         const totalArticles = cityData.length + guideCount;
         document.getElementById('article-count').innerText = `${totalArticles}+ 篇`;
         
-        // --- 狀態管理 ---
         let currentCountryFilter = 'all';
         let currentTypeFilter = 'all';
 
         function generateCountryLists() {
-            // 1. 先根據目前的「標籤」過濾出有符合的城市
             const filteredCities = currentTypeFilter === 'all' 
                 ? cityData 
                 : cityData.filter(c => c.type === currentTypeFilter);
                 
-            // 2. 再從過濾後的城市中，取得該標籤存在的國家名單
             const existingCountries = [...new Set(filteredCities.map(c => c.country))];
             const grouped = {};
             
@@ -952,15 +904,12 @@
             cityGrid.innerHTML = '';
             if (data.length === 0) return;
             
-            // 👇 新增：將傳遞進來的資料依照 city (城市名稱 A-Z) 排序
             const sortedData = [...data].sort((a, b) => a.city.localeCompare(b.city, 'en'));
 
-            // 注意這裡改成 sortedData.forEach
             sortedData.forEach(item => {
                 const isBase = item.type === 'base';
                 const isRegion = item.type === 'region';
                 
-                // 動態指定卡片背景與邊框配色
                 let cardBg = 'bg-orange-50/60';
                 let borderColor = 'border-orange-100';
                 let typeTag = `<span class="bg-orange-100/90 backdrop-blur-sm text-orange-800 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-orange-200/80">🎒 順遊 / 一日遊</span>`;
@@ -1002,18 +951,15 @@
 
         const map = L.map('map').setView([56.0, 15.0], 3);
 
-        // 換成選項 B 的 Esri 淺灰底圖（無浮水印）
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
             maxZoom: 16
         }).addTo(map);
         
-        // 宣告國家填色用的變數
         let countryGeoJsonLayer = null;
         let rawEuropeGeoJson = null;
-        let selectedCountryCode = null; // 👈 新增：記錄目前點選的國家
+        let selectedCountryCode = null;
 
-        // 👈 新增：點擊地圖空白處時取消反白，恢復正常亮度
         map.on('click', (e) => {
             if (e.originalEvent && e.originalEvent._stopped) return;
             if (selectedCountryCode) {
@@ -1028,22 +974,19 @@
             markersLayer.clearLayers();
             const allCoordinates = [];
         
-            // 1. 依照國家分組
             const groups = {};
             data.forEach(item => {
                 if (!groups[item.country]) groups[item.country] = [];
                 groups[item.country].push(item);
             });
         
-            // 2. 針對各國建立標記
             Object.keys(groups).forEach(countryName => {
                 const items = groups[countryName];
         
-                // 情況 A：若目前縮放層級較高（Zoom >= 6），或是該國只有 1 篇攻略，直接顯示所有城市獨立標記
                 if (map.getZoom() >= 6 || items.length === 1) {
                     items.forEach(item => {
                         const marker = L.marker([item.lat, item.lng]);
-                        marker._countryName = item.country; // 👈 加這行
+                        marker._countryName = item.country;
                         marker.bindPopup(`<b>${item.city}</b><br><a href="${item.link}" class="text-blue-600 text-xs hover:underline">閱讀攻略 →</a>`);
                         marker.on('click', () => {
                             renderCards([item]);
@@ -1053,15 +996,11 @@
                         markersLayer.addLayer(marker);
                         allCoordinates.push([item.lat, item.lng]);
                     });
-                } 
-                // 情況 B：該國有複數篇文章，且處於宏觀視角，顯示「國家聚合徽章」
-                else {
-                    // 計算該國所有城市的中心座標
+                } else {
                     const avgLat = items.reduce((sum, i) => sum + i.lat, 0) / items.length;
                     const avgLng = items.reduce((sum, i) => sum + i.lng, 0) / items.length;
                     const flag = countryName.split(' ')[0] || '📍';
         
-                    // 建立聚合徽章樣式
                     const clusterIcon = L.divIcon({
                         html: `
                             <div style="background:#2563eb; color:white; width:38px; height:38px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 4px 8px rgba(0,0,0,0.25); border:2px solid white; cursor:pointer; transform:translate(-50%, -50%);">
@@ -1074,9 +1013,8 @@
                     });
         
                     const clusterMarker = L.marker([avgLat, avgLng], { icon: clusterIcon });
-                    clusterMarker._countryName = countryName; // 👈 加這行
+                    clusterMarker._countryName = countryName;
         
-                    // 點擊國家徽章：縮放展開該國邊界，並連動下方文章卡片
                     clusterMarker.on('click', () => {
                         const bounds = L.latLngBounds(items.map(i => [i.lat, i.lng]));
                         map.fitBounds(bounds, { padding: [80, 80], maxZoom: 7 });
@@ -1088,8 +1026,7 @@
                 }
             });
         
-            // 自動縮放視角
-            updateMapHighlight(); // 👈 確保每次重新繪製 Marker 後立刻套用當前亮度狀態
+            updateMapHighlight();
             if (autoZoom && allCoordinates.length > 0) {
                 const bounds = L.latLngBounds(allCoordinates);
                 map.fitBounds(bounds, { padding: [50, 50], maxZoom: 7 });
@@ -1098,19 +1035,17 @@
             }
         }
 
-// 監聽縮放事件：當使用者手動滾輪放大/縮小時，動態切換「國家徽章」與「單一城市圖釘」
-map.on('zoomend', () => {
-    let currentData = cityData;
-    if (currentCountryFilter !== 'all') currentData = currentData.filter(d => d.country === currentCountryFilter);
-    if (currentTypeFilter !== 'all') {
-        currentData = currentTypeFilter === 'direct' 
-            ? currentData.filter(d => d.directFlight === true)
-            : currentData.filter(d => d.type === currentTypeFilter);
-    }
-    updateMapMarkers(currentData, null); // 傳 null 避免重新調整視角
-});
+        map.on('zoomend', () => {
+            let currentData = cityData;
+            if (currentCountryFilter !== 'all') currentData = currentData.filter(d => d.country === currentCountryFilter);
+            if (currentTypeFilter !== 'all') {
+                currentData = currentTypeFilter === 'direct' 
+                    ? currentData.filter(d => d.directFlight === true)
+                    : currentData.filter(d => d.type === currentTypeFilter);
+            }
+            updateMapMarkers(currentData, null);
+        });
 
-        // --- 國家邊界填色核心函式 ---
         function getActiveCountryCodes(activeList = cityData) {
             const codes = new Set();
             activeList.forEach(item => {
@@ -1120,7 +1055,6 @@ map.on('zoomend', () => {
             return codes;
         }
 
-        // 建立快速查詢對應表：從 code 查 region
         const codeToRegionMap = {};
         Object.values(countryMeta).forEach(meta => {
             if (meta.code && meta.region) {
@@ -1147,11 +1081,9 @@ map.on('zoomend', () => {
                         };
                     }
         
-                    // 取得所屬區域與配色
                     const region = codeToRegionMap[code] || '其他';
                     const style = regionStyles[region] || regionStyles['其他'];
 
-                    // 計算透明度：若有選中特定國家，未選中的調暗(0.12)，選中的加亮(0.65)
                     let opacity = 0.35;
                     if (selectedCountryCode) {
                         opacity = (code === selectedCountryCode) ? 0.65 : 0.12;
@@ -1159,7 +1091,7 @@ map.on('zoomend', () => {
         
                     return {
                         fillColor: style.color,
-                        stroke: false,       // 移除外框線
+                        stroke: false,
                         fillOpacity: opacity
                     };
                 },
@@ -1177,11 +1109,8 @@ map.on('zoomend', () => {
                                     e.target.setStyle({ fillOpacity: 0.35 });
                                 }
                             },
-                            // 點擊國家多邊形：高亮切換 + 平滑放大置中
                             click: (e) => {
-                                L.DomEvent.stopPropagation(e); // 阻止事件傳給 map.click
-
-                                // 點同一國就取消，點不同國就切換
+                                L.DomEvent.stopPropagation(e);
                                 selectedCountryCode = (selectedCountryCode === code) ? null : code;
                                 updateMapHighlight();
 
@@ -1204,14 +1133,11 @@ map.on('zoomend', () => {
             updateMapHighlight();
         }
 
-        // 刷新地圖與標籤亮度的核心函式
         function updateMapHighlight() {
-            // 1. 更新國家多邊形的透明度
             if (countryGeoJsonLayer) {
                 countryGeoJsonLayer.setStyle(countryGeoJsonLayer.options.style);
             }
 
-            // 2. 更新標籤/徽章的透明度
             markersLayer.eachLayer(layer => {
                 const el = layer.getElement();
                 if (!el) return;
@@ -1221,16 +1147,13 @@ map.on('zoomend', () => {
                 const markerCode = meta && meta.code ? meta.code.toUpperCase() : '';
 
                 if (!selectedCountryCode) {
-                    // 全部恢復正常亮度
                     el.style.opacity = '1';
                     el.style.filter = 'none';
                 } else if (markerCode === selectedCountryCode) {
-                    // 被選中該國的標籤：維持高亮並加上發光陰影
                     el.style.opacity = '1';
                     el.style.filter = 'drop-shadow(0 0 6px rgba(59, 130, 246, 0.8))';
                     el.style.transition = 'opacity 0.3s, filter 0.3s';
                 } else {
-                    // 其他國家的標籤：調暗並淡化
                     el.style.opacity = '0.2';
                     el.style.filter = 'grayscale(80%)';
                     el.style.transition = 'opacity 0.3s, filter 0.3s';
@@ -1238,7 +1161,6 @@ map.on('zoomend', () => {
             });
         }
 
-        // 載入歐洲國家邊界檔
         fetch('https://raw.githubusercontent.com/leakyMirror/map-of-europe/master/GeoJSON/europe.geojson')
             .then(res => res.json())
             .then(data => {
@@ -1247,9 +1169,8 @@ map.on('zoomend', () => {
             })
             .catch(err => console.error('無法載入歐洲地圖邊界：', err));
         
-        // --- 核心篩選邏輯 ---
         function applyFilters(autoZoomMap = false) {
-            generateCountryLists(); // 每次套用篩選時，同步更新國家選單
+            generateCountryLists();
             
             let filtered = cityData;
             
@@ -1268,7 +1189,6 @@ map.on('zoomend', () => {
             updateMapMarkers(filtered, autoZoomMap);
             renderCountryHighlight(filtered);
             
-            // 更新標題與重置按鈕狀態
             if (currentCountryFilter === 'all' && currentTypeFilter === 'all') {
                 listTitle.innerText = `🗺️ 點擊地圖找尋目的地`;
                 resetBtn.classList.add('hidden');
@@ -1289,16 +1209,14 @@ map.on('zoomend', () => {
 
         window.setTypeFilter = function(type) {
             currentTypeFilter = type;
-            currentCountryFilter = 'all'; // 切換標籤時，自動將國家重置為全部
+            currentCountryFilter = 'all';
             
-            // 1. 重置所有樣式
             document.querySelectorAll('.type-filter-btn, .m-type-filter-btn').forEach(btn => {
                 btn.className = btn.classList.contains('m-type-filter-btn')
                     ? 'm-type-filter-btn bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm'
                     : 'type-filter-btn bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200';
             });
             
-            // 2. 桌機版高亮
             const activeBtn = document.getElementById(`btn-type-${type}`);
             if (activeBtn) {
                 if (type === 'all') activeBtn.className = 'type-filter-btn bg-slate-800 text-white border border-transparent px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200';
@@ -1308,7 +1226,6 @@ map.on('zoomend', () => {
                 else if (type === 'direct') activeBtn.className = 'type-filter-btn bg-rose-100 text-rose-800 border border-rose-300 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm transition-all duration-200';
             }
         
-            // 3. 手機版高亮
             const mActiveBtn = document.getElementById(`m-btn-type-${type}`);
             if (mActiveBtn) {
                 if (type === 'all') mActiveBtn.className = 'm-type-filter-btn bg-slate-800 text-white border border-transparent px-3 py-1.5 rounded-full text-xs font-bold shadow-sm';
@@ -1325,14 +1242,13 @@ map.on('zoomend', () => {
             currentCountryFilter = countryStr;
             document.getElementById('mobile-menu').classList.add('hidden');
             document.getElementById('list-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            applyFilters(true); // 點擊國家時，地圖自動縮放
+            applyFilters(true);
         };
 
         function resetView() {
             currentCountryFilter = 'all';
             currentTypeFilter = 'all';
             
-            // 恢復 Type 按鈕 UI 為「全部」
             document.querySelectorAll('.type-filter-btn, .m-type-filter-btn').forEach(btn => {
                 btn.className = btn.classList.contains('m-type-filter-btn')
                     ? 'm-type-filter-btn bg-white border border-gray-200 text-gray-600 px-3 py-1.5 rounded-full text-xs font-bold shadow-sm'
@@ -1347,9 +1263,7 @@ map.on('zoomend', () => {
             applyFilters(false);
         }
         resetBtn.addEventListener('click', resetView);
-        // --- 核心篩選邏輯 結束 ---
 
-        // 初始化
         applyFilters(false);
 
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
@@ -1371,7 +1285,6 @@ map.on('zoomend', () => {
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         }, false);
 
-        // --- 獨旅指南：物理輻射推擠動畫引擎 ---
         function handleGuideClick(cardId) {
             const targetCard = document.getElementById(cardId);
             if (targetCard.classList.contains('is-expanded')) return;
@@ -1550,7 +1463,6 @@ map.on('zoomend', () => {
             }, 100);
         }
 
-        // --- 最新上線 Pop-up 邏輯 ---
         document.addEventListener("DOMContentLoaded", function() {
             const DAYS_CONSIDERED_NEW = 7;
             const popupElement = document.getElementById('new-article-popup');
@@ -1636,8 +1548,8 @@ map.on('zoomend', () => {
                 }, 1500); 
             }
         });
-        const RECAPTCHA_SITE_KEY = "6LcZWbEtAAAAAGUbDVdGyE-Hdis9lPgicENsV7rE"; // 替換為你的 reCAPTCHA v3 Site Key
 
+        // --- 訂閱表單處理 ---
         const toggleSubBtn = document.getElementById('toggle-subscribe-btn');
         const subContainer = document.getElementById('subscribe-container');
         const subForm = document.getElementById('subscribe-form');
@@ -1645,7 +1557,6 @@ map.on('zoomend', () => {
         const submitBtn = document.getElementById('subscribe-submit-btn');
         const statusText = document.getElementById('subscribe-status');
         
-        // 展開 / 收合輸入欄
         toggleSubBtn.addEventListener('click', () => {
             subContainer.classList.toggle('hidden');
             if (!subContainer.classList.contains('hidden')) {
@@ -1653,11 +1564,9 @@ map.on('zoomend', () => {
             }
         });
         
-        // 表單送出處理
         subForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // ⏱️ 檢查訂閱冷卻時間（60 秒）
             const COOLDOWN_TIME = 60 * 1000;
             const lastSubTime = localStorage.getItem('last_subscribe_time');
             const now = Date.now();
@@ -1679,8 +1588,6 @@ map.on('zoomend', () => {
             submitBtn.innerText = '處理中...';
 
             try {
-
-                // 2. 獲取 IP 與地理資訊
                 let ip = '', country = '', countryCode = '', city = '', region = '';
                 try {
                     const geoRes = await fetch('https://ipapi.co/json/');
@@ -1696,7 +1603,6 @@ map.on('zoomend', () => {
                     console.warn('無法抓取地理資訊，略過：', geoErr);
                 }
 
-                // 3. 獲取頁面與裝置環境資訊
                 const pageUrl = window.location.href;
                 const referrer = document.referrer || 'Direct / Bookmark';
                 const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
@@ -1704,31 +1610,21 @@ map.on('zoomend', () => {
 
                 submitBtn.innerText = '儲存中...';
 
-                // 4. 改為發送給 Firebase Cloud Functions 進行 reCAPTCHA 驗證與寫入
-                const response = await fetch("https://<您的地區>-europe-solo-travel.cloudfunctions.net/submitSubscribe", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        token: token,
-                        email: email,
-                        ip: ip,
-                        country: country,
-                        countryCode: countryCode,
-                        city: city,
-                        region: region,
-                        pageUrl: pageUrl,
-                        referrer: referrer,
-                        deviceType: deviceType,
-                        browserLanguage: browserLanguage
-                    })
+                // ✅ 直接寫入 Firestore，Firebase App Check 會在背景自動帶上驗證權杖！
+                await window.addDoc(window.collection(window.db, "subscribers"), {
+                    email: email,
+                    ip: ip,
+                    createdAt: window.serverTimestamp(),
+                    country: country,
+                    countryCode: countryCode,
+                    city: city,
+                    region: region,
+                    pageUrl: pageUrl,
+                    referrer: referrer,
+                    deviceType: deviceType,
+                    browserLanguage: browserLanguage
                 });
-                
-                const result = await response.json();
-                if (!result.success) {
-                    throw new Error(result.message || "reCAPTCHA 驗證未通過");
-                }
 
-                // ✅ 寫入成功後，記錄當前時間戳記
                 localStorage.setItem('last_subscribe_time', Date.now().toString());
 
                 showStatus('🎉 訂閱成功！新文章上線時會通知你。', 'text-emerald-600');
@@ -1753,7 +1649,7 @@ map.on('zoomend', () => {
             statusText.classList.remove('hidden');
         }
 
-        // 👇 新增：意見回饋表單邏輯 👇
+        // --- 意見回饋表單處理 ---
         window.toggleFeedback = function() {
             const widget = document.getElementById('feedback-widget');
             widget.classList.toggle('-translate-x-[calc(100%-2.5rem)]');
@@ -1766,7 +1662,6 @@ map.on('zoomend', () => {
         feedbackForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            // ⏱️ 1. 檢查 60 秒冷卻時間
             const COOLDOWN_TIME = 60 * 1000;
             const lastFeedbackTime = localStorage.getItem('last_feedback_time');
             const now = Date.now();
@@ -1782,7 +1677,6 @@ map.on('zoomend', () => {
             const emailOrContact = document.getElementById('feedback-contact').value.trim();
             const content = document.getElementById('feedback-content').value.trim();
 
-            // ⚠️ 2. 檢查字數是否至少 10 個字
             if (content.length < 10) {
                 feedbackStatus.innerText = `⚠️ 內容至少需填寫 10 個字喔！（目前 ${content.length} 字）`;
                 feedbackStatus.className = 'text-xs mt-2 text-center font-medium text-red-500';
@@ -1795,11 +1689,6 @@ map.on('zoomend', () => {
             feedbackSubmitBtn.innerText = '傳送中...';
 
             try {
-                // 3. reCAPTCHA 驗證
-                const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_feedback' });
-                if (!token) throw new Error('無法通過驗證');
-
-                // 4. 獲取 IP 與地理資訊
                 let ip = '', country = '', countryCode = '', city = '', region = '';
                 try {
                     const geoRes = await fetch('https://ipapi.co/json/');
@@ -1815,7 +1704,6 @@ map.on('zoomend', () => {
                     console.warn('無法抓取地理資訊，略過：', geoErr);
                 }
 
-                // 5. 獲取頁面與裝置環境資訊
                 const pageUrl = window.location.href;
                 const referrer = document.referrer || 'Direct / Bookmark';
                 const deviceType = /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
@@ -1823,7 +1711,7 @@ map.on('zoomend', () => {
 
                 feedbackSubmitBtn.innerText = '儲存中...';
 
-                // 6. 寫入 Firestore 'feedbacks' collection（包含完整的環境與地理欄位）
+                // ✅ 直接寫入 Firestore，Firebase App Check 會自動防護與評估
                 await window.addDoc(window.collection(window.db, "feedbacks"), {
                     content: content,
                     email: emailOrContact || '匿名',
@@ -1835,12 +1723,10 @@ map.on('zoomend', () => {
                     deviceType: deviceType,
                     ip: ip,
                     pageUrl: pageUrl,
-                    recaptchaToken: token,
                     referrer: referrer,
                     region: region
                 });
 
-                // ✅ 寫入成功後，記錄當前時間戳記
                 localStorage.setItem('last_feedback_time', Date.now().toString());
 
                 feedbackStatus.innerText = '✅ 感謝您的寶貴反饋！';
@@ -1864,8 +1750,6 @@ map.on('zoomend', () => {
                 feedbackSubmitBtn.innerText = '送出回饋';
             }
         });
-        // 👆 新增結束 👆
-        
     </script>
 </body>
 </html>
