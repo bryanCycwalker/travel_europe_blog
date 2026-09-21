@@ -1679,9 +1679,6 @@ map.on('zoomend', () => {
             submitBtn.innerText = '處理中...';
 
             try {
-                // 1. reCAPTCHA 驗證
-                const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'subscribe' });
-                if (!token) throw new Error('無法通過驗證');
 
                 // 2. 獲取 IP 與地理資訊
                 let ip = '', country = '', countryCode = '', city = '', region = '';
