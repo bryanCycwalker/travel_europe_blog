@@ -1704,21 +1704,29 @@ map.on('zoomend', () => {
 
                 submitBtn.innerText = '儲存中...';
 
-                // 4. 寫入 Firebase
-                await window.addDoc(window.collection(window.db, "subscribers"), {
-                    email: email,
-                    recaptchaToken: token,
-                    ip: ip,
-                    createdAt: window.serverTimestamp(),
-                    country: country,
-                    countryCode: countryCode,
-                    city: city,
-                    region: region,
-                    pageUrl: pageUrl,
-                    referrer: referrer,
-                    deviceType: deviceType,
-                    browserLanguage: browserLanguage
+                // 4. 改為發送給 Firebase Cloud Functions 進行 reCAPTCHA 驗證與寫入
+                const response = await fetch("https://<您的地區>-europe-solo-travel.cloudfunctions.net/submitSubscribe", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        token: token,
+                        email: email,
+                        ip: ip,
+                        country: country,
+                        countryCode: countryCode,
+                        city: city,
+                        region: region,
+                        pageUrl: pageUrl,
+                        referrer: referrer,
+                        deviceType: deviceType,
+                        browserLanguage: browserLanguage
+                    })
                 });
+                
+                const result = await response.json();
+                if (!result.success) {
+                    throw new Error(result.message || "reCAPTCHA 驗證未通過");
+                }
 
                 // ✅ 寫入成功後，記錄當前時間戳記
                 localStorage.setItem('last_subscribe_time', Date.now().toString());
