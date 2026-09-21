@@ -42,7 +42,6 @@
       "dateModified": "2026-05-15"
     }
     </script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LcZWbEtAAAAAGUbDVdGyE-Hdis9lPgicENsV7rE"></script>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
 
@@ -611,8 +610,9 @@
     </script>
     <!-- Firebase SDK 與 訂閱 / 反饋腳本 -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+        import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyComDTkoNW6bOpdEpj00aLHE3XZ3BxXQew",
@@ -625,8 +625,14 @@
         };
 
         const app = initializeApp(firebaseConfig);
+
+        // ✅ 初始化 App Check（自動為每次寫入帶上 reCAPTCHA Enterprise 評分）
+        const appCheck = initializeAppCheck(app, {
+            provider: new ReCaptchaEnterpriseProvider('6LcZWbEtAAAAAGUbDVdGyE-Hdis9lPgicENsV7rE'),
+            isTokenAutoRefreshEnabled: true
+        });
+
         const db = getFirestore(app);
-        const RECAPTCHA_SITE_KEY = "6LcZWbEtAAAAAGUbDVdGyE-Hdis9lPgicENsV7rE";
 
         // --- 全域開關函式 ---
         window.toggleFeedback = function() {
@@ -636,7 +642,7 @@
             }
         };
 
-        // --- 訂閱表單 DOM ---
+        // --- 訂閱表單 DOM 元素 ---
         const toggleBtn = document.getElementById('toggle-subscribe-btn');
         const subContainer = document.getElementById('subscribe-container');
         const subForm = document.getElementById('subscribe-form');
@@ -687,9 +693,6 @@
                 submitBtn.innerText = '處理中...';
 
                 try {
-                    const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'subscribe' });
-                    if (!token) throw new Error('無法通過驗證');
-
                     let ip = '', country = '', countryCode = '', city = '', region = '';
                     try {
                         const geoRes = await fetch('https://ipapi.co/json/');
@@ -712,9 +715,9 @@
 
                     submitBtn.innerText = '儲存中...';
 
+                    // ✅ 直接寫入 Firestore，由 App Check 自動帶權杖
                     await addDoc(collection(db, "subscribers"), {
                         email: email,
-                        recaptchaToken: token,
                         ip: ip,
                         createdAt: serverTimestamp(),
                         country: country,
@@ -784,9 +787,6 @@
                 feedbackSubmitBtn.innerText = '傳送中...';
 
                 try {
-                    const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit_feedback' });
-                    if (!token) throw new Error('無法通過驗證');
-
                     let ip = '', country = '', countryCode = '', city = '', region = '';
                     try {
                         const geoRes = await fetch('https://ipapi.co/json/');
@@ -809,6 +809,7 @@
 
                     feedbackSubmitBtn.innerText = '儲存中...';
 
+                    // ✅ 直接寫入 Firestore，由 App Check 自動帶權杖
                     await addDoc(collection(db, "feedbacks"), {
                         content: content,
                         email: emailOrContact || '匿名',
@@ -820,7 +821,6 @@
                         deviceType: deviceType,
                         ip: ip,
                         pageUrl: pageUrl,
-                        recaptchaToken: token,
                         referrer: referrer,
                         region: region
                     });
