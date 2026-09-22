@@ -1,38 +1,71 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant" class="transition-colors duration-300">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歐洲獨旅安全與求生全攻略：防盜、住宿防雷與生理資源調度 - Europe Solo</title>
-    <meta name="description" content="破解歐洲治安迷思！獨旅者必看的街頭防盜守則、班機與鐵路延誤理賠指南、免費廁所資源調度，以及如何優雅融入歐洲當地文化的真實心法。">
+    <title id="page-title">歐洲獨旅安全與求生全攻略：防盜、住宿防雷與生理資源調度 - Europe Solo</title>
+    <meta id="page-desc" name="description" content="破解歐洲治安迷思！獨旅者必看的街頭防盜守則、班機與鐵路延誤理賠指南、免費廁所資源調度，以及如何優雅融入歐洲當地文化的真實心法。">
+    
+    <!-- 預防 FOUC (閃爍) 的 Dark Mode 初始化腳本 -->
+    <script>
+        if (localStorage.getItem('darkMode') === 'true' || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <link rel="icon" type="image/png" href="images/Favicon.png">
     <style>
         html { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #1e293b; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #475569; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .dark ::-webkit-scrollbar-thumb:hover { background: #64748b; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans leading-relaxed transition-colors duration-300">
 
-    <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out">
+    <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm dark:shadow-gray-800 flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out border-b border-transparent dark:border-gray-800">
         <div class="text-xl font-bold tracking-tighter">
-            <a href="index.html" class="hover:opacity-80 transition">EUROPE<span class="text-blue-600">SOLO</span></a>
+            <a href="index.html" class="hover:opacity-80 transition">EUROPE<span class="text-blue-600 dark:text-blue-400">SOLO</span></a>
         </div>
         <div class="flex items-center space-x-3">
-            <a href="about.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-sm">關於我</a>
+            <!-- Dark Mode Toggle Button -->
+            <button id="themeToggle" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                <span id="themeIcon">🌙</span>
+            </button>
+            
+            <!-- Language Toggle Button -->
+            <button id="langToggle" class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition font-bold text-sm">
+                EN
+            </button>
+            
+            <a href="about.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 dark:hover:bg-blue-500 transition shadow-sm">
+                <span class="lang-zh">關於我</span>
+                <span class="lang-en hidden">About</span>
+            </a>
         </div>
     </nav>
     <div class="h-20"></div>
 
-    <header class="bg-slate-800 text-white py-16 px-6 text-center relative overflow-hidden">
+    <header class="bg-slate-800 dark:bg-slate-950 text-white py-16 px-6 text-center relative overflow-hidden transition-colors duration-300">
         <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-400 via-transparent to-transparent"></div>
         <div class="relative z-10 max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">歐洲獨旅安全與求生全攻略</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+                <span class="lang-zh">歐洲獨旅安全與求生全攻略</span>
+                <span class="lang-en hidden">Europe Solo Travel Safety & Survival Guide</span>
+            </h1>
             <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                睡得穩、不被搶、不憋尿。從街頭防盜到交通延誤理賠，這是一份用親身跌倒經驗換來的保命指南。
+                <span class="lang-zh">睡得穩、不被搶、不憋尿。從街頭防盜到交通延誤理賠，這是一份用親身跌倒經驗換來的保命指南。</span>
+                <span class="lang-en hidden">Sleep well, stay safe, and survive smoothly. From street anti-theft to transit delay compensation, this is a life-saving guide born from firsthand hard lessons.</span>
             </p>
         </div>
     </header>
@@ -40,15 +73,18 @@
     <main class="max-w-6xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
         
         <aside class="hidden lg:block w-64 flex-shrink-0">
-            <div class="sticky top-32 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <h3 class="font-bold text-gray-900 mb-4 text-lg border-b pb-2">攻略目錄</h3>
-                <ul class="space-y-3 text-sm font-medium text-gray-500">
-                    <li><a href="#tracking" class="hover:text-blue-600 transition block">📍 隱形防護：定位與通報</a></li>
-                    <li><a href="#accommodation" class="hover:text-indigo-600 transition block">🏠 住宿防雷：區域與評分</a></li>
-                    <li><a href="#security" class="hover:text-rose-600 transition block">🛡️ 街頭防禦：防盜與偽裝</a></li>
-                    <li><a href="#survival" class="hover:text-teal-600 transition block">🚰 生存直覺：資源調度</a></li>
-                    <li><a href="#mindset" class="hover:text-amber-600 transition block">🥂 文化心態：避免社死</a></li>
-                    <li><a href="#emergency" class="hover:text-purple-600 transition block">🚨 應急權益：理賠與遺失</a></li>
+            <div class="sticky top-32 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                <h3 class="font-bold text-gray-900 dark:text-gray-100 mb-4 text-lg border-b dark:border-gray-700 pb-2">
+                    <span class="lang-zh">攻略目錄</span>
+                    <span class="lang-en hidden">Guide Index</span>
+                </h3>
+                <ul class="space-y-3 text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <li><a href="#tracking" class="hover:text-blue-600 dark:hover:text-blue-400 transition block"><span class="lang-zh">📍 隱形防護：定位與通報</span><span class="lang-en hidden">📍 Invisible Shield: Tracking & Alerts</span></a></li>
+                    <li><a href="#accommodation" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition block"><span class="lang-zh">🏠 住宿防雷：區域與評分</span><span class="lang-en hidden">🏠 Accommodation: Areas & Ratings</span></a></li>
+                    <li><a href="#security" class="hover:text-rose-600 dark:hover:text-rose-400 transition block"><span class="lang-zh">🛡️ 街頭防禦：防盜與偽裝</span><span class="lang-en hidden">🛡️ Street Defense: Anti-Theft & Disguise</span></a></li>
+                    <li><a href="#survival" class="hover:text-teal-600 dark:hover:text-teal-400 transition block"><span class="lang-zh">🚰 生存直覺：資源調度</span><span class="lang-en hidden">🚰 Survival Instincts: Resource Mgmt</span></a></li>
+                    <li><a href="#mindset" class="hover:text-amber-600 dark:hover:text-amber-400 transition block"><span class="lang-zh">🥂 文化心態：避免社死</span><span class="lang-en hidden">🥂 Cultural Mindset: Avoid Faux Pas</span></a></li>
+                    <li><a href="#emergency" class="hover:text-purple-600 dark:hover:text-purple-400 transition block"><span class="lang-zh">🚨 應急權益：理賠與遺失</span><span class="lang-en hidden">🚨 Emergency Rights: Claims & Loss</span></a></li>
                 </ul>
             </div>
         </aside>
@@ -57,44 +93,84 @@
 
             <section id="tracking" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl">📍</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">隱形防護網：定位與緊急通報</h2>
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center text-2xl">📍</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+                        <span class="lang-zh">隱形防護網：定位與緊急通報</span>
+                        <span class="lang-en hidden">Invisible Shield: Tracking & Emergency Alerts</span>
+                    </h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <p class="text-gray-700 leading-relaxed mb-6">獨旅代表你必須對自己負全責。在享受自由的同時，建立一道「遠端防護網」與準備好緊急求助資源，是出發前最基本且必須做好的功課：</p>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                        <span class="lang-zh">獨旅代表你必須對自己負全責。在享受自由的同時，建立一道「遠端防護網」與準備好緊急求助資源，是出發前最基本且必須做好的功課：</span>
+                        <span class="lang-en hidden">Solo travel means taking full responsibility for yourself. While enjoying freedom, establishing a "remote safety net" and preparing emergency resources is the most basic and essential homework before departure:</span>
+                    </p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-blue-50 border border-blue-100 p-5 rounded-xl">
-                            <div class="text-blue-800 font-bold mb-2 flex items-center gap-2"><span>📄</span> 留底行程表</div>
-                            <p class="text-sm text-gray-700 leading-relaxed">出發前，請將詳細行程（包含班機班號、各城市住宿名稱與聯絡地址）整理成一份文件，留給你最信任的家人或朋友。</p>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50 p-5 rounded-xl transition-colors duration-300">
+                            <div class="text-blue-800 dark:text-blue-300 font-bold mb-2 flex items-center gap-2">
+                                <span>📄</span>
+                                <span class="lang-zh">留底行程表</span><span class="lang-en hidden">Leave an Itinerary Copy</span>
+                            </div>
+                            <p class="text-sm text-gray-700 dark:text-gray-400 leading-relaxed">
+                                <span class="lang-zh">出發前，請將詳細行程（包含班機班號、各城市住宿名稱與聯絡地址）整理成一份文件，留給你最信任的家人或朋友。</span>
+                                <span class="lang-en hidden">Before departure, compile a detailed itinerary (including flight numbers, accommodation names, and addresses for each city) into a document and leave it with your most trusted family or friends.</span>
+                            </p>
                         </div>
-                        <div class="bg-blue-50 border border-blue-100 p-5 rounded-xl">
-                            <div class="text-blue-800 font-bold mb-2 flex items-center gap-2"><span>📱</span> 開啟定位分享</div>
-                            <p class="text-sm text-gray-700 leading-relaxed">強烈建議使用 <strong>Google Maps「位置資訊分享」</strong> 或 <strong>Apple「尋找」</strong>。讓家人隨時能看到你的即時位置，這是最後的保命底線。</p>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/50 p-5 rounded-xl transition-colors duration-300">
+                            <div class="text-blue-800 dark:text-blue-300 font-bold mb-2 flex items-center gap-2">
+                                <span>📱</span>
+                                <span class="lang-zh">開啟定位分享</span><span class="lang-en hidden">Enable Location Sharing</span>
+                            </div>
+                            <p class="text-sm text-gray-700 dark:text-gray-400 leading-relaxed">
+                                <span class="lang-zh">強烈建議使用 <strong>Google Maps「位置資訊分享」</strong> 或 <strong>Apple「尋找」</strong>。讓家人隨時能看到你的即時位置，這是最後的保命底線。</span>
+                                <span class="lang-en hidden">Highly recommend using <strong>Google Maps "Location Sharing"</strong> or <strong>Apple "Find My"</strong>. Letting family see your real-time location is the ultimate lifeline.</span>
+                            </p>
                         </div>
                     </div>
 
-                    <div class="border-t border-gray-100 pt-8 mt-2">
-                        <h3 class="text-gray-900 font-extrabold text-xl mb-4 flex items-center gap-2">
-                            <span class="text-2xl">🆘</span> 歐洲必備 SOS 應變工具箱
+                    <div class="border-t border-gray-100 dark:border-gray-700 pt-8 mt-2 transition-colors duration-300">
+                        <h3 class="text-gray-900 dark:text-gray-100 font-extrabold text-xl mb-4 flex items-center gap-2">
+                            <span class="text-2xl">🆘</span> 
+                            <span class="lang-zh">歐洲必備 SOS 應變工具箱</span>
+                            <span class="lang-en hidden">Europe Essential SOS Toolkit</span>
                         </h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div class="border border-gray-200 p-4 rounded-xl hover:border-red-300 transition">
-                                <div class="font-bold text-red-600 mb-1">112 泛歐急難專線</div>
-                                <p class="text-xs text-gray-600 leading-relaxed">歐洲跨國通用的緊急報案專線（涵蓋警察、救護、消防）。<strong>即使手機沒有當地 SIM 卡，只要連上任一基地台就能撥打！</strong></p>
+                            <div class="border border-gray-200 dark:border-gray-700 p-4 rounded-xl hover:border-red-300 dark:hover:border-red-500 transition-colors duration-300">
+                                <div class="font-bold text-red-600 dark:text-red-400 mb-1">
+                                    <span class="lang-zh">112 泛歐急難專線</span><span class="lang-en hidden">112 Pan-European Emergency Number</span>
+                                </div>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    <span class="lang-zh">歐洲跨國通用的緊急報案專線（涵蓋警察、救護、消防）。<strong>即使手機沒有當地 SIM 卡，只要連上任一基地台就能撥打！</strong></span>
+                                    <span class="lang-en hidden">The universal emergency number across Europe (covers police, ambulance, fire). <strong>Even without a local SIM card, you can dial it as long as connected to any cell tower!</strong></span>
+                                </p>
                             </div>
-                            <div class="border border-gray-200 p-4 rounded-xl hover:border-blue-300 transition">
-                                <div class="font-bold text-gray-800 mb-1">網銀一鍵鎖卡與掛失電話</div>
-                                <p class="text-xs text-gray-600 leading-relaxed">遇竊時的第一動作！確保網銀 APP 具備「一鍵鎖卡」功能；若無，請先將發卡銀行的「海外掛失免付費電話」存入通訊錄。</p>
+                            <div class="border border-gray-200 dark:border-gray-700 p-4 rounded-xl hover:border-blue-300 dark:hover:border-blue-500 transition-colors duration-300">
+                                <div class="font-bold text-gray-800 dark:text-gray-200 mb-1">
+                                    <span class="lang-zh">網銀一鍵鎖卡與掛失電話</span><span class="lang-en hidden">One-Click Card Lock & Lost Report</span>
+                                </div>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    <span class="lang-zh">遇竊時的第一動作！確保網銀 APP 具備「一鍵鎖卡」功能；若無，請先將發卡銀行的「海外掛失免付費電話」存入通訊錄。</span>
+                                    <span class="lang-en hidden">First action when stolen! Ensure your banking APP has a "one-click lock" feature; if not, save the bank's "overseas toll-free lost report number" in your contacts.</span>
+                                </p>
                             </div>
-                            <div class="border border-gray-200 p-4 rounded-xl hover:border-blue-300 transition">
-                                <div class="font-bold text-gray-800 mb-1">駐外館處聯繫方式</div>
-                                <p class="text-xs text-gray-600 leading-relaxed">護照遭竊是獨旅最大危機。出發前請先下載「旅外救助指南 APP」或將當地代表處的 24 小時急難救助電話存好，這是補辦證件的唯一管道。</p>
+                            <div class="border border-gray-200 dark:border-gray-700 p-4 rounded-xl hover:border-blue-300 dark:hover:border-blue-500 transition-colors duration-300">
+                                <div class="font-bold text-gray-800 dark:text-gray-200 mb-1">
+                                    <span class="lang-zh">駐外館處聯繫方式</span><span class="lang-en hidden">Embassy / Consulate Contacts</span>
+                                </div>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    <span class="lang-zh">護照遭竊是獨旅最大危機。出發前請先下載「旅外救助指南 APP」或將當地代表處的 24 小時急難救助電話存好，這是補辦證件的唯一管道。</span>
+                                    <span class="lang-en hidden">A stolen passport is the biggest crisis. Save the 24-hour emergency number of your local representative office before departure; it's the only way to replace documents.</span>
+                                </p>
                             </div>
-                            <div class="border border-gray-200 p-4 rounded-xl hover:border-blue-300 transition">
-                                <div class="font-bold text-gray-800 mb-1">旅遊險海外急難救助專線</div>
-                                <p class="text-xs text-gray-600 leading-relaxed">若在歐洲發生意外需要就醫，千萬別自己墊天價醫藥費。先撥打保險公司的海外救援專線，他們能協助安排就醫並啟動代墊服務。</p>
+                            <div class="border border-gray-200 dark:border-gray-700 p-4 rounded-xl hover:border-blue-300 dark:hover:border-blue-500 transition-colors duration-300">
+                                <div class="font-bold text-gray-800 dark:text-gray-200 mb-1">
+                                    <span class="lang-zh">旅遊險海外急難救助專線</span><span class="lang-en hidden">Travel Insurance Emergency Line</span>
+                                </div>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    <span class="lang-zh">若在歐洲發生意外需要就醫，千萬別自己墊天價醫藥費。先撥打保險公司的海外救援專線，他們能協助安排就醫並啟動代墊服務。</span>
+                                    <span class="lang-en hidden">If you need medical attention in Europe, do not pay astronomical bills yourself. Call your insurance company's overseas rescue line first; they can arrange treatment and advance payment services.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -103,20 +179,33 @@
 
             <section id="accommodation" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-2xl">🏠</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">住宿防雷：區域挑選與評分鐵律</h2>
+                    <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center text-2xl">🏠</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+                        <span class="lang-zh">住宿防雷：區域挑選與評分鐵律</span>
+                        <span class="lang-en hidden">Accommodation Traps: Area Selection & Rating Rules</span>
+                    </h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-6">
-                    <p class="text-gray-700 leading-relaxed mb-6">住宿是你在異鄉唯一的避風港。在歐洲挑選住宿，絕對不能只看照片漂不漂亮，請嚴守以下找房守則：</p>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 mb-6 transition-colors duration-300">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                        <span class="lang-zh">住宿是你在異鄉唯一的避風港。在歐洲挑選住宿，絕對不能只看照片漂不漂亮，請嚴守以下找房守則：</span>
+                        <span class="lang-en hidden">Accommodation is your only safe haven abroad. When picking a place in Europe, never judge just by pretty photos. Strictly follow these house-hunting rules:</span>
+                    </p>
                     
                     <div class="space-y-6">
-                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                        <div class="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 transition-colors duration-300">
                             <details class="group">
                                 <summary class="flex items-center justify-between cursor-pointer list-none">
                                     <div class="flex items-center gap-2">
-                                        <h3 class="text-gray-800 font-bold text-lg"><span>🗺️</span> 避開大城市的「治安地雷區」</h3>
-                                        <span class="bg-red-100 text-red-600 text-xs px-2 py-0.5 rounded-full font-bold">必看避雷</span>
+                                        <h3 class="text-gray-800 dark:text-gray-200 font-bold text-lg">
+                                            <span>🗺️</span> 
+                                            <span class="lang-zh">避開大城市的「治安地雷區」</span>
+                                            <span class="lang-en hidden">Avoid "Danger Zones" in Big Cities</span>
+                                        </h3>
+                                        <span class="bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs px-2 py-0.5 rounded-full font-bold">
+                                            <span class="lang-zh">必看避雷</span>
+                                            <span class="lang-en hidden">Must Read</span>
+                                        </span>
                                     </div>
                                     <div class="text-gray-400 group-open:rotate-180 transition-transform duration-300">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -125,113 +214,132 @@
                                     </div>
                                 </summary>
                         
-                                <div class="mt-4 pt-4 border-t border-gray-200">
-                                    <p class="text-sm text-gray-700 leading-relaxed mb-4">
-                                        歐洲大城市不同區域的安全性天差地遠，千萬不要因為價格便宜就盲目下訂。以下是綜合前人血淚整理出的「獨旅強烈建議避開」區域：
+                                <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                                    <p class="text-sm text-gray-700 dark:text-gray-400 leading-relaxed mb-4">
+                                        <span class="lang-zh">歐洲大城市不同區域的安全性天差地遠，千萬不要因為價格便宜就盲目下訂。以下是綜合前人血淚整理出的「獨旅強烈建議避開」區域：</span>
+                                        <span class="lang-en hidden">The safety of different areas in large European cities varies drastically. Never book blindly just because it's cheap. Here are the "strongly recommended to avoid" areas for solo travelers:</span>
                                     </p>
                         
-                                    <div class="overflow-x-auto bg-white rounded-xl border border-gray-200 shadow-sm">
-                                        <table class="w-full text-left text-sm text-gray-700 min-w-[600px]">
-                                            <thead class="bg-gray-100 border-b border-gray-200 text-gray-800">
+                                    <div class="overflow-x-auto bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm transition-colors duration-300">
+                                        <table class="w-full text-left text-sm text-gray-700 dark:text-gray-300 min-w-[600px]">
+                                            <thead class="bg-gray-100 dark:bg-gray-700/50 border-b border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200">
                                                 <tr>
-                                                    <th class="px-4 py-3 font-bold w-1/4">國家 / 城市</th>
-                                                    <th class="px-4 py-3 font-bold w-1/3">❌ 需警戒 / 避開區域</th>
-                                                    <th class="px-4 py-3 font-bold">🛑 避雷原因與常見評價</th>
+                                                    <th class="px-4 py-3 font-bold w-1/4"><span class="lang-zh">國家 / 城市</span><span class="lang-en hidden">Country / City</span></th>
+                                                    <th class="px-4 py-3 font-bold w-1/3"><span class="lang-zh">❌ 需警戒 / 避開區域</span><span class="lang-en hidden">❌ Areas to Avoid</span></th>
+                                                    <th class="px-4 py-3 font-bold"><span class="lang-zh">🛑 避雷原因與常見評價</span><span class="lang-en hidden">🛑 Reason & Common Reviews</span></th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="divide-y divide-gray-100 font-medium">
-                                                <tr class="hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇮🇹 義大利｜羅馬</td>
-                                                    <td class="px-4 py-3 text-red-600">Termini 車站周邊<br><span class="text-xs text-gray-500">(尤其小巷內)</span></td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">詐騙與扒手多，夜晚氛圍不佳。「方便但不安心」。</td>
+                                            <tbody class="divide-y divide-gray-100 dark:divide-gray-700/50 font-medium">
+                                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇮🇹 義大利｜羅馬</span><span class="lang-en hidden">🇮🇹 Italy | Rome</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400">Termini <span class="lang-zh">車站周邊</span><span class="lang-en hidden">Station Area</span><br><span class="text-xs text-gray-500 dark:text-gray-400">(<span class="lang-zh">尤其小巷內</span><span class="lang-en hidden">Especially alleys</span>)</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">詐騙與扒手多，夜晚氛圍不佳。「方便但不安心」。</span><span class="lang-en hidden">Scams and pickpockets; bad vibe at night. "Convenient but unsafe."</span></td>
                                                 </tr>
-                                                <tr class="bg-gray-50/50 hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇮🇹 義大利｜米蘭</td>
-                                                    <td class="px-4 py-3 text-red-600">Stazione Centrale 周邊</td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">白天OK，晚上風險上升，小偷、騙子常見。</td>
+                                                <tr class="bg-gray-50/50 dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇮🇹 義大利｜米蘭</span><span class="lang-en hidden">🇮🇹 Italy | Milan</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400">Stazione Centrale <span class="lang-zh">周邊</span><span class="lang-en hidden">Area</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">白天OK，晚上風險上升，小偷、騙子常見。</span><span class="lang-en hidden">OK by day, risk rises at night. Thieves and scammers are common.</span></td>
                                                 </tr>
-                                                <tr class="hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇪🇸 西班牙｜巴塞隆納</td>
-                                                    <td class="px-4 py-3 text-red-600">El Raval 區<br>哥德區 <span class="text-xs text-gray-500">(深夜小巷)</span></td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">扒手、毒品頻傳，夜間治安極差。</td>
+                                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇪🇸 西班牙｜巴塞隆納</span><span class="lang-en hidden">🇪🇸 Spain | Barcelona</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400">El Raval <span class="lang-zh">區</span><span class="lang-en hidden">District</span><br><span class="lang-zh">哥德區</span><span class="lang-en hidden">Gothic Quarter</span> <span class="text-xs text-gray-500 dark:text-gray-400">(<span class="lang-zh">深夜小巷</span><span class="lang-en hidden">Late night alleys</span>)</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">扒手、毒品頻傳，夜間治安極差。</span><span class="lang-en hidden">Pickpockets, drugs. Very poor security at night.</span></td>
                                                 </tr>
-                                                <tr class="bg-gray-50/50 hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇬🇧 英國｜倫敦</td>
-                                                    <td class="px-4 py-3 text-red-600">Tottenham / Edmonton<br>Croydon <span class="text-xs text-gray-500">(部分)</span></td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">偏離觀光區，當地治安評價普遍較差。</td>
+                                                <tr class="bg-gray-50/50 dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇬🇧 英國｜倫敦</span><span class="lang-en hidden">🇬🇧 UK | London</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400">Tottenham / Edmonton<br>Croydon <span class="text-xs text-gray-500 dark:text-gray-400">(<span class="lang-zh">部分</span><span class="lang-en hidden">Parts</span>)</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">偏離觀光區，當地治安評價普遍較差。</span><span class="lang-en hidden">Away from tourist areas, local security ratings are generally poor.</span></td>
                                                 </tr>
-                                                <tr class="hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇩🇪 德國｜柏林</td>
-                                                    <td class="px-4 py-3 text-red-600">Kottbusser Tor<br>Neukölln <span class="text-xs text-gray-500">(部分)</span></td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">毒品交易問題，夜晚氣氛混亂。</td>
+                                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇩🇪 德國｜柏林</span><span class="lang-en hidden">🇩🇪 Germany | Berlin</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400">Kottbusser Tor<br>Neukölln <span class="text-xs text-gray-500 dark:text-gray-400">(<span class="lang-zh">部分</span><span class="lang-en hidden">Parts</span>)</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">毒品交易問題，夜晚氣氛混亂。</span><span class="lang-en hidden">Drug dealing issues, chaotic atmosphere at night.</span></td>
                                                 </tr>
-                                                <tr class="bg-gray-50/50 hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇧🇪 比利時｜布魯塞爾</td>
-                                                    <td class="px-4 py-3 text-red-600">Bruxelles Midi 車站附近</td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">治安極差，扒手最猖獗的熱點。</td>
+                                                <tr class="bg-gray-50/50 dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇧🇪 比利時｜布魯塞爾</span><span class="lang-en hidden">🇧🇪 Belgium | Brussels</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400">Bruxelles Midi <span class="lang-zh">車站附近</span><span class="lang-en hidden">Station Area</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">治安極差，扒手最猖獗的熱點。</span><span class="lang-en hidden">Extremely poor security, pickpocket hotspot.</span></td>
                                                 </tr>
-                                                <tr class="hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇳🇱 荷蘭｜阿姆斯特丹</td>
-                                                    <td class="px-4 py-3 text-red-600">Red Light District (紅燈區)</td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">醉漢多且吵鬧，對獨旅住宿不穩定感高。</td>
+                                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇳🇱 荷蘭｜阿姆斯特丹</span><span class="lang-en hidden">🇳🇱 Netherlands | Amsterdam</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400">Red Light District <span class="lang-zh">(紅燈區)</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">醉漢多且吵鬧，對獨旅住宿不穩定感高。</span><span class="lang-en hidden">Many drunkards and noisy, high instability for solo stays.</span></td>
                                                 </tr>
-                                                <tr class="bg-gray-50/50 hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇨🇿 捷克｜布拉格</td>
-                                                    <td class="px-4 py-3 text-red-600">主車站周邊 (Hlavní nádraží)</td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">晚上怪人、詐騙多，氛圍較不安全。</td>
+                                                <tr class="bg-gray-50/50 dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇨🇿 捷克｜布拉格</span><span class="lang-en hidden">🇨🇿 Czechia | Prague</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400"><span class="lang-zh">主車站周邊</span><span class="lang-en hidden">Main Station Area</span> (Hlavní nádraží)</td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">晚上怪人、詐騙多，氛圍較不安全。</span><span class="lang-en hidden">Weirdos and scams at night, unsafe vibe.</span></td>
                                                 </tr>
-                                                <tr class="hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇫🇷 法國｜巴黎</td>
-                                                    <td class="px-4 py-3 text-red-600">北站 (Gare du Nord)<br>東站 (Gare de l’Est)</td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">入夜後份子極度複雜，治安死角多。</td>
+                                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇫🇷 法國｜巴黎</span><span class="lang-en hidden">🇫🇷 France | Paris</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400"><span class="lang-zh">北站</span><span class="lang-en hidden">Gare du Nord</span><br><span class="lang-zh">東站</span><span class="lang-en hidden">Gare de l’Est</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">入夜後份子極度複雜，治安死角多。</span><span class="lang-en hidden">Extremely complex crowds after dark, many blind spots.</span></td>
                                                 </tr>
-                                                <tr class="bg-gray-50/50 hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇩🇪 德國｜法蘭克福</td>
-                                                    <td class="px-4 py-3 text-red-600">主火車站附近</td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">緊鄰紅燈區與毒品問題區，入夜危險。</td>
+                                                <tr class="bg-gray-50/50 dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇩🇪 德國｜法蘭克福</span><span class="lang-en hidden">🇩🇪 Germany | Frankfurt</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400"><span class="lang-zh">主火車站附近</span><span class="lang-en hidden">Main Station Area</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">緊鄰紅燈區與毒品問題區，入夜危險。</span><span class="lang-en hidden">Next to red-light district & drug zones, dangerous at night.</span></td>
                                                 </tr>
-                                                <tr class="hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇦🇹 奧地利｜維也納</td>
-                                                    <td class="px-4 py-3 text-red-600">西站周邊 (Westbahnhof)</td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">相較市區，入夜後份子較混雜。</td>
+                                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇦🇹 奧地利｜維也納</span><span class="lang-en hidden">🇦🇹 Austria | Vienna</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400"><span class="lang-zh">西站周邊</span><span class="lang-en hidden">Westbahnhof Area</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">相較市區，入夜後份子較混雜。</span><span class="lang-en hidden">Compared to the center, crowds are more mixed at night.</span></td>
                                                 </tr>
-                                                <tr class="bg-gray-50/50 hover:bg-gray-50 transition">
-                                                    <td class="px-4 py-3">🇮🇹 義大利｜卡塔尼亞</td>
-                                                    <td class="px-4 py-3 text-red-600">車站周邊特定街區</td>
-                                                    <td class="px-4 py-3 text-gray-600 font-normal">偏僻街區風險極高，入夜不建議獨自前往。</td>
+                                                <tr class="bg-gray-50/50 dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition">
+                                                    <td class="px-4 py-3"><span class="lang-zh">🇮🇹 義大利｜卡塔尼亞</span><span class="lang-en hidden">🇮🇹 Italy | Catania</span></td>
+                                                    <td class="px-4 py-3 text-red-600 dark:text-red-400"><span class="lang-zh">車站周邊特定街區</span><span class="lang-en hidden">Specific blocks near station</span></td>
+                                                    <td class="px-4 py-3 text-gray-600 dark:text-gray-400 font-normal"><span class="lang-zh">偏僻街區風險極高，入夜不建議獨自前往。</span><span class="lang-en hidden">High risk in remote blocks, not recommended alone at night.</span></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <p class="mt-4 text-xs text-gray-400 italic text-right">註：實際狀況隨當地政策變動，請參考各城市的專門介紹。</p>
+                                    <p class="mt-4 text-xs text-gray-400 italic text-right">
+                                        <span class="lang-zh">註：實際狀況隨當地政策變動，請參考各城市的專門介紹。</span>
+                                        <span class="lang-en hidden">Note: Actual conditions may vary with local policies, refer to city-specific guides.</span>
+                                    </p>
                                 </div>
                             </details>
                         </div>
 
-                        <div class="bg-indigo-50 p-6 md:p-8 rounded-2xl border-2 border-dashed border-indigo-200 relative overflow-hidden">
-                            <div class="absolute -top-6 -right-6 w-24 h-24 bg-indigo-100 rounded-full opacity-50"></div>
+                        <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 md:p-8 rounded-2xl border-2 border-dashed border-indigo-200 dark:border-indigo-800/50 relative overflow-hidden transition-colors duration-300">
+                            <div class="absolute -top-6 -right-6 w-24 h-24 bg-indigo-100 dark:bg-indigo-900/30 rounded-full opacity-50"></div>
                             
-                            <h3 class="text-xl md:text-2xl font-extrabold text-indigo-900 mb-4 flex items-center relative z-10">
-                                <span class="mr-3 text-2xl md:text-3xl">⭐</span> Bryan 實戰筆記：找房黃金鐵律
+                            <h3 class="text-xl md:text-2xl font-extrabold text-indigo-900 dark:text-indigo-300 mb-4 flex items-center relative z-10">
+                                <span class="mr-3 text-2xl md:text-3xl">⭐</span> 
+                                <span class="lang-zh">Bryan 實戰筆記：找房黃金鐵律</span>
+                                <span class="lang-en hidden">Bryan's Field Notes: Golden Rules for Finding Rooms</span>
                             </h3>
                             
-                            <div class="space-y-4 text-gray-700 leading-loose relative z-10 text-sm md:text-base">
+                            <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-loose relative z-10 text-sm md:text-base">
                                 <p>
-                                    無論在哪個平台找房，請務必篩選 <strong>8.0/10 分以上</strong> 的住宿，並養成好習慣去交叉查看 Google Maps 上的最新評價與真實旅客照片，千萬不要嫌麻煩！
+                                    <span class="lang-zh">無論在哪個平台找房，請務必篩選 <strong>8.0/10 分以上</strong> 的住宿，並養成好習慣去交叉查看 Google Maps 上的最新評價與真實旅客照片，千萬不要嫌麻煩！</span>
+                                    <span class="lang-en hidden">No matter which platform you use, always filter for accommodations with <strong>8.0/10+ ratings</strong>. Form a habit of cross-checking recent Google Maps reviews and real traveler photos. Never skip this!</span>
                                 </p>
                                 
-                                <div class="bg-white/90 p-5 rounded-xl border border-indigo-100 shadow-sm mt-4">
-                                    <p class="text-sm font-bold text-indigo-800 mb-3 flex items-center">
-                                        <span class="mr-2">💡</span> 我的黃金篩選順序：
+                                <div class="bg-white/90 dark:bg-gray-800/90 p-5 rounded-xl border border-indigo-100 dark:border-indigo-700/50 shadow-sm mt-4 transition-colors duration-300">
+                                    <p class="text-sm font-bold text-indigo-800 dark:text-indigo-400 mb-3 flex items-center">
+                                        <span class="mr-2">💡</span> 
+                                        <span class="lang-zh">我的黃金篩選順序：</span>
+                                        <span class="lang-en hidden">My Golden Filtering Sequence:</span>
                                     </p>
-                                    <p class="text-sm text-gray-700 mb-4">
-                                        <strong class="text-indigo-600 text-base">評分 8.0+ ➔ 價格 ➔ 交通與位置</strong><br>
-                                        因為我非常能走，所以我寧願住得稍微遠一點點，把省下來的錢拿去吃頓好的。但在這套公式裡，<strong>「評價」這道防線絕對是優先級，無法妥協。</strong>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+                                        <strong class="text-indigo-600 dark:text-indigo-400 text-base">
+                                            <span class="lang-zh">評分 8.0+ ➔ 價格 ➔ 交通與位置</span>
+                                            <span class="lang-en hidden">Rating 8.0+ ➔ Price ➔ Transport & Location</span>
+                                        </strong><br>
+                                        <span class="lang-zh">因為我非常能走，所以我寧願住得稍微遠一點點，把省下來的錢拿去吃頓好的。但在這套公式裡，<strong>「評價」這道防線絕對是優先級，無法妥協。</strong></span>
+                                        <span class="lang-en hidden">Because I can walk a lot, I'd rather stay a bit further out and use the saved money for a good meal. But in this formula, <strong>"Rating" is the absolute priority line of defense, non-negotiable.</strong></span>
                                     </p>
                                     
-                                    <div class="border-t border-indigo-100 pt-4 mt-4">
-                                        <strong class="text-red-600 block mb-1 text-sm">💀 慘痛血淚史：</strong>
-                                        <span class="text-sm text-gray-700 leading-relaxed block">我曾經在東歐為了貪圖離火車站最近，訂了一間剛重新裝潢、但評分只有 7.0 的青旅。結果半夜慘遭歐洲背包客最怕的<strong>「床蝨（Bedbugs）」</strong>攻擊！全身被叮了十幾個包奇癢無比，留下的黑斑我狂塗維他命 C 到現在都還沒完全退去... 評價會低絕對有原因，切勿以身試毒。</span>
+                                    <div class="border-t border-indigo-100 dark:border-indigo-800/50 pt-4 mt-4">
+                                        <strong class="text-red-600 dark:text-red-400 block mb-1 text-sm">
+                                            <span class="lang-zh">💀 慘痛血淚史：</span>
+                                            <span class="lang-en hidden">💀 Painful Blood & Tears History:</span>
+                                        </strong>
+                                        <span class="text-sm text-gray-700 dark:text-gray-400 leading-relaxed block">
+                                            <span class="lang-zh">我曾經在東歐為了貪圖離火車站最近，訂了一間剛重新裝潢、但評分只有 7.0 的青旅。結果半夜慘遭歐洲背包客最怕的<strong>「床蝨（Bedbugs）」</strong>攻擊！全身被叮了十幾個包奇癢無比，留下的黑斑我狂塗維他命 C 到現在都還沒完全退去... 評價會低絕對有原因，切勿以身試毒。</span>
+                                            <span class="lang-en hidden">I once booked a newly renovated but 7.0-rated hostel in Eastern Europe just to be close to the station. Result? I was attacked at midnight by the European backpacker's worst nightmare: <strong>"Bedbugs"</strong>! I got over a dozen insanely itchy bites, and the dark spots haven't fully faded even after obsessively applying Vitamin C... Low ratings always have a reason. Don't be a guinea pig.</span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -242,41 +350,76 @@
 
             <section id="security" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-2xl">🛡️</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">街頭防禦：防盜與行為偽裝</h2>
+                    <div class="w-12 h-12 bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-400 rounded-xl flex items-center justify-center text-2xl">🛡️</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+                        <span class="lang-zh">街頭防禦：防盜與行為偽裝</span>
+                        <span class="lang-en hidden">Street Defense: Anti-Theft & Behavioral Disguise</span>
+                    </h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <p class="text-gray-700 leading-relaxed mb-6">出門在外，防範人為的扒手與詐騙集團是獨旅者的必修課。做到以下兩點防禦，就能避開 90% 以上的街頭危機：</p>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+                        <span class="lang-zh">出門在外，防範人為的扒手與詐騙集團是獨旅者的必修課。做到以下兩點防禦，就能避開 90% 以上的街頭危機：</span>
+                        <span class="lang-en hidden">When traveling abroad, guarding against pickpockets and scam rings is a mandatory lesson for solo travelers. Achieve the following two defenses, and you can avoid over 90% of street crises:</span>
+                    </p>
                     
-                    <div class="mb-8 bg-rose-50 p-6 md:p-8 rounded-2xl border-2 border-dashed border-rose-200 relative overflow-hidden">
-                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-rose-100 rounded-full opacity-50"></div>
+                    <div class="mb-8 bg-rose-50 dark:bg-rose-900/20 p-6 md:p-8 rounded-2xl border-2 border-dashed border-rose-200 dark:border-rose-800/50 relative overflow-hidden transition-colors duration-300">
+                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-rose-100 dark:bg-rose-900/30 rounded-full opacity-50"></div>
                         
-                        <h3 class="text-lg md:text-xl font-extrabold text-rose-900 mb-3 flex items-center relative z-10">
-                            <span class="mr-2 text-2xl">😎</span> Bryan 實戰心得：偽裝的最高境界
+                        <h3 class="text-lg md:text-xl font-extrabold text-rose-900 dark:text-rose-300 mb-3 flex items-center relative z-10">
+                            <span class="mr-2 text-2xl">😎</span> 
+                            <span class="lang-zh">Bryan 實戰心得：偽裝的最高境界</span>
+                            <span class="lang-en hidden">Bryan's Field Notes: The Ultimate Disguise</span>
                         </h3>
                         
-                        <div class="bg-white/90 p-5 rounded-xl border border-rose-100 shadow-sm relative z-10 text-sm text-gray-700 leading-relaxed">
-                            這三年來我只要出門，就將自己當作當地人（甚至不帶防盜腰包）。雖然可能因為我是男生、也可能因為很幸運，但結果是<strong>從未遇上搶劫的事</strong>。把自己融入環境，不顯露慌張與「觀光客」的氣場，往往是最好的防身術。
+                        <div class="bg-white/90 dark:bg-gray-800/90 p-5 rounded-xl border border-rose-100 dark:border-rose-700/50 shadow-sm relative z-10 text-sm text-gray-700 dark:text-gray-300 leading-relaxed transition-colors duration-300">
+                            <span class="lang-zh">這三年來我只要出門，就將自己當作當地人（甚至不帶防盜腰包）。雖然可能因為我是男生、也可能因為很幸運，但結果是<strong>從未遇上搶劫的事</strong>。把自己融入環境，不顯露慌張與「觀光客」的氣場，往往是最好的防身術。</span>
+                            <span class="lang-en hidden">For the past three years whenever I go out, I treat myself like a local (I don't even wear an anti-theft money belt). Though it might be because I'm male, or maybe just lucky, the result is <strong>I've never encountered a robbery</strong>. Blending into the environment without showing panic or a "tourist" aura is often the best self-defense.</span>
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-rose-50 p-6 rounded-xl border border-rose-100 hover:shadow-md transition">
-                            <h3 class="text-rose-800 font-bold text-lg mb-4 flex items-center gap-2"><span>🎒</span> 裝備減法：財不露白</h3>
-                            <ul class="space-y-3 text-sm text-gray-700 leading-relaxed">
-                                <li><strong>• 貴重物品退場：</strong> 盡量不要帶名貴單眼或名牌包在街上晃，這類物品請留在有保險箱的高級飯店內。外出避免拖著大包小包。</li>
-                                <li><strong>• 防盜標準配備：</strong> 使用拉鍊貼背的「防盜背包」，且一定要使用<strong>綁住手機的防盜繫繩</strong>（防飛車或地鐵搶劫）。</li>
-                                <li><strong>• 現金分散放置：</strong> 防盜隱形腰包放護照與大鈔（貼身穿在外套內），口袋只放當天小額零錢。</li>
+                        <div class="bg-rose-50 dark:bg-rose-900/20 p-6 rounded-xl border border-rose-100 dark:border-rose-800/50 hover:shadow-md transition-all duration-300">
+                            <h3 class="text-rose-800 dark:text-rose-300 font-bold text-lg mb-4 flex items-center gap-2">
+                                <span>🎒</span> 
+                                <span class="lang-zh">裝備減法：財不露白</span>
+                                <span class="lang-en hidden">Gear Subtraction: Conceal Wealth</span>
+                            </h3>
+                            <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <li>
+                                    <span class="lang-zh"><strong>• 貴重物品退場：</strong> 盡量不要帶名貴單眼或名牌包在街上晃，這類物品請留在有保險箱的高級飯店內。外出避免拖著大包小包。</span>
+                                    <span class="lang-en hidden"><strong>• Retire Valuables:</strong> Try not to wander the streets with expensive DSLRs or designer bags. Leave these in high-end hotel safes. Avoid dragging lots of bags around.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-zh"><strong>• 防盜標準配備：</strong> 使用拉鍊貼背的「防盜背包」，且一定要使用<strong>綁住手機的防盜繫繩</strong>（防飛車或地鐵搶劫）。</span>
+                                    <span class="lang-en hidden"><strong>• Anti-Theft Standards:</strong> Use an "anti-theft backpack" with back-facing zippers, and strictly use an <strong>anti-theft phone tether</strong> (prevents drive-by or subway snatching).</span>
+                                </li>
+                                <li>
+                                    <span class="lang-zh"><strong>• 現金分散放置：</strong> 防盜隱形腰包放護照與大鈔（貼身穿在外套內），口袋只放當天小額零錢。</span>
+                                    <span class="lang-en hidden"><strong>• Disperse Cash:</strong> Keep your passport and large bills in an invisible money belt (worn tightly under your jacket), and only put small daily change in your pockets.</span>
+                                </li>
                             </ul>
                         </div>
 
-                        <div class="bg-rose-50 p-6 rounded-xl border border-rose-100 hover:shadow-md transition">
-                            <h3 class="text-rose-800 font-bold text-lg mb-4 flex items-center gap-2"><span>🚶‍♂️</span> 行為偽裝：自信與警覺</h3>
-                            <ul class="space-y-3 text-sm text-gray-700 leading-relaxed">
-                                <li><strong>• 走路要有目的性：</strong> 在點與點之間快步移動，就像你平常上班一樣，不要憨憨地停在路中間東張西望。</li>
-                                <li><strong>• 收起你的手機：</strong> 觀光區絕對不要邊走邊滑手機！若嫌不方便，可把手機放在褲子口袋裡(褲子要貼身，口袋有動靜會馬上察覺的那種)。特別在<strong>巴黎、羅馬、巴塞隆納</strong>等大城非常忌諱。查地圖請務必靠牆站、或躲進安全的店家內再看。</li>
-                                <li><strong>• 懂得無視與拒絕：</strong> 遇到行為怪異的人（如手環黨、假簽名真要錢），請直接「眼神死」無視他們並快速走開，千萬不要出於禮貌對話！</li>
+                        <div class="bg-rose-50 dark:bg-rose-900/20 p-6 rounded-xl border border-rose-100 dark:border-rose-800/50 hover:shadow-md transition-all duration-300">
+                            <h3 class="text-rose-800 dark:text-rose-300 font-bold text-lg mb-4 flex items-center gap-2">
+                                <span>🚶‍♂️</span> 
+                                <span class="lang-zh">行為偽裝：自信與警覺</span>
+                                <span class="lang-en hidden">Behavioral Disguise: Confidence & Alertness</span>
+                            </h3>
+                            <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                <li>
+                                    <span class="lang-zh"><strong>• 走路要有目的性：</strong> 在點與點之間快步移動，就像你平常上班一樣，不要憨憨地停在路中間東張西望。</span>
+                                    <span class="lang-en hidden"><strong>• Walk with Purpose:</strong> Move briskly between points like you are commuting to work. Don't stand cluelessly in the middle of the road looking around.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-zh"><strong>• 收起你的手機：</strong> 觀光區絕對不要邊走邊滑手機！若嫌不方便，可把手機放在褲子口袋裡(褲子要貼身，口袋有動靜會馬上察覺的那種)。特別在<strong>巴黎、羅馬、巴塞隆納</strong>等大城非常忌諱。查地圖請務必靠牆站、或躲進安全的店家內再看。</span>
+                                    <span class="lang-en hidden"><strong>• Put Away Your Phone:</strong> Never walk and scroll in tourist areas! Keep your phone in a tight front pocket where you can feel any movement. This is a major taboo, especially in <strong>Paris, Rome, Barcelona</strong>. To check a map, stand against a wall or step into a safe shop.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-zh"><strong>• 懂得無視與拒絕：</strong> 遇到行為怪異的人（如手環黨、假簽名真要錢），請直接「眼神死」無視他們並快速走開，千萬不要出於禮貌對話！</span>
+                                    <span class="lang-en hidden"><strong>• Know How to Ignore & Refuse:</strong> When encountering weirdly behaving people (like bracelet scammers, fake petition signers), give them the "dead stare", ignore them, and walk away quickly. Never engage out of politeness!</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -285,68 +428,106 @@
 
             <section id="survival" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center text-2xl">🚰</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">生存直覺：生理資源調度</h2>
+                    <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 rounded-xl flex items-center justify-center text-2xl">🚰</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+                        <span class="lang-zh">生存直覺：生理資源調度</span>
+                        <span class="lang-en hidden">Survival Instincts: Physiological Resource Management</span>
+                    </h2>
                 </div>
 
-                <div class="bg-teal-50 p-6 md:p-8 rounded-2xl border-2 border-dashed border-teal-200 relative overflow-hidden">
-                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-teal-100 rounded-full opacity-50"></div>
+                <div class="bg-teal-50 dark:bg-teal-900/20 p-6 md:p-8 rounded-2xl border-2 border-dashed border-teal-200 dark:border-teal-800/50 relative overflow-hidden transition-colors duration-300">
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-teal-100 dark:bg-teal-900/30 rounded-full opacity-50"></div>
                     
-                    <h3 class="text-xl md:text-2xl font-extrabold text-teal-900 mb-4 flex items-center relative z-10">
-                        <span class="mr-3 text-2xl md:text-3xl">🧠</span> Bryan 的生存哲學：隨時清空、隨時補滿
+                    <h3 class="text-xl md:text-2xl font-extrabold text-teal-900 dark:text-teal-300 mb-4 flex items-center relative z-10">
+                        <span class="mr-3 text-2xl md:text-3xl">🧠</span> 
+                        <span class="lang-zh">Bryan 的生存哲學：隨時清空、隨時補滿</span>
+                        <span class="lang-en hidden">Bryan's Survival Philosophy: Empty & Refill Anytime</span>
                     </h3>
                     
-                    <div class="space-y-4 text-gray-700 leading-loose relative z-10 text-sm md:text-base">
-                        <p class="font-bold text-gray-800 text-lg mb-2">
-                            在歐洲，免費廁所與裝水是「稀缺資源」。<br class="hidden md:block">
-                            我的核心心法是：<span class="text-red-600 underline decoration-red-200 underline-offset-4">只要有機會就使用，不要管當下是否急需。</span>
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-loose relative z-10 text-sm md:text-base">
+                        <p class="font-bold text-gray-800 dark:text-gray-200 text-lg mb-2">
+                            <span class="lang-zh">在歐洲，免費廁所與裝水是「稀缺資源」。</span>
+                            <span class="lang-en hidden">In Europe, free toilets and water refills are "scarce resources."</span><br class="hidden md:block">
+                            <span class="lang-zh">我的核心心法是：<span class="text-red-600 dark:text-red-400 underline decoration-red-200 dark:decoration-red-800 underline-offset-4">只要有機會就使用，不要管當下是否急需。</span></span>
+                            <span class="lang-en hidden">My core principle: <span class="text-red-600 dark:text-red-400 underline decoration-red-200 dark:decoration-red-800 underline-offset-4">Use them whenever you have the chance, regardless of whether you urgently need to right now.</span></span>
                         </p>
                         
-                        <div class="bg-white/90 p-5 md:p-6 rounded-xl border border-teal-100 shadow-sm mt-4">
+                        <div class="bg-white/90 dark:bg-gray-800/90 p-5 md:p-6 rounded-xl border border-teal-100 dark:border-teal-800/50 shadow-sm mt-4 transition-colors duration-300">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                                 <div class="flex gap-3">
-                                    <span class="text-teal-600 font-bold text-lg">01.</span>
-                                    <p class="text-sm text-gray-600 leading-relaxed">
-                                        <strong class="text-gray-900">火車與長途巴士：</strong> 移動時是最佳清理時間。注意長途巴士偶爾廁所會鎖起來，上車前最好先在車站解決。
+                                    <span class="text-teal-600 dark:text-teal-400 font-bold text-lg">01.</span>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                        <strong class="text-gray-900 dark:text-gray-200">
+                                            <span class="lang-zh">火車與長途巴士：</span>
+                                            <span class="lang-en hidden">Trains & Long-distance Buses:</span>
+                                        </strong> 
+                                        <span class="lang-zh">移動時是最佳清理時間。注意長途巴士偶爾廁所會鎖起來，上車前最好先在車站解決。</span>
+                                        <span class="lang-en hidden">Moving time is the best time to clear up. Note that bus toilets might occasionally be locked; it's best to solve this at the station before boarding.</span>
                                     </p>
                                 </div>
                                 <div class="flex gap-3">
-                                    <span class="text-teal-600 font-bold text-lg">02.</span>
-                                    <p class="text-sm text-gray-600 leading-relaxed">
-                                        <strong class="text-gray-900">機場：</strong> 絕大多數免費，但有例外！如比利時 Charleroi (CRL) 廉航機場，連過了安檢的管制區內都要收費。
+                                    <span class="text-teal-600 dark:text-teal-400 font-bold text-lg">02.</span>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                        <strong class="text-gray-900 dark:text-gray-200">
+                                            <span class="lang-zh">機場：</span>
+                                            <span class="lang-en hidden">Airports:</span>
+                                        </strong> 
+                                        <span class="lang-zh">絕大多數免費，但有例外！如比利時 Charleroi (CRL) 廉航機場，連過了安檢的管制區內都要收費。</span>
+                                        <span class="lang-en hidden">Mostly free, but there are exceptions! Like Belgium's Charleroi (CRL) budget airport, where even toilets past security are charged.</span>
                                     </p>
                                 </div>
                                 <div class="flex gap-3">
-                                    <span class="text-teal-600 font-bold text-lg">03.</span>
-                                    <p class="text-sm text-gray-600 leading-relaxed">
-                                        <strong class="text-gray-900">連鎖餐飲與速食：</strong> 觀光區的麥當勞、肯德基常有閘門，必須憑購餐單據上的 <span class="bg-yellow-100 px-1 font-bold text-gray-900">條碼密碼</span> 才能進入。
+                                    <span class="text-teal-600 dark:text-teal-400 font-bold text-lg">03.</span>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                        <strong class="text-gray-900 dark:text-gray-200">
+                                            <span class="lang-zh">連鎖餐飲與速食：</span>
+                                            <span class="lang-en hidden">Chain Restaurants & Fast Food:</span>
+                                        </strong> 
+                                        <span class="lang-zh">觀光區的麥當勞、肯德基常有閘門，必須憑購餐單據上的 <span class="bg-yellow-100 dark:bg-yellow-900/30 px-1 font-bold text-gray-900 dark:text-yellow-400">條碼密碼</span> 才能進入。</span>
+                                        <span class="lang-en hidden">McDonald's and KFC in tourist areas often have turnstiles, requiring a <span class="bg-yellow-100 dark:bg-yellow-900/30 px-1 font-bold text-gray-900 dark:text-yellow-400">barcode passcode</span> from your receipt to enter.</span>
                                     </p>
                                 </div>
                                 <div class="flex gap-3">
-                                    <span class="text-teal-600 font-bold text-lg">04.</span>
-                                    <p class="text-sm text-gray-600 leading-relaxed">
-                                        <strong class="text-gray-900">高端百貨公司：</strong> 認準老佛爺或大型精品百貨。車站旁的一般百貨常無廁所，或是有阿伯大媽守門收費(但有些非工作人員也會站在那裏跟你要錢，這時就觀察其他人是否給錢就對了)。
+                                    <span class="text-teal-600 dark:text-teal-400 font-bold text-lg">04.</span>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                        <strong class="text-gray-900 dark:text-gray-200">
+                                            <span class="lang-zh">高端百貨公司：</span>
+                                            <span class="lang-en hidden">High-End Department Stores:</span>
+                                        </strong> 
+                                        <span class="lang-zh">認準老佛爺或大型精品百貨。車站旁的一般百貨常無廁所，或是有阿伯大媽守門收費(但有些非工作人員也會站在那裏跟你要錢，這時就觀察其他人是否給錢就對了)。</span>
+                                        <span class="lang-en hidden">Look for Galeries Lafayette or large luxury malls. Regular malls near stations often have no toilets, or have an attendant collecting fees (if random people stand there asking for money, just observe if others are paying).</span>
                                     </p>
                                 </div>
                                 
-                                <div class="flex gap-3 md:col-span-2 border-t border-gray-100 pt-5 mt-2">
-                                    <span class="text-teal-600 font-bold text-lg">05.</span>
-                                    <div class="text-sm text-gray-600 leading-relaxed w-full">
-                                        <strong class="text-gray-900 block mb-3 text-base flex items-center gap-2">
-                                            <span class="text-xl">🚰</span> Tap Water 直飲地圖
+                                <div class="flex gap-3 md:col-span-2 border-t border-gray-100 dark:border-gray-700 pt-5 mt-2 transition-colors duration-300">
+                                    <span class="text-teal-600 dark:text-teal-400 font-bold text-lg">05.</span>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed w-full">
+                                        <strong class="text-gray-900 dark:text-gray-200 block mb-3 text-base flex items-center gap-2">
+                                            <span class="text-xl">🚰</span> 
+                                            <span class="lang-zh">Tap Water 直飲地圖</span>
+                                            <span class="lang-en hidden">Tap Water Direct Drinking Map</span>
                                         </strong>
                                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                                            <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 shadow-sm">
-                                                <span class="text-emerald-700 font-extrabold block mb-1">🟢 沒問題</span>
-                                                西歐、北歐、中歐<br><span class="text-xs text-gray-500">（英/法/德/瑞/奧/荷等）</span>
+                                            <div class="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-xl border border-emerald-100 dark:border-emerald-800/50 shadow-sm transition-colors duration-300">
+                                                <span class="text-emerald-700 dark:text-emerald-400 font-extrabold block mb-1">
+                                                    <span class="lang-zh">🟢 沒問題</span><span class="lang-en hidden">🟢 No Problem</span>
+                                                </span>
+                                                <span class="lang-zh">西歐、北歐、中歐<br><span class="text-xs text-gray-500 dark:text-gray-400">（英/法/德/瑞/奧/荷等）</span></span>
+                                                <span class="lang-en hidden">Western, Northern, Central Europe<br><span class="text-xs text-gray-500 dark:text-gray-400">(UK/FR/DE/CH/AT/NL, etc.)</span></span>
                                             </div>
-                                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-100 shadow-sm">
-                                                <span class="text-blue-700 font-extrabold block mb-1">🔵 需留意</span>
-                                                南歐（義/西/希）大城市 OK，離島或偏鄉建議買水。
+                                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800/50 shadow-sm transition-colors duration-300">
+                                                <span class="text-blue-700 dark:text-blue-400 font-extrabold block mb-1">
+                                                    <span class="lang-zh">🔵 需留意</span><span class="lang-en hidden">🔵 Be Aware</span>
+                                                </span>
+                                                <span class="lang-zh">南歐（義/西/希）大城市 OK，離島或偏鄉建議買水。</span>
+                                                <span class="lang-en hidden">Southern Europe (IT/ES/GR) big cities are OK, islands or rural areas recommend buying water.</span>
                                             </div>
-                                            <div class="bg-amber-50 p-4 rounded-xl border border-amber-100 shadow-sm">
-                                                <span class="text-amber-700 font-extrabold block mb-1">🟠 建議買水</span>
-                                                東歐與巴爾幹半島<br><span class="text-xs text-gray-500">（波蘭除外）</span>
+                                            <div class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-xl border border-amber-100 dark:border-amber-800/50 shadow-sm transition-colors duration-300">
+                                                <span class="text-amber-700 dark:text-amber-400 font-extrabold block mb-1">
+                                                    <span class="lang-zh">🟠 建議買水</span><span class="lang-en hidden">🟠 Buy Water</span>
+                                                </span>
+                                                <span class="lang-zh">東歐與巴爾幹半島<br><span class="text-xs text-gray-500 dark:text-gray-400">（波蘭除外）</span></span>
+                                                <span class="lang-en hidden">Eastern Europe & Balkans<br><span class="text-xs text-gray-500 dark:text-gray-400">(Except Poland)</span></span>
                                             </div>
                                         </div>
                                     </div>
@@ -359,28 +540,35 @@
 
             <section id="mindset" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-2xl">🥂</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">文化心態：避免社死與擁抱變化</h2>
+                    <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 rounded-xl flex items-center justify-center text-2xl">🥂</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+                        <span class="lang-zh">文化心態：避免社死與擁抱變化</span>
+                        <span class="lang-en hidden">Cultural Mindset: Avoid Faux Pas & Embrace Change</span>
+                    </h2>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
                         <div class="text-4xl mb-4">🤫</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">社交禮儀：避免社死現場</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            歐洲人生活步調較慢且注重互相尊重（Chill）。<br><br>
-                            <strong>在餐廳裡（特別是當地傳統餐廳），千萬不要大聲呼喊、招手叫服務生、或是直接走去櫃台要結帳</strong>，這被視為極度不禮貌！正確的做法是運用 <strong>Eye Contact（眼神交會）</strong> 或微微點頭，服務生看到自然會過來。<br><br>
-                            在超市結帳時也請耐心排隊，不要急躁催促前方慢條斯理把零錢收進錢包的當地人。
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                            <span class="lang-zh">社交禮儀：避免社死現場</span>
+                            <span class="lang-en hidden">Social Etiquette: Avoid Social Deaths</span>
+                        </h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            <span class="lang-zh">歐洲人生活步調較慢且注重互相尊重（Chill）。<br><br><strong>在餐廳裡（特別是當地傳統餐廳），千萬不要大聲呼喊、招手叫服務生、或是直接走去櫃台要結帳</strong>，這被視為極度不禮貌！正確的做法是運用 <strong>Eye Contact（眼神交會）</strong> 或微微點頭，服務生看到自然會過來。<br><br>在超市結帳時也請耐心排隊，不要急躁催促前方慢條斯理把零錢收進錢包的當地人。</span>
+                            <span class="lang-en hidden">Europeans have a slower pace of life and emphasize mutual respect (Chill).<br><br><strong>In restaurants (especially local traditional ones), NEVER shout, wave to call a waiter, or walk directly to the counter to pay</strong>, this is considered extremely rude! The correct way is to use <strong>Eye Contact</strong> or a slight nod; the waiter will come when they see you.<br><br>Also, line up patiently at supermarket checkouts, don't hastily urge the local in front of you who is slowly putting coins into their wallet.</span>
                         </p>
                     </div>
 
-                    <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
                         <div class="text-4xl mb-4">🗺️</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">享受意外：隨時推翻計畫</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            帶上一顆開放的心，隨時接受變化。<br><br>
-                            獨旅不需要把行程排得像行軍。留點空白，你會剛好碰上街頭的節慶遊行、青旅室友推薦的私房景點、或路人友善的邀請（但只要牽涉到錢都要特別警覺！）。<br><br>
-                            <strong>準備好 B 計畫：</strong> 當遇上景點臨時關閉或火車罷工時，不要生氣，從容地轉換陣地去喝杯咖啡，這才是歐洲獨旅的最高境界。
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                            <span class="lang-zh">享受意外：隨時推翻計畫</span>
+                            <span class="lang-en hidden">Enjoy the Unexpected: Ditch Plans Anytime</span>
+                        </h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            <span class="lang-zh">帶上一顆開放的心，隨時接受變化。<br><br>獨旅不需要把行程排得像行軍。留點空白，你會剛好碰上街頭的節慶遊行、青旅室友推薦的私房景點、或路人友善的邀請（但只要牽涉到錢都要特別警覺！）。<br><br><strong>準備好 B 計畫：</strong> 當遇上景點臨時關閉或火車罷工時，不要生氣，從容地轉換陣地去喝杯咖啡，這才是歐洲獨旅的最高境界。</span>
+                            <span class="lang-en hidden">Bring an open mind and embrace changes anytime.<br><br>Solo travel shouldn't be scheduled like a military march. Leave some blanks, and you might just stumble upon a street festival parade, a hidden gem recommended by a hostel roommate, or a friendly invitation from a passerby (but stay alert if money is involved!).<br><br><strong>Prepare a Plan B:</strong> When attractions temporarily close or trains go on strike, don't get angry. Calmly switch base and grab a coffee; this is the highest state of European solo travel.</span>
                         </p>
                     </div>
                 </div>
@@ -388,130 +576,225 @@
 
             <section id="emergency" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl">🚨</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">應急權益：延誤理賠與物品遺失</h2>
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center text-2xl">🚨</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
+                        <span class="lang-zh">應急權益：延誤理賠與物品遺失</span>
+                        <span class="lang-en hidden">Emergency Rights: Delay Claims & Lost Items</span>
+                    </h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 space-y-8">
-                    <p class="text-gray-700 leading-relaxed text-sm">
-                        在歐洲旅行，交通延誤與罷工是常態。但很多人不知道，<strong>歐盟擁有全世界對旅客最友善的賠償法規！</strong>與其在現場崩潰，不如提前了解權益，把它當作「賺到一筆旅遊基金」的機會：
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 space-y-8 transition-colors duration-300">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+                        <span class="lang-zh">在歐洲旅行，交通延誤與罷工是常態。但很多人不知道，<strong>歐盟擁有全世界對旅客最友善的賠償法規！</strong>與其在現場崩潰，不如提前了解權益，把它當作「賺到一筆旅遊基金」的機會：</span>
+                        <span class="lang-en hidden">In Europe, traffic delays and strikes are the norm. But many don't know that <strong>the EU has the most passenger-friendly compensation laws in the world!</strong> Instead of breaking down on the spot, understand your rights in advance and treat it as a chance to "earn a travel fund":</span>
                     </p>
 
                     <div>
-                        <h3 class="font-bold text-xl text-gray-900 mb-4 flex items-center border-b pb-2">
-                            <span class="text-purple-600 mr-2">✈️</span> 飛機航班：歐盟 EU261 法規
+                        <h3 class="font-bold text-xl text-gray-900 dark:text-gray-100 mb-4 flex items-center border-b dark:border-gray-700 pb-2">
+                            <span class="text-purple-600 dark:text-purple-400 mr-2">✈️</span> 
+                            <span class="lang-zh">飛機航班：歐盟 EU261 法規</span>
+                            <span class="lang-en hidden">Flights: EU261 Regulation</span>
                         </h3>
-                        <div class="bg-purple-50 p-6 rounded-xl border border-purple-100 text-sm text-gray-700">
-                            <p class="mb-3 leading-relaxed">只要你是「從歐盟起飛」或「搭乘歐盟籍航空飛抵歐盟」，若因航空公司自身原因（機件故障、罷工，不含天氣因素）導致：</p>
-                            <ul class="list-disc pl-5 mb-4 font-medium space-y-1">
-                                <li>航班被取消</li>
-                                <li>抵達目的地時間延誤超過 <strong>3 小時</strong></li>
-                                <li>被拒絕登機 (如機位超賣)</li>
+                        <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl border border-purple-100 dark:border-purple-800/50 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                            <p class="mb-3 leading-relaxed">
+                                <span class="lang-zh">只要你是「從歐盟起飛」或「搭乘歐盟籍航空飛抵歐盟」，若因航空公司自身原因（機件故障、罷工，不含天氣因素）導致：</span>
+                                <span class="lang-en hidden">As long as you "depart from the EU" or "arrive in the EU on an EU carrier", if due to the airline's own fault (mechanical issues, strikes, excluding weather) it results in:</span>
+                            </p>
+                            <ul class="list-disc pl-5 mb-4 font-medium space-y-1 text-gray-700 dark:text-gray-300">
+                                <li><span class="lang-zh">航班被取消</span><span class="lang-en hidden">Flight cancellation</span></li>
+                                <li><span class="lang-zh">抵達目的地時間延誤超過 <strong>3 小時</strong></span><span class="lang-en hidden">Arrival delayed by over <strong>3 hours</strong></span></li>
+                                <li><span class="lang-zh">被拒絕登機 (如機位超賣)</span><span class="lang-en hidden">Denied boarding (e.g., overbooking)</span></li>
                             </ul>
                             <p class="mb-5 leading-relaxed">
-                                依據飛行距離，你可以獲得 <strong>€250 到 €600（約 8,000 到 20,000 台幣）</strong>的現金賠償！<br>
-                                <strong>💡 自救步驟：</strong>保留登機證，向地勤詢問確切原因。推薦使用 AirHelp 網站，輸入航班號碼免費測算理賠金，成功討回錢後他們才抽成，非常省心。
+                                <span class="lang-zh">依據飛行距離，你可以獲得 <strong>€250 到 €600（約 8,000 到 20,000 台幣）</strong>的現金賠償！<br><strong>💡 自救步驟：</strong>保留登機證，向地勤詢問確切原因。推薦使用 AirHelp 網站，輸入航班號碼免費測算理賠金，成功討回錢後他們才抽成，非常省心。</span>
+                                <span class="lang-en hidden">Depending on the flight distance, you can get <strong>€250 to €600</strong> in cash compensation!<br><strong>💡 Self-rescue Steps:</strong> Keep your boarding pass, ask ground staff for the exact reason. Highly recommend using AirHelp; input your flight number for a free claim check. They only take a cut if successful, very hassle-free.</span>
                             </p>
                             <a href="https://airhelp.tpk.lv/yZzqRFHP" target="_blank" rel="nofollow" class="inline-block bg-purple-600 text-white font-bold px-6 py-2.5 rounded-lg hover:bg-purple-700 transition shadow-sm">
-                                馬上用 AirHelp 測算理賠金 →
+                                <span class="lang-zh">馬上用 AirHelp 測算理賠金 →</span>
+                                <span class="lang-en hidden">Check Claims on AirHelp →</span>
                             </a>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="font-bold text-xl text-gray-900 mb-4 flex items-center border-b pb-2">
-                            <span class="text-purple-600 mr-2">🧳</span> 飛機行李：延誤或遺失怎麼辦？
+                        <h3 class="font-bold text-xl text-gray-900 dark:text-gray-100 mb-4 flex items-center border-b dark:border-gray-700 pb-2">
+                            <span class="text-purple-600 dark:text-purple-400 mr-2">🧳</span> 
+                            <span class="lang-zh">飛機行李：延誤或遺失怎麼辦？</span>
+                            <span class="lang-en hidden">Luggage: Delayed or Lost?</span>
                         </h3>
-                        <div class="bg-orange-50 p-6 rounded-xl border border-orange-100 text-sm text-gray-700">
-                            <p class="mb-4 font-bold text-red-600 text-base">🚨 終極警告：沒拿到行李，絕對不要離開機場管制區！</p>
+                        <div class="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl border border-orange-100 dark:border-orange-800/50 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                            <p class="mb-4 font-bold text-red-600 dark:text-red-400 text-base">
+                                <span class="lang-zh">🚨 終極警告：沒拿到行李，絕對不要離開機場管制區！</span>
+                                <span class="lang-en hidden">🚨 Ultimate Warning: DO NOT leave the airport restricted area if you haven't got your luggage!</span>
+                            </p>
                             <p class="mb-4 leading-relaxed">
-                                <strong>💡 自救步驟：</strong><br>
+                                <strong>💡 <span class="lang-zh">自救步驟：</span><span class="lang-en hidden">Self-rescue Steps:</span></strong><br>
+                                <span class="lang-zh">
                                 1. 立刻前往行李轉盤區旁邊的「Baggage Claim / Lost & Found」櫃檯。<br>
                                 2. 出示行李條貼紙，強烈要求開立 <strong>PIR 報告 (Property Irregularity Report，行李意外報告)</strong>。<br>
                                 3. <strong>沒有這張 PIR 證明，後續所有理賠都無法進行！</strong>
+                                </span>
+                                <span class="lang-en hidden">
+                                1. Immediately head to the "Baggage Claim / Lost & Found" desk next to the carousels.<br>
+                                2. Show your baggage tag sticker, strongly request a <strong>PIR (Property Irregularity Report)</strong>.<br>
+                                3. <strong>Without this PIR proof, all subsequent claims are impossible!</strong>
+                                </span>
                             </p>
-                            <p class="leading-relaxed bg-white p-4 rounded-lg border border-orange-200">
-                                <strong>後續賠償：</strong>在行李延誤期間，你可以去購買「必需品」（如內衣褲、基本盥洗用品），<strong>務必保留所有收據</strong>。事後航空公司必須依法（蒙特婁公約）為你的開銷買單，最高可賠償約 €1,300。
+                            <p class="leading-relaxed bg-white dark:bg-gray-800 p-4 rounded-lg border border-orange-200 dark:border-orange-700/50 transition-colors duration-300">
+                                <strong><span class="lang-zh">後續賠償：</span><span class="lang-en hidden">Subsequent Compensation:</span></strong>
+                                <span class="lang-zh">在行李延誤期間，你可以去購買「必需品」（如內衣褲、基本盥洗用品），<strong>務必保留所有收據</strong>。事後航空公司必須依法（蒙特婁公約）為你的開銷買單，最高可賠償約 €1,300。</span>
+                                <span class="lang-en hidden">During luggage delay, you can buy "essentials" (like underwear, basic toiletries), <strong>MUST KEEP ALL RECEIPTS</strong>. Afterwards, the airline must legally (Montreal Convention) pay for your expenses, up to roughly €1,300.</span>
                             </p>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                            <h3 class="font-bold text-lg text-gray-900 mb-2 flex items-center">
-                                <span class="text-purple-600 mr-2">🚆</span> 火車延誤與取消
+                        <div class="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                                <span class="text-purple-600 dark:text-purple-400 mr-2">🚆</span> 
+                                <span class="lang-zh">火車延誤與取消</span>
+                                <span class="lang-en hidden">Train Delays & Cancellations</span>
                             </h3>
-                            <p class="text-xs text-gray-500 mb-4">依據：歐洲鐵路乘客權益法規</p>
-                            <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4 mb-4">
-                                <li><strong>延誤 60 - 119 分鐘：</strong>可退還單程票價 <strong>25%</strong>。</li>
-                                <li><strong>延誤 120 分鐘以上：</strong>可退還單程票價 <strong>50%</strong>。</li>
-                                <li><strong>被困在車站過夜：</strong>若因延誤錯過最後一班車，鐵路公司<strong>有義務</strong>為你安排計程車或支付飯店費！</li>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">
+                                <span class="lang-zh">依據：歐洲鐵路乘客權益法規</span>
+                                <span class="lang-en hidden">Basis: EU Rail Passenger Rights</span>
+                            </p>
+                            <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-2 list-disc pl-4 mb-4">
+                                <li>
+                                    <span class="lang-zh"><strong>延誤 60 - 119 分鐘：</strong>可退還單程票價 <strong>25%</strong>。</span>
+                                    <span class="lang-en hidden"><strong>Delayed 60 - 119 mins:</strong> <strong>25%</strong> refund of ticket price.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-zh"><strong>延誤 120 分鐘以上：</strong>可退還單程票價 <strong>50%</strong>。</span>
+                                    <span class="lang-en hidden"><strong>Delayed 120+ mins:</strong> <strong>50%</strong> refund of ticket price.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-zh"><strong>被困在車站過夜：</strong>若因延誤錯過最後一班車，鐵路公司<strong>有義務</strong>為你安排計程車或支付飯店費！</span>
+                                    <span class="lang-en hidden"><strong>Stranded overnight:</strong> If you miss the last train due to delay, rail companies are <strong>obligated</strong> to arrange taxis or pay for a hotel!</span>
+                                </li>
                             </ul>
-                            <p class="text-sm text-gray-700 mt-auto bg-white p-3 border border-gray-200 rounded-lg">
-                                <strong>💡 自救：</strong>先找車長在票上蓋「延誤章」。事後直接在該國鐵路 App 內點擊「Compensation」線上申請退款。
+                            <p class="text-sm text-gray-700 dark:text-gray-300 mt-auto bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded-lg transition-colors duration-300">
+                                <strong>💡 <span class="lang-zh">自救：</span><span class="lang-en hidden">Self-rescue:</span></strong>
+                                <span class="lang-zh">先找車長在票上蓋「延誤章」。事後直接在該國鐵路 App 內點擊「Compensation」線上申請退款。</span>
+                                <span class="lang-en hidden">First, find a conductor to stamp a "delay mark" on your ticket. Later, apply for a refund directly via the national rail App clicking "Compensation".</span>
                             </p>
                         </div>
 
-                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                            <h3 class="font-bold text-lg text-gray-900 mb-2 flex items-center">
-                                <span class="text-purple-600 mr-2">🚐</span> 跨國巴士延誤與取消
+                        <div class="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 transition-colors duration-300">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                                <span class="text-purple-600 dark:text-purple-400 mr-2">🚐</span> 
+                                <span class="lang-zh">跨國巴士延誤與取消</span>
+                                <span class="lang-en hidden">Cross-border Bus Delays</span>
                             </h3>
-                            <p class="text-xs text-gray-500 mb-4">依據：歐盟巴士乘客權益 (路程>250km)</p>
-                            <ul class="text-sm text-gray-700 space-y-2 list-disc pl-4 mb-4">
-                                <li><strong>出發延誤逾 120 分鐘或取消：</strong>必須讓你選「全額退票」或「免費改搭其他路線」。</li>
-                                <li><strong>未提供上述選擇：</strong>若你只能自己買別家車票，事後除退款外，還可額外索取票價 <strong>50% 賠償金</strong>。</li>
-                                <li>如果被迫過夜，巴士公司需提供最多 2 晚飯店。</li>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-4">
+                                <span class="lang-zh">依據：歐盟巴士乘客權益 (路程>250km)</span>
+                                <span class="lang-en hidden">Basis: EU Bus Passenger Rights (Dist>250km)</span>
+                            </p>
+                            <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-2 list-disc pl-4 mb-4">
+                                <li>
+                                    <span class="lang-zh"><strong>出發延誤逾 120 分鐘或取消：</strong>必須讓你選「全額退票」或「免費改搭其他路線」。</span>
+                                    <span class="lang-en hidden"><strong>Departure delayed 120+ mins or cancelled:</strong> They must offer "full refund" or "free re-routing".</span>
+                                </li>
+                                <li>
+                                    <span class="lang-zh"><strong>未提供上述選擇：</strong>若你只能自己買別家車票，事後除退款外，還可額外索取票價 <strong>50% 賠償金</strong>。</span>
+                                    <span class="lang-en hidden"><strong>Not offered choices:</strong> If you have to buy another ticket yourself, you can claim the refund plus an extra <strong>50% compensation</strong> of the ticket price.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-zh">如果被迫過夜，巴士公司需提供最多 2 晚飯店。</span>
+                                    <span class="lang-en hidden">If forced overnight, the bus company must provide up to 2 nights of hotel stay.</span>
+                                </li>
                             </ul>
-                            <p class="text-sm text-gray-700 mt-auto bg-white p-3 border border-gray-200 rounded-lg">
-                                <strong>💡 自救：</strong>保留 App 內的取消通知截圖，事後寫信至巴士公司客服信箱要求理賠。
+                            <p class="text-sm text-gray-700 dark:text-gray-300 mt-auto bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded-lg transition-colors duration-300">
+                                <strong>💡 <span class="lang-zh">自救：</span><span class="lang-en hidden">Self-rescue:</span></strong>
+                                <span class="lang-zh">保留 App 內的取消通知截圖，事後寫信至巴士公司客服信箱要求理賠。</span>
+                                <span class="lang-en hidden">Save a screenshot of the cancellation notice in the App. Afterwards, email the bus company's customer service to claim compensation.</span>
                             </p>
                         </div>
                     </div>
 
-                    <div class="border-t border-gray-100 pt-8">
-                        <h3 class="font-bold text-xl text-gray-900 mb-4 flex items-center">
-                            <span class="text-purple-600 mr-2">🕵️</span> 物品遺失與遭竊處置
+                    <div class="border-t border-gray-100 dark:border-gray-700 pt-8 transition-colors duration-300">
+                        <h3 class="font-bold text-xl text-gray-900 dark:text-gray-100 mb-4 flex items-center">
+                            <span class="text-purple-600 dark:text-purple-400 mr-2">🕵️</span> 
+                            <span class="lang-zh">物品遺失與遭竊處置</span>
+                            <span class="lang-en hidden">Handling Lost & Stolen Items</span>
                         </h3>
-                        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 text-sm text-gray-700">
+                        <div class="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
                             <p class="mb-4 leading-relaxed">
-                                <strong>不小心遺失：</strong> 歐洲車站的尋回率其實很高。請立刻上該國國鐵官網搜尋「Lost & Found」，線上填寫協尋表單，或前往大站的失物招領中心。<br><br>
-                                <strong>確認遭竊：</strong> 若包包被偷，第一時間請立刻前往最近的警察局報案！你必須取得警方的<strong>「報案證明 (Police Report)」</strong>，這是你回國後向旅遊不便險申請理賠的「唯一護身符」，沒有這張紙保險公司絕對不賠。
+                                <strong><span class="lang-zh">不小心遺失：</span><span class="lang-en hidden">Accidental Loss:</span></strong> 
+                                <span class="lang-zh">歐洲車站的尋回率其實很高。請立刻上該國國鐵官網搜尋「Lost & Found」，線上填寫協尋表單，或前往大站的失物招領中心。</span>
+                                <span class="lang-en hidden">The recovery rate in European stations is actually quite high. Immediately go to the national rail's official website, search "Lost & Found", fill out the form online, or visit the lost property center at a major station.</span>
+                                <br><br>
+                                <strong><span class="lang-zh">確認遭竊：</span><span class="lang-en hidden">Confirmed Theft:</span></strong> 
+                                <span class="lang-zh">若包包被偷，第一時間請立刻前往最近的警察局報案！你必須取得警方的<strong>「報案證明 (Police Report)」</strong>，這是你回國後向旅遊不便險申請理賠的「唯一護身符」，沒有這張紙保險公司絕對不賠。</span>
+                                <span class="lang-en hidden">If your bag is stolen, immediately go to the nearest police station to report it! You MUST get a <strong>"Police Report"</strong>. This is your "sole talisman" for claiming travel inconvenience insurance when you return. Without this paper, insurance companies will absolutely not pay.</span>
                             </p>
-                            <div class="bg-white p-4 rounded-lg border border-purple-200 shadow-sm mt-2">
-                                <strong class="text-purple-800 flex items-center gap-2 mb-1"><span class="text-lg">💻</span> 善用電子定位：</strong>
-                                <span class="text-gray-600 leading-relaxed block">出發前請確保手機、平板、藍牙耳機（如 AirPods）與筆電已開啟「尋找我的裝置」功能並互相綁定。若不幸遭竊，向警方出示裝置的即時定位，會大幅提升他們出警的意願與尋回率。</span>
+                            <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-purple-200 dark:border-purple-800/50 shadow-sm mt-2 transition-colors duration-300">
+                                <strong class="text-purple-800 dark:text-purple-400 flex items-center gap-2 mb-1">
+                                    <span class="text-lg">💻</span> 
+                                    <span class="lang-zh">善用電子定位：</span>
+                                    <span class="lang-en hidden">Leverage Electronic Tracking:</span>
+                                </strong>
+                                <span class="text-gray-600 dark:text-gray-400 leading-relaxed block">
+                                    <span class="lang-zh">出發前請確保手機、平板、藍牙耳機（如 AirPods）與筆電已開啟「尋找我的裝置」功能並互相綁定。若不幸遭竊，向警方出示裝置的即時定位，會大幅提升他們出警的意願與尋回率。</span>
+                                    <span class="lang-en hidden">Before departure, ensure your phone, tablet, Bluetooth earbuds (e.g., AirPods), and laptop have "Find My Device" enabled and linked. If stolen, showing the real-time location to the police will significantly increase their willingness to dispatch officers and the recovery rate.</span>
+                                </span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-8 bg-purple-50 p-6 md:p-8 rounded-2xl border-2 border-dashed border-purple-200 relative overflow-hidden">
-                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-purple-100 rounded-full opacity-50"></div>
+                    <div class="mt-8 bg-purple-50 dark:bg-purple-900/20 p-6 md:p-8 rounded-2xl border-2 border-dashed border-purple-200 dark:border-purple-800/50 relative overflow-hidden transition-colors duration-300">
+                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-purple-100 dark:bg-purple-900/30 rounded-full opacity-50"></div>
                         
-                        <h3 class="text-xl md:text-2xl font-extrabold text-purple-900 mb-4 flex items-center relative z-10">
-                            <span class="mr-3 text-2xl md:text-3xl">🛡️</span> Bryan 的理賠與防護心法
+                        <h3 class="text-xl md:text-2xl font-extrabold text-purple-900 dark:text-purple-300 mb-4 flex items-center relative z-10">
+                            <span class="mr-3 text-2xl md:text-3xl">🛡️</span> 
+                            <span class="lang-zh">Bryan 的理賠與防護心法</span>
+                            <span class="lang-en hidden">Bryan's Claims & Defense Mentality</span>
                         </h3>
                         
-                        <div class="space-y-4 text-gray-700 leading-loose relative z-10 text-sm md:text-base">
+                        <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-loose relative z-10 text-sm md:text-base">
                             <p>
-                                當延誤發生時，如果公司主動提供補償（如小額代金券、餐飲券），你可以先拿。但 <strong class="text-red-600 underline decoration-red-200 underline-offset-4">千萬不要簽署任何「放棄後續法律追訴權」的聲明</strong>。
+                                <span class="lang-zh">當延誤發生時，如果公司主動提供補償（如小額代金券、餐飲券），你可以先拿。但 <strong class="text-red-600 dark:text-red-400 underline decoration-red-200 dark:decoration-red-800 underline-offset-4">千萬不要簽署任何「放棄後續法律追訴權」的聲明</strong>。</span>
+                                <span class="lang-en hidden">When delays occur, if the company proactively offers compensation (like small vouchers, meal tickets), you can take it first. BUT <strong class="text-red-600 dark:text-red-400 underline decoration-red-200 dark:decoration-red-800 underline-offset-4">NEVER sign any statement "waiving subsequent legal pursuit rights"</strong>.</span>
                             </p>
                             <p>
-                                回到家後，第一件事永遠是先對照 <strong>「歐盟法定賠償金額」</strong>。如果法定理賠應是 400 歐元現金，而你當場只拿了 50 歐元的代金券，你依然可以理直氣壯地要求航空公司補足差額。
+                                <span class="lang-zh">回到家後，第一件事永遠是先對照 <strong>「歐盟法定賠償金額」</strong>。如果法定理賠應是 400 歐元現金，而你當場只拿了 50 歐元的代金券，你依然可以理直氣壯地要求航空公司補足差額。</span>
+                                <span class="lang-en hidden">After returning home, the first thing is always to check the <strong>"EU statutory compensation amount"</strong>. If the statutory claim should be €400 cash, and you only got a €50 voucher on the spot, you can still righteously demand the airline make up the difference.</span>
                             </p>
                             
-                            <div class="bg-white/90 p-5 rounded-xl border border-purple-100 shadow-sm mt-5">
-                                <p class="text-sm font-bold text-purple-800 mb-3 flex items-center">
-                                    <span class="mr-2 text-lg">💡</span> 理賠談判三個核心原則：
+                            <div class="bg-white/90 dark:bg-gray-800/90 p-5 rounded-xl border border-purple-100 dark:border-purple-700/50 shadow-sm mt-5 transition-colors duration-300">
+                                <p class="text-sm font-bold text-purple-800 dark:text-purple-400 mb-3 flex items-center">
+                                    <span class="mr-2 text-lg">💡</span> 
+                                    <span class="lang-zh">理賠談判三個核心原則：</span>
+                                    <span class="lang-en hidden">Three Core Principles of Claim Negotiation:</span>
                                 </p>
-                                <ul class="text-sm space-y-2 list-disc pl-5 font-medium text-gray-700">
-                                    <li><span class="text-purple-700 font-bold">歐盟法律是地板：</span> 公司政策可以更好，但絕對不能低於法定最低賠償。</li>
-                                    <li><span class="text-purple-700 font-bold">現金價值最高：</span> 除非你確定近期會再搭乘該航空，否則現金理賠遠比代金券划算。</li>
-                                    <li><span class="text-purple-700 font-bold">權利是爭取的：</span> 這是你的法定權利，不是他們施捨的恩惠。</li>
+                                <ul class="text-sm space-y-2 list-disc pl-5 font-medium text-gray-700 dark:text-gray-300">
+                                    <li>
+                                        <span class="text-purple-700 dark:text-purple-400 font-bold"><span class="lang-zh">歐盟法律是地板：</span><span class="lang-en hidden">EU Law is the Floor:</span></span> 
+                                        <span class="lang-zh">公司政策可以更好，但絕對不能低於法定最低賠償。</span>
+                                        <span class="lang-en hidden">Company policy can be better, but absolutely cannot be lower than statutory minimums.</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-purple-700 dark:text-purple-400 font-bold"><span class="lang-zh">現金價值最高：</span><span class="lang-en hidden">Cash Value is Supreme:</span></span> 
+                                        <span class="lang-zh">除非你確定近期會再搭乘該航空，否則現金理賠遠比代金券划算。</span>
+                                        <span class="lang-en hidden">Unless you are certain to fly with them again soon, cash claims are way better than vouchers.</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-purple-700 dark:text-purple-400 font-bold"><span class="lang-zh">權利是爭取的：</span><span class="lang-en hidden">Rights are Fought For:</span></span> 
+                                        <span class="lang-zh">這是你的法定權利，不是他們施捨的恩惠。</span>
+                                        <span class="lang-en hidden">This is your legal right, not a charity favor from them.</span>
+                                    </li>
                                 </ul>
                                 
-                                <div class="border-t border-purple-100 pt-4 mt-5">
-                                    <strong class="text-purple-800 block mb-2 flex items-center gap-2"><span class="text-lg">🎒</span> 防患未然的最好方式：</strong>
-                                    <span class="text-sm text-gray-600 leading-relaxed block">在隨身登機背包裡，<strong class="text-gray-900">永遠放一套快乾換洗衣物、基本盥洗用品與旅行洗衣粉。</strong> 這樣就算大行李不幸延誤三天，你依然能優雅地走行程，不用一下機就崩潰急著找內衣褲買！</span>
+                                <div class="border-t border-purple-100 dark:border-purple-700/50 pt-4 mt-5">
+                                    <strong class="text-purple-800 dark:text-purple-400 block mb-2 flex items-center gap-2">
+                                        <span class="text-lg">🎒</span> 
+                                        <span class="lang-zh">防患未然的最好方式：</span>
+                                        <span class="lang-en hidden">The Best Preventive Measure:</span>
+                                    </strong>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed block">
+                                        <span class="lang-zh">在隨身登機背包裡，<strong class="text-gray-900 dark:text-gray-200">永遠放一套快乾換洗衣物、基本盥洗用品與旅行洗衣粉。</strong> 這樣就算大行李不幸延誤三天，你依然能優雅地走行程，不用一下機就崩潰急著找內衣褲買！</span>
+                                        <span class="lang-en hidden">In your carry-on backpack, <strong class="text-gray-900 dark:text-gray-200">always pack a set of quick-dry clothes, basic toiletries, and travel detergent.</strong> This way, even if your main luggage is delayed for 3 days, you can still elegantly stick to your itinerary, without breaking down looking for underwear to buy right off the plane!</span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -519,19 +802,26 @@
 
                 </div>
             </section>
-            <div class="pt-12 text-center border-t border-gray-200 mt-8">
+            
+            <div class="pt-12 text-center border-t border-gray-200 dark:border-gray-700 mt-8 transition-colors duration-300">
                 <div class="inline-flex flex-col items-center">
                     <span class="text-5xl mb-5 drop-shadow-sm">📱</span>
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">安全心法學完，該裝備實用工具了！</h3>
-                    <p class="text-gray-500 mb-8 max-w-lg mx-auto">
-                        下一頁將分享給你歐洲生存必備的 APP 清單！從找免費廁所、買剩食盲盒到寄放行李，這些工具能幫你省下無數的冤枉錢。
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-gray-100 mb-3">
+                        <span class="lang-zh">安全心法學完，該裝備實用工具了！</span>
+                        <span class="lang-en hidden">Safety Mindset Mastered, Time for Practical Tools!</span>
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-lg mx-auto">
+                        <span class="lang-zh">下一頁將分享給你歐洲生存必備的 APP 清單！從找免費廁所、買剩食盲盒到寄放行李，這些工具能幫你省下無數的冤枉錢。</span>
+                        <span class="lang-en hidden">Next page will share the must-have APP list for European survival! From finding free toilets, buying leftover food boxes, to luggage storage, these tools will save you countless wasted dollars.</span>
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-                        <a href="app-guide.html" class="bg-emerald-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-emerald-700 transition shadow-lg shadow-emerald-200 w-full sm:w-auto">
-                            👉 前往 歐洲實用 APP 推薦清單
+                        <a href="app-guide.html" class="bg-emerald-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-emerald-700 dark:hover:bg-emerald-500 transition shadow-lg shadow-emerald-200 dark:shadow-emerald-900/20 w-full sm:w-auto">
+                            <span class="lang-zh">👉 前往 歐洲實用 APP 推薦清單</span>
+                            <span class="lang-en hidden">👉 Go to Practical Europe APP List</span>
                         </a>
-                        <a href="index.html#essential-guides" class="bg-white border-2 border-gray-200 text-gray-700 font-bold px-8 py-3.5 rounded-full hover:bg-gray-50 transition shadow-sm w-full sm:w-auto">
-                            回首頁目錄
+                        <a href="index.html#essential-guides" class="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-bold px-8 py-3.5 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 transition shadow-sm w-full sm:w-auto">
+                            <span class="lang-zh">回首頁目錄</span>
+                            <span class="lang-en hidden">Back to Home Index</span>
                         </a>
                     </div>
                 </div>
@@ -540,9 +830,78 @@
         </article>
     </main>
 
-    <footer class="text-center py-12 text-gray-400 text-sm mt-12 border-t border-gray-200">
-        <p>© 2026 EUROPE SOLO Guide. 去過 41 個歐洲國家的真實紀錄。</p>
+    <footer class="text-center py-12 text-gray-400 dark:text-gray-500 text-sm mt-12 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <p>
+            <span class="lang-zh">© 2026 EUROPE SOLO Guide. 去過 41 個歐洲國家的真實紀錄。</span>
+            <span class="lang-en hidden">© 2026 EUROPE SOLO Guide. A true record from visiting 41 European countries.</span>
+        </p>
     </footer>
 
+    <!-- Dark Mode & 語言切換邏輯 -->
+    <script>
+        // -------------------------
+        // Dark Mode Logic
+        // -------------------------
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        let isDarkMode = localStorage.getItem('darkMode') === 'true' || 
+                         (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        function updateTheme(dark) {
+            if (dark) {
+                document.documentElement.classList.add('dark');
+                themeIcon.textContent = '☀️';
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeIcon.textContent = '🌙';
+            }
+        }
+        
+        // Initialize Theme
+        updateTheme(isDarkMode);
+        
+        themeToggleBtn.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('darkMode', isDarkMode);
+            updateTheme(isDarkMode);
+        });
+
+        // -------------------------
+        // Language Toggle Logic
+        // -------------------------
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'zh';
+
+        function updateLanguage(lang) {
+            const zhElements = document.querySelectorAll('.lang-zh');
+            const enElements = document.querySelectorAll('.lang-en');
+            
+            if (lang === 'zh') {
+                zhElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                langToggleBtn.textContent = 'EN';
+                document.documentElement.lang = 'zh-Hant';
+                document.getElementById('page-title').textContent = '歐洲獨旅安全與求生全攻略：防盜、住宿防雷與生理資源調度 - Europe Solo';
+                document.getElementById('page-desc').setAttribute('content', '破解歐洲治安迷思！獨旅者必看的街頭防盜守則、班機與鐵路延誤理賠指南、免費廁所資源調度，以及如何優雅融入歐洲當地文化的真實心法。');
+            } else {
+                zhElements.forEach(el => el.classList.add('hidden'));
+                enElements.forEach(el => el.classList.remove('hidden'));
+                langToggleBtn.textContent = '中文';
+                document.documentElement.lang = 'en';
+                document.getElementById('page-title').textContent = 'Europe Solo Travel Safety & Survival Guide - Europe Solo';
+                document.getElementById('page-desc').setAttribute('content', 'Debunking Europe safety myths! Essential anti-theft rules for solo travelers, flight & train delay claim guides, free toilet resources, and tips to elegantly blend into local European culture.');
+            }
+        }
+
+        // Initialize Language
+        updateLanguage(currentLang);
+
+        langToggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            localStorage.setItem('lang', currentLang);
+            updateLanguage(currentLang);
+        });
+    </script>
 </body>
 </html>
