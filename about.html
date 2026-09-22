@@ -5,666 +5,662 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>關於 Bryan | Europe Solo 站長</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 啟用 Tailwind Dark Mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <link rel="icon" type="image/png" href="images/Favicon.png">
     <style>
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; transition: background-color 0.3s ease, color 0.3s ease; }
         .bg-stamp {
             background-image: radial-gradient(#2563eb 1px, transparent 1px);
             background-size: 20px 20px;
             opacity: 0.05;
         }
+        
+        /* 語言切換邏輯 */
+        html[lang="en"] .zh-text { display: none !important; }
+        html[lang="zh-Hant"] .en-text { display: none !important; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans leading-relaxed transition-colors duration-300">
 
-    <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000]">
+    <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000] border-b border-transparent dark:border-gray-800 transition-colors duration-300">
         <div class="text-xl font-bold tracking-tighter">
-            <a href="index.html" class="hover:opacity-80 transition">EUROPE<span class="text-blue-600">SOLO</span></a>
+            <a href="index.html" class="hover:opacity-80 transition dark:text-white">EUROPE<span class="text-blue-600 dark:text-blue-500">SOLO</span></a>
         </div>
-        <a href="index.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition">回到首頁</a>
+        <div class="flex items-center gap-2 md:gap-4">
+            <!-- Dark Mode Toggle -->
+            <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition" aria-label="Toggle Dark Mode">
+                <!-- Moon icon -->
+                <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <!-- Sun icon -->
+                <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.32a1 1 0 011.415 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM15.636 15.636a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 0zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-5.657-1.364a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414zM4 10a1 1 0 01-1 1H2a1 1 0 110-2h1a1 1 0 011 1zM5.636 5.636a1 1 0 011.414 0l.707-.707a1 1 0 01-1.414-1.414l-.707.707a1 1 0 010 1.414zM10 5a5 5 0 100 10 5 5 0 000-10z" clip-rule="evenodd"></path></svg>
+            </button>
+            
+            <!-- Language Toggle -->
+            <button onclick="toggleLanguage()" class="px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition font-bold text-sm">
+                <span class="zh-text">EN</span>
+                <span class="en-text">中文</span>
+            </button>
+
+            <a href="index.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-sm">
+                <span class="zh-text">回到首頁</span>
+                <span class="en-text">Back to Home</span>
+            </a>
+        </div>
     </nav>
     <div class="h-24"></div>
 
     <section class="max-w-5xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-center gap-12">
         <div class="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 relative">
             <div class="absolute inset-0 bg-blue-600 rounded-2xl rotate-6 shadow-lg"></div>
-            <img src="images/auther.jpg" alt="Bryan" class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-xl border-4 border-white rotate-0 hover:rotate-2 transition-transform duration-500">
+            <img src="images/auther.jpg" alt="Bryan" class="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-xl border-4 border-white dark:border-gray-800 rotate-0 hover:rotate-2 transition-transform duration-500">
         </div>
         <div class="text-center md:text-left">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-                我是 <span class="text-blue-600">Bryan</span>，<br>一個熱愛探索世界之美的獨旅者。
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+                <span class="zh-text">我是 <span class="text-blue-600 dark:text-blue-500">Bryan</span>，<br>一個熱愛探索世界之美的獨旅者。</span>
+                <span class="en-text">I am <span class="text-blue-600 dark:text-blue-500">Bryan</span>,<br>a solo traveler passionate about exploring the world's beauty.</span>
             </h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-xl">
-                我花了三年的時間，在歐洲的石板路上找尋自我。
-                走過 41 個國家，我發現最美的風景往往不在旅遊書上，而是在那些沒有期待的意外瞬間。
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl">
+                <span class="zh-text">我花了三年的時間，在歐洲的石板路上找尋自我。走過 41 個國家，我發現最美的風景往往不在旅遊書上，而是在那些沒有期待的意外瞬間。</span>
+                <span class="en-text">I spent three years finding myself on the cobblestone streets of Europe. Having visited 41 countries, I discovered that the most beautiful scenery is often not in guidebooks, but in those unexpected moments with no expectations.</span>
             </p>
             <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100 text-blue-600 font-bold">🌍 41 國踩點</div>
-                <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100 text-blue-600 font-bold">🚆 400+ 歐洲城鎮</div>
-                <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100 text-blue-600 font-bold">🚆 400+ 天的旅遊</div>
+                <div class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-sm border border-blue-100 dark:border-gray-700 text-blue-600 dark:text-blue-400 font-bold">
+                    <span class="zh-text">🌍 41 國踩點</span>
+                    <span class="en-text">🌍 41 Countries</span>
+                </div>
+                <div class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-sm border border-blue-100 dark:border-gray-700 text-blue-600 dark:text-blue-400 font-bold">
+                    <span class="zh-text">🚆 400+ 歐洲城鎮</span>
+                    <span class="en-text">🚆 400+ Towns</span>
+                </div>
+                <div class="bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-sm border border-blue-100 dark:border-gray-700 text-blue-600 dark:text-blue-400 font-bold">
+                    <span class="zh-text">🚆 400+ 天的旅遊</span>
+                    <span class="en-text">🚆 400+ Travel Days</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-stamp"></div>
+    <section class="bg-white dark:bg-gray-800 py-20 relative overflow-hidden transition-colors duration-300">
+        <div class="absolute inset-0 bg-stamp dark:opacity-5"></div>
         <div class="max-w-3xl mx-auto px-6 relative z-10">
-            <h2 class="text-3xl font-bold mb-8 border-l-4 border-blue-600 pl-4">為什麼創立這個網站？</h2>
-            <div class="space-y-6 text-gray-700 leading-loose text-lg">
+            <h2 class="text-3xl font-bold mb-8 border-l-4 border-blue-600 pl-4 text-gray-900 dark:text-white">
+                <span class="zh-text">為什麼創立這個網站？</span>
+                <span class="en-text">Why did I create this website?</span>
+            </h2>
+            <div class="space-y-6 text-gray-700 dark:text-gray-300 leading-loose text-lg">
                 <p>
-                    你是否也曾坐在火車站月台，看著因為臨時罷工(或甚至原因不明)而取消的班次，感到一陣恐慌？
-                    或者在擁擠的景點，下意識地死死抓著包包，擔心下一秒錢包就不見了？
+                    <span class="zh-text">你是否也曾坐在火車站月台，看著因為臨時罷工(或甚至原因不明)而取消的班次，感到一陣恐慌？或者在擁擠的景點，下意識地死死抓著包包，擔心下一秒錢包就不見了？</span>
+                    <span class="en-text">Have you ever sat on a train station platform, feeling a wave of panic as your train is canceled due to a sudden strike (or even for unknown reasons)? Or unconsciously clutched your bag at a crowded attraction, worried your wallet might disappear the next second?</span>
                 </p>
                 <p>
-                    這些我都經歷過。我曾為了在瑞士省錢，連續一週半吃超市的麵包+煙燻火腿；也曾因為省錢沒注意評價，在剛重新裝潢的青旅與床蝨熱吻，留下來的深刻記號幾周不散。
+                    <span class="zh-text">這些我都經歷過。我曾為了在瑞士省錢，連續一週半吃超市的麵包+煙燻火腿；也曾因為省錢沒注意評價，在剛重新裝潢的青旅與床蝨熱吻，留下來的深刻記號幾周不散。</span>
+                    <span class="en-text">I have experienced all of this. To save money in Switzerland, I once ate supermarket bread and smoked ham for a week and a half straight; to save money without checking reviews, I once passionately kissed bedbugs in a newly renovated hostel, leaving deep marks that lasted for weeks.</span>
                 </p>
-                <p class="bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-600 italic">
-                    「獨旅不是因為沒有朋友，而是為了能更誠實地面對自己。」
+                <p class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-2xl border-l-4 border-blue-600 italic">
+                    <span class="zh-text">「獨旅不是因為沒有朋友，而是為了能更誠實地面對自己。」</span>
+                    <span class="en-text">"Solo travel isn't because you have no friends, but to face yourself more honestly."</span>
                 </p>
                 <p>
-                    在這個網站，我不分享修圖完美的網美照。我分享的是**「真實的邏輯」**：哪一條路線最省錢方便、哪一些景點要先訂票或最值得去、以及如何用最精簡的預算，換取最有質感的旅遊體驗。
+                    <span class="zh-text">在這個網站，我不分享修圖完美的網美照。我分享的是<strong>「真實的邏輯」</strong>：哪一條路線最省錢方便、哪一些景點要先訂票或最值得去、以及如何用最精簡的預算，換取最有質感的旅遊體驗。</span>
+                    <span class="en-text">On this website, I don't share perfectly photoshopped influencer photos. I share <strong>"true logic"</strong>: which route is the cheapest and most convenient, which attractions need advance booking or are most worth visiting, and how to use the leanest budget to get the highest quality travel experience.</span>
                 </p>
             </div>
         </div>
     </section>
 
     <section class="max-w-5xl mx-auto px-6 py-20">
-        <h2 class="text-3xl font-bold mb-12 text-center">👣 我的旅行足跡</h2>
+        <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">
+            <span class="zh-text">👣 我的旅行足跡</span>
+            <span class="en-text">👣 My Travel Footprints</span>
+        </h2>
         
         <div id="travel-log-container" class="grid grid-cols-1 md: gap-8"></div>
     </section>
 
     <section class="bg-gray-900 text-white py-20 px-6 text-center">
-        <h2 class="text-3xl font-bold mb-6">準備好開始你的下一場獨旅了嗎？</h2>
-        <p class="text-gray-400 mb-10">無論是行程諮詢、合作邀約，或者只是想分享你的旅行故事，我都歡迎！</p>
+        <h2 class="text-3xl font-bold mb-6">
+            <span class="zh-text">準備好開始你的下一場獨旅了嗎？</span>
+            <span class="en-text">Ready to start your next solo trip?</span>
+        </h2>
+        <p class="text-gray-400 mb-10">
+            <span class="zh-text">無論是行程諮詢、合作邀約，或者只是想分享你的旅行故事，我都歡迎！</span>
+            <span class="en-text">Whether it's itinerary consulting, business inquiries, or just wanting to share your travel stories, you are welcome!</span>
+        </p>
         <div class="flex justify-center gap-6">
             <a href="mailto:u8823011714@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition shadow-lg shadow-blue-500/20">
-                ✉️ 發送郵件聯絡我
+                <span class="zh-text">✉️ 發送郵件聯絡我</span>
+                <span class="en-text">✉️ Email Me</span>
             </a>
         </div>
-        <p class="mt-8 text-sm text-gray-500">常用回應時間：24 小時內</p>
+        <p class="mt-8 text-sm text-gray-500">
+            <span class="zh-text">常用回應時間：24 小時內</span>
+            <span class="en-text">Typical response time: within 24 hours</span>
+        </p>
     </section>
 
-    <footer class="text-center py-10 text-gray-400 bg-white text-sm">
+    <footer class="text-center py-10 text-gray-400 bg-white dark:bg-gray-950 dark:text-gray-500 text-sm transition-colors duration-300">
         <p>© 2026 EUROPE SOLO Guide. Built with Passion by Bryan.</p>
     </footer>
 
     <script>
-        // 【編輯區】以後你只要在這裡新增或修改國家/城市即可
-        // 💡 世界遺產標記：在城市名稱前面加上 * (星號)，程式會自動轉換為 🏛️ 標籤
+        // 深色模式切換邏輯
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        // 語言切換邏輯
+        function toggleLanguage() {
+            const htmlEl = document.documentElement;
+            if (htmlEl.lang === 'zh-Hant') {
+                htmlEl.lang = 'en';
+            } else {
+                htmlEl.lang = 'zh-Hant';
+            }
+            renderTravelLog(); // 重新渲染 JS 產生的卡片以切換語言
+        }
+
+        // 資料區（加入英譯）
         const travelHistory = [
             {
-                country: "德國 Germany",
+                country: { zh: "德國 Germany", en: "Germany" },
                 year: "2023-2026",
-                note: "住了一年半的家，探索也最深度。",
-                nature: [
-                    "巴伐利亞阿爾卑斯山（Bavarian Alps）", "黑森林（Schwarzwald,）", "薩克森小瑞士（Saxon Switzerland）", "博登湖（Bodensee）", "國王湖（Königssee）"
-                ],
+                note: { 
+                    zh: "住了一年半的家，探索也最深度。", 
+                    en: "My home for a year and a half, deeply explored." 
+                },
+                nature: {
+                    zh: ["巴伐利亞阿爾卑斯山（Bavarian Alps）", "黑森林（Schwarzwald）", "薩克森小瑞士（Saxon Switzerland）", "博登湖（Bodensee）", "國王湖（Königssee）"],
+                    en: ["Bavarian Alps", "Black Forest (Schwarzwald)", "Saxon Switzerland", "Lake Constance (Bodensee)", "Königssee"]
+                },
                 culture: [
                     {
-                        region: "巴伐利亞",
-                        places: "慕尼黑, 紐倫堡, 羅滕堡, 雷根斯堡, 維爾茨堡, 班貝格, 科堡, 拜律特, 帕紹, 奧格斯堡, 蘭休特, 布格豪森, 米滕瓦爾德, 加爾米施-帕滕基興, 羅森海姆, 林道, 因戈爾施塔特"
+                        region: { zh: "巴伐利亞", en: "Bavaria" },
+                        places: { 
+                            zh: "慕尼黑, 紐倫堡, 羅滕堡, 雷根斯堡, 維爾茨堡, 班貝格, 科堡, 拜律特, 帕紹, 奧格斯堡, 蘭休特, 布格豪森, 米滕瓦爾德, 加爾米施-帕滕基興, 羅森海姆, 林道, 因戈爾施塔特",
+                            en: "Munich, Nuremberg, Rothenburg, Regensburg, Würzburg, Bamberg, Coburg, Bayreuth, Passau, Augsburg, Landshut, Burghausen, Mittenwald, Garmisch-Partenkirchen, Rosenheim, Lindau, Ingolstadt"
+                        }
                     },
                     {
-                        region: "巴登-符騰堡",
-                        places: "斯圖加特, 海德堡, 烏爾姆, 佛萊堡, 圖賓根, 喀斯魯, 曼海姆"
+                        region: { zh: "巴登-符騰堡", en: "Baden-Württemberg" },
+                        places: { 
+                            zh: "斯圖加特, 海德堡, 烏爾姆, 佛萊堡, 圖賓根, 喀斯魯, 曼海姆",
+                            en: "Stuttgart, Heidelberg, Ulm, Freiburg, Tübingen, Karlsruhe, Mannheim"
+                        }
                     },
                     {
-                        region: "萊茵河中上游地區",
-                        places: "法蘭克福, 美因茨, 達姆斯塔特, 黑朋海姆"
+                        region: { zh: "萊茵河中上游地區", en: "Upper/Middle Rhine Region" },
+                        places: { zh: "法蘭克福, 美因茨, 達姆斯塔特, 黑朋海姆", en: "Frankfurt, Mainz, Darmstadt, Heppenheim" }
                     },
                     {
-                        region: "萊茵中游谷地",
-                        places: "科布倫次, 科赫姆"
+                        region: { zh: "萊茵中游谷地", en: "Rhine Gorge" },
+                        places: { zh: "科布倫次, 科赫姆", en: "Koblenz, Cochem" }
                     },
                     {
-                        region: "萊茵大城市帶",
-                        places: "科隆, 杜賽道夫, 杜伊斯堡, 埃森, 烏帕塔, 多特蒙德"
+                        region: { zh: "萊茵大城市帶", en: "Rhine-Ruhr Metro" },
+                        places: { zh: "科隆, 杜賽道夫, 杜伊斯堡, 埃森, 烏帕塔, 多特蒙德", en: "Cologne, Düsseldorf, Duisburg, Essen, Wuppertal, Dortmund" }
                     },
                     {
-                        region: "中德",
-                        places: "哥廷根, 漢諾威, 馬格德堡, 瓦爾特堡, 阿爾斯費爾德, 沃爾夫哈根, 埃爾福特, 威瑪, 瑙姆堡, 艾斯萊本"
+                        region: { zh: "中德", en: "Central Germany" },
+                        places: { 
+                            zh: "哥廷根, 漢諾威, 馬格德堡, 瓦爾特堡, 阿爾斯費爾德, 沃爾夫哈根, 埃爾福特, 威瑪, 瑙姆堡, 艾斯萊本",
+                            en: "Göttingen, Hanover, Magdeburg, Wartburg, Alsfeld, Wolfhagen, Erfurt, Weimar, Naumburg, Eisleben"
+                        }
                     },
                     {
-                        region: "薩克森",
-                        places: "德勒斯登, 萊比錫, 開姆尼茨, 包岑, 邁森"
+                        region: { zh: "薩克森", en: "Saxony" },
+                        places: { zh: "德勒斯登, 萊比錫, 開姆尼茨, 包岑, 邁森", en: "Dresden, Leipzig, Chemnitz, Bautzen, Meissen" }
                     },
                     {
-                        region: "柏林與布蘭登堡",
-                        places: "柏林, 波茨坦, 維滕貝格, 呂貝瑙"
+                        region: { zh: "柏林與布蘭登堡", en: "Berlin & Brandenburg" },
+                        places: { zh: "柏林, 波茨坦, 維滕貝格, 呂貝瑙", en: "Berlin, Potsdam, Wittenberg, Lübbenau" }
                     },
                     {
-                        region: "北德",
-                        places: "漢堡, 布萊梅, 呂貝克"
+                        region: { zh: "北德", en: "Northern Germany" },
+                        places: { zh: "漢堡, 布萊梅, 呂貝克", en: "Hamburg, Bremen, Lübeck" }
                     },
                     {
-                        region: "其他",
-                        places: "特里爾, 亞琛, 明斯克"
+                        region: { zh: "其他", en: "Others" },
+                        places: { zh: "特里爾, 亞琛, 明斯克", en: "Trier, Aachen, Münster" }
                     }
                 ]
             },
             {
-                country: "義大利 Italy",
+                country: { zh: "義大利 Italy", en: "Italy" },
                 year: "2024 - 2026",
-                note: "最常造訪也是總計待最久的國家，每個小鎮都好美好有特色。",
-                nature: [
-                    "高大湖 Garda", "科莫湖 Como", "多洛米蒂 Dolomites", "維蘇威火山 Vesuvius", "阿馬菲海岸 Amalfi"
-                ],
+                note: { zh: "最常造訪也是總計待最久的國家，每個小鎮都好美好有特色。", en: "Most frequently visited and stayed the longest. Every town is uniquely beautiful." },
+                nature: {
+                    zh: ["高大湖 Garda", "科莫湖 Como", "多洛米蒂 Dolomites", "維蘇威火山 Vesuvius", "阿馬菲海岸 Amalfi"],
+                    en: ["Lake Garda", "Lake Como", "Dolomites", "Mount Vesuvius", "Amalfi Coast"]
+                },
                 culture: [
                     {
-                        region: "北義",
-                        places: "米蘭, 波隆那, 維羅納, 熱那亞, 帕多瓦, 威尼斯"
+                        region: { zh: "北義", en: "Northern Italy" },
+                        places: { zh: "米蘭, 波隆那, 維羅納, 熱那亞, 帕多瓦, 威尼斯", en: "Milan, Bologna, Verona, Genoa, Padua, Venice" }
                     },
                     {
-                        region: "中義",
-                        places: "佛羅倫斯, 錫耶納, 聖吉米尼亞諾, 蒙特里久尼, 比薩, 蒂拉諾, 蒂沃利, 羅馬"
+                        region: { zh: "中義", en: "Central Italy" },
+                        places: { zh: "佛羅倫斯, 錫耶納, 聖吉米尼亞諾, 蒙特里久尼, 比薩, 蒂拉諾, 蒂沃利, 羅馬", en: "Florence, Siena, San Gimignano, Monteriggioni, Pisa, Tirano, Tivoli, Rome" }
                     },
                     {
-                        region: "拿波里灣",
-                        places: "拿波里, 卡布列島, 卡塞塔, 龐貝, 伊斯奇亞島"
+                        region: { zh: "拿波里灣", en: "Bay of Naples" },
+                        places: { zh: "拿波里, 卡布列島, 卡塞塔, 龐貝, 伊斯奇亞島", en: "Naples, Capri, Caserta, Pompeii, Ischia" }
                     },
                     {
-                        region: "南義與島嶼",
-                        places: "馬泰拉, 西西里島 (卡塔尼亞, 敘拉古, 陶爾米納)"
+                        region: { zh: "南義與島嶼", en: "South & Islands" },
+                        places: { zh: "馬泰拉, 西西里島 (卡塔尼亞, 敘拉古, 陶爾米納)", en: "Matera, Sicily (Catania, Syracuse, Taormina)" }
                     }
                 ]
             },
             {
-                country: "希臘 Greece",
+                country: { zh: "希臘 Greece", en: "Greece" },
                 year: "2025 - 2026",
-                note: "夏天地中海印象的實現、希臘眾神的家鄉。",
-                nature: [
-                    "麥泰奧拉 Meteora"
-                ],
+                note: { zh: "夏天地中海印象的實現、希臘眾神的家鄉。", en: "The realization of the Mediterranean summer, hometown of the Greek gods." },
+                nature: {
+                    zh: ["麥泰奧拉 Meteora"], en: ["Meteora"]
+                },
                 culture: [
                     {
-                        region: "半島",
-                        places: "雅典, 塞薩羅尼基, 德爾斐, 納夫普利翁, 卡瓦拉, 邁錫尼, 腓利比, 佩拉, 維爾吉納, 阿斯克勒庇俄斯聖所"
+                        region: { zh: "半島", en: "Mainland" },
+                        places: { zh: "雅典, 塞薩羅尼基, 德爾斐, 納夫普利翁, 卡瓦拉, 邁錫尼, 腓利比, 佩拉, 維爾吉納, 阿斯克勒庇俄斯聖所", en: "Athens, Thessaloniki, Delphi, Nafplio, Kavala, Mycenae, Philippi, Pella, Vergina, Sanctuary of Asclepius" }
                     },
                     {
-                        region: "群島",
-                        places: "羅德島, 林多斯, 錫米島"
-                    },
+                        region: { zh: "群島", en: "Islands" },
+                        places: { zh: "羅德島, 林多斯, 錫米島", en: "Rhodes, Lindos, Symi" }
+                    }
                 ]
             },
             {
-                country: "保加利亞 Bulgaria",
+                country: { zh: "保加利亞 Bulgaria", en: "Bulgaria" },
                 year: "2026",
-                note: "首都可說是教堂之城，也是歐洲少數曾受羅馬、伊斯蘭與共產薰陶之地。",
+                note: { zh: "首都可說是教堂之城，也是歐洲少數曾受羅馬、伊斯蘭與共產薰陶之地。", en: "The capital is a city of churches, uniquely influenced by Roman, Islamic, and Communist eras." },
                 culture: [
-                    {
-                        places: "索菲亞, 里拉修道院"
-                    },
+                    { places: { zh: "索菲亞, 里拉修道院", en: "Sofia, Rila Monastery" } }
                 ]
             },
             {
-                country: "羅馬尼亞 Romania",
+                country: { zh: "羅馬尼亞 Romania", en: "Romania" },
                 year: "2026",
-                note: "熱情且便宜，有全歐洲最大的鹽礦與美麗的渡假勝地，也是歐洲少數曾受羅馬、伊斯蘭與共產薰陶之地。",
+                note: { zh: "熱情且便宜，有全歐洲最大的鹽礦與美麗的渡假勝地。", en: "Welcoming and affordable, housing Europe's largest salt mine and beautiful resorts." },
                 culture: [
-                    {
-                        places: "布加勒斯特, 布拉索夫, 布蘭, 錫納亞"
-                    },
+                    { places: { zh: "布加勒斯特, 布拉索夫, 布蘭, 錫納亞", en: "Bucharest, Brasov, Bran, Sinaia" } }
                 ]
             },
             {
-                country: "奧地利 Austria",
+                country: { zh: "奧地利 Austria", en: "Austria" },
                 year: "2023 - 2026",
-                note: "在這充滿音樂的阿爾卑斯山國度裡，隨時都想哼幾首真善美。",
-                nature: [
-                    "哈施塔特湖 Hallstätter See", "瓦豪河谷 Wachau Valley"
-                ],
+                note: { zh: "在這充滿音樂的阿爾卑斯山國度裡，隨時都想哼幾首真善美。", en: "In this musical Alpine country, you'll always want to hum the Sound of Music." },
+                nature: {
+                    zh: ["哈施塔特湖 Hallstätter See", "瓦豪河谷 Wachau Valley"], en: ["Lake Hallstatt", "Wachau Valley"]
+                },
                 culture: [
-                    {
-                        places: "維也納, 薩爾斯堡, 格拉茲, 哈施塔特, 梅爾克, 默德林, 拉姆紹"
-                    }
+                    { places: { zh: "維也納, 薩爾斯堡, 格拉茲, 哈施塔特, 梅爾克, 默德林, 拉姆紹", en: "Vienna, Salzburg, Graz, Hallstatt, Melk, Mödling, Ramsau" } }
                 ]
             },
             {
-                country: "法國 France",
+                country: { zh: "法國 France", en: "France" },
                 year: "2023 - 2026",
-                note: "南轅北側的文化風景，不會去膩的國度。",
-                nature: [
-                    "蔚藍海岸 Côte d'Azur"
-                ],
+                note: { zh: "南轅北側的文化風景，不會去膩的國度。", en: "Vastly diverse cultural landscapes; a country you never get tired of visiting." },
+                nature: { zh: ["蔚藍海岸 Côte d'Azur"], en: ["French Riviera (Côte d'Azur)"] },
                 culture: [
                     {
-                        region: "法蘭西島",
-                        places: "巴黎, 凡爾賽"
+                        region: { zh: "法蘭西島", en: "Île-de-France" },
+                        places: { zh: "巴黎, 凡爾賽", en: "Paris, Versailles" }
                     },
                     {
-                        region: "南法",
-                        places: "馬賽, 尼斯, 亞爾, 亞維儂, 尼姆, 奧朗日, 坎城, 昂蒂布, 芒通"
+                        region: { zh: "南法", en: "Southern France" },
+                        places: { zh: "馬賽, 尼斯, 亞爾, 亞維儂, 尼姆, 奧朗日, 坎城, 昂蒂布, 芒通", en: "Marseille, Nice, Arles, Avignon, Nîmes, Orange, Cannes, Antibes, Menton" }
                     },
                     {
-                        region: "其他大區",
-                        places: "聖米歇爾山, 里爾, 亞眠, 里昂, 史特拉斯堡, 尼斯, 土魯斯, 卡卡頌"
+                        region: { zh: "其他大區", en: "Other Regions" },
+                        places: { zh: "聖米歇爾山, 里爾, 亞眠, 里昂, 史特拉斯堡, 土魯斯, 卡卡頌", en: "Mont Saint-Michel, Lille, Amiens, Lyon, Strasbourg, Toulouse, Carcassonne" }
                     }
                 ]
             },
             {
-                country: "西班牙 Spain",
+                country: { zh: "西班牙 Spain", en: "Spain" },
                 year: "2025",
-                note: "朝聖高第夢幻建築、摩爾與西方建築藝術交融之地。",
+                note: { zh: "朝聖高第夢幻建築、摩爾與西方建築藝術交融之地。", en: "Pilgrimage to Gaudi's dreamy architecture, where Moorish and Western arts blend." },
                 culture: [
                     {
-                        region: "加泰隆尼亞",
-                        places: "巴塞隆納"
+                        region: { zh: "加泰隆尼亞", en: "Catalonia" },
+                        places: { zh: "巴塞隆納", en: "Barcelona" }
                     },
                     {
-                        region: "安達盧西亞",
-                        places: "格拉納達, 哥多華, 塞維利亞"
-                    }
-                ]
-            }, // <--- Bug 1: 這裡補上逗號了
-            {
-                country: "馬爾他 Malta",
-                year: "2025",
-                note: "與家人的探險，有著豐富歷史之地，地中海的珍珠。",
-                culture: [
-                    {
-                        region: "馬爾他島",
-                        places: "瓦萊塔, 姆迪納, 拉巴特, 哈加爾·基姆神廟, 馬爾薩什洛克"
-                    },
-                    {
-                        region: "戈佐島",
-                        places: "奇塔代拉, 沙阿拉"
+                        region: { zh: "安達盧西亞", en: "Andalusia" },
+                        places: { zh: "格拉納達, 哥多華, 塞維利亞", en: "Granada, Córdoba, Seville" }
                     }
                 ]
             },
             {
-                country: "荷蘭 Netherlands",
+                country: { zh: "馬爾他 Malta", en: "Malta" },
                 year: "2025",
-                note: "天高草地低、建築雖然風格各異卻不顯得突兀，還有臭名昭彰的大麻味",
-                nature: [
-                    "庫肯霍夫花園 Keukenhof"
-                ],
+                note: { zh: "與家人的探險，有著豐富歷史之地，地中海的珍珠。", en: "Family adventure, a place of rich history, the pearl of the Mediterranean." },
                 culture: [
                     {
-                        places: "阿姆斯特丹, 鹿特丹, 海牙, 烏特勒茲, 萊登, 羊角村, 贊丹, 特溫特"
+                        region: { zh: "馬爾他島", en: "Malta Island" },
+                        places: { zh: "瓦萊塔, 姆迪納, 拉巴特, 哈加爾·基姆神廟, 馬爾薩什洛克", en: "Valletta, Mdina, Rabat, Hagar Qim, Marsaxlokk" }
                     },
+                    {
+                        region: { zh: "戈佐島", en: "Gozo Island" },
+                        places: { zh: "奇塔代拉, 沙阿拉", en: "Cittadella, Xagħra" }
+                    }
                 ]
             },
             {
-                country: "北馬其頓 North Macedonia",
+                country: { zh: "荷蘭 Netherlands", en: "Netherlands" },
                 year: "2025",
-                note: "藏有大多數人不知道的夏天度假勝地。",
-                nature: [
-                    "奧赫里德湖 Lake Ohrid"
-                ],
+                note: { zh: "天高草地低、建築雖然風格各異卻不顯得突兀，還有臭名昭彰的大麻味", en: "High skies, low grass; diverse architecture blends perfectly, along with the infamous weed smell." },
+                nature: { zh: ["庫肯霍夫花園 Keukenhof"], en: ["Keukenhof Gardens"] },
                 culture: [
-                    {
-                        places: "奧赫里德"
-                    },
+                    { places: { zh: "阿姆斯特丹, 鹿特丹, 海牙, 烏特勒茲, 萊登, 羊角村, 贊丹, 特溫特", en: "Amsterdam, Rotterdam, The Hague, Utrecht, Leiden, Giethoorn, Zaandam, Twente" } }
                 ]
             },
             {
-                country: "科索沃 Kosovo",
+                country: { zh: "北馬其頓 North Macedonia", en: "North Macedonia" },
                 year: "2025",
-                note: "最年輕最有活力的歐洲國家",
+                note: { zh: "藏有大多數人不知道的夏天度假勝地。", en: "Hides a summer resort that most people don't know about." },
+                nature: { zh: ["奧赫里德湖 Lake Ohrid"], en: ["Lake Ohrid"] },
                 culture: [
-                    {
-                        places: "普里什蒂納, 普里茲倫"
-                    },
+                    { places: { zh: "奧赫里德", en: "Ohrid" } }
                 ]
             },
             {
-                country: "阿爾巴尼亞 Albania",
+                country: { zh: "科索沃 Kosovo", en: "Kosovo" },
+                year: "2025",
+                note: { zh: "最年輕最有活力的歐洲國家", en: "The youngest and most vibrant European country." },
+                culture: [
+                    { places: { zh: "普里什蒂納, 普里茲倫", en: "Pristina, Prizren" } }
+                ]
+            },
+            {
+                country: { zh: "阿爾巴尼亞 Albania", en: "Albania" },
                 year: "2024",
-                note: "物價硬是比西歐便宜一半，好山好水都好玩！",
+                note: { zh: "物價硬是比西歐便宜一半，好山好水都好玩！", en: "Prices are half of Western Europe, beautiful mountains and waters!" },
                 culture: [
-                    {
-                        places: "地拉那, 培拉特"
-                    },
+                    { places: { zh: "地拉那, 培拉特", en: "Tirana, Berat" } }
                 ]
             },
             {
-                country: "賽普勒斯 Cyprus",
+                country: { zh: "賽普勒斯 Cyprus", en: "Cyprus" },
                 year: "2025",
-                note: "鄉下度假之地，有很美麗的沙灘與羅馬遺跡。",
-                nature: [
-                    "尼西海灘 Nissi Beach"
-                ],
+                note: { zh: "鄉下度假之地，有很美麗的沙灘與羅馬遺跡。", en: "Rural vacation spot, beautiful beaches and Roman ruins." },
+                nature: { zh: ["尼西海灘 Nissi Beach"], en: ["Nissi Beach"] },
                 culture: [
-                    {
-                        places: "拉納卡, 帕弗斯, 尼古西亞"
-                    },
+                    { places: { zh: "拉納卡, 帕弗斯, 尼古西亞", en: "Larnaca, Paphos, Nicosia" } }
                 ]
             },
             {
-                country: "比利時 Belgium",
+                country: { zh: "比利時 Belgium", en: "Belgium" },
                 year: "2023-2025",
-                note: "不只有尿尿小童，鬆餅啤酒都是一流～",
+                note: { zh: "不只有尿尿小童，鬆餅啤酒都是一流～", en: "Not just Manneken Pis; the waffles and beer are top-notch!" },
                 culture: [
                     {
-                        region: "佛蘭德區",
-                        places: "布魯塞爾, 根特, 布魯日, 安特衛普, 魯汶"
+                        region: { zh: "佛蘭德區", en: "Flanders" },
+                        places: { zh: "布魯塞爾, 根特, 布魯日, 安特衛普, 魯汶", en: "Brussels, Ghent, Bruges, Antwerp, Leuven" }
                     },
                     {
-                        region: "瓦隆大區",
-                        places: "那慕日, 圖爾奈"
+                        region: { zh: "瓦隆大區", en: "Wallonia" },
+                        places: { zh: "那慕日, 圖爾奈", en: "Namur, Tournai" }
                     }
                 ]
             },
             {
-                country: "土耳其 Turkey",
+                country: { zh: "土耳其 Turkey", en: "Turkey" },
                 year: "2025",
-                note: "隱藏的羅馬帝國光輝之地、以及基督教發源之所在",
-                nature: [
-                    "卡帕多其亞 Cappadocia", "棉堡 Pamukkale", "王子群島 Prince Islands"
-                ],
+                note: { zh: "隱藏的羅馬帝國光輝之地、以及基督教發源之所在", en: "Hidden glorious lands of the Roman Empire and origins of Christianity." },
+                nature: {
+                    zh: ["卡帕多其亞 Cappadocia", "棉堡 Pamukkale", "王子群島 Prince Islands"],
+                    en: ["Cappadocia", "Pamukkale", "Prince Islands"]
+                },
                 culture: [
-                    {
-                        places: "伊斯坦堡, 安卡拉, 伊士麥, 卡塔利亞, 西代, 以弗所, 老底嘉, 希拉波利斯, 佩爾蓋"
-                    },
+                    { places: { zh: "伊斯坦堡, 安卡拉, 伊士麥, 卡塔利亞, 西代, 以弗所, 老底嘉, 希拉波利斯, 佩爾蓋", en: "Istanbul, Ankara, Izmir, Antalya, Side, Ephesus, Laodicea, Hierapolis, Perge" } }
                 ]
             },
             {
-                country: "波蘭 Poland",
+                country: { zh: "波蘭 Poland", en: "Poland" },
                 year: "2025",
-                note: "有著悲壯歷史的國家，是歐洲隱藏的獨旅寶藏地。",
-                nature: [
-                    "海眼湖 Morskie Oko"
-                ],
+                note: { zh: "有著悲壯歷史的國家，是歐洲隱藏的獨旅寶藏地。", en: "A country with a tragic history, Europe's hidden solo travel treasure." },
+                nature: { zh: ["海眼湖 Morskie Oko"], en: ["Morskie Oko"] },
                 culture: [
-                    {
-                        places: "華沙, 克拉克夫, 格但斯克, 樂斯拉夫, 格列維采, 馬爾堡, 托倫, 奧斯威辛, 維奇利卡, 札科帕內"
-                    },
+                    { places: { zh: "華沙, 克拉克夫, 格但斯克, 樂斯拉夫, 格列維采, 馬爾堡, 托倫, 奧斯威辛, 維奇利卡, 札科帕內", en: "Warsaw, Krakow, Gdansk, Wroclaw, Gliwice, Malbork, Torun, Auschwitz, Wieliczka, Zakopane" } }
                 ]
             },
             {
-                country: "丹麥 Denmark",
+                country: { zh: "丹麥 Denmark", en: "Denmark" },
                 year: "2025",
-                note: "波羅的海的咽喉要道，進入北方之國的門戶。",
-                nature: [
-                    "厄勒海峽 Øresund Strait"
-                ],
+                note: { zh: "波羅的海的咽喉要道，進入北方之國的門戶。", en: "The choke point of the Baltic Sea, gateway to the Nordic countries." },
+                nature: { zh: ["厄勒海峽 Øresund Strait"], en: ["Øresund Strait"] },
                 culture: [
-                    {
-                        places: "哥本哈根, 赫爾辛格"
-                    },
+                    { places: { zh: "哥本哈根, 赫爾辛格", en: "Copenhagen, Helsingør" } }
                 ]
             },
             {
-                country: "冰島 Iceland",
+                country: { zh: "冰島 Iceland", en: "Iceland" },
                 year: "2025",
-                note: "冰與火之地，也是我在歐洲最霉運的一次><",
-                nature: [
-                    "教會山 Kirkjufell", "布達教堂 Búðakirkja", "黃金瀑布 Gullfoss Falls",
-                    "間歇泉 Geysir", "辛格維利爾國家公園 Thingvellir National Park",
-                    "藍湖 Blue Lagoon", "凱瑞斯火山口 Kerið Crater",
-                    "塞里雅蘭瀑布 Seljalandsfoss", "斯科加瀑布 Skógafoss",
-                    "費雅德拉冰河峽谷 Fjaðrárgljúfur", "雷尼斯黑沙灘 Black Sand Beach",
-                    "黑瀑布 Svartifoss", "鑽石沙灘 Diamond Beach",
-                    "傑古沙龍冰河湖 Jökulsárlón Glacier Lagoon", "瓦特納冰川 Vatnajökull"
-                ],
+                note: { zh: "冰與火之地，也是我在歐洲最霉運的一次><", en: "Land of Ice and Fire, and also my unluckiest trip in Europe >_<" },
+                nature: {
+                    zh: ["教會山 Kirkjufell", "布達教堂 Búðakirkja", "黃金瀑布 Gullfoss Falls", "間歇泉 Geysir", "辛格維利爾國家公園 Thingvellir National Park", "藍湖 Blue Lagoon", "凱瑞斯火山口 Kerið Crater", "塞里雅蘭瀑布 Seljalandsfoss", "斯科加瀑布 Skógafoss", "費雅德拉冰河峽谷 Fjaðrárgljúfur", "雷尼斯黑沙灘 Black Sand Beach", "黑瀑布 Svartifoss", "鑽石沙灘 Diamond Beach", "傑古沙龍冰河湖 Jökulsárlón Glacier Lagoon", "瓦特納冰川 Vatnajökull"],
+                    en: ["Kirkjufell", "Búðakirkja", "Gullfoss", "Geysir", "Thingvellir", "Blue Lagoon", "Kerið Crater", "Seljalandsfoss", "Skógafoss", "Fjaðrárgljúfur", "Reynisfjara Black Sand Beach", "Svartifoss", "Diamond Beach", "Jökulsárlón", "Vatnajökull"]
+                },
                 culture: [
-                    {
-                        places: "雷克雅未克, 維克, 博爾加內斯"
-                    },
+                    { places: { zh: "雷克雅未克, 維克, 博爾加內斯", en: "Reykjavik, Vik, Borgarnes" } }
                 ]
             },
             {
-                country: "葡萄牙 Portugal",
+                country: { zh: "葡萄牙 Portugal", en: "Portugal" },
                 year: "2025",
-                note: "全世界最好吃的蛋塔！",
+                note: { zh: "全世界最好吃的蛋塔！", en: "The best egg tarts in the world!" },
                 culture: [
-                    {
-                        places: "里斯本, 波多, 辛特拉" // <--- Bug 2: 修改為一個完整的字串
-                    }
+                    { places: { zh: "里斯本, 波多, 辛特拉", en: "Lisbon, Porto, Sintra" } }
                 ]
             },
             {
-                country: "安道爾 Andorra",
+                country: { zh: "安道爾 Andorra", en: "Andorra" },
                 year: "2025",
-                note: "庇里牛斯山的小國家，法語與西語的交會處～",
+                note: { zh: "庇里牛斯山的小國家，法語與西語的交會處～", en: "Small country in the Pyrenees, intersection of French and Spanish~" },
                 culture: [
-                    {
-                        places: "安道爾城"
-                    }
+                    { places: { zh: "安道爾城", en: "Andorra la Vella" } }
                 ]
             },
             {
-                country: "摩納哥 Monaco",
+                country: { zh: "摩納哥 Monaco", en: "Monaco" },
                 year: "2025",
-                note: "依山傍海的港都，西方的香港。",
+                note: { zh: "依山傍海的港都，西方的香港。", en: "Port city between mountains and sea, the Hong Kong of the West." },
                 culture: [
-                    {
-                        places: "摩納哥城"
-                    }
+                    { places: { zh: "摩納哥城", en: "Monaco City" } }
                 ]
             },
             {
-                country: "盧森堡 Luxembourg",
+                country: { zh: "盧森堡 Luxembourg", en: "Luxembourg" },
                 year: "2025",
-                note: "全國大眾交通免費的別樣小國。",
+                note: { zh: "全國大眾交通免費的別樣小國。", en: "A unique small country with free nationwide public transport." },
                 culture: [
-                    {
-                        places: "盧森堡"
-                    }
+                    { places: { zh: "盧森堡", en: "Luxembourg City" } }
                 ]
             },
             {
-                country: "捷克 Czech",
+                country: { zh: "捷克 Czech", en: "Czech Republic" },
                 year: "2024 - 2025",
-                note: "老城、煙囪捲、啤酒與RegioJet，以及西歐學生稱羨的物價。",
+                note: { zh: "老城、煙囪捲、啤酒與RegioJet，以及西歐學生稱羨的物價。", en: "Old towns, Trdelník, beer, RegioJet, and prices envied by Western European students." },
                 culture: [
-                    {
-                        places: "布拉格, 布爾諾, 泰爾奇"
-                    }
+                    { places: { zh: "布拉格, 布爾諾, 泰爾奇", en: "Prague, Brno, Telč" } }
                 ]
             },
             {
-                country: "梵蒂岡 Vatican",
+                country: { zh: "梵蒂岡 Vatican", en: "Vatican" },
                 year: "2025",
-                note: "宗教與藝術之世界級朝聖地。",
+                note: { zh: "宗教與藝術之世界級朝聖地。", en: "A world-class pilgrimage destination for religion and art." },
                 culture: [
-                    {
-                        places: "梵蒂岡城"
-                    }
+                    { places: { zh: "梵蒂岡城", en: "Vatican City" } }
                 ]
             },
             {
-                country: "立陶宛 Lithuania",
+                country: { zh: "立陶宛 Lithuania", en: "Lithuania" },
                 year: "2024",
-                note: "曾經不可一世的大帝國，仍留有無數寶藏。",
+                note: { zh: "曾經不可一世的大帝國，仍留有無數寶藏。", en: "Once a mighty empire, still holding countless treasures." },
                 culture: [
-                    {
-                        places: "維爾紐斯, 特拉凱, 十字架山"
-                    },
+                    { places: { zh: "維爾紐斯, 特拉凱, 十字架山", en: "Vilnius, Trakai, Hill of Crosses" } }
                 ]
             },
             {
-                country: "拉脫維亞 Latvia",
+                country: { zh: "拉脫維亞 Latvia", en: "Latvia" },
                 year: "2024",
-                note: "首都是滿是新藝術風格，與古老的漢薩房舍遙相輝映。",
+                note: { zh: "首都是滿是新藝術風格，與古老的漢薩房舍遙相輝映。", en: "Capital full of Art Nouveau, reflecting old Hanseatic houses." },
                 culture: [
-                    {
-                        places: "里加"
-                    },
+                    { places: { zh: "里加", en: "Riga" } }
                 ]
             },
             {
-                country: "愛沙尼亞 Estonia",
+                country: { zh: "愛沙尼亞 Estonia", en: "Estonia" },
                 year: "2024",
-                note: "塔林老城人少又美，兩天慢活很舒服。",
+                note: { zh: "塔林老城人少又美，兩天慢活很舒服。", en: "Tallinn's old town is uncrowded and beautiful, great for a slow 2-day trip." },
                 culture: [
-                    {
-                        places: "塔林"
-                    },
+                    { places: { zh: "塔林", en: "Tallinn" } }
                 ]
             },
             {
-                country: "芬蘭 Finland",
+                country: { zh: "芬蘭 Finland", en: "Finland" },
                 year: "2024",
-                note: "歷史與創意之城。",
+                note: { zh: "歷史與創意之城。", en: "City of history and creativity." },
                 culture: [
-                    {
-                        places: "赫爾辛基"
-                    },
+                    { places: { zh: "赫爾辛基", en: "Helsinki" } }
                 ]
             },
             {
-                country: "瑞典 Sweden",
+                country: { zh: "瑞典 Sweden", en: "Sweden" },
                 year: "2024",
-                note: "北方帝國之都，冷峻而高貴。",
+                note: { zh: "北方帝國之都，冷峻而高貴。", en: "Capital of the Northern Empire, cold yet noble." },
                 culture: [
-                    {
-                        places: "斯德哥爾摩"
-                    },
+                    { places: { zh: "斯德哥爾摩", en: "Stockholm" } }
                 ]
             },
             {
-                country: "挪威 Norway",
+                country: { zh: "挪威 Norway", en: "Norway" },
                 year: "2024",
-                note: "峽灣之國，值得待上一週以上。",
-                nature: [
-                    "佈道台 Preikestolen", "那柔伊峽灣 Nærøyfjord"
-                ],
+                note: { zh: "峽灣之國，值得待上一週以上。", en: "Land of fjords, worth staying for over a week." },
+                nature: { zh: ["佈道台 Preikestolen", "那柔伊峽灣 Nærøyfjord"], en: ["Preikestolen (Pulpit Rock)", "Nærøyfjord"] },
                 culture: [
-                    {
-                        places: "奧斯陸, 卑爾根, 斯塔萬格"
-                    },
+                    { places: { zh: "奧斯陸, 卑爾根, 斯塔萬格", en: "Oslo, Bergen, Stavanger" } }
                 ]
             },
             {
-                country: "瑞士 Switzerland",
+                country: { zh: "瑞士 Switzerland", en: "Switzerland" },
                 year: "2024",
-                note: "風景極美，錢包極痛的極致鐵道之旅。",
-                nature: [
-                    "少女峰地區 Grindelwald", "馬特洪峰 Zermatt", "琉森湖 Lake Lucerne", "日內瓦湖 Lake Geneva", "蘇黎世湖 Lake Zurich", "圖恩湖 Lake Thun", "伯連納快車 Bernina express", "冰河列車 Glacier Express", "萊茵瀑布 Rhine Falls", "瑞吉峰 Rigi", "皮拉圖斯山 Pilatus", "Stans纜車", "Stoos纜車"
-                ],
+                note: { zh: "風景極美，錢包極痛的極致鐵道之旅。", en: "Stunning scenery, extremely painful for the wallet, ultimate railway journey." },
+                nature: {
+                    zh: ["少女峰地區 Grindelwald", "馬特洪峰 Zermatt", "琉森湖 Lake Lucerne", "日內瓦湖 Lake Geneva", "蘇黎世湖 Lake Zurich", "圖恩湖 Lake Thun", "伯連納快車 Bernina express", "冰河列車 Glacier Express", "萊茵瀑布 Rhine Falls", "瑞吉峰 Rigi", "皮拉圖斯山 Pilatus", "Stans纜車", "Stoos纜車"],
+                    en: ["Jungfrau Region (Grindelwald)", "Matterhorn (Zermatt)", "Lake Lucerne", "Lake Geneva", "Lake Zurich", "Lake Thun", "Bernina Express", "Glacier Express", "Rhine Falls", "Mount Rigi", "Mount Pilatus", "Stanserhorn Funicular", "Stoos Funicular"]
+                },
                 culture: [
                     {
-                        region: "德語區",
-                        places: "蘇黎世, 琉森, 伯恩, 巴賽爾, 因特拉肯, 聖加侖, 策馬特, 聖莫里茲, 圖恩"
+                        region: { zh: "德語區", en: "German-speaking" },
+                        places: { zh: "蘇黎世, 琉森, 伯恩, 巴賽爾, 因特拉肯, 聖加侖, 策馬特, 聖莫里茲, 圖恩", en: "Zurich, Lucerne, Bern, Basel, Interlaken, St. Gallen, Zermatt, St. Moritz, Thun" }
                     }, 
                     {
-                        region: "法語區",
-                        places: "日內瓦, 洛桑, 蒙特魯, 沃韋"
+                        region: { zh: "法語區", en: "French-speaking" },
+                        places: { zh: "日內瓦, 洛桑, 蒙特魯, 沃韋", en: "Geneva, Lausanne, Montreux, Vevey" }
                     }, 
                     {
-                        region: "義語區",
-                        places: "貝林佐納, 羅加諾, 盧加諾"
+                        region: { zh: "義語區", en: "Italian-speaking" },
+                        places: { zh: "貝林佐納, 羅加諾, 盧加諾", en: "Bellinzona, Locarno, Lugano" }
                     }
                 ]
             },
             {
-                country: "列支敦士登 Liechtenstein",
+                country: { zh: "列支敦士登 Liechtenstein", en: "Liechtenstein" },
                 year: "2024",
-                note: "能逛的都在一條街上，半日遊剛剛好～",
+                note: { zh: "能逛的都在一條街上，半日遊剛剛好～", en: "Everything to see is on one street, perfect for a half-day trip." },
+                culture: [
+                    { places: { zh: "瓦杜茲", en: "Vaduz" } }
+                ]
+            },
+            {
+                country: { zh: "愛爾蘭 Ireland", en: "Ireland" },
+                year: "2024",
+                note: { zh: "凱爾特的家鄉。從Guinness到那標誌性的元素，那悲劇的歷史與迷人的民族性令人神魂顛倒。", en: "Home of the Celts. From Guinness to iconic elements, the tragic history and charming nationality are mesmerizing." },
+                nature: { zh: ["莫赫斷崖 Cliffs of Moher", "伯倫 The Burren"], en: ["Cliffs of Moher", "The Burren"] },
+                culture: [
+                    { places: { zh: "都柏林, 科克, 高威", en: "Dublin, Cork, Galway" } }
+                ]
+            },
+            {
+                country: { zh: "英國 The UK", en: "The UK" },
+                year: "2024",
+                note: { zh: "從南邊的經典英格蘭、到北邊的孤獨蘇格蘭高地、甚至是交織著愛恨情仇的北愛爾蘭，每處都訴說的自己獨特的故事。", en: "From classic England in the south to the lonely Scottish Highlands in the north, and Northern Ireland with its love and hate, each tells a unique story." },
+                nature: { zh: ["蘇格蘭高地 Scottish Highlands", "巨人堤道 Giant’s Causeway"], en: ["Scottish Highlands", "Giant’s Causeway"] },
                 culture: [
                     {
-                        places: "瓦杜茲"
+                        region: { zh: "英格蘭", en: "England" },
+                        places: { zh: "倫敦, 伯明罕, 布里斯托, 牛津, 劍橋, 溫莎, 巴斯, 諾丁漢, 林肯, 切斯特, 利物浦, 曼徹斯特, 謝菲爾德, 約克紐卡素, 達拉謨, 韋爾斯, 索爾茲伯里, 格拉斯頓伯里, 特拉特福", en: "London, Birmingham, Bristol, Oxford, Cambridge, Windsor, Bath, Nottingham, Lincoln, Chester, Liverpool, Manchester, Sheffield, York, Newcastle, Durham, Wells, Salisbury, Glastonbury, Stratford" }
+                    },
+                    {
+                        region: { zh: "蘇格蘭", en: "Scotland" },
+                        places: { zh: "愛丁堡, 格拉斯哥", en: "Edinburgh, Glasgow" }
+                    },
+                    {
+                        region: { zh: "北愛爾蘭", en: "Northern Ireland" },
+                        places: { zh: "貝爾法斯特", en: "Belfast" }
+                    },
+                    {
+                        region: { zh: "威爾斯", en: "Wales" },
+                        places: { zh: "卡地夫", en: "Cardiff" }
                     }
                 ]
             },
             {
-                country: "愛爾蘭 Ireland",
+                country: { zh: "斯洛伐克 Slovakia", en: "Slovakia" },
                 year: "2024",
-                note: "凱爾特的家鄉。從Guinness到那標誌性的元素，那悲劇的歷史與迷人的民族性令人神魂顛倒。",
-                nature: [
-                    "莫赫斷崖 Cliffs of Moher", "伯倫 The Burren"
-                ],
+                note: { zh: "從維也納出發一日遊的好選擇。", en: "A great choice for a day trip from Vienna." },
                 culture: [
-                    {
-                        places: "都柏林, 科克, 高威"
-                    },
+                    { places: { zh: "布拉提斯拉瓦", en: "Bratislava" } }
                 ]
             },
             {
-                country: "英國 The UK",
+                country: { zh: "蒙特內哥羅 Montenegro", en: "Montenegro" },
                 year: "2024",
-                note: "從南邊的經典英格蘭、到北邊的孤獨蘇格蘭高地、甚至是交織著愛恨情仇的北愛爾蘭，每處都訴說的自己獨特的故事。",
-                nature: [
-                    "蘇格蘭高地 Scottish Highlands", "巨人堤道 Giant’s Causeway"
-                ],
+                note: { zh: "秘境絕景之國", en: "A country of hidden stunning views." },
+                nature: { zh: ["科托灣 Bay of Kotor"], en: ["Bay of Kotor"] },
                 culture: [
-                    {
-                        region: "英格蘭",
-                        places: "倫敦, 伯明罕, 布里斯托, 牛津, 劍橋, 溫莎, 巴斯, 諾丁漢, 林肯, 切斯特, 利物浦, 曼徹斯特, 謝菲爾德, 約克紐卡素, 達拉謨, 韋爾斯, 索爾茲伯里, 格拉斯頓伯里, 特拉特福"
-                    },
-                    {
-                        region: "蘇格蘭",
-                        places: "愛丁堡, 格拉斯哥"
-                    },
-                    {
-                        region: "北愛爾蘭",
-                        places: "貝爾法斯特"
-                    },
-                    {
-                        region: "威爾斯",
-                        places: "卡地夫"
-                    }
+                    { places: { zh: "科托, 佩拉斯特, 聖母礁島", en: "Kotor, Perast, Our Lady of the Rocks" } }
                 ]
             },
             {
-                country: "斯洛伐克 Slovakia",
+                country: { zh: "波士尼亞赫賽哥維納 Bosnia and Herzegovina", en: "Bosnia and Herzegovina" },
                 year: "2024",
-                note: "從維也納出發一日遊的好選擇。",
+                note: { zh: "基督教與伊斯蘭民族交融之地", en: "A place where Christian and Islamic ethnicities blend." },
+                nature: { zh: ["克拉維察瀑布 Kravica Waterfall"], en: ["Kravica Waterfall"] },
                 culture: [
-                    {
-                        places: "布拉提斯拉瓦"
-                    },
+                    { places: { zh: "莫斯塔爾, 波奇泰利, 涅烏姆", en: "Mostar, Počitelj, Neum" } }
                 ]
             },
             {
-                country: "蒙特內哥羅 Montenegro",
+                country: { zh: "克羅埃西亞 Croatia", en: "Croatia" },
                 year: "2024",
-                note: "秘境絕景之國",
-                nature: [
-                    "科托灣 Bay of Kotor"
-                ],
+                note: { zh: "如同被遺忘在海裡的山脈，海岸線優美且充滿古典歷史。", en: "Like mountains forgotten in the sea; beautiful coastline full of classical history." },
+                nature: { zh: ["達爾馬提亞群島 Dalmatian Islands"], en: ["Dalmatian Islands"] },
                 culture: [
-                    {
-                        places: "科托, 佩拉斯特, 聖母礁島"
-                    },
+                    { places: { zh: "札達爾, 杜布洛夫尼克, 斯普利茲, 特羅吉爾", en: "Zadar, Dubrovnik, Split, Trogir" } }
                 ]
             },
             {
-                country: "波士尼亞赫賽哥維納 Bosnia and Herzegovina",
+                country: { zh: "聖馬利諾 St. Marino", en: "St. Marino" },
                 year: "2024",
-                note: "基督教與伊斯蘭民族交融之地",
-                nature: [
-                    "克拉維察瀑布 Kravica Waterfall"
-                ],
+                note: { zh: "矗立在山丘上的三塔之城，擁有無敵美景！", en: "City of Three Towers standing on a hill, offering invincible views!" },
                 culture: [
-                    {
-                        places: "莫斯塔爾, 波奇泰利, 涅烏姆"
-                    },
+                    { places: { zh: "聖馬利諾", en: "San Marino" } }
                 ]
             },
             {
-                country: "克羅埃西亞 Croatia",
+                country: { zh: "匈牙利 Hungary", en: "Hungary" },
                 year: "2024",
-                note: "如同被遺忘在海裡的山脈，海岸線優美且充滿古典歷史。",
-                nature: [
-                    "達爾馬提亞群島 Dalmatian Islands"
-                ],
+                note: { zh: "號稱歐洲最美的首都。", en: "Known as the most beautiful capital in Europe." },
                 culture: [
-                    {
-                        places: "札達爾, 杜布洛夫尼克, 斯普利茲, 特羅吉爾"
-                    },
-                ]
-            },
-            {
-                country: "聖馬利諾 St. Marino",
-                year: "2024",
-                note: "矗立在山丘上的三塔之城，擁有無敵美景！",
-                culture: [
-                    {
-                        places: "聖馬利諾"
-                    }
-                ]
-            },
-            {
-                country: "匈牙利 Hungary",
-                year: "2024",
-                note: "號稱歐洲最美的首都。",
-                culture: [
-                    {
-                        places: "布達佩斯"
-                    },
+                    { places: { zh: "布達佩斯", en: "Budapest" } }
                 ]
             }
         ];
@@ -688,23 +684,29 @@
             return natureArray.map(place => {
                 if (place.startsWith('*')) {
                      let placeName = place.substring(1).trim();
-                     return `<span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded-md border border-emerald-200/60 shadow-sm font-medium flex items-center gap-1"><span class="text-[10px]">🏛️</span>${placeName}</span>`;
+                     return `<span class="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs px-2.5 py-1 rounded-md border border-emerald-200/60 dark:border-emerald-700 shadow-sm font-medium flex items-center gap-1"><span class="text-[10px]">🏛️</span>${placeName}</span>`;
                 }
-                return `<span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded-md border border-emerald-100/50">${place}</span>`;
+                return `<span class="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs px-2.5 py-1 rounded-md border border-emerald-100/50 dark:border-emerald-800">${place}</span>`;
             }).join('');
         }
 
         function renderTravelLog() {
             const container = document.getElementById('travel-log-container');
-            // 注意這裡多加了 index 參數，用來給每個卡片獨立的編號
-            container.innerHTML = travelHistory.map((item, index) => `
-                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition flex flex-col">
+            const isEn = document.documentElement.lang === 'en';
+
+            container.innerHTML = travelHistory.map((item, index) => {
+                const currentCountry = isEn ? item.country.en : item.country.zh;
+                const currentNote = isEn ? item.note.en : item.note.zh;
+                const currentNature = item.nature ? (isEn ? item.nature.en : item.nature.zh) : [];
+
+                return `
+                <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition flex flex-col">
                     
                     <div class="flex justify-between items-center cursor-pointer group" onclick="toggleTravelCard(${index})">
-                        <h3 class="text-xl md:text-2xl font-bold text-blue-700 group-hover:text-blue-500 transition">${item.country}</h3>
+                        <h3 class="text-xl md:text-2xl font-bold text-blue-700 dark:text-blue-400 group-hover:text-blue-500 transition">${currentCountry}</h3>
                         <div class="flex items-center gap-3">
-                            <span class="text-xs font-bold text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">${item.year}</span>
-                            <button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                            <span class="text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1.5 rounded-full">${item.year}</span>
+                            <button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 dark:bg-gray-700 text-gray-400 dark:text-gray-300 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                 <svg id="travel-icon-${index}" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
@@ -713,40 +715,43 @@
                     </div>
                     
                     <div id="travel-content-${index}" class="hidden">
-                        <div class="space-y-5 mt-6 border-t border-gray-100 pt-6">
-                            ${item.nature && item.nature.length > 0 ? `
+                        <div class="space-y-5 mt-6 border-t border-gray-100 dark:border-gray-700 pt-6">
+                            ${currentNature.length > 0 ? `
                                 <div>
-                                    <h4 class="text-sm font-extrabold text-emerald-600 mb-2 flex items-center"><span class="mr-1.5">🌲</span>自然景觀</h4>
+                                    <h4 class="text-sm font-extrabold text-emerald-600 dark:text-emerald-400 mb-2 flex items-center"><span class="mr-1.5">🌲</span>${isEn ? 'Nature' : '自然景觀'}</h4>
                                     <div class="flex flex-wrap gap-2">
-                                        ${formatNatureHeritage(item.nature)}
+                                        ${formatNatureHeritage(currentNature)}
                                     </div>
                                 </div>
                             ` : ''}
 
                             ${item.culture && item.culture.length > 0 ? `
                                 <div>
-                                    <h4 class="text-sm font-extrabold text-amber-600 mb-2 flex items-center"><span class="mr-1.5">🏰</span>人文城鎮</h4>
+                                    <h4 class="text-sm font-extrabold text-amber-600 dark:text-amber-400 mb-2 flex items-center"><span class="mr-1.5">🏰</span>${isEn ? 'Culture & Towns' : '人文城鎮'}</h4>
                                     <div class="space-y-3">
-                                        ${item.culture.map(group => `
+                                        ${item.culture.map(group => {
+                                            const groupRegion = group.region ? (isEn ? group.region.en : group.region.zh) : null;
+                                            const groupPlaces = isEn ? group.places.en : group.places.zh;
+                                            return `
                                             <div class="text-sm">
-                                                ${group.region ? `<span class="font-bold text-gray-700 bg-gray-100 px-2 py-0.5 rounded text-[11px] mr-1 inline-block mb-1 sm:mb-0">${group.region}</span>` : ''}
-                                                <span class="text-gray-600 leading-relaxed">${formatHeritage(group.places)}</span>
+                                                ${groupRegion ? `<span class="font-bold text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded text-[11px] mr-1 inline-block mb-1 sm:mb-0">${groupRegion}</span>` : ''}
+                                                <span class="text-gray-600 dark:text-gray-400 leading-relaxed">${formatHeritage(groupPlaces)}</span>
                                             </div>
-                                        `).join('')}
+                                        `}).join('')}
                                     </div>
                                 </div>
                             ` : ''}
                         </div>
 
-                        <p class="text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-4 mt-6 italic bg-gray-50/50 -mx-6 -mb-6 px-6 pb-6 rounded-b-3xl">
-                            " ${item.note} "
+                        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed border-t border-gray-100 dark:border-gray-700 pt-4 mt-6 italic bg-gray-50/50 dark:bg-gray-900/50 -mx-6 -mb-6 px-6 pb-6 rounded-b-3xl">
+                            " ${currentNote} "
                         </p>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
-        // 新增：切換展開/收合的專屬函式
+        // 切換展開/收合的專屬函式
         function toggleTravelCard(index) {
             const content = document.getElementById(`travel-content-${index}`);
             const icon = document.getElementById(`travel-icon-${index}`);
