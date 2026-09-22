@@ -13,6 +13,21 @@
             darkMode: 'class',
         }
     </script>
+
+    <!-- 頁面載入前優先讀取 localStorage 設定，避免畫面閃爍 -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else if (savedTheme === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang) {
+            document.documentElement.lang = savedLang;
+        }
+    </script>
     
     <link rel="icon" type="image/png" href="images/Favicon.png">
     <style>
@@ -1013,18 +1028,27 @@
     </footer>
 
     <script>
-        // 深淺色模式切換邏輯
+        // 深淺色模式切換邏輯 + 存入 localStorage
         function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
+            const htmlTag = document.documentElement;
+            htmlTag.classList.toggle('dark');
+            
+            if (htmlTag.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
         }
 
-        // 中英切換邏輯
+        // 中英切換邏輯 + 存入 localStorage
         function toggleLang() {
             const htmlTag = document.documentElement;
             if (htmlTag.lang === 'zh-Hant') {
                 htmlTag.lang = 'en';
+                localStorage.setItem('lang', 'en');
             } else {
                 htmlTag.lang = 'zh-Hant';
+                localStorage.setItem('lang', 'zh-Hant');
             }
         }
 
