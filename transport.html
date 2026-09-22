@@ -6,6 +6,11 @@
     <title>歐洲跨國交通全攻略：飛機、火車、巴士與省錢密技 - Europe Solo</title>
     <meta name="description" content="歐洲獨旅交通怎麼排？廉航怎麼搭不被罰款？Eurail Pass 划算嗎？完整收錄歐洲火車、私鐵、長途巴士與夜車的實戰教學與比價密技。">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <link rel="icon" type="image/png" href="images/Favicon.png">
     <style>
         html { scroll-behavior: smooth; }
@@ -13,37 +18,94 @@
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Dark Mode Scrollbar */
+        .dark ::-webkit-scrollbar-track { background: #1f2937; }
+        .dark ::-webkit-scrollbar-thumb { background: #4b5563; }
+        .dark ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+
         /* Logo 預設樣式防破圖 */
         .brand-logo { background-color: #f8fafc; text-indent: -9999px; overflow: hidden; display: inline-block; }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+        .dark .brand-logo { background-color: #ffffff; }
 
-    <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out">
+        /* 語言切換顯示邏輯 */
+        html:not([lang="en"]) .lang-en { display: none !important; }
+        html[lang="en"] .lang-zh { display: none !important; }
+    </style>
+    
+    <!-- 防止畫面閃爍 (FOUC) 的預載入 Script -->
+    <script>
+        // 初始化深色模式
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // 初始化語言
+        const savedLang = localStorage.getItem('app-lang') || 'zh-Hant';
+        document.documentElement.lang = savedLang;
+
+        // 更新 Title 和 Description
+        function updateMeta(lang) {
+            if (lang === 'en') {
+                document.title = "Europe Cross-Border Transport Guide: Flights, Trains, Buses & Tips - Europe Solo";
+                document.querySelector('meta[name="description"]').setAttribute("content", "How to plan solo travel transport in Europe? Avoid budget airline fines, Eurail Pass guides, and tips for trains, buses, and night trains.");
+            } else {
+                document.title = "歐洲跨國交通全攻略：飛機、火車、巴士與省錢密技 - Europe Solo";
+                document.querySelector('meta[name="description"]').setAttribute("content", "歐洲獨旅交通怎麼排？廉航怎麼搭不被罰款？Eurail Pass 划算嗎？完整收錄歐洲火車、私鐵、長途巴士與夜車的實戰教學與比價密技。");
+            }
+        }
+        updateMeta(savedLang);
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans leading-relaxed transition-colors duration-300">
+
+    <nav id="main-nav" class="fixed top-0 left-0 w-full p-4 md:p-6 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm flex justify-between items-center z-[1000] transition-transform duration-300 ease-in-out border-b border-transparent dark:border-gray-800">
         <div class="text-xl font-bold tracking-tighter">
-            <a href="index.html" class="hover:opacity-80 transition">EUROPE<span class="text-blue-600">SOLO</span></a>
+            <a href="index.html" class="hover:opacity-80 transition text-gray-900 dark:text-white">EUROPE<span class="text-blue-600 dark:text-blue-400">SOLO</span></a>
         </div>
         <div class="flex items-center space-x-3">
-            <a href="about.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-sm">關於我</a>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition" aria-label="Toggle Dark Mode">
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+            
+            <!-- Language Toggle Button -->
+            <button id="lang-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition font-bold text-sm min-w-[40px]">
+                <span class="lang-zh">EN</span>
+                <span class="lang-en">中</span>
+            </button>
+
+            <a href="about.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 dark:hover:bg-blue-500 transition shadow-sm">
+                <span class="lang-zh">關於我</span>
+                <span class="lang-en">About Me</span>
+            </a>
         </div>
     </nav>
     <div class="h-20"></div>
 
-    <header class="bg-blue-600 text-white py-16 px-6 text-center relative overflow-hidden">
+    <header class="bg-blue-600 dark:bg-blue-800 text-white py-16 px-6 text-center relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
         <div class="relative z-10 max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">歐洲跨國交通全攻略</h1>
-            <p class="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto">
-                飛機、火車、巴士、渡輪怎麼選？將 41 國的血淚經驗化為最實用的省錢指南。
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+                <span class="lang-zh">歐洲跨國交通全攻略</span>
+                <span class="lang-en">Europe Cross-Border Transport Guide</span>
+            </h1>
+            <p class="text-blue-100 dark:text-blue-200 text-lg md:text-xl max-w-2xl mx-auto">
+                <span class="lang-zh">飛機、火車、巴士、渡輪怎麼選？將 41 國的血淚經驗化為最實用的省錢指南。</span>
+                <span class="lang-en">Flights, trains, buses, or ferries? Transforming hard-earned experience from 41 countries into the most practical money-saving guide.</span>
             </p>
         </div>
     </header>
 
     <div class="max-w-6xl mx-auto px-6 -mt-6 relative z-20">
-        <div class="bg-yellow-400 text-yellow-900 px-6 py-4 rounded-xl shadow-lg font-bold flex items-center justify-between flex-wrap gap-4">
+        <div class="bg-yellow-400 dark:bg-yellow-600 text-yellow-900 dark:text-yellow-50 px-6 py-4 rounded-xl shadow-lg font-bold flex items-center justify-between flex-wrap gap-4 border dark:border-yellow-500">
             <div class="flex items-center gap-3">
                 <span class="text-2xl">🎓</span>
-                <span><strong>學生專屬福利：</strong>出發前請務必上 ESN, ISIC, StudentBeans 註冊，機票與火車常有專屬 8-9 折優惠！</span>
+                <span class="lang-zh"><strong>學生專屬福利：</strong>出發前請務必上 ESN, ISIC, StudentBeans 註冊，機票與火車常有專屬 8-9 折優惠！</span>
+                <span class="lang-en"><strong>Student Perks:</strong> Make sure to register on ESN, ISIC, or StudentBeans before departure. Flights and trains often offer 10-20% exclusive discounts!</span>
             </div>
         </div>
     </div>
@@ -51,44 +113,61 @@
     <main class="max-w-6xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
         
         <aside class="hidden lg:block w-64 flex-shrink-0">
-            <div class="sticky top-32 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                <h3 class="font-bold text-gray-900 mb-4 text-lg border-b pb-2">章節導覽</h3>
-                <ul class="space-y-3 text-sm font-medium text-gray-500">
-                    <li><a href="#flight" class="hover:text-blue-600 transition block">✈️ 飛機與廉價航空</a></li>
-                    <li><a href="#train" class="hover:text-blue-600 transition block">🚆 火車：通票與國鐵</a></li>
-                    <li><a href="#private-train" class="hover:text-blue-600 transition block">🚄 高CP值私鐵攻略</a></li>
-                    <li><a href="#night-train" class="hover:text-blue-600 transition block">🌙 過夜火車 (Night Trains)</a></li>
-                    <li><a href="#bus" class="hover:text-blue-600 transition block">🚐 長途巴士</a></li>
-                    <li><a href="#ferry" class="hover:text-blue-600 transition block">🛳️ 跨海渡輪</a></li>
-                    <li><a href="#omio" class="hover:text-blue-600 transition block">🔍 跨國比價神器 (Omio)</a></li>
+            <div class="sticky top-32 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                <h3 class="font-bold text-gray-900 dark:text-gray-100 mb-4 text-lg border-b dark:border-gray-700 pb-2">
+                    <span class="lang-zh">章節導覽</span>
+                    <span class="lang-en">Chapter Guide</span>
+                </h3>
+                <ul class="space-y-3 text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <li><a href="#flight" class="hover:text-blue-600 dark:hover:text-blue-400 transition block"><span class="lang-zh">✈️ 飛機與廉價航空</span><span class="lang-en">✈️ Flights & Budget Airlines</span></a></li>
+                    <li><a href="#train" class="hover:text-blue-600 dark:hover:text-blue-400 transition block"><span class="lang-zh">🚆 火車：通票與國鐵</span><span class="lang-en">🚆 Trains: Passes & Railways</span></a></li>
+                    <li><a href="#private-train" class="hover:text-blue-600 dark:hover:text-blue-400 transition block"><span class="lang-zh">🚄 高CP值私鐵攻略</span><span class="lang-en">🚄 Private Railways</span></a></li>
+                    <li><a href="#night-train" class="hover:text-blue-600 dark:hover:text-blue-400 transition block"><span class="lang-zh">🌙 過夜火車 (Night Trains)</span><span class="lang-en">🌙 Night Trains</span></a></li>
+                    <li><a href="#bus" class="hover:text-blue-600 dark:hover:text-blue-400 transition block"><span class="lang-zh">🚐 長途巴士</span><span class="lang-en">🚐 Long-Distance Buses</span></a></li>
+                    <li><a href="#ferry" class="hover:text-blue-600 dark:hover:text-blue-400 transition block"><span class="lang-zh">🛳️ 跨海渡輪</span><span class="lang-en">🛳️ Cross-Sea Ferries</span></a></li>
+                    <li><a href="#omio" class="hover:text-blue-600 dark:hover:text-blue-400 transition block"><span class="lang-zh">🔍 跨國比價神器 (Omio)</span><span class="lang-en">🔍 Comparison Tool (Omio)</span></a></li>
                 </ul>
             </div>
         </aside>
 
         <article class="flex-grow space-y-12">
             
-            <div class="bg-amber-50 p-6 md:p-8 rounded-2xl border-2 border-dashed border-amber-200 relative overflow-hidden mb-8">
-                <div class="absolute -top-6 -right-6 w-24 h-24 bg-amber-100 rounded-full opacity-50"></div>
+            <div class="bg-amber-50 dark:bg-amber-900/30 p-6 md:p-8 rounded-2xl border-2 border-dashed border-amber-200 dark:border-amber-700/50 relative overflow-hidden mb-8 transition-colors duration-300">
+                <div class="absolute -top-6 -right-6 w-24 h-24 bg-amber-100 dark:bg-amber-800/40 rounded-full opacity-50"></div>
                 
-                <h3 class="text-xl md:text-2xl font-extrabold text-amber-900 mb-4 flex items-center relative z-10">
-                    <span class="mr-3 text-2xl md:text-3xl">⏳</span> Bryan 實戰提醒：千萬別把轉車時間排太緊！
+                <h3 class="text-xl md:text-2xl font-extrabold text-amber-900 dark:text-amber-300 mb-4 flex items-center relative z-10">
+                    <span class="mr-3 text-2xl md:text-3xl">⏳</span>
+                    <span class="lang-zh">Bryan 實戰提醒：千萬別把轉車時間排太緊！</span>
+                    <span class="lang-en">Bryan's Pro Tip: Don't schedule transfers too tight!</span>
                 </h3>
                 
-                <div class="space-y-4 text-gray-700 leading-loose relative z-10 text-sm md:text-base">
-                    <p>
+                <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-loose relative z-10 text-sm md:text-base">
+                    <p class="lang-zh">
                         歐洲大眾運輸不像台日韓中那樣精準，有些國家特別容易誤點（比如臭名昭彰的<strong>德國鐵路 DB</strong>）。在安排「火車轉巴士」或「不同交通工具切換」時，務必預留極度充足的緩衝時間。
                     </p>
+                    <p class="lang-en">
+                        European public transport is not as punctual as in Taiwan, Japan, Korea, or China. Some countries are notorious for delays (like the infamous <strong>Deutsche Bahn - DB</strong>). When planning "train-to-bus" or "switching transport modes", make sure to leave plenty of buffer time.
+                    </p>
                     
-                    <div class="bg-white/80 p-5 rounded-xl border border-amber-100 shadow-sm mt-4">
-                        <p class="text-sm font-bold text-amber-800 mb-3 flex items-center">
-                            <span class="mr-2">⚠️</span> 隱藏陷阱：站點距離與迷宮轉運站
+                    <div class="bg-white/80 dark:bg-gray-800/80 p-5 rounded-xl border border-amber-100 dark:border-amber-900/50 shadow-sm mt-4">
+                        <p class="text-sm font-bold text-amber-800 dark:text-amber-400 mb-3 flex items-center">
+                            <span class="mr-2">⚠️</span>
+                            <span class="lang-zh">隱藏陷阱：站點距離與迷宮轉運站</span>
+                            <span class="lang-en">Hidden Trap: Station Distances and Maze-like Terminals</span>
                         </p>
-                        <p class="text-sm text-gray-700 mb-4">
-                            在大城市，長途巴士站通常設在城郊，如果你要巴士轉火車（或反過來），搭上市區公車可能還要<strong>快一小時</strong>才會到火車站。此外，你還需要時間在偌大的車站裡尋找「你的巴士到底停在哪個月台」。
+                        <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">
+                            <span class="lang-zh">在大城市，長途巴士站通常設在城郊，如果你要巴士轉火車（或反過來），搭上市區公車可能還要<strong>快一小時</strong>才會到火車站。此外，你還需要時間在偌大的車站裡尋找「你的巴士到底停在哪個月台」。</span>
+                            <span class="lang-en">In major cities, long-distance bus stations are often in the suburbs. If transferring from bus to train, taking a city bus to the train station might take <strong>nearly an hour</strong>. Plus, you need time to navigate large stations to find exactly which platform your bus departs from.</span>
                         </p>
-                        <div class="border-t border-amber-100 pt-3">
-                            <strong class="text-red-600 block mb-1">💀 個人血淚經歷：</strong>
-                            <span class="text-sm text-gray-700">在土耳其伊士麥（Izmir），長途巴士站不僅遠在城郊，而且就像「台北轉運站」一樣有好幾層樓、無數個月台！當時光是找我的車子停在哪個車位，就找得我暈頭轉向。如果轉車時間抓太緊，絕對會眼睜睜看著車跑掉！</span>
+                        <div class="border-t border-amber-100 dark:border-gray-700 pt-3">
+                            <strong class="text-red-600 dark:text-red-400 block mb-1">
+                                <span class="lang-zh">💀 個人血淚經歷：</span>
+                                <span class="lang-en">💀 Personal Hard-Learned Experience:</span>
+                            </strong>
+                            <span class="text-sm text-gray-700 dark:text-gray-400">
+                                <span class="lang-zh">在土耳其伊士麥（Izmir），長途巴士站不僅遠在城郊，而且就像「台北轉運站」一樣有好幾層樓、無數個月台！當時光是找我的車子停在哪個車位，就找得我暈頭轉向。如果轉車時間抓太緊，絕對會眼睜睜看著車跑掉！</span>
+                                <span class="lang-en">In Izmir, Turkey, the bus terminal was not only far in the suburbs but had multiple floors and countless platforms! Just finding which bay my bus was parked in made me dizzy. If the transfer time is too tight, you will absolutely watch your bus leave without you!</span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -96,145 +175,201 @@
 
             <section id="flight" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl">✈️</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">飛機與廉價航空 (LCC)</h2>
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center text-2xl">✈️</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+                        <span class="lang-zh">飛機與廉價航空 (LCC)</span>
+                        <span class="lang-en">Flights & Low-Cost Carriers (LCC)</span>
+                    </h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 space-y-6">
-                    <p class="text-gray-700 leading-relaxed">
-                        <strong>時機：</strong>跨國、長距離（如西班牙飛義大利）首選。促銷時機票低至 20 歐元，比搭長途巴士還便宜！<br>
-                        <strong>比價網站：</strong>Skyscanner、Google Flights。
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 space-y-6 transition-colors duration-300">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <span class="lang-zh">
+                            <strong>時機：</strong>跨國、長距離（如西班牙飛義大利）首選。促銷時機票低至 20 歐元，比搭長途巴士還便宜！<br>
+                            <strong>比價網站：</strong>Skyscanner、Google Flights。
+                        </span>
+                        <span class="lang-en">
+                            <strong>When to use:</strong> Best for cross-border and long distances (e.g., Spain to Italy). Promotional flights can be as low as €20, cheaper than a bus!<br>
+                            <strong>Compare prices:</strong> Skyscanner, Google Flights.
+                        </span>
                     </p>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-gray-50 p-5 rounded-xl border border-gray-100">
-                            <h4 class="font-bold text-gray-800 mb-4">常用廉航清單</h4>
-                            <ul class="text-sm text-gray-600 space-y-3">
+                        <div class="bg-gray-50 dark:bg-gray-900/50 p-5 rounded-xl border border-gray-100 dark:border-gray-700">
+                            <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-4">
+                                <span class="lang-zh">常用廉航清單</span>
+                                <span class="lang-en">Common Budget Airlines</span>
+                            </h4>
+                            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-3">
                                 <li class="flex items-start gap-3">
-                                    <img src="https://logo.clearbit.com/ryanair.com" alt="Ryanair" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
-                                    <span><strong>Ryanair：</strong>全歐洲霸主，便宜但規定最嚴。</span>
+                                    <img src="https://logo.clearbit.com/ryanair.com" alt="Ryanair" class="w-6 h-6 rounded-full brand-logo border border-gray-200 dark:border-gray-600 flex-shrink-0">
+                                    <span><strong>Ryanair：</strong><span class="lang-zh">全歐洲霸主，便宜但規定最嚴。</span><span class="lang-en">Europe's giant, cheap but strictest rules.</span></span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <img src="https://logo.clearbit.com/easyjet.com" alt="easyJet" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
-                                    <span><strong>easyJet：</strong>西歐為主，停靠較多主要機場。</span>
+                                    <img src="https://logo.clearbit.com/easyjet.com" alt="easyJet" class="w-6 h-6 rounded-full brand-logo border border-gray-200 dark:border-gray-600 flex-shrink-0">
+                                    <span><strong>easyJet：</strong><span class="lang-zh">西歐為主，停靠較多主要機場。</span><span class="lang-en">Focuses on Western Europe, stops at major airports.</span></span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <img src="https://logo.clearbit.com/wizzair.com" alt="Wizz Air" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
-                                    <span><strong>Wizz Air：</strong>主打東歐與巴爾幹半島。</span>
+                                    <img src="https://logo.clearbit.com/wizzair.com" alt="Wizz Air" class="w-6 h-6 rounded-full brand-logo border border-gray-200 dark:border-gray-600 flex-shrink-0">
+                                    <span><strong>Wizz Air：</strong><span class="lang-zh">主打東歐與巴爾幹半島。</span><span class="lang-en">Focuses on Eastern Europe & the Balkans.</span></span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <img src="https://logo.clearbit.com/vueling.com" alt="Vueling" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
-                                    <span><strong>Vueling / Volotea：</strong>南歐、西班牙為主。</span>
+                                    <img src="https://logo.clearbit.com/vueling.com" alt="Vueling" class="w-6 h-6 rounded-full brand-logo border border-gray-200 dark:border-gray-600 flex-shrink-0">
+                                    <span><strong>Vueling / Volotea：</strong><span class="lang-zh">南歐、西班牙為主。</span><span class="lang-en">Focuses on Southern Europe & Spain.</span></span>
                                 </li>
                                 <li class="flex items-start gap-3">
-                                    <img src="https://logo.clearbit.com/norwegian.com" alt="Norwegian" class="w-6 h-6 rounded-full brand-logo border border-gray-200 flex-shrink-0">
-                                    <span><strong>Norwegian：</strong>北歐地區首選。</span>
+                                    <img src="https://logo.clearbit.com/norwegian.com" alt="Norwegian" class="w-6 h-6 rounded-full brand-logo border border-gray-200 dark:border-gray-600 flex-shrink-0">
+                                    <span><strong>Norwegian：</strong><span class="lang-zh">北歐地區首選。</span><span class="lang-en">Top choice for the Nordic region.</span></span>
                                 </li>
                             </ul>
                         </div>
-                        <div class="bg-red-50 p-5 rounded-xl border border-red-100">
-                            <h4 class="font-bold text-red-800 mb-4">⚠️ 廉航防雷三大守則</h4>
-                            <ul class="text-sm text-red-700 space-y-3">
-                                <li><strong>線上 Check-in：</strong>務必在起飛前 24h-2h 完成線上報到。若臨櫃辦理，可能會罰款高達 55 歐元！</li>
-                                <li><strong>免費小包體積：</strong>出門前絕對不要塞太多，也建議用捲尺量一下尺寸，否則現場加購可能會高達60歐元！若到了機場仍不確定，一定要使用登機門旁的測量架。通常都是<strong>40 × 30 × 20 cm(需能塞進前方座位下)</strong></li>
-                                <li><strong>機場位置：</strong>廉航常飛「次要機場」(如巴黎 Beauvais 離市區 1.5 小時)，請先算好交通成本。</li>
+                        <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-xl border border-red-100 dark:border-red-900/50">
+                            <h4 class="font-bold text-red-800 dark:text-red-400 mb-4">
+                                <span class="lang-zh">⚠️ 廉航防雷三大守則</span>
+                                <span class="lang-en">⚠️ 3 Golden Rules for Budget Airlines</span>
+                            </h4>
+                            <ul class="text-sm text-red-700 dark:text-red-300 space-y-3">
+                                <li><strong><span class="lang-zh">線上 Check-in：</span><span class="lang-en">Online Check-in:</span></strong> <span class="lang-zh">務必在起飛前 24h-2h 完成線上報到。若臨櫃辦理，可能會罰款高達 55 歐元！</span><span class="lang-en">Must be done 24h-2h before departure. Airport check-in may incur a fine up to €55!</span></li>
+                                <li><strong><span class="lang-zh">免費小包體積：</span><span class="lang-en">Free Bag Size:</span></strong> <span class="lang-zh">出門前絕對不要塞太多，也建議用捲尺量一下尺寸，否則現場加購可能會高達60歐元！若到了機場仍不確定，一定要使用登機門旁的測量架。通常都是<strong>40 × 30 × 20 cm(需能塞進前方座位下)</strong></span><span class="lang-en">Don't overpack. Measure before leaving! On-site baggage fees can reach €60. Always use the sizers near boarding gates. Usually <strong>40 × 30 × 20 cm (must fit under seat)</strong>.</span></li>
+                                <li><strong><span class="lang-zh">機場位置：</span><span class="lang-en">Airport Location:</span></strong> <span class="lang-zh">廉航常飛「次要機場」(如巴黎 Beauvais 離市區 1.5 小時)，請先算好交通成本。</span><span class="lang-en">LCCs often fly to "secondary airports" (e.g., Paris Beauvais is 1.5h away). Factor in transport costs.</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="bg-blue-50/50 p-6 rounded-2xl border-l-4 border-blue-400 mb-8">
-                        <h4 class="font-bold text-blue-900 mb-4 flex items-center">
-                            <span class="mr-2">🛡️</span> 歐洲機場安檢求生清單
+                    <div class="bg-blue-50/50 dark:bg-blue-900/20 p-6 rounded-2xl border-l-4 border-blue-400 dark:border-blue-600 mb-8">
+                        <h4 class="font-bold text-blue-900 dark:text-blue-300 mb-4 flex items-center">
+                            <span class="mr-2">🛡️</span>
+                            <span class="lang-zh">歐洲機場安檢求生清單</span>
+                            <span class="lang-en">European Airport Security Survival Checklist</span>
                         </h4>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                             <div class="space-y-3">
-                                <p class="text-gray-700"><strong>🥛 水瓶：</strong>過安檢前倒空。安檢後有時有飲水機，或直接去廁所裝水(Tap Water)。</p>
-                                <p class="text-gray-700"><strong>💧 液體：</strong>單瓶不得超過 <strong>100ml</strong>，需裝入 1 公升透明夾鏈袋。</p>
-                                <p class="text-gray-700"><strong>🧥 穿著：</strong>穿靴子、大外套或有皮帶，安檢時通常需脫下。建議穿方便穿脫的鞋。</p>
+                                <p class="text-gray-700 dark:text-gray-300"><strong><span class="lang-zh">🥛 水瓶：</span><span class="lang-en">🥛 Water Bottles:</span></strong> <span class="lang-zh">過安檢前倒空。安檢後有時有飲水機，或直接去廁所裝水(Tap Water)。</span><span class="lang-en">Empty before security. Refill at fountains or restrooms (tap water is safe) after.</span></p>
+                                <p class="text-gray-700 dark:text-gray-300"><strong><span class="lang-zh">💧 液體：</span><span class="lang-en">💧 Liquids:</span></strong> <span class="lang-zh">單瓶不得超過 <strong>100ml</strong>，需裝入 1 公升透明夾鏈袋。</span><span class="lang-en">Max <strong>100ml</strong> per container, all in a 1-liter clear ziplock bag.</span></p>
+                                <p class="text-gray-700 dark:text-gray-300"><strong><span class="lang-zh">🧥 穿著：</span><span class="lang-en">🧥 Clothing:</span></strong> <span class="lang-zh">穿靴子、大外套或有皮帶，安檢時通常需脫下。建議穿方便穿脫的鞋。</span><span class="lang-en">Boots, heavy coats, or belts must usually be removed. Wear slip-on shoes.</span></p>
                             </div>
-                            <div class="space-y-3 border-t md:border-t-0 md:border-l border-blue-100 pt-3 md:pt-0 md:pl-6">
-                                <p class="text-gray-700"><strong>🔋 行動電源：</strong><strong>嚴禁托運</strong>，必須隨身攜帶。額定容量需在 100Wh 以下、最多帶兩個、且飛機上不可使用。</p>
-                                <p class="text-gray-700"><strong>💻 電子產品：</strong>過安檢時，筆電、平板、大相機請單獨拿出來過 X 光機。</p>
-                                <p class="text-gray-700"><strong>✂️ 尖銳物：</strong>刀刃 6cm 以下理論上可帶，但安檢人員有權沒收，建議貴重瑞士刀不要冒險。</p>
+                            <div class="space-y-3 border-t md:border-t-0 md:border-l border-blue-100 dark:border-blue-800/50 pt-3 md:pt-0 md:pl-6">
+                                <p class="text-gray-700 dark:text-gray-300"><strong><span class="lang-zh">🔋 行動電源：</span><span class="lang-en">🔋 Power Banks:</span></strong> <strong><span class="lang-zh">嚴禁托運</span><span class="lang-en">NO CHECK-IN</span></strong><span class="lang-zh">，必須隨身攜帶。額定容量需在 100Wh 以下、最多帶兩個、且飛機上不可使用。</span><span class="lang-en">, must be carried on. Under 100Wh, max 2, and do not use on the plane.</span></p>
+                                <p class="text-gray-700 dark:text-gray-300"><strong><span class="lang-zh">💻 電子產品：</span><span class="lang-en">💻 Electronics:</span></strong> <span class="lang-zh">過安檢時，筆電、平板、大相機請單獨拿出來過 X 光機。</span><span class="lang-en">Take laptops, tablets, and large cameras out separately for the X-ray.</span></p>
+                                <p class="text-gray-700 dark:text-gray-300"><strong><span class="lang-zh">✂️ 尖銳物：</span><span class="lang-en">✂️ Sharp Objects:</span></strong> <span class="lang-zh">刀刃 6cm 以下理論上可帶，但安檢人員有權沒收，建議貴重瑞士刀不要冒險。</span><span class="lang-en">Blades under 6cm are theoretically allowed, but security may confiscate. Don't risk Swiss knives.</span></p>
                             </div>
                         </div>
                     </div>
 
-                    <p class="text-gray-600 text-sm leading-relaxed mb-3">
-                        雖然 OTA (旅遊代購平台，如 Trip.com) 有時更便宜，但加購行李通常會被貴一波，或可能在班機有異常時較難去處理。這種情況強烈建議直接在航空公司官網買、或是選用較有公信力的OTA。
-                        若小包超過一點點，趕快把衣服穿在身上或塞進大衣口袋！
-                        不過小確幸是，歐洲廉航是可以帶自己的食物上飛機吃的。而近期有些機場設備更新，能將電子產品留在包包裡、或是能直接帶水進去(如馬爾他機場)！
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
+                        <span class="lang-zh">
+                            雖然 OTA (旅遊代購平台，如 Trip.com) 有時更便宜，但加購行李通常會被貴一波，或可能在班機有異常時較難去處理。這種情況強烈建議直接在航空公司官網買、或是選用較有公信力的OTA。
+                            若小包超過一點點，趕快把衣服穿在身上或塞進大衣口袋！
+                            不過小確幸是，歐洲廉航是可以帶自己的食物上飛機吃的。而近期有些機場設備更新，能將電子產品留在包包裡、或是能直接帶水進去(如馬爾他機場)！
+                        </span>
+                        <span class="lang-en">
+                            Although OTAs (like Trip.com) are sometimes cheaper, luggage add-ons are often overpriced, and handling flight disruptions is harder. We highly recommend booking directly on official airline sites or using highly reputable OTAs. If your small bag is slightly oversized, wear extra layers or stuff pockets! A small blessing: you can bring your own food onto European budget flights. Recently, some updated airports allow electronics in bags or even water through security (e.g., Malta Airport)!
+                        </span>
                     </p>
                 </div>
             </section>
 
             <section id="train" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-2xl">🚆</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">火車：Eurail Pass 與各國國鐵</h2>
+                    <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-xl flex items-center justify-center text-2xl">🚆</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+                        <span class="lang-zh">火車：Eurail Pass 與各國國鐵</span>
+                        <span class="lang-en">Trains: Eurail Pass & National Railways</span>
+                    </h2>
                 </div>
                 
                 <div class="space-y-6">
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                        <h3 class="text-xl font-bold text-emerald-700 mb-3 border-b border-emerald-100 pb-2">1. Eurail Pass 歐洲火車通票</h3>
-                        <p class="text-gray-700 leading-relaxed text-sm mb-4">
-                            <strong>時機：</strong>短時間內頻繁跨國移動。到官網或 App 購買後，開通手機動態電子票即可驗票（歐洲多為人工車上驗票）。
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-3 border-b border-emerald-100 dark:border-emerald-800 pb-2">
+                            <span class="lang-zh">1. Eurail Pass 歐洲火車通票</span>
+                            <span class="lang-en">1. Eurail Pass</span>
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm mb-4">
+                            <strong><span class="lang-zh">時機：</span><span class="lang-en">When to use:</span></strong> 
+                            <span class="lang-zh">短時間內頻繁跨國移動。到官網或 App 購買後，開通手機動態電子票即可驗票（歐洲多為人工車上驗票）。</span>
+                            <span class="lang-en">Frequent cross-border travel in a short period. Buy on the website/App, activate mobile e-tickets for on-board manual checks.</span>
                         </p>
-                        <div class="bg-yellow-50 p-4 rounded-xl text-sm text-yellow-800 border border-yellow-200 mb-5">
-                            <strong>陷阱警告：</strong>有通票不代表無敵！高速鐵路（如法國 TGV、義大利紅箭、西班牙 AVE / AVANT、歐洲之星）<strong>必須額外付費強制劃位 (Seat Reservation)</strong>。熱門路段（如巴黎-米蘭）若不提早幾週劃位，即使有通票也上不了車。
+                        <div class="bg-yellow-50 dark:bg-yellow-900/30 p-4 rounded-xl text-sm text-yellow-800 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-700/50 mb-5">
+                            <strong><span class="lang-zh">陷阱警告：</span><span class="lang-en">Trap Warning:</span></strong> 
+                            <span class="lang-zh">有通票不代表無敵！高速鐵路（如法國 TGV、義大利紅箭、西班牙 AVE / AVANT、歐洲之星）<strong>必須額外付費強制劃位 (Seat Reservation)</strong>。熱門路段（如巴黎-米蘭）若不提早幾週劃位，即使有通票也上不了車。</span>
+                            <span class="lang-en">A pass isn't invincible! High-speed trains (TGV, Frecciarossa, AVE, Eurostar) require <strong>mandatory paid Seat Reservations</strong>. For popular routes, if you don't book weeks ahead, you can't board even with a pass.</span>
                         </div>
-                        <a href="https://www.eurail.com/en/eurail-passes" target="_blank" rel="nofollow" class="inline-block bg-emerald-600 text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-emerald-700 transition shadow-sm">🌐 前往 Eurail 官網</a>
+                        <a href="https://www.eurail.com/en/eurail-passes" target="_blank" rel="nofollow" class="inline-block bg-emerald-600 dark:bg-emerald-500 text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-600 transition shadow-sm">
+                            <span class="lang-zh">🌐 前往 Eurail 官網</span>
+                            <span class="lang-en">🌐 Visit Eurail Website</span>
+                        </a>
                     </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                        <h3 class="text-xl font-bold text-emerald-700 mb-4 border-b border-emerald-100 pb-2">2. 超值國家區域通票</h3>
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-4 border-b border-emerald-100 dark:border-emerald-800 pb-2">
+                            <span class="lang-zh">2. 超值國家區域通票</span>
+                            <span class="lang-en">2. High-Value Regional Passes</span>
+                        </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="flex flex-col h-full">
-                                <h4 class="font-bold text-gray-900 flex items-center gap-2 mb-2">
-                                    <img src="https://logo.clearbit.com/bahn.de" alt="DB" class="w-5 h-5 rounded brand-logo border border-gray-200">
-                                    🇩🇪 德國：Deutschlandticket (D-Ticket)
+                                <h4 class="font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2 mb-2">
+                                    <img src="https://logo.clearbit.com/bahn.de" alt="DB" class="w-5 h-5 rounded brand-logo border border-gray-200 dark:border-gray-600">
+                                    <span class="lang-zh">🇩🇪 德國：Deutschlandticket (D-Ticket)</span>
+                                    <span class="lang-en">🇩🇪 Germany: Deutschlandticket (D-Ticket)</span>
                                 </h4>
-                                <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4 mb-5 flex-grow">
-                                    <li><strong>價格：</strong>€63 (2026年標準)。</li>
-                                    <li><strong>覆蓋：</strong>全德國境內「所有短途火車 (RE/RB)、公車、地鐵、電車」無限搭乘。<strong>不含高鐵 (ICE/IC/EC/RJX)</strong>。</li>
-                                    <li><strong>注意：</strong>這是訂閱制！無論何時買，效期都是該月 1 號到月底。且務必在當月 10 號前取消下個月的訂閱。</li>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-disc pl-4 mb-5 flex-grow">
+                                    <li><strong><span class="lang-zh">價格：</span><span class="lang-en">Price:</span></strong> <span class="lang-zh">€63 (2026年標準)。</span><span class="lang-en">€63 (2026 standard).</span></li>
+                                    <li><strong><span class="lang-zh">覆蓋：</span><span class="lang-en">Coverage:</span></strong> <span class="lang-zh">全德國境內「所有短途火車 (RE/RB)、公車、地鐵、電車」無限搭乘。<strong>不含高鐵 (ICE/IC/EC/RJX)</strong>。</span><span class="lang-en">Unlimited rides on "all local trains (RE/RB), buses, subways, trams" in Germany. <strong>No high-speed trains (ICE/IC/EC)</strong>.</span></li>
+                                    <li><strong><span class="lang-zh">注意：</span><span class="lang-en">Note:</span></strong> <span class="lang-zh">這是訂閱制！無論何時買，效期都是該月 1 號到月底。且務必在當月 10 號前取消下個月的訂閱。</span><span class="lang-en">It's a subscription! Valid from 1st to month-end. You MUST cancel by the 10th to avoid next month's charge.</span></li>
                                 </ul>
-                                <a href="https://www.bahn.de/angebot/regio/deutschland-ticket" target="_blank" rel="nofollow" class="mt-auto block bg-gray-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-gray-900 transition shadow-sm text-center">🌐 官網資訊</a>
+                                <a href="https://www.bahn.de/angebot/regio/deutschland-ticket" target="_blank" rel="nofollow" class="mt-auto block bg-gray-800 dark:bg-gray-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-gray-900 dark:hover:bg-gray-600 transition shadow-sm text-center">
+                                    <span class="lang-zh">🌐 官網資訊</span>
+                                    <span class="lang-en">🌐 Official Info</span>
+                                </a>
                             </div>
                             <div class="flex flex-col h-full">
-                                <h4 class="font-bold text-gray-900 flex items-center gap-2 mb-2">
-                                    <img src="https://logo.clearbit.com/sbb.ch" alt="SBB" class="w-5 h-5 rounded brand-logo border border-gray-200">
-                                    🇨🇭 瑞士：STP vs 半價卡
+                                <h4 class="font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2 mb-2">
+                                    <img src="https://logo.clearbit.com/sbb.ch" alt="SBB" class="w-5 h-5 rounded brand-logo border border-gray-200 dark:border-gray-600">
+                                    <span class="lang-zh">🇨🇭 瑞士：STP vs 半價卡</span>
+                                    <span class="lang-en">🇨🇭 Switzerland: STP vs Half Fare Card</span>
                                 </h4>
-                                <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4 mb-5 flex-grow">
-                                    <li><strong>Swiss Travel Pass (無腦版)：</strong>天數內無限搭乘火車、公車、船，且含 500+ 博物館門票。極貴但極方便。</li>
-                                    <li><strong>Half Fare Card (精算版)：</strong>付一筆年費(~120 CHF)，效期內買所有票都半價。對一般定點旅客通常最省錢。</li>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-disc pl-4 mb-5 flex-grow">
+                                    <li><strong><span class="lang-zh">Swiss Travel Pass (無腦版)：</span><span class="lang-en">Swiss Travel Pass (Easy):</span></strong> <span class="lang-zh">天數內無限搭乘火車、公車、船，且含 500+ 博物館門票。極貴但極方便。</span><span class="lang-en">Unlimited trains, buses, boats, plus 500+ museums. Expensive but highly convenient.</span></li>
+                                    <li><strong><span class="lang-zh">Half Fare Card (精算版)：</span><span class="lang-en">Half Fare Card (Calculated):</span></strong> <span class="lang-zh">付一筆年費(~120 CHF)，效期內買所有票都半價。對一般定點旅客通常最省錢。</span><span class="lang-en">Pay an annual fee (~120 CHF), get half-price on all tickets. Usually saves the most for normal travelers.</span></li>
                                 </ul>
-                                <a href="https://www.myswitzerland.com/en/planning/transport-accommodation/tickets-public-transport/swiss-travel-pass/" target="_blank" rel="nofollow" class="mt-auto block bg-gray-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-gray-900 transition shadow-sm text-center">🌐 官網資訊</a>
+                                <a href="https://www.myswitzerland.com/en/planning/transport-accommodation/tickets-public-transport/swiss-travel-pass/" target="_blank" rel="nofollow" class="mt-auto block bg-gray-800 dark:bg-gray-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-gray-900 dark:hover:bg-gray-600 transition shadow-sm text-center">
+                                    <span class="lang-zh">🌐 官網資訊</span>
+                                    <span class="lang-en">🌐 Official Info</span>
+                                </a>
                             </div>
                             <div class="flex flex-col h-full">
-                                <h4 class="font-bold text-gray-900 flex items-center gap-2 mb-2">
-                                    <img src="https://logo.clearbit.com/sncf.com" alt="SNCF" class="w-5 h-5 rounded brand-logo border border-gray-200">
-                                    🇫🇷 法國：TER 區域票
+                                <h4 class="font-bold text-gray-900 dark:text-gray-100 flex items-center gap-2 mb-2">
+                                    <img src="https://logo.clearbit.com/sncf.com" alt="SNCF" class="w-5 h-5 rounded brand-logo border border-gray-200 dark:border-gray-600">
+                                    <span class="lang-zh">🇫🇷 法國：TER 區域票</span>
+                                    <span class="lang-en">🇫🇷 France: TER Regional Pass</span>
                                 </h4>
-                                <ul class="text-sm text-gray-600 space-y-1 list-disc pl-4 mb-5 flex-grow">
-                                    <li><strong>覆蓋：</strong>依據各省分區（如南法蔚藍海岸景點集中區域），無限搭乘區域列車 (TER)。在 SNCF Connect 搜尋時可留意。</li>
+                                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-disc pl-4 mb-5 flex-grow">
+                                    <li><strong><span class="lang-zh">覆蓋：</span><span class="lang-en">Coverage:</span></strong> <span class="lang-zh">依據各省分區（如南法蔚藍海岸景點集中區域），無限搭乘區域列車 (TER)。在 SNCF Connect 搜尋時可留意。</span><span class="lang-en">Based on provinces (e.g., French Riviera), unlimited regional train (TER) rides. Look for this on SNCF Connect.</span></li>
                                 </ul>
-                                <a href="https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/tarifs-cartes/bons-plans/english-version-pass-regional" target="_blank" rel="nofollow" class="mt-auto block bg-gray-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-gray-900 transition shadow-sm text-center">🌐 官網資訊</a>
+                                <a href="https://www.ter.sncf.com/sud-provence-alpes-cote-d-azur/tarifs-cartes/bons-plans/english-version-pass-regional" target="_blank" rel="nofollow" class="mt-auto block bg-gray-800 dark:bg-gray-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg hover:bg-gray-900 dark:hover:bg-gray-600 transition shadow-sm text-center">
+                                    <span class="lang-zh">🌐 官網資訊</span>
+                                    <span class="lang-en">🌐 Official Info</span>
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                        <h3 class="text-xl font-bold text-emerald-700 mb-3 border-b border-emerald-100 pb-2">3. 各國國鐵單程票</h3>
-                        <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                            <strong>購票原則：高速鐵路越早買越便宜</strong>（早鳥票差距可達 3 倍）；區域鐵路票價固定，當天買即可。
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                        <h3 class="text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-3 border-b border-emerald-100 dark:border-emerald-800 pb-2">
+                            <span class="lang-zh">3. 各國國鐵單程票</span>
+                            <span class="lang-en">3. National Railway Single Tickets</span>
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                            <strong><span class="lang-zh">購票原則：高速鐵路越早買越便宜</span><span class="lang-en">Booking Principle: High-speed rail is cheaper the earlier you buy</span></strong> 
+                            <span class="lang-zh">（早鳥票差距可達 3 倍）；區域鐵路票價固定，當天買即可。</span>
+                            <span class="lang-en">(up to 3x cheaper); regional train prices are fixed, buy them on the day.</span>
                         </p>
-                        <div class="bg-blue-50 p-4 rounded-xl text-sm text-blue-800 border border-blue-200 flex items-start gap-3">
+                        <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-xl text-sm text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 flex items-start gap-3">
                             <span class="text-xl">💡</span>
                             <div>
-                                <strong>跨國買票密技：</strong><br>
-                                往返兩國的火車，一定要去「兩國的國鐵官網」分別查價！原則是<strong>東/南歐比西/北歐便宜</strong>。例如：維也納到布拉格的火車，從「捷克國鐵 (CD)」買，通常會比從「奧地利國鐵 (ÖBB)」買便宜非常多！
+                                <strong><span class="lang-zh">跨國買票密技：</span><span class="lang-en">Cross-border Ticketing Tip:</span></strong><br>
+                                <span class="lang-zh">往返兩國的火車，一定要去「兩國的國鐵官網」分別查價！原則是<strong>東/南歐比西/北歐便宜</strong>。例如：維也納到布拉格的火車，從「捷克國鐵 (CD)」買，通常會比從「奧地利國鐵 (ÖBB)」買便宜非常多！</span>
+                                <span class="lang-en">Always check BOTH countries' official railway websites! Rule of thumb: <strong>East/South Europe is cheaper than West/North</strong>. E.g., Vienna to Prague is usually much cheaper via "Czech Railways (CD)" than "Austrian Railways (ÖBB)"!</span>
                             </div>
                         </div>
                     </div>
@@ -243,56 +378,82 @@
 
             <section id="private-train" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl">🚄</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">高CP值私鐵攻略</h2>
+                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 rounded-xl flex items-center justify-center text-2xl">🚄</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+                        <span class="lang-zh">高CP值私鐵攻略</span>
+                        <span class="lang-en">High-CP Value Private Railways</span>
+                    </h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        國鐵並非唯一選擇！在許多國家，私鐵的體驗更好且價格更便宜。<strong>重點：國鐵網站查不到私鐵班次！
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        <span class="lang-zh">國鐵並非唯一選擇！在許多國家，私鐵的體驗更好且價格更便宜。<strong>重點：國鐵網站查不到私鐵班次！</strong></span>
+                        <span class="lang-en">National railways aren't the only option! Private railways often offer better experiences and lower prices. <strong>Key: National railway websites won't show private train schedules!</strong></span>
                     </p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         
-                        <div class="border border-gray-100 p-5 rounded-xl hover:shadow-lg transition bg-white flex flex-col">
-                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 pb-3">
-                                <img src="https://logo.clearbit.com/flixtrain.com" onerror="this.style.display='none'" alt="FlixTrain" class="w-8 h-8 rounded-full border border-gray-200 flex-shrink-0 brand-logo">
-                                <h4 class="font-bold text-purple-700 text-lg">🇩🇪 德國：FlixTrain</h4>
+                        <div class="border border-gray-100 dark:border-gray-700 p-5 rounded-xl hover:shadow-lg transition bg-white dark:bg-gray-800 flex flex-col">
+                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 dark:border-gray-700 pb-3">
+                                <img src="https://logo.clearbit.com/flixtrain.com" onerror="this.style.display='none'" alt="FlixTrain" class="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-600 flex-shrink-0 brand-logo">
+                                <h4 class="font-bold text-purple-700 dark:text-purple-400 text-lg"><span class="lang-zh">🇩🇪 德國：FlixTrain</span><span class="lang-en">🇩🇪 Germany: FlixTrain</span></h4>
                             </div>
-                            <p class="text-sm text-gray-600 flex-grow leading-relaxed">優點：超級便宜、常有促銷票，部分路線速度接近 ICE。偶爾會出現從西德到東德不到 €5 的破盤價。</p>
-                            <a href="https://www.flixtrain.com/" target="_blank" rel="nofollow" class="mt-5 block text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-sm py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">前往官網預訂 →</a>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 flex-grow leading-relaxed">
+                                <span class="lang-zh">優點：超級便宜、常有促銷票，部分路線速度接近 ICE。偶爾會出現從西德到東德不到 €5 的破盤價。</span>
+                                <span class="lang-en">Pros: Super cheap, frequent promotions, speeds close to ICE. Crazy prices under €5 from West to East Germany occasionally.</span>
+                            </p>
+                            <a href="https://www.flixtrain.com/" target="_blank" rel="nofollow" class="mt-5 block text-center bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-100 dark:border-purple-800 font-bold text-sm py-2.5 rounded-lg hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white dark:hover:text-white transition">
+                                <span class="lang-zh">前往官網預訂 →</span><span class="lang-en">Book on Official Site →</span>
+                            </a>
                         </div>
                         
-                        <div class="border border-gray-100 p-5 rounded-xl hover:shadow-lg transition bg-white flex flex-col">
-                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 pb-3">
-                                <img src="https://logo.clearbit.com/regiojet.com" onerror="this.style.display='none'" alt="RegioJet" class="w-8 h-8 rounded-full border border-gray-200 flex-shrink-0 brand-logo">
-                                <h4 class="font-bold text-purple-700 text-lg">🇨🇿 捷克：RegioJet</h4>
+                        <div class="border border-gray-100 dark:border-gray-700 p-5 rounded-xl hover:shadow-lg transition bg-white dark:bg-gray-800 flex flex-col">
+                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 dark:border-gray-700 pb-3">
+                                <img src="https://logo.clearbit.com/regiojet.com" onerror="this.style.display='none'" alt="RegioJet" class="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-600 flex-shrink-0 brand-logo">
+                                <h4 class="font-bold text-purple-700 dark:text-purple-400 text-lg"><span class="lang-zh">🇨🇿 捷克：RegioJet</span><span class="lang-en">🇨🇿 Czechia: RegioJet</span></h4>
                             </div>
-                            <p class="text-sm text-gray-600 flex-grow leading-relaxed">優點：服務極佳（免費咖啡/水），提供便宜商務艙，覆蓋東歐跨國路線。</p>
-                            <a href="https://regiojet.com/" target="_blank" rel="nofollow" class="mt-5 block text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-sm py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">前往官網預訂 →</a>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 flex-grow leading-relaxed">
+                                <span class="lang-zh">優點：服務極佳（免費咖啡/水），提供便宜商務艙，覆蓋東歐跨國路線。</span>
+                                <span class="lang-en">Pros: Excellent service (free coffee/water), cheap business class, covers Eastern European cross-border routes.</span>
+                            </p>
+                            <a href="https://regiojet.com/" target="_blank" rel="nofollow" class="mt-5 block text-center bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-100 dark:border-purple-800 font-bold text-sm py-2.5 rounded-lg hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white dark:hover:text-white transition">
+                                <span class="lang-zh">前往官網預訂 →</span><span class="lang-en">Book on Official Site →</span>
+                            </a>
                         </div>
                         
-                        <div class="border border-gray-100 p-5 rounded-xl hover:shadow-lg transition bg-white flex flex-col">
-                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 pb-3">
-                                <img src="https://logo.clearbit.com/italotreno.it" onerror="this.style.display='none'" alt="Italo" class="w-8 h-8 rounded-full border border-gray-200 flex-shrink-0 brand-logo">
-                                <h4 class="font-bold text-purple-700 text-lg">🇮🇹 義大利：Italo</h4>
+                        <div class="border border-gray-100 dark:border-gray-700 p-5 rounded-xl hover:shadow-lg transition bg-white dark:bg-gray-800 flex flex-col">
+                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 dark:border-gray-700 pb-3">
+                                <img src="https://logo.clearbit.com/italotreno.it" onerror="this.style.display='none'" alt="Italo" class="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-600 flex-shrink-0 brand-logo">
+                                <h4 class="font-bold text-purple-700 dark:text-purple-400 text-lg"><span class="lang-zh">🇮🇹 義大利：Italo</span><span class="lang-en">🇮🇹 Italy: Italo</span></h4>
                             </div>
-                            <p class="text-sm text-gray-600 flex-grow leading-relaxed">優點：專跑高速主幹線，車廂新穎舒適，提早買非常便宜。</p>
-                            <a href="https://www.italotreno.it/en" target="_blank" rel="nofollow" class="mt-5 block text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-sm py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">前往官網預訂 →</a>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 flex-grow leading-relaxed">
+                                <span class="lang-zh">優點：專跑高速主幹線，車廂新穎舒適，提早買非常便宜。</span>
+                                <span class="lang-en">Pros: Focuses on high-speed main lines, modern comfortable carriages, very cheap if bought early.</span>
+                            </p>
+                            <a href="https://www.italotreno.it/en" target="_blank" rel="nofollow" class="mt-5 block text-center bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-100 dark:border-purple-800 font-bold text-sm py-2.5 rounded-lg hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white dark:hover:text-white transition">
+                                <span class="lang-zh">前往官網預訂 →</span><span class="lang-en">Book on Official Site →</span>
+                            </a>
                         </div>
                         
-                        <div class="border border-gray-100 p-5 rounded-xl hover:shadow-lg transition bg-white flex flex-col">
-                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 pb-3">
+                        <div class="border border-gray-100 dark:border-gray-700 p-5 rounded-xl hover:shadow-lg transition bg-white dark:bg-gray-800 flex flex-col">
+                            <div class="flex items-center gap-3 mb-3 border-b border-gray-50 dark:border-gray-700 pb-3">
                                 <div class="flex -space-x-2">
-                                    <img src="https://logo.clearbit.com/ouigo.com" onerror="this.style.display='none'" alt="Ouigo" class="w-8 h-8 rounded-full border border-white flex-shrink-0 brand-logo shadow-sm relative z-10">
-                                    <img src="https://logo.clearbit.com/iryo.eu" onerror="this.style.display='none'" alt="Iryo" class="w-8 h-8 rounded-full border border-white flex-shrink-0 brand-logo shadow-sm relative z-0">
+                                    <img src="https://logo.clearbit.com/ouigo.com" onerror="this.style.display='none'" alt="Ouigo" class="w-8 h-8 rounded-full border border-white dark:border-gray-800 flex-shrink-0 brand-logo shadow-sm relative z-10">
+                                    <img src="https://logo.clearbit.com/iryo.eu" onerror="this.style.display='none'" alt="Iryo" class="w-8 h-8 rounded-full border border-white dark:border-gray-800 flex-shrink-0 brand-logo shadow-sm relative z-0">
                                 </div>
-                                <h4 class="font-bold text-purple-700 text-lg ml-2">🇪🇸 西班牙：Ouigo / Iryo</h4>
+                                <h4 class="font-bold text-purple-700 dark:text-purple-400 text-lg ml-2"><span class="lang-zh">🇪🇸 西班牙：Ouigo / Iryo</span><span class="lang-en">🇪🇸 Spain: Ouigo / Iryo</span></h4>
                             </div>
-                            <p class="text-sm text-gray-600 flex-grow leading-relaxed">優點：高鐵市場競爭，早鳥票常出現 €10–€30 的誇張低價。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 flex-grow leading-relaxed">
+                                <span class="lang-zh">優點：高鐵市場競爭，早鳥票常出現 €10–€30 的誇張低價。</span>
+                                <span class="lang-en">Pros: High-speed rail market competition leads to absurdly low early bird prices around €10–€30.</span>
+                            </p>
                             <div class="mt-5 flex gap-2">
-                                <a href="https://www.ouigo.com/es/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-xs py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">Ouigo 官網</a>
-                                <a href="https://iryo.eu/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-purple-50 text-purple-700 border border-purple-100 font-bold text-xs py-2.5 rounded-lg hover:bg-purple-600 hover:text-white transition">Iryo 官網</a>
+                                <a href="https://www.ouigo.com/es/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-100 dark:border-purple-800 font-bold text-xs py-2.5 rounded-lg hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white dark:hover:text-white transition">
+                                    <span class="lang-zh">Ouigo 官網</span><span class="lang-en">Ouigo Official</span>
+                                </a>
+                                <a href="https://iryo.eu/en" target="_blank" rel="nofollow" class="flex-1 text-center bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-100 dark:border-purple-800 font-bold text-xs py-2.5 rounded-lg hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white dark:hover:text-white transition">
+                                    <span class="lang-zh">Iryo 官網</span><span class="lang-en">Iryo Official</span>
+                                </a>
                             </div>
                         </div>
 
@@ -302,28 +463,38 @@
 
             <section id="night-train" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-2xl">🌙</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">過夜火車 (Night Trains)</h2>
+                    <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center text-2xl">🌙</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+                        <span class="lang-zh">過夜火車 (Night Trains)</span>
+                        <span class="lang-en">Night Trains</span>
+                    </h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-8 items-center">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row gap-8 items-center transition-colors duration-300">
                     <div class="flex-grow">
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            既能省下一晚住宿費，又能完成長途移動，是背包客的最愛。目前歐洲夜車由奧地利國鐵的 <strong>ÖBB Nightjet</strong> 稱霸。
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            <span class="lang-zh">既能省下一晚住宿費，又能完成長途移動，是背包客的最愛。目前歐洲夜車由奧地利國鐵的 <strong>ÖBB Nightjet</strong> 稱霸。</span>
+                            <span class="lang-en">Saves a night of accommodation while completing long-distance travel; a backpacker's favorite. Currently dominated by Austria's <strong>ÖBB Nightjet</strong>.</span>
                         </p>
-                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4">
-                            <li><strong>搶票時間：</strong>夜臥鋪非常搶手！強烈建議 <strong>3 到 6 個月前</strong>開放訂票時就去搶。</li>
-                            <li><strong>艙等選擇：</strong>千萬別為了省錢選座位 (Seats)，會生不如死。建議至少選擇 <strong>Couchette (4-6人硬臥室)</strong>。</li>
+                        <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2 list-disc pl-4">
+                            <li><strong><span class="lang-zh">搶票時間：</span><span class="lang-en">Booking Timing:</span></strong> <span class="lang-zh">夜臥鋪非常搶手！強烈建議 <strong>3 到 6 個月前</strong>開放訂票時就去搶。</span><span class="lang-en">Sleepers are extremely popular! Highly recommend booking <strong>3-6 months</strong> in advance.</span></li>
+                            <li><strong><span class="lang-zh">艙等選擇：</span><span class="lang-en">Cabin Choice:</span></strong> <span class="lang-zh">千萬別為了省錢選座位 (Seats)，會生不如死。建議至少選擇 <strong>Couchette (4-6人硬臥室)</strong>。</span><span class="lang-en">Never choose seats to save money, it's a nightmare. Recommend at least <strong>Couchette (4-6 person sleeper)</strong>.</span></li>
                         </ul>
                     </div>
                     
                     <div class="flex-shrink-0 w-full md:w-56">
-                        <a href="https://nightride.com/en/" target="_blank" rel="nofollow" class="group flex flex-col items-center justify-center p-5 bg-indigo-50 border border-indigo-100 rounded-2xl hover:bg-indigo-600 hover:border-indigo-600 transition-all duration-300 shadow-sm hover:shadow-lg">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 shadow-sm border border-indigo-50">
+                        <a href="https://nightride.com/en/" target="_blank" rel="nofollow" class="group flex flex-col items-center justify-center p-5 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800 rounded-2xl hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:border-indigo-600 transition-all duration-300 shadow-sm hover:shadow-lg">
+                            <div class="w-12 h-12 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center mb-3 shadow-sm border border-indigo-50 dark:border-indigo-900">
                                <span class="text-2xl">🚂</span>
                             </div>
-                            <span class="font-bold text-indigo-800 group-hover:text-white transition-colors text-base">Nightride 比價平台</span>
-                            <span class="text-xs text-indigo-500 group-hover:text-indigo-200 mt-1 font-medium transition-colors">搜尋全歐洲夜車路線 →</span>
+                            <span class="font-bold text-indigo-800 dark:text-indigo-300 group-hover:text-white transition-colors text-base">
+                                <span class="lang-zh">Nightride 比價平台</span>
+                                <span class="lang-en">Nightride Platform</span>
+                            </span>
+                            <span class="text-xs text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-200 mt-1 font-medium transition-colors">
+                                <span class="lang-zh">搜尋全歐洲夜車路線 →</span>
+                                <span class="lang-en">Search all night train routes →</span>
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -331,76 +502,103 @@
 
             <section id="bus" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-2xl">🚐</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">長途巴士</h2>
+                    <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 rounded-xl flex items-center justify-center text-2xl">🚐</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+                        <span class="lang-zh">長途巴士</span>
+                        <span class="lang-en">Long-Distance Buses</span>
+                    </h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        <strong>時機：</strong>火車/機票太貴，或是目的地（如巴爾幹半島、小鎮）火車到不了時的最佳解。
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        <strong><span class="lang-zh">時機：</span><span class="lang-en">When to use:</span></strong> 
+                        <span class="lang-zh">火車/機票太貴，或是目的地（如巴爾幹半島、小鎮）火車到不了時的最佳解。</span>
+                        <span class="lang-en">The best solution when trains/flights are too expensive, or destinations (like Balkans, small towns) lack trains.</span>
                     </p>
                     
                     <div class="flex flex-wrap gap-3 mb-8">
-                        <a href="https://www.flixbus.com/" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                        <a href="https://www.flixbus.com/" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-all">
                             <img src="https://logo.clearbit.com/flixbus.com" onerror="this.style.display='none'" alt="Flixbus" class="w-5 h-5 rounded-full brand-logo">
-                            Flixbus (全歐洲)
+                            Flixbus <span class="lang-zh">(全歐洲)</span><span class="lang-en">(Europe)</span>
                         </a>
-                        <a href="https://regiojet.com/" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                        <a href="https://regiojet.com/" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-all">
                             <img src="https://logo.clearbit.com/regiojet.com" onerror="this.style.display='none'" alt="RegioJet" class="w-5 h-5 rounded-full brand-logo">
-                            RegioJet (中東歐)
+                            RegioJet <span class="lang-zh">(中東歐)</span><span class="lang-en">(East/Central)</span>
                         </a>
-                        <a href="https://luxexpress.eu/en/" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                        <a href="https://luxexpress.eu/en/" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-all">
                             <img src="https://logo.clearbit.com/luxexpress.eu" onerror="this.style.display='none'" alt="Lux Express" class="w-5 h-5 rounded-full brand-logo">
-                            Lux Express (波羅的海)
+                            Lux Express <span class="lang-zh">(波羅的海)</span><span class="lang-en">(Baltics)</span>
                         </a>
-                        <a href="https://www.alsa.com/en/web/bus/home" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                        <a href="https://www.alsa.com/en/web/bus/home" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-all">
                             <img src="https://logo.clearbit.com/alsa.com" onerror="this.style.display='none'" alt="Alsa" class="w-5 h-5 rounded-full brand-logo">
-                            Alsa (西葡)
+                            Alsa <span class="lang-zh">(西葡)</span><span class="lang-en">(Spain/PT)</span>
                         </a>
-                        <a href="https://www.nationalexpress.com/en" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                        <a href="https://www.nationalexpress.com/en" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-all">
                             <img src="https://logo.clearbit.com/nationalexpress.com" onerror="this.style.display='none'" alt="National Express" class="w-5 h-5 rounded-full brand-logo">
-                            National Express (英國)
+                            National Express <span class="lang-zh">(英國)</span><span class="lang-en">(UK)</span>
                         </a>
-                        <a href="https://www.itabus.it/en/home" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 hover:text-orange-600 transition-all">
+                        <a href="https://www.itabus.it/en/home" target="_blank" rel="nofollow" class="inline-flex items-center gap-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-full text-sm font-bold hover:shadow-md hover:border-orange-400 dark:hover:border-orange-500 hover:text-orange-600 dark:hover:text-orange-400 transition-all">
                             <img src="https://logo.clearbit.com/itabus.it" onerror="this.style.display='none'" alt="Itabus" class="w-5 h-5 rounded-full brand-logo">
-                            Itabus (義大利)
+                            Itabus <span class="lang-zh">(義大利)</span><span class="lang-en">(Italy)</span>
                         </a>
                     </div>
 
-                    <p class="text-sm text-gray-500 italic bg-gray-50 p-4 rounded-xl border border-gray-100">
-                        *南義、東歐、巴爾幹半島等鐵路較不發達的地區，巴士是當地人的主力交通工具。這些地區也有些隱藏巴士公司，常常班次、路線會比Flixbus多。建議下載各家 APP 直接購票出示 QR code 即可上車。
+                    <p class="text-sm text-gray-500 dark:text-gray-400 italic bg-gray-50 dark:bg-gray-900/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <span class="lang-zh">*南義、東歐、巴爾幹半島等鐵路較不發達的地區，巴士是當地人的主力交通工具。這些地區也有些隱藏巴士公司，常常班次、路線會比Flixbus多。建議下載各家 APP 直接購票出示 QR code 即可上車。</span>
+                        <span class="lang-en">*In regions like Southern Italy, Eastern Europe, and the Balkans, buses are the main transport. They often have hidden local bus companies offering more routes than Flixbus. Recommend downloading their Apps to buy tickets and just showing the QR code.</span>
                     </p>
                 </div>
             </section>
 
             <section id="ferry" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center text-2xl">🛳️</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">跨海渡輪 (Ferries)</h2>
+                    <div class="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 rounded-xl flex items-center justify-center text-2xl">🛳️</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+                        <span class="lang-zh">跨海渡輪 (Ferries)</span>
+                        <span class="lang-en">Cross-Sea Ferries</span>
+                    </h2>
                 </div>
                 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <p class="text-gray-700 mb-8 leading-relaxed">
-                        <strong>時機：</strong>波羅的海三小國往返芬蘭/瑞典、希臘跳島、南義往返西西里島，或英吉利海峽。比較長程的路線可以體驗過夜渡輪(如斯德哥爾摩 - 赫爾辛基)。
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <p class="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                        <strong><span class="lang-zh">時機：</span><span class="lang-en">When to use:</span></strong> 
+                        <span class="lang-zh">波羅的海三小國往返芬蘭/瑞典、希臘跳島、南義往返西西里島，或英吉利海峽。比較長程的路線可以體驗過夜渡輪(如斯德哥爾摩 - 赫爾辛基)。</span>
+                        <span class="lang-en">Baltics to Finland/Sweden, Greek island hopping, Southern Italy to Sicily, or the English Channel. Longer routes offer overnight ferry experiences (e.g., Stockholm - Helsinki).</span>
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         
-                        <div class="bg-cyan-50 p-6 rounded-2xl border border-cyan-100 flex flex-col">
+                        <div class="bg-cyan-50 dark:bg-cyan-900/30 p-6 rounded-2xl border border-cyan-100 dark:border-cyan-800 flex flex-col">
                             <div class="flex items-center gap-3 mb-3">
                                 <img src="https://logo.clearbit.com/ferryhopper.com" onerror="this.style.display='none'" alt="Ferryhopper" class="w-8 h-8 rounded bg-white shadow-sm p-1 brand-logo">
-                                <h4 class="font-bold text-cyan-900 text-lg">希臘 / 義大利 / 西班牙</h4>
+                                <h4 class="font-bold text-cyan-900 dark:text-cyan-300 text-lg">
+                                    <span class="lang-zh">希臘 / 義大利 / 西班牙</span>
+                                    <span class="lang-en">Greece / Italy / Spain</span>
+                                </h4>
                             </div>
-                            <p class="text-sm text-gray-700 mb-5 flex-grow">強烈推薦使用 <strong>Ferryhopper (App)</strong> 查詢與訂票。介面直覺，支援多家船公司比價，且可直接產生電子登船證。</p>
-                            <a href="https://www.ferryhopper.com/" target="_blank" rel="nofollow" class="block text-center bg-cyan-600 text-white font-bold text-sm py-2.5 rounded-xl hover:bg-cyan-700 hover:shadow-md transition">前往 Ferryhopper →</a>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 mb-5 flex-grow">
+                                <span class="lang-zh">強烈推薦使用 <strong>Ferryhopper (App)</strong> 查詢與訂票。介面直覺，支援多家船公司比價，且可直接產生電子登船證。</span>
+                                <span class="lang-en">Highly recommend using <strong>Ferryhopper (App)</strong> for search and booking. Intuitive interface, supports multi-company comparisons, and directly generates mobile boarding passes.</span>
+                            </p>
+                            <a href="https://www.ferryhopper.com/" target="_blank" rel="nofollow" class="block text-center bg-cyan-600 dark:bg-cyan-500 text-white font-bold text-sm py-2.5 rounded-xl hover:bg-cyan-700 dark:hover:bg-cyan-600 hover:shadow-md transition">
+                                <span class="lang-zh">前往 Ferryhopper →</span><span class="lang-en">Go to Ferryhopper →</span>
+                            </a>
                         </div>
                         
-                        <div class="bg-cyan-50 p-6 rounded-2xl border border-cyan-100 flex flex-col">
+                        <div class="bg-cyan-50 dark:bg-cyan-900/30 p-6 rounded-2xl border border-cyan-100 dark:border-cyan-800 flex flex-col">
                             <div class="flex items-center gap-3 mb-3">
                                 <img src="https://logo.clearbit.com/directferries.com" onerror="this.style.display='none'" alt="DirectFerries" class="w-8 h-8 rounded bg-white shadow-sm p-1 brand-logo">
-                                <h4 class="font-bold text-cyan-900 text-lg">波羅的海 / 北海 / 英國</h4>
+                                <h4 class="font-bold text-cyan-900 dark:text-cyan-300 text-lg">
+                                    <span class="lang-zh">波羅的海 / 北海 / 英國</span>
+                                    <span class="lang-en">Baltics / North Sea / UK</span>
+                                </h4>
                             </div>
-                            <p class="text-sm text-gray-700 mb-5 flex-grow">可使用 <strong>DirectFerries</strong> 進行比價。知名航商包含 Tallink Silja, Viking Line。</p>
-                            <a href="https://www.directferries.com/?dfpid=7312&affid=1&rurl=" target="_blank" rel="nofollow" class="block text-center bg-cyan-600 text-white font-bold text-sm py-2.5 rounded-xl hover:bg-cyan-700 hover:shadow-md transition">前往 DirectFerries →</a>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 mb-5 flex-grow">
+                                <span class="lang-zh">可使用 <strong>DirectFerries</strong> 進行比價。知名航商包含 Tallink Silja, Viking Line。</span>
+                                <span class="lang-en">Use <strong>DirectFerries</strong> for comparison. Well-known operators include Tallink Silja, Viking Line.</span>
+                            </p>
+                            <a href="https://www.directferries.com/?dfpid=7312&affid=1&rurl=" target="_blank" rel="nofollow" class="block text-center bg-cyan-600 dark:bg-cyan-500 text-white font-bold text-sm py-2.5 rounded-xl hover:bg-cyan-700 dark:hover:bg-cyan-600 hover:shadow-md transition">
+                                <span class="lang-zh">前往 DirectFerries →</span><span class="lang-en">Go to DirectFerries →</span>
+                            </a>
                         </div>
 
                     </div>
@@ -409,47 +607,70 @@
 
             <section id="omio" class="scroll-mt-24">
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center text-2xl">🔍</div>
-                    <h2 class="text-3xl font-extrabold text-gray-900">跨國交通比價神器</h2>
+                    <div class="w-12 h-12 bg-sky-100 dark:bg-sky-900/50 text-sky-600 dark:text-sky-400 rounded-xl flex items-center justify-center text-2xl">🔍</div>
+                    <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">
+                        <span class="lang-zh">跨國交通比價神器</span>
+                        <span class="lang-en">Transport Comparison Tool</span>
+                    </h2>
                 </div>
                 
-                <p class="text-gray-600 mb-6 font-medium">覺得歐洲交通讓你暈頭轉向了嗎？那推薦你無腦使用幫你整合好一切的神器 Omio！</p>
+                <p class="text-gray-600 dark:text-gray-400 mb-6 font-medium">
+                    <span class="lang-zh">覺得歐洲交通讓你暈頭轉向了嗎？那推薦你無腦使用幫你整合好一切的神器 Omio！</span>
+                    <span class="lang-en">Feeling overwhelmed by European transport? We highly recommend Omio, the ultimate tool that integrates everything effortlessly!</span>
+                </p>
             
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="flex items-center gap-3 mb-4 border-b border-gray-50 pb-4">
-                        <img src="https://www.google.com/s2/favicons?domain=omio.com&sz=128" alt="Omio" class="w-8 h-8 rounded-full border border-gray-200 brand-logo flex-shrink-0 bg-white">
-                        <h3 class="text-xl font-bold text-gray-900">Omio (整合火車、巴士、飛機、渡輪)</h3>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <div class="flex items-center gap-3 mb-4 border-b border-gray-50 dark:border-gray-700 pb-4">
+                        <img src="https://www.google.com/s2/favicons?domain=omio.com&sz=128" alt="Omio" class="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-600 brand-logo flex-shrink-0 bg-white">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                            <span class="lang-zh">Omio (整合火車、巴士、飛機、渡輪)</span>
+                            <span class="lang-en">Omio (Integrates Trains, Buses, Flights, Ferries)</span>
+                        </h3>
                     </div>
-                    <p class="text-gray-700 mb-6 leading-relaxed text-sm">
-                        <strong>時機：</strong>當你不確定兩地之間該搭哪種交通工具最划算、時間最適合時。Omio 提供全中文介面，能一次幫你比較各種交通工具的時間與票價，省去在各國國鐵與巴士官網來回切換的麻煩。
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-sm">
+                        <strong><span class="lang-zh">時機：</span><span class="lang-en">When to use:</span></strong> 
+                        <span class="lang-zh">當你不確定兩地之間該搭哪種交通工具最划算、時間最適合時。Omio 提供全中文介面，能一次幫你比較各種交通工具的時間與票價，省去在各國國鐵與巴士官網來回切換的麻煩。</span>
+                        <span class="lang-en">When unsure which transport mode is most cost-effective and time-efficient between two places. Omio lets you compare times and prices for all transport modes at once, saving the hassle of switching between various websites.</span>
                     </p>
                     
-                    <div class="bg-blue-50/50 p-5 rounded-xl border-l-4 border-blue-400 mb-6">
-                        <h4 class="font-bold text-blue-900 mb-2 flex items-center text-sm">
-                            <span class="mr-2">💡</span> Bryan 實戰經驗
+                    <div class="bg-blue-50/50 dark:bg-blue-900/20 p-5 rounded-xl border-l-4 border-blue-400 dark:border-blue-600 mb-6">
+                        <h4 class="font-bold text-blue-900 dark:text-blue-300 mb-2 flex items-center text-sm">
+                            <span class="mr-2">💡</span>
+                            <span class="lang-zh">Bryan 實戰經驗</span>
+                            <span class="lang-en">Bryan's Real Experience</span>
                         </h4>
-                        <p class="text-sm text-gray-700 leading-relaxed">
-                            規劃跨國路線時，我一定先用 Omio 看大方向（找出最省時或最便宜的搭法）。它的優點是很多路線訂票後，電子票 QR Code 會直接存在系統內，遇到多段轉乘時管理起來非常輕鬆。
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <span class="lang-zh">規劃跨國路線時，我一定先用 Omio 看大方向（找出最省時或最便宜的搭法）。它的優點是很多路線訂票後，電子票 QR Code 會直接存在系統內，遇到多段轉乘時管理起來非常輕鬆。</span>
+                            <span class="lang-en">When planning cross-border routes, I always use Omio first to get the big picture (finding the fastest or cheapest way). Its advantage is that for many routes, the e-ticket QR Code is stored directly in the system after booking, making it very easy to manage multi-leg transfers.</span>
                         </p>
                     </div>
             
-                    <a href="https://omio.sjv.io/c/7274100/409973/7385" target="_blank" rel="nofollow" class="inline-block text-center bg-sky-600 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-sky-700 hover:shadow-md transition">前往 Omio 查詢與比價 →</a>
+                    <a href="https://omio.sjv.io/c/7274100/409973/7385" target="_blank" rel="nofollow" class="inline-block text-center bg-sky-600 dark:bg-sky-500 text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-sky-700 dark:hover:bg-sky-600 hover:shadow-md transition">
+                        <span class="lang-zh">前往 Omio 查詢與比價 →</span>
+                        <span class="lang-en">Go to Omio for Search & Comparison →</span>
+                    </a>
                 </div>
             </section>
             
-            <div class="pt-12 text-center border-t border-gray-200 mt-8">
+            <div class="pt-12 text-center border-t border-gray-200 dark:border-gray-700 mt-8">
                 <div class="inline-flex flex-col items-center">
                     <span class="text-5xl mb-5 drop-shadow-sm">🎒</span>
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">交通搞定！接下來準備打包行李</h3>
-                    <p class="text-gray-500 mb-8 max-w-lg mx-auto">
-                        簽證申請、網卡購買時機，以及如何靠「四套衣服與一個密碼鎖」在歐洲全身而退？請看行前最後檢查。
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white mb-3">
+                        <span class="lang-zh">交通搞定！接下來準備打包行李</span>
+                        <span class="lang-en">Transport Sorted! Now Prepare Your Luggage</span>
+                    </h3>
+                    <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-lg mx-auto">
+                        <span class="lang-zh">簽證申請、網卡購買時機，以及如何靠「四套衣服與一個密碼鎖」在歐洲全身而退？請看行前最後檢查。</span>
+                        <span class="lang-en">When to apply for visas and buy SIM cards, and how to survive Europe with just 'four sets of clothes and a combination lock'? Check out the final pre-trip checklist.</span>
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-                        <a href="preparation.html" class="bg-green-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-green-700 transition shadow-lg shadow-green-200 w-full sm:w-auto">
-                            👉 前往 行前總檢查與裝備攻略
+                        <a href="preparation.html" class="bg-green-600 text-white font-bold px-8 py-3.5 rounded-full hover:bg-green-700 transition shadow-lg shadow-green-200 dark:shadow-green-900/50 w-full sm:w-auto">
+                            <span class="lang-zh">👉 前往 行前總檢查與裝備攻略</span>
+                            <span class="lang-en">👉 Go to Final Pre-trip Checklist & Gear Guide</span>
                         </a>
-                        <a href="index.html#essential-guides" class="bg-white border-2 border-gray-200 text-gray-700 font-bold px-8 py-3.5 rounded-full hover:bg-gray-50 transition shadow-sm w-full sm:w-auto">
-                            回首頁目錄
+                        <a href="index.html#essential-guides" class="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-bold px-8 py-3.5 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 transition shadow-sm w-full sm:w-auto">
+                            <span class="lang-zh">回首頁目錄</span>
+                            <span class="lang-en">Back to Home Directory</span>
                         </a>
                     </div>
                 </div>
@@ -458,9 +679,55 @@
         </article>
     </main>
 
-    <footer class="text-center py-12 text-gray-400 text-sm mt-12 border-t border-gray-200">
-        <p>© 2026 EUROPE SOLO Guide. 去過 41 個歐洲國家的真實紀錄。</p>
+    <footer class="text-center py-12 text-gray-400 text-sm mt-12 border-t border-gray-200 dark:border-gray-800">
+        <p>
+            <span class="lang-zh">© 2026 EUROPE SOLO Guide. 去過 41 個歐洲國家的真實紀錄。</span>
+            <span class="lang-en">© 2026 EUROPE SOLO Guide. A true record of visiting 41 European countries.</span>
+        </p>
     </footer>
 
+    <!-- 語言切換與深色模式控制邏輯 -->
+    <script>
+        // 深色模式切換邏輯
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // 根據當前模式顯示對應的 Icon
+        if (document.documentElement.classList.contains('dark')) {
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // 語言切換邏輯
+        const langToggleBtn = document.getElementById('lang-toggle');
+        langToggleBtn.addEventListener('click', function() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'zh-Hant' ? 'en' : 'zh-Hant';
+            
+            // 更新 html lang 屬性 (CSS 將自動隱藏/顯示對應元素)
+            document.documentElement.lang = newLang;
+            
+            // 儲存至 LocalStorage
+            localStorage.setItem('app-lang', newLang);
+            
+            // 更新標題與 Meta
+            updateMeta(newLang);
+        });
+    </script>
 </body>
 </html>
