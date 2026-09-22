@@ -287,674 +287,450 @@
 
     <!-- Essential Guides -->
     <section class="bg-gray-100 dark:bg-gray-900 py-20 mt-12 scroll-mt-20 border-t border-gray-200 dark:border-gray-800 relative transition-colors duration-300">
-        <div id="essential-guides" class="max-w-6xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 relative z-20">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-4 tracking-tight">
-                    <span class="zh">第一次歐洲獨旅？從這裡開始</span><span class="en">First Time Solo in Europe? Start Here</span>
-                </h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-4">
-                    <span class="zh">我將 41 國的失敗經驗轉化為系統化教學，帶你避開旅行的地雷。</span><span class="en">I transformed my failures from 41 countries into systematic guides to help you avoid travel landmines.</span>
+    <div id="essential-guides" class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16 relative z-20">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-4 tracking-tight">
+                <span class="zh">第一次歐洲獨旅？從這裡開始</span><span class="en">First Time Solo in Europe? Start Here</span>
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                <span class="zh">我將 41 國的失敗經驗轉化為系統化教學，帶你避開旅行的地雷。</span><span class="en">I transformed my failures from 41 countries into systematic guides to help you avoid travel landmines.</span>
+            </p>
+            <div class="inline-block bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-800/50 text-blue-800 dark:text-blue-300 px-6 py-3 rounded-xl text-sm md:text-base font-bold shadow-sm">
+                <span class="zh">💡 對於獨旅新手，強烈建議在出發前（或邊規劃邊閱讀）將這六大面向依序讀完！</span>
+                <span class="en">💡 For solo travel beginners, it's highly recommended to read these 6 modules sequentially before departure!</span>
+            </div>
+        </div>
+        
+        <div id="guides-container" class="flex flex-wrap gap-6 w-full relative">
+            <div id="flow-arrow" class="absolute inset-0 pointer-events-none hidden lg:block" style="z-index: 0;">
+                <svg width="100%" height="100%" preserveAspectRatio="none">
+                    <path d="M 16% 90 L 84% 90 C 96% 90 96% 330 84% 330 L 16% 330" fill="none" stroke="#cbd5e1" class="dark:stroke-gray-700" stroke-width="4" stroke-dasharray="12 12" stroke-linecap="round"/>
+                    <polygon points="17%,324 17%,336 14%,330" fill="#cbd5e1" class="dark:fill-gray-700" />
+                </svg>
+            </div>
+
+            <!-- Card 1 -->
+            <div id="card-1" onclick="handleGuideClick('card-1')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col box-border relative overflow-hidden z-10 transition-colors">
+                <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 dark:text-gray-700 opacity-50 pointer-events-none group-hover:scale-110 transition">01</div>
+                <button onclick="closeGuide(event, 'card-1')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 font-bold transition-all duration-300 z-50">✕</button>
+                
+                <div class="flex items-center gap-5 mb-4 relative z-10">
+                    <div class="w-14 h-14 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🧭</div>
+                    <h3 class="font-extrabold text-xl text-gray-800 dark:text-gray-100">
+                        <span class="zh">從零開始的行程規劃</span><span class="en">Itinerary Planning from Scratch</span>
+                    </h3>
+                </div>
+                <p class="card-summary text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-2 relative z-10">
+                    <span class="zh">被 IG 美照燒到卻不知從何查起？打破完美主義，用四維度資源盤點與防呆漏斗，教你有效率地生出第一趟行程。</span>
+                    <span class="en">Inspired by IG but don't know where to start? Break perfectionism with a 4-dimensional resource check and fool-proof funnel to efficiently build your first itinerary.</span>
                 </p>
-                <div class="inline-block bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-800/50 text-blue-800 dark:text-blue-300 px-6 py-3 rounded-xl text-sm md:text-base font-bold shadow-sm">
-                    <span class="zh">💡 對於獨旅新手，強烈建議在出發前（或邊規劃邊閱讀）將這六大面向依序讀完！</span>
-                    <span class="en">💡 For solo travel beginners, it's highly recommended to read these 6 modules sequentially before departure!</span>
+                
+                <div class="guide-content hidden opacity-0 relative z-10">
+                    <div class="pt-6 border-t border-gray-100 dark:border-gray-700 mt-2">
+                        <div class="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 p-4 rounded-r-lg mb-8 text-sm text-indigo-900 dark:text-indigo-200 leading-relaxed shadow-sm">
+                            <strong><span class="zh">💡 歐洲的淡旺季怎麼分？</span><span class="en">💡 High vs Low Season in Europe?</span></strong><br>
+                            <span class="zh">台灣的淡季不等於歐洲的淡季！除了最擁擠的 <strong>暑假 (6-9月)</strong> 外，<strong>復活節 (4月)</strong> 與 <strong>聖誕跨年 (12月)</strong> 是當地人傾巢而出的「絕對連假旺季」，只要卡到這三段時間，沒提前買票絕對進不去！</span>
+                            <span class="en">Europe's seasons are different! Besides crowded <strong>Summer (Jun-Sep)</strong>, <strong>Easter (Apr)</strong> and <strong>Christmas/NYE (Dec)</strong> are absolute peak holidays. If you travel then, advance booking is strictly required!</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="text-xl">📊</span>
+                                    <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100">
+                                        <span class="zh">獨旅四維度 (資源盤點)</span><span class="en">4 Dimensions of Solo Travel</span>
+                                    </div>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-4">
+                                    <li class="leading-relaxed">
+                                        <span class="font-bold text-gray-800 dark:text-gray-100 flex items-center gap-1"><span class="zh">🎯 目的地 (動力)：</span><span class="en">🎯 Destination (Drive):</span></span>
+                                        <span class="zh">拋開現實，心中渴望的風景才是支撐你查資料的唯一火種。</span><span class="en">Forget reality; the scenery you crave is the only spark that sustains your research.</span>
+                                    </li>
+                                    <li class="leading-relaxed">
+                                        <span class="font-bold text-gray-800 dark:text-gray-100 flex items-center gap-1"><span class="zh">💰 預算分級：</span><span class="en">💰 Budget Tier:</span></span>
+                                        <span class="zh"><span class="text-red-500 font-bold">瑞士/北歐</span> > 西歐 > 南歐 > <span class="text-emerald-600 font-bold">東歐</span>。<br>
+                                        <span class="text-xs text-gray-400">※ 確定預算後同步查「景點通票」，內容常會決定最終路線。</span></span>
+                                        <span class="en"><span class="text-red-500 font-bold">Swiss/Nordic</span> > Western > Southern > <span class="text-emerald-600 font-bold">Eastern Europe</span>.<br>
+                                        <span class="text-xs text-gray-400 dark:text-gray-500">※ Also check "City Passes" early, they often shape your route.</span></span>
+                                    </li>
+                                    <li class="leading-relaxed">
+                                        <span class="font-bold text-gray-800 dark:text-gray-100 flex items-center gap-1"><span class="zh">🚆 便利性與數位化：</span><span class="en">🚆 Convenience & Digitalization:</span></span>
+                                        <span class="zh">西/北歐無現金；巴爾幹依賴巴士。注意：<span class="text-red-600 dark:text-red-400 font-medium">法、義</span> 高鐵對 Eurail 通票要求訂位費。</span>
+                                        <span class="en">Cashless in West/North; buses rule the Balkans. Note: <span class="text-red-600 dark:text-red-400 font-medium">FR, IT</span> high-speed trains require Eurail reservation fees.</span>
+                                    </li>
+                                    <li class="leading-relaxed">
+                                        <span class="font-bold text-gray-800 dark:text-gray-100 flex items-center gap-1"><span class="zh">🔋 體力與心力 (血條)：</span><span class="en">🔋 Physical & Mental Energy:</span></span>
+                                        <span class="zh">不要小看南歐拖行李的石板路與上下坡，以及防小偷帶來的「決策疲勞」。</span>
+                                        <span class="en">Never underestimate dragging luggage on Southern Europe's cobblestones, nor the "decision fatigue" from guarding against pickpockets.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-slate-50 dark:bg-gray-800/80 p-6 rounded-2xl border border-slate-200 dark:border-gray-700 shadow-sm relative overflow-hidden">
+                                <div class="absolute top-2 right-4 text-4xl opacity-10">⏳</div>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="text-xl">🌪️</span>
+                                    <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100">
+                                        <span class="zh">防後悔規劃漏斗</span><span class="en">Regret-Free Planning Funnel</span>
+                                    </div>
+                                </div>
+                                <p class="text-[11px] text-slate-500 dark:text-gray-400 mb-4 font-bold uppercase tracking-wider">
+                                    <span class="zh">大原則：越難更改、名額越少的越早決定</span>
+                                    <span class="en">Rule: Decide inflexible and limited quota items first</span>
+                                </p>
+                                
+                                <ul class="space-y-4 relative">
+                                    <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
+                                        <span class="font-bold text-gray-900 dark:text-gray-100 block text-sm">
+                                            <span class="zh">Step 1. (點) 熱門景點/體驗</span><span class="en">Step 1. Top Attractions (Points)</span>
+                                        </span>
+                                        <span class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed block">
+                                            <span class="zh">去官網試訂票，熱門點需數月前搶票。</span>
+                                            <span class="en">Check official sites; hot spots need months of advance booking.</span>
+                                        </span>
+                                    </li>
+                                    <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
+                                        <span class="font-bold text-gray-900 dark:text-gray-100 block text-sm">
+                                            <span class="zh">Step 2. (線) 城際交通串聯</span><span class="en">Step 2. Intercity Transport (Lines)</span>
+                                        </span>
+                                        <span class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed block">
+                                            <span class="zh">先用 Omio 比價，再進官網確認班次。</span>
+                                            <span class="en">Compare on Omio, then book on official railway sites.</span>
+                                        </span>
+                                    </li>
+                                    <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
+                                        <span class="font-bold text-gray-900 dark:text-gray-100 block text-sm">
+                                            <span class="zh">Step 3. 長程機票與入境</span><span class="en">Step 3. Long-Haul Flights</span>
+                                        </span>
+                                        <span class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed block">
+                                            <span class="zh">考量假期彈性找最划算機票。</span>
+                                            <span class="en">Find the best flight deals based on your vacation flexibility.</span>
+                                        </span>
+                                    </li>
+                                    <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
+                                        <span class="font-bold text-gray-900 dark:text-gray-100 block text-sm">
+                                            <span class="zh">Step 4. (底) 尋找住宿避風港</span><span class="en">Step 4. Accommodation (Base)</span>
+                                        </span>
+                                        <span class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed block">
+                                            <span class="zh">能用錢解決的放最後。找火車站旁高評分的。</span>
+                                            <span class="en">Money solves this last. Seek high-rated spots near train stations.</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-3 pb-8">
+                            <a href="planning.html" class="inline-block bg-indigo-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-indigo-700 transition shadow-md shadow-indigo-200 dark:shadow-indigo-900/20">
+                                <span class="zh">🗺️ 閱讀完整行程規劃心法 →</span><span class="en">🗺️ Read Full Planning Guide →</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div id="guides-container" class="flex flex-wrap gap-6 w-full relative">
-                <div id="flow-arrow" class="absolute inset-0 pointer-events-none hidden lg:block" style="z-index: 0;">
-                    <svg width="100%" height="100%" preserveAspectRatio="none">
-                        <path d="M 16% 90 L 84% 90 C 96% 90 96% 330 84% 330 L 16% 330" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="12 12" stroke-linecap="round"/>
-                        <polygon points="17%,324 17%,336 14%,330" fill="#cbd5e1" />
-                    </svg>
-                </div>
 
-                <!-- Card 1 -->
-                <div id="card-1" onclick="handleGuideClick('card-1')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border relative overflow-hidden z-10">
-
-                    <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 opacity-50 pointer-events-none group-hover:scale-110 transition">01</div>
-
-                    <button onclick="closeGuide(event, 'card-1')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
-
-                    
-
-                    <div class="flex items-center gap-5 mb-4 relative z-10">
-
-                        <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🧭</div>
-
-                        <h3 class="font-extrabold text-xl text-gray-800">從零開始的行程規劃</h3>
-
-                    </div>
-
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">
-
-                        被 IG 美照燒到卻不知從何查起？打破完美主義，用四維度資源盤點與防呆漏斗，教你有效率地生出第一趟行程。
-
-                    </p>
-
-                    
-
-                    <div class="guide-content hidden opacity-0 relative z-10">
-
-                        <div class="pt-6 border-t border-gray-100 mt-2">
-
-                            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg mb-8 text-sm text-indigo-900 leading-relaxed shadow-sm">
-
-                                <strong>💡 歐洲的淡旺季怎麼分？</strong><br>
-
-                                台灣的淡季不等於歐洲的淡季！除了最擁擠的 <strong>暑假 (6-9月)</strong> 外，<strong>復活節 (4月)</strong> 與 <strong>聖誕跨年 (12月)</strong> 是當地人傾巢而出的「絕對連假旺季」，只要卡到這三段時間，沒提前買票絕對進不去！
-
-                            </div>
-
+            <!-- Card 2 -->
+            <div id="card-2" onclick="handleGuideClick('card-2')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col box-border relative overflow-hidden z-10 transition-colors">
+                <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 dark:text-gray-700 opacity-50 pointer-events-none group-hover:scale-110 transition">02</div>
+                <button onclick="closeGuide(event, 'card-2')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 font-bold transition-all duration-300 z-50">✕</button>
                 
-
-                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-
-                                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
-
-                                    <div class="flex items-center gap-2 mb-4">
-
-                                        <span class="text-xl">📊</span>
-
-                                        <div class="text-lg font-extrabold text-gray-800">獨旅四維度 (資源盤點)</div>
-
-                                    </div>
-
-                                    <ul class="text-sm text-gray-600 space-y-4">
-
-                                        <li class="leading-relaxed">
-
-                                            <span class="font-bold text-gray-800 flex items-center gap-1">🎯 目的地 (動力)：</span>
-
-                                            拋開現實，心中渴望的風景才是支撐你查資料的唯一火種。
-
-                                        </li>
-
-                                        <li class="leading-relaxed">
-
-                                            <span class="font-bold text-gray-800 flex items-center gap-1">💰 預算分級：</span>
-
-                                            <span class="text-red-500 font-bold">瑞士/北歐</span> > 西歐 > 南歐 > <span class="text-emerald-600 font-bold">東歐</span>。<br>
-
-                                            <span class="text-xs text-gray-400">※ 確定預算後同步查「景點通票」，內容常會決定最終路線。</span>
-
-                                        </li>
-
-                                        <li class="leading-relaxed">
-
-                                            <span class="font-bold text-gray-800 flex items-center gap-1">🚆 便利性與數位化：</span>
-
-                                            西/北歐無現金；巴爾幹依賴巴士。注意：<span class="text-red-600 font-medium">法、義</span> 高鐵對 Eurail 通票要求訂位費。
-
-                                        </li>
-
-                                        <li class="leading-relaxed">
-
-                                            <span class="font-bold text-gray-800 flex items-center gap-1">🔋 體力與心力 (血條)：</span>
-
-                                            不要小看南歐拖行李的石板路與上下坡，以及防小偷帶來的「決策疲勞」。
-
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-
+                <div class="flex items-center gap-5 mb-4 relative z-10">
+                    <div class="w-14 h-14 bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🎫</div>
+                    <h3 class="font-extrabold text-xl text-gray-800 dark:text-gray-100">
+                        <span class="zh">熱門景點搶票全攻略</span><span class="en">Ticket Booking Masterclass</span>
+                    </h3>
+                </div>
+                <p class="card-summary text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-2 relative z-10">
+                    <span class="zh">不要到了現場才發現沒票社死！從地獄級秒殺景點到淡季免排隊名單，獨旅者必存的通關秘笈。</span>
+                    <span class="en">Don't show up to find it's sold out! From hell-level instant sell-outs to low-season walk-ins, a must-save guide for soloers.</span>
+                </p>
                 
-
-                                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
-
-                                    <div class="absolute top-2 right-4 text-4xl opacity-10">⏳</div>
-
-                                    <div class="flex items-center gap-2 mb-4">
-
-                                        <span class="text-xl">🌪️</span>
-
-                                        <div class="text-lg font-extrabold text-gray-800">防後悔規劃漏斗</div>
-
-                                    </div>
-
-                                    <p class="text-[11px] text-slate-500 mb-4 font-bold uppercase tracking-wider">大原則：越難更改、名額越少的越早決定</p>
-
-                                    
-
-                                    <ul class="space-y-4 relative">
-
-                                        <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
-
-                                            <span class="font-bold text-gray-900 block text-sm">Step 1. (點) 熱門景點/體驗</span>
-
-                                            <span class="text-xs text-gray-600 leading-relaxed block">去官網試訂票，熱門點需數月前搶票。</span>
-
-                                        </li>
-
-                                        <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
-
-                                            <span class="font-bold text-gray-900 block text-sm">Step 2. (線) 城際交通串聯</span>
-
-                                            <span class="text-xs text-gray-600 leading-relaxed block">先用 Omio 比價，再進官網確認班次。</span>
-
-                                        </li>
-
-                                        <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
-
-                                            <span class="font-bold text-gray-900 block text-sm">Step 3. 長程機票與入境</span>
-
-                                            <span class="text-xs text-gray-600 leading-relaxed block">考量假期彈性找最划算機票。</span>
-
-                                        </li>
-
-                                        <li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full">
-
-                                            <span class="font-bold text-gray-900 block text-sm">Step 4. (底) 尋找住宿避風港</span>
-
-                                            <span class="text-xs text-gray-600 leading-relaxed block">能用錢解決的放最後。找火車站旁高評分的。</span>
-
-                                        </li>
-
-                                    </ul>
-
+                <div class="guide-content hidden opacity-0 relative z-10">
+                    <div class="pt-6 border-t border-gray-100 dark:border-gray-700 mt-2">
+                        <div class="bg-yellow-50 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-200 px-4 py-3 rounded-xl mb-6 text-sm font-bold border border-yellow-200 dark:border-yellow-800/50 flex items-center gap-3">
+                            <span class="text-xl">🎓</span>
+                            <span>
+                                <span class="zh">歐洲景點對於學生/青年常有折價，訂票時記得查詢相關優惠！</span>
+                                <span class="en">European sites often offer student/youth discounts. Always check before booking!</span>
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🔥 地獄級秒殺</span><span class="en">🔥 Hell-Level Sell-outs</span>
                                 </div>
-
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong><span class="zh">義大利：</span><span class="en">Italy:</span></strong> <span class="zh">最後的晚餐</span><span class="en">The Last Supper</span></li>
+                                    <li>• <strong><span class="zh">英荷：</span><span class="en">UK/NL:</span></strong> <span class="zh">哈利波特、安妮之家</span><span class="en">Harry Potter, Anne Frank House</span></li>
+                                    <li>• <strong><span class="zh">法西：</span><span class="en">FR/ES:</span></strong> <span class="zh">鐵塔直達、阿爾罕布拉宮</span><span class="en">Eiffel Summit, Alhambra</span></li>
+                                </ul>
                             </div>
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🔴 困難與警戒級</span><span class="en">🔴 Hard & Alert Level</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong><span class="zh">法德：</span><span class="en">FR/DE:</span></strong> <span class="zh">羅浮宮、新天鵝堡</span><span class="en">Louvre, Neuschwanstein</span></li>
+                                    <li>• <strong><span class="zh">義梵：</span><span class="en">IT/VA:</span></strong> <span class="zh">羅馬競技場、梵蒂岡</span><span class="en">Colosseum, Vatican</span></li>
+                                    <li>• <strong><span class="zh">西班牙：</span><span class="en">Spain:</span></strong> <span class="zh">聖家堂、塞維亞王宮</span><span class="en">Sagrada Familia, Alcázar</span></li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">💡 失敗補救 Plan B</span><span class="en">💡 Plan B Salvage</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong><span class="zh">課金解法：</span><span class="en">Pay-to-win:</span></strong> <span class="zh">OTA 平台買套票</span><span class="en">Buy combo from OTA</span></li>
+                                    <li>• <strong><span class="zh">時差解法：</span><span class="en">Timezone hack:</span></strong> <span class="zh">半夜官網刷退票</span><span class="en">Refresh site at midnight</span></li>
+                                    <li>• <strong><span class="zh">體力解法：</span><span class="en">Physical grind:</span></strong> <span class="zh">清晨開門前排隊</span><span class="en">Queue before opening</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3 pb-8">
+                            <a href="tickets.html" class="inline-block bg-red-700 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-red-800 transition shadow-md shadow-red-200 dark:shadow-red-900/20">
+                                <span class="zh">📖 進入實戰搶票動態表 →</span><span class="en">📖 View Live Booking Table →</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Card 3 -->
+            <div id="card-3" onclick="handleGuideClick('card-3')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col box-border relative overflow-hidden z-10 transition-colors">
+                <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 dark:text-gray-700 opacity-50 pointer-events-none group-hover:scale-110 transition">03</div>
+                <button onclick="closeGuide(event, 'card-3')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 font-bold transition-all duration-300 z-50">✕</button>
                 
-
-                            <div class="flex flex-col sm:flex-row gap-3 pb-8">
-
-                                <a href="planning.html" class="inline-block bg-indigo-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-indigo-700 transition shadow-md shadow-indigo-200">
-
-                                    🗺️ 閱讀完整行程規劃心法 →
-
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                <div class="flex items-center gap-5 mb-4 relative z-10">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🚆</div>
+                    <h3 class="font-extrabold text-xl text-gray-800 dark:text-gray-100">
+                        <span class="zh">歐洲跨國交通指南</span><span class="en">Cross-Border Transport</span>
+                    </h3>
                 </div>
-
-
-
-                <div id="card-2" onclick="handleGuideClick('card-2')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border relative overflow-hidden z-10">
-
-                    <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 opacity-50 pointer-events-none group-hover:scale-110 transition">02</div>
-
-                    <button onclick="closeGuide(event, 'card-2')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
-
-                    
-
-                    <div class="flex items-center gap-5 mb-4 relative z-10">
-
-                        <div class="w-14 h-14 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🎫</div>
-
-                        <h3 class="font-extrabold text-xl text-gray-800">熱門景點搶票全攻略</h3>
-
-                    </div>
-
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">不要到了現場才發現沒票社死！從地獄級秒殺景點到淡季免排隊名單，獨旅者必存的通關秘笈。</p>
-
-                    
-
-                    <div class="guide-content hidden opacity-0 relative z-10">
-
-                        <div class="pt-6 border-t border-gray-100 mt-2">
-
-                            <div class="bg-yellow-50 text-yellow-800 px-4 py-3 rounded-xl mb-6 text-sm font-bold border border-yellow-200 flex items-center gap-3">
-
-                                <span class="text-xl">🎓</span>
-
-                                <span>歐洲景點對於學生/青年常有折價，訂票時記得查詢相關優惠！</span>
-
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🔥 地獄級秒殺</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>義大利：</strong> 最後的晚餐</li>
-
-                                        <li>• <strong>英荷：</strong> 哈利波特、安妮之家</li>
-
-                                        <li>• <strong>法西：</strong> 鐵塔直達、阿爾罕布拉宮</li>
-
-                                    </ul>
-
+                <p class="card-summary text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-2 relative z-10">
+                    <span class="zh">歐洲交通選擇容易讓人無所適從。教你火車通行證怎麼買最划算？廉航與巴士的隱藏費用與比價技巧。</span>
+                    <span class="en">European transport can be overwhelming. Learn how to maximize Eurail value, and dodge hidden fees in budget airlines and buses.</span>
+                </p>
+                
+                <div class="guide-content hidden opacity-0 relative z-10">
+                    <div class="pt-6 border-t border-gray-100 dark:border-gray-700 mt-2">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">✈️ 飛機 (廉航)</span><span class="en">✈️ Flights (Low-cost)</span>
                                 </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🔴 困難與警戒級</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>法德：</strong> 羅浮宮、新天鵝堡</li>
-
-                                        <li>• <strong>義梵：</strong> 羅馬競技場、梵蒂岡</li>
-
-                                        <li>• <strong>西班牙：</strong> 聖家堂、塞維亞王宮</li>
-
-                                    </ul>
-
-                                </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">💡 失敗補救 Plan B</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>課金解法：</strong> OTA 平台買套票</li>
-
-                                        <li>• <strong>時差解法：</strong> 半夜官網刷退票</li>
-
-                                        <li>• <strong>體力解法：</strong> 清晨開門前排隊</li>
-
-                                    </ul>
-
-                                </div>
-
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <span class="zh">跨國長距離首選，常有破盤價</span><span class="en">Best for long hauls, often dirt cheap</span></li>
+                                    <li>• <span class="text-red-600 dark:text-red-400 font-bold"><span class="zh">務必提前線上 Check-in</span><span class="en">MUST check-in online early</span></span></li>
+                                    <li>• <span class="zh">小包行李尺寸極嚴格</span><span class="en">Extremely strict cabin bag limits</span></li>
+                                </ul>
                             </div>
-
-                            <div class="flex flex-col sm:flex-row gap-3 pb-8">
-
-                                <a href="tickets.html" class="inline-block bg-red-700 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-red-800 transition shadow-md shadow-red-200">
-
-                                    📖 進入實戰搶票動態表 →
-
-                                </a>
-
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🚆 火車 (國/私鐵)</span><span class="en">🚆 Trains (Nat/Private)</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <span class="zh">跨國路線記得查兩國國鐵比價</span><span class="en">Compare both national sites for borders</span></li>
+                                    <li>• <span class="zh">Eurail Pass 有時須另付訂位費</span><span class="en">Eurail Pass may need seat fees</span></li>
+                                    <li>• <span class="zh">善用 Italo, RegioJet 等私鐵</span><span class="en">Utilize private rail like Italo, RegioJet</span></li>
+                                </ul>
                             </div>
-
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🚐 長途巴士</span><span class="en">🚐 Long-Distance Buses</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <span class="zh">窮遊與偏鄉小鎮救星</span><span class="en">Savior for budget & rural towns</span></li>
+                                    <li>• <span class="zh">FlixBus 涵蓋全歐洲</span><span class="en">FlixBus covers all of Europe</span></li>
+                                    <li>• <span class="zh">不介意夜車能省一晚住宿</span><span class="en">Night buses save 1 night of hostel</span></li>
+                                </ul>
+                            </div>
                         </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div id="card-3" onclick="handleGuideClick('card-3')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border relative overflow-hidden z-10">
-
-                    <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 opacity-50 pointer-events-none group-hover:scale-110 transition">03</div>
-
-                    <button onclick="closeGuide(event, 'card-3')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
-
-                    
-
-                    <div class="flex items-center gap-5 mb-4 relative z-10">
-
-                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🚆</div>
-
-                        <h3 class="font-extrabold text-xl text-gray-800">歐洲跨國交通指南</h3>
-
-                    </div>
-
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">歐洲交通選擇容易讓人無所適從。教你火車通行證怎麼買最划算？廉航與巴士的隱藏費用與比價技巧。</p>
-
-                    
-
-                    <div class="guide-content hidden opacity-0 relative z-10">
-
-                        <div class="pt-6 border-t border-gray-100 mt-2">
-
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">✈️ 飛機 (廉航)</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• 跨國長距離首選，常有破盤價</li>
-
-                                        <li>• <span class="text-red-600 font-bold">務必提前線上 Check-in</span></li>
-
-                                        <li>• 小包行李尺寸極嚴格</li>
-
-                                    </ul>
-
-                                </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🚆 火車 (國/私鐵)</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• 跨國路線記得查兩國國鐵比價</li>
-
-                                        <li>• Eurail Pass 有時須另付訂位費</li>
-
-                                        <li>• 善用 Italo, RegioJet 等私鐵</li>
-
-                                    </ul>
-
-                                </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🚐 長途巴士</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• 窮遊與偏鄉小鎮救星</li>
-
-                                        <li>• FlixBus 涵蓋全歐洲</li>
-
-                                        <li>• 不介意夜車能省一晚住宿</li>
-
-                                    </ul>
-
-                                </div>
-
-                            </div>
-
-                            <div class="flex flex-col sm:flex-row gap-3 pb-8">
-
-                                <a href="transport.html" class="inline-block bg-blue-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-blue-700 transition shadow-md shadow-blue-200">
-
-                                    📖 閱讀完整交通攻略 →
-
-                                </a>
-
-                            </div>
-
+                        <div class="flex flex-col sm:flex-row gap-3 pb-8">
+                            <a href="transport.html" class="inline-block bg-blue-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-blue-700 transition shadow-md shadow-blue-200 dark:shadow-blue-900/20">
+                                <span class="zh">📖 閱讀完整交通攻略 →</span><span class="en">📖 Read Full Transport Guide →</span>
+                            </a>
                         </div>
-
                     </div>
-
                 </div>
+            </div>
 
-
-
-                <div id="card-4" onclick="handleGuideClick('card-4')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border relative overflow-hidden z-10">
-
-                    <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 opacity-50 pointer-events-none group-hover:scale-110 transition">04</div>
-
-                    <button onclick="closeGuide(event, 'card-4')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
-
-                    
-
-                    <div class="flex items-center gap-5 mb-4 relative z-10">
-
-                        <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🎒</div>
-
-                        <h3 class="font-extrabold text-xl text-gray-800">行前手續與裝備攻略</h3>
-
-                    </div>
-
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">搞定 ETIAS 入境許可與網卡；並教你靠一套快乾衣物與一個密碼鎖，在歐洲如魚得水。</p>
-
-                    
-
-                    <div class="guide-content hidden opacity-0 relative z-10">
-
-                        <div class="pt-6 border-t border-gray-100 mt-2">
-
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🛂 行政與金流</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>ETIAS/EES:</strong> 2026 入境新規申請</li>
-
-                                        <li>• <strong>銀行設定:</strong> 驗證改 Email 接收</li>
-
-                                        <li>• <strong>報備出國:</strong> 避免國外刷卡被鎖</li>
-
-                                    </ul>
-
+            <!-- Card 4 -->
+            <div id="card-4" onclick="handleGuideClick('card-4')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col box-border relative overflow-hidden z-10 transition-colors">
+                <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 dark:text-gray-700 opacity-50 pointer-events-none group-hover:scale-110 transition">04</div>
+                <button onclick="closeGuide(event, 'card-4')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 font-bold transition-all duration-300 z-50">✕</button>
+                
+                <div class="flex items-center gap-5 mb-4 relative z-10">
+                    <div class="w-14 h-14 bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🎒</div>
+                    <h3 class="font-extrabold text-xl text-gray-800 dark:text-gray-100">
+                        <span class="zh">行前手續與裝備攻略</span><span class="en">Pre-trip Prep & Packing</span>
+                    </h3>
+                </div>
+                <p class="card-summary text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-2 relative z-10">
+                    <span class="zh">搞定 ETIAS 入境許可與網卡；並教你靠一套快乾衣物與一個密碼鎖，在歐洲如魚得水。</span>
+                    <span class="en">Nail down ETIAS and eSIMs; learn how to thrive in Europe with just one quick-dry outfit and a padlock.</span>
+                </p>
+                
+                <div class="guide-content hidden opacity-0 relative z-10">
+                    <div class="pt-6 border-t border-gray-100 dark:border-gray-700 mt-2">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🛂 行政與金流</span><span class="en">🛂 Admin & Money</span>
                                 </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">📶 網路與天氣</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>購買時機:</strong> 提早 2-3 天買 eSIM</li>
-
-                                        <li>• <strong>天氣預警:</strong> 嚴防熱浪與大雪</li>
-
-                                        <li>• <strong>離線地圖:</strong> 沒收訊也能生存</li>
-
-                                    </ul>
-
-                                </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🎒 打包精華</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>密碼鎖:</strong> 住青旅沒鎖等於沒防</li>
-
-                                        <li>• <strong>快乾材質:</strong> 洗完一晚就乾</li>
-
-                                        <li>• <strong>隱形腰包:</strong> 護照救命錢貼身</li>
-
-                                    </ul>
-
-                                </div>
-
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong>ETIAS/EES:</strong> <span class="zh">2026 入境新規申請</span><span class="en">2026 entry rules</span></li>
+                                    <li>• <strong><span class="zh">銀行設定:</span><span class="en">Bank Setup:</span></strong> <span class="zh">驗證改 Email 接收</span><span class="en">Route OTPs to Email</span></li>
+                                    <li>• <strong><span class="zh">報備出國:</span><span class="en">Travel Notice:</span></strong> <span class="zh">避免國外刷卡被鎖</span><span class="en">Avoid card blocks abroad</span></li>
+                                </ul>
                             </div>
-
-                            <div class="flex flex-col sm:flex-row gap-3 pb-8">
-
-                                <a href="preparation.html" class="inline-block bg-green-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-green-700 transition shadow-md shadow-green-200">
-
-                                    📖 進入行前最後檢查清單 →
-
-                                </a>
-
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">📶 網路與天氣</span><span class="en">📶 Internet & Weather</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong><span class="zh">購買時機:</span><span class="en">Timing:</span></strong> <span class="zh">提早 2-3 天買 eSIM</span><span class="en">Buy eSIM 2-3 days early</span></li>
+                                    <li>• <strong><span class="zh">天氣預警:</span><span class="en">Weather Alert:</span></strong> <span class="zh">嚴防熱浪與大雪</span><span class="en">Beware heatwaves & snow</span></li>
+                                    <li>• <strong><span class="zh">離線地圖:</span><span class="en">Offline Maps:</span></strong> <span class="zh">沒收訊也能生存</span><span class="en">Survive zero reception</span></li>
+                                </ul>
                             </div>
-
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🎒 打包精華</span><span class="en">🎒 Packing Essentials</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong><span class="zh">密碼鎖:</span><span class="en">Padlock:</span></strong> <span class="zh">住青旅沒鎖等於沒防</span><span class="en">Must-have for hostels</span></li>
+                                    <li>• <strong><span class="zh">快乾材質:</span><span class="en">Quick-Dry:</span></strong> <span class="zh">洗完一晚就乾</span><span class="en">Dries overnight</span></li>
+                                    <li>• <strong><span class="zh">隱形腰包:</span><span class="en">Money Belt:</span></strong> <span class="zh">護照救命錢貼身</span><span class="en">Keep passport strictly close</span></li>
+                                </ul>
+                            </div>
                         </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div id="card-5" onclick="handleGuideClick('card-5')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border relative overflow-hidden z-10">
-
-                    <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 opacity-50 pointer-events-none group-hover:scale-110 transition">05</div>
-
-                    <button onclick="closeGuide(event, 'card-5')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
-
-                    
-
-                    <div class="flex items-center gap-5 mb-4 relative z-10">
-
-                        <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🛡️</div>
-
-                        <h3 class="font-extrabold text-xl text-gray-800">獨旅安全與求生全攻略</h3>
-
-                    </div>
-
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">睡得穩、不被搶、不憋尿。從街頭防盜、避開床蝨到交通延誤理賠，最真實的保命指南。</p>
-
-                    
-
-                    <div class="guide-content hidden opacity-0 relative z-10">
-
-                        <div class="pt-6 border-t border-gray-100 mt-2">
-
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🛡️ 防禦與住宿</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>住宿防雷：</strong> 嚴守評分與防床蝨</li>
-
-                                        <li>• <strong>街頭防盜：</strong> 財不露白防扒手</li>
-
-                                    </ul>
-
-                                </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🚰 求生與心態</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>資源調度：</strong> 免費廁所與飲水</li>
-
-                                        <li>• <strong>擁抱變化：</strong> 備好 B 計畫</li>
-
-                                    </ul>
-
-                                </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🚨 理賠與應急</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>交通延誤：</strong> EU261 退費申請</li>
-
-                                        <li>• <strong>遺失遭竊：</strong> 警局報案單索取</li>
-
-                                    </ul>
-
-                                </div>
-
-                            </div>
-
-                            <div class="flex flex-col sm:flex-row gap-3 pb-8">
-
-                                <a href="safety-guide.html" class="inline-block bg-slate-800 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-slate-900 transition shadow-md shadow-slate-200">
-
-                                    📖 閱讀完整安全求生攻略 →
-
-                                </a>
-
-                            </div>
-
+                        <div class="flex flex-col sm:flex-row gap-3 pb-8">
+                            <a href="preparation.html" class="inline-block bg-green-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-green-700 transition shadow-md shadow-green-200 dark:shadow-green-900/20">
+                                <span class="zh">📖 進入行前最後檢查清單 →</span><span class="en">📖 View Pre-Trip Checklist →</span>
+                            </a>
                         </div>
-
                     </div>
-
                 </div>
+            </div>
 
-
-
-                <div id="card-6" onclick="handleGuideClick('card-6')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 flex flex-col box-border relative overflow-hidden z-10">
-
-                    <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 opacity-50 pointer-events-none group-hover:scale-110 transition">06</div>
-
-                    <button onclick="closeGuide(event, 'card-6')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center text-gray-500 font-bold transition-all duration-300 z-50">✕</button>
-
-                    
-
-                    <div class="flex items-center gap-5 mb-4 relative z-10">
-
-                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">📱</div>
-
-                        <h3 class="font-extrabold text-xl text-gray-800">省錢好用 APP 推薦</h3>
-
-                    </div>
-
-                    <p class="card-summary text-gray-500 text-sm leading-relaxed mb-2 relative z-10">實測 TooGoodToGo 撿便宜、Radical 寄行李、Flush 找廁所等實用工具。</p>
-
-                    
-
-                    <div class="guide-content hidden opacity-0 relative z-10">
-
-                        <div class="pt-6 border-t border-gray-100 mt-2">
-
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🍽️ 飲食與生存</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>TooGoodToGo:</strong> €5 買剩食盲盒</li>
-
-                                        <li>• <strong>TheFork:</strong> 餐廳訂位常有半價</li>
-
-                                        <li>• <strong>Flush:</strong> 找免費廁所省硬幣</li>
-
-                                    </ul>
-
+            <!-- Card 5 -->
+            <div id="card-5" onclick="handleGuideClick('card-5')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col box-border relative overflow-hidden z-10 transition-colors">
+                <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 dark:text-gray-700 opacity-50 pointer-events-none group-hover:scale-110 transition">05</div>
+                <button onclick="closeGuide(event, 'card-5')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 font-bold transition-all duration-300 z-50">✕</button>
+                
+                <div class="flex items-center gap-5 mb-4 relative z-10">
+                    <div class="w-14 h-14 bg-orange-100 dark:bg-orange-900/40 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">🛡️</div>
+                    <h3 class="font-extrabold text-xl text-gray-800 dark:text-gray-100">
+                        <span class="zh">獨旅安全與求生全攻略</span><span class="en">Safety & Survival Guide</span>
+                    </h3>
+                </div>
+                <p class="card-summary text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-2 relative z-10">
+                    <span class="zh">睡得穩、不被搶、不憋尿。從街頭防盜、避開床蝨到交通延誤理賠，最真實的保命指南。</span>
+                    <span class="en">Sleep safe, avoid muggings, find toilets. From anti-pickpocket tactics, dodging bedbugs, to claiming delay compensations.</span>
+                </p>
+                
+                <div class="guide-content hidden opacity-0 relative z-10">
+                    <div class="pt-6 border-t border-gray-100 dark:border-gray-700 mt-2">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🛡️ 防禦與住宿</span><span class="en">🛡️ Defense & Stays</span>
                                 </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🗺️ 交通與住宿</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>Bolt:</strong> 南歐東歐叫車比 Uber 省</li>
-
-                                        <li>• <strong>Citymapper:</strong> 地鐵防迷路</li>
-
-                                        <li>• <strong>Hostelworld:</strong> 內建聊天室</li>
-
-                                    </ul>
-
-                                </div>
-
-                                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100">
-
-                                    <div class="text-lg font-extrabold text-gray-800 mb-2">🎒 行李與社交</div>
-
-                                    <ul class="text-sm text-gray-600 space-y-1.5">
-
-                                        <li>• <strong>Bounce:</strong> 寄放行李便宜</li>
-
-                                        <li>• <strong>GetYourGuide:</strong> 報名導覽找旅伴</li>
-
-                                        <li>• <strong>BlaBlaCar:</strong> 跨國共乘省錢</li>
-
-                                    </ul>
-
-                                </div>
-
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong><span class="zh">住宿防雷：</span><span class="en">Hostel Check:</span></strong> <span class="zh">嚴守評分與防床蝨</span><span class="en">Strict rating rules & bedbugs</span></li>
+                                    <li>• <strong><span class="zh">街頭防盜：</span><span class="en">Street Smarts:</span></strong> <span class="zh">財不露白防扒手</span><span class="en">Hide wealth, outsmart thieves</span></li>
+                                </ul>
                             </div>
-
-                            <div class="flex flex-col sm:flex-row gap-3 pb-8">
-
-                                <a href="app-guide.html" class="inline-block bg-emerald-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-emerald-700 transition shadow-md shadow-emerald-200">
-
-                                    📖 閱讀完整 APP 攻略 →
-
-                                </a>
-
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🚰 求生與心態</span><span class="en">🚰 Survival & Mindset</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong><span class="zh">資源調度：</span><span class="en">Resource Hack:</span></strong> <span class="zh">免費廁所與飲水</span><span class="en">Free toilets & water</span></li>
+                                    <li>• <strong><span class="zh">擁抱變化：</span><span class="en">Embrace Chaos:</span></strong> <span class="zh">備好 B 計畫</span><span class="en">Always have Plan B</span></li>
+                                </ul>
                             </div>
-
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🚨 理賠與應急</span><span class="en">🚨 Claims & Emergencies</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong><span class="zh">交通延誤：</span><span class="en">Delays:</span></strong> <span class="zh">EU261 退費申請</span><span class="en">EU261 Refund Claims</span></li>
+                                    <li>• <strong><span class="zh">遺失遭竊：</span><span class="en">Theft:</span></strong> <span class="zh">警局報案單索取</span><span class="en">Getting Police Reports</span></li>
+                                </ul>
+                            </div>
                         </div>
-
+                        <div class="flex flex-col sm:flex-row gap-3 pb-8">
+                            <a href="safety-guide.html" class="inline-block bg-slate-800 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-slate-900 transition shadow-md shadow-slate-200 dark:shadow-slate-900/40">
+                                <span class="zh">📖 閱讀完整安全求生攻略 →</span><span class="en">📖 Read Full Safety Guide →</span>
+                            </a>
+                        </div>
                     </div>
-
                 </div>
+            </div>
 
-
-
+            <!-- Card 6 -->
+            <div id="card-6" onclick="handleGuideClick('card-6')" class="guide-card group cursor-pointer w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] bg-white dark:bg-gray-800 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col box-border relative overflow-hidden z-10 transition-colors">
+                <div class="absolute -top-4 -right-2 text-8xl font-black text-gray-50 dark:text-gray-700 opacity-50 pointer-events-none group-hover:scale-110 transition">06</div>
+                <button onclick="closeGuide(event, 'card-6')" class="close-btn opacity-0 pointer-events-none absolute top-6 right-6 w-10 h-10 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-500 dark:text-gray-300 font-bold transition-all duration-300 z-50">✕</button>
+                
+                <div class="flex items-center gap-5 mb-4 relative z-10">
+                    <div class="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-2xl flex items-center justify-center text-3xl transition transform group-hover:scale-110 flex-shrink-0">📱</div>
+                    <h3 class="font-extrabold text-xl text-gray-800 dark:text-gray-100">
+                        <span class="zh">省錢好用 APP 推薦</span><span class="en">Best Money-Saving Apps</span>
+                    </h3>
+                </div>
+                <p class="card-summary text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-2 relative z-10">
+                    <span class="zh">實測 TooGoodToGo 撿便宜、Radical 寄行李、Flush 找廁所等實用工具。</span>
+                    <span class="en">Tested tools like TooGoodToGo for cheap food, Radical for luggage, and Flush for toilets.</span>
+                </p>
+                
+                <div class="guide-content hidden opacity-0 relative z-10">
+                    <div class="pt-6 border-t border-gray-100 dark:border-gray-700 mt-2">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🍽️ 飲食與生存</span><span class="en">🍽️ Food & Survival</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong>TooGoodToGo:</strong> <span class="zh">€5 買剩食盲盒</span><span class="en">€5 Magic Food Bags</span></li>
+                                    <li>• <strong>TheFork:</strong> <span class="zh">餐廳訂位常有半價</span><span class="en">Up to 50% off dining</span></li>
+                                    <li>• <strong>Flush:</strong> <span class="zh">找免費廁所省硬幣</span><span class="en">Find free toilets</span></li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🗺️ 交通與住宿</span><span class="en">🗺️ Transit & Stays</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong>Bolt:</strong> <span class="zh">南歐東歐叫車比 Uber 省</span><span class="en">Cheaper Uber alternative</span></li>
+                                    <li>• <strong>Citymapper:</strong> <span class="zh">地鐵防迷路</span><span class="en">Ultimate metro guide</span></li>
+                                    <li>• <strong>Hostelworld:</strong> <span class="zh">內建聊天室</span><span class="en">Built-in hostel chats</span></li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700">
+                                <div class="text-lg font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+                                    <span class="zh">🎒 行李與社交</span><span class="en">🎒 Bags & Social</span>
+                                </div>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1.5">
+                                    <li>• <strong>Bounce:</strong> <span class="zh">寄放行李便宜</span><span class="en">Cheap luggage drop</span></li>
+                                    <li>• <strong>GetYourGuide:</strong> <span class="zh">報名導覽找旅伴</span><span class="en">Tours & meeting people</span></li>
+                                    <li>• <strong>BlaBlaCar:</strong> <span class="zh">跨國共乘省錢</span><span class="en">Carpooling for cheap</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3 pb-8">
+                            <a href="app-guide.html" class="inline-block bg-emerald-600 text-white text-center font-bold text-sm px-8 py-3.5 rounded-xl hover:bg-emerald-700 transition shadow-md shadow-emerald-200 dark:shadow-emerald-900/20">
+                                <span class="zh">📖 閱讀完整 APP 攻略 →</span><span class="en">📖 Read Full APP Guide →</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
-
-    </section>
+    </div>
+</section>
 
     <section id="author-bio" class="max-w-4xl mx-auto px-6 py-20 scroll-mt-20">
         <div class="flex flex-col md:flex-row items-center md:items-start gap-8 bg-white dark:bg-gray-800 p-8 md:p-10 rounded-3xl shadow-lg shadow-blue-900/5 dark:shadow-black/40 border border-blue-50 dark:border-gray-700 relative overflow-hidden transition-colors duration-300">
