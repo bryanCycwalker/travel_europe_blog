@@ -13,6 +13,25 @@
             darkMode: 'class',
         }
     </script>
+
+    <!-- 頁面載入前初始化設定，避免畫面閃爍 -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+            } else if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+            }
+
+            const savedLang = localStorage.getItem('lang');
+            if (savedLang) {
+                document.documentElement.lang = savedLang;
+            }
+        })();
+    </script>
     
     <link rel="icon" type="image/png" href="images/Favicon.png">
     <style>
@@ -638,7 +657,16 @@
     <script>
         // 深色模式切換邏輯
         function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
+            const htmlTag = document.documentElement;
+            htmlTag.classList.toggle('dark');
+            
+            if (htmlTag.classList.contains('dark')) {
+                htmlTag.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlTag.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            }
         }
 
         // 語言切換邏輯
@@ -646,10 +674,28 @@
             const htmlTag = document.documentElement;
             if (htmlTag.lang === 'zh-Hant') {
                 htmlTag.lang = 'en';
+                localStorage.setItem('lang', 'en');
             } else {
                 htmlTag.lang = 'zh-Hant';
+                localStorage.setItem('lang', 'zh-Hant');
             }
         }
+
+        // 監聽其他分頁的設定變更 (跨分頁即時同步)
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'theme') {
+                if (e.newValue === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.classList.add('light');
+                }
+            }
+            if (e.key === 'lang' && e.newValue) {
+                document.documentElement.lang = e.newValue;
+            }
+        });
     </script>
 </body>
 </html>
