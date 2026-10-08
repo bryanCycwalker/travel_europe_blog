@@ -1612,6 +1612,9 @@
         function resetView() {
             currentCountryFilter = 'all';
             currentTypeFilter = 'all';
+
+            selectedCountryCode = null;
+            updateMapHighlight();
             
             document.querySelectorAll('.type-filter-btn, .m-type-filter-btn').forEach(btn => {
                 btn.className = btn.classList.contains('m-type-filter-btn')
