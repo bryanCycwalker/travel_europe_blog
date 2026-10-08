@@ -1459,7 +1459,7 @@
                                 L.DomEvent.stopPropagation(e);
                                 selectedCountryCode = (selectedCountryCode === code) ? null : code;
                                 updateMapHighlight();
-
+                            
                                 if (selectedCountryCode) {
                                     map.fitBounds(e.target.getBounds(), {
                                         padding: [30, 30],
@@ -1467,6 +1467,19 @@
                                         animate: true,
                                         duration: 0.8
                                     });
+                            
+                                    // 1. 透過被點擊的 code (如 "IT") 反查 countryMeta 中的完整國家名稱
+                                    const targetCountryName = Object.keys(countryMeta).find(
+                                        key => countryMeta[key].code.toUpperCase() === code
+                                    );
+                            
+                                    // 2. 找到後直接呼叫篩選函式，更新下方卡片與標題
+                                    if (targetCountryName) {
+                                        filterByCountry(targetCountryName);
+                                    }
+                                } else {
+                                    // 取消選取該國時，恢復顯示全部
+                                    filterByCountry('all');
                                 }
                             }
                         });
