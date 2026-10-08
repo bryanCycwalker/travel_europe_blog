@@ -1363,7 +1363,7 @@
         
                     clusterMarker.on('click', () => {
                         const bounds = L.latLngBounds(items.map(i => [i.lat, i.lng]));
-                        map.fitBounds(bounds, { padding: [80, 80], maxZoom: 7 });
+                        map.fitBounds(bounds, { padding: [80, 80], maxZoom: 6 });
                         filterByCountry(countryName);
                     });
         
@@ -1474,8 +1474,12 @@
                                     );
                             
                                     // 2. 找到後直接呼叫篩選函式，更新下方卡片與標題
+                                    // 修改後
                                     if (targetCountryName) {
-                                        filterByCountry(targetCountryName);
+                                        currentCountryFilter = targetCountryName;
+                                        document.getElementById('mobile-menu').classList.add('hidden');
+                                        // 傳入 false，避免景點 markers 重新計算 bounds 覆蓋掉國家邊界視角
+                                        applyFilters(false);
                                     }
                                 } else {
                                     // 取消選取該國時，恢復顯示全部
