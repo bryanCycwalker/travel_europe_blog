@@ -1457,33 +1457,23 @@
                             },
                             click: (e) => {
                                 L.DomEvent.stopPropagation(e);
-                                selectedCountryCode = (selectedCountryCode === code) ? null : code;
-                                updateMapHighlight();
                             
-                                if (selectedCountryCode) {
-                                    map.fitBounds(e.target.getBounds(), {
-                                        padding: [30, 30],
-                                        maxZoom: 7,
-                                        animate: true,
-                                        duration: 0.8
-                                    });
+                                // 判斷是否為重複點擊同一個國家（取消選取）
+                                if (selectedCountryCode === code) {
+                                    selectedCountryCode = null;
+                                    updateMapHighlight();
+                                    resetView();
+                                    return;
+                                }
                             
-                                    // 1. 透過被點擊的 code (如 "IT") 反查 countryMeta 中的完整國家名稱
-                                    const targetCountryName = Object.keys(countryMeta).find(
-                                        key => countryMeta[key].code.toUpperCase() === code
-                                    );
+                                // 反查國家完整名稱
+                                const targetCountryName = Object.keys(countryMeta).find(
+                                    key => countryMeta[key].code.toUpperCase() === code
+                                );
                             
-                                    // 2. 找到後直接呼叫篩選函式，更新下方卡片與標題
-                                    // 修改後
-                                    if (targetCountryName) {
-                                        currentCountryFilter = targetCountryName;
-                                        document.getElementById('mobile-menu').classList.add('hidden');
-                                        // 傳入 false，避免景點 markers 重新計算 bounds 覆蓋掉國家邊界視角
-                                        applyFilters(false);
-                                    }
-                                } else {
-                                    // 取消選取該國時，恢復顯示全部
-                                    filterByCountry('all');
+                                if (targetCountryName) {
+                                    // 直接調用統一的函式（包含縮放、高亮、卡片篩選）
+                                    filterByCountry(targetCountryName);
                                 }
                             }
                         });
@@ -1610,7 +1600,29 @@
             currentCountryFilter = countryStr;
             document.getElementById('mobile-menu').classList.add('hidden');
             document.getElementById('list-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            applyFilters(true);
+        
+            // 取得該國家的代碼
+            const meta = countryMeta[countryStr];
+            selectedCountryCode = (meta && meta.code) ? meta.code.toUpperCase() : null;
+        
+            // 尋找地圖圖層中對應的國家幾何形狀並執行與地圖點擊完全一致的縮放
+            if (selectedCountryCode && countryGeoJsonLayer) {
+                countryGeoJsonLayer.eachLayer(layer => {
+                    const props = layer.feature.properties;
+                    const code = (props.ISO2 || props.ISO_A2 || '').toUpperCase();
+                    if (code === selectedCountryCode) {
+                        map.fitBounds(layer.getBounds(), {
+                            padding: [30, 30],
+                            maxZoom: 7,
+                            animate: true,
+                            duration: 0.8
+                        });
+                    }
+                });
+            }
+        
+            // 傳入 false，避免 marker 重新縮放干擾國界縮放
+            applyFilters(false);
         };
 
         function resetView() {
